@@ -1,0 +1,98 @@
+{
+  "hero_homepage": {
+    "prompt": "Professional architectural photograph of downtown Chicago skyline at golden hour, view from across the Chicago River showing Willis Tower and the Loop skyline, reflections in the water, warm evening light, editorial real estate photography, no people, photorealistic, wide angle",
+    "resolution": "2k",
+    "aspect_ratio": "16:9",
+    "status": "TESTED - quality confirmed excellent, landmarks correctly rendered"
+  },
+  "hero_chicago_city_page": {
+    "prompt": "Professional architectural photograph of a Chicago residential street with classic Chicago bungalow-belt brick homes, tree-lined street, autumn afternoon light, editorial real estate photography, no people, photorealistic",
+    "resolution": "2k",
+    "aspect_ratio": "16:9"
+  },
+  "hero_service_areas_directory": {
+    "prompt": "Wide aerial-style photograph of Chicago suburban landscape, mix of residential neighborhoods and tree canopy with the Chicago skyline visible in the distance on the horizon, daytime, editorial real estate photography, no people, photorealistic",
+    "resolution": "2k",
+    "aspect_ratio": "16:9"
+  },
+  "card_commercial": {
+    "prompt": "Professional photograph of a modern Chicago Loop office tower exterior, glass curtain wall architecture, blue sky, editorial architecture photography, no people, no identifiable named building signage, photorealistic",
+    "resolution": "1k",
+    "aspect_ratio": "4:3"
+  },
+  "card_residential": {
+    "prompt": "Professional photograph of a Chicago two-flat brick residential building exterior, classic Chicago architecture, tree-lined street, daytime, editorial real estate photography, no people, photorealistic",
+    "resolution": "1k",
+    "aspect_ratio": "4:3"
+  },
+  "card_government": {
+    "prompt": "Professional photograph of a generic civic government building exterior, classical stone architecture, daytime, editorial architecture photography, no people, no identifiable named building or signage, photorealistic",
+    "resolution": "1k",
+    "aspect_ratio": "4:3"
+  },
+  "card_specialty": {
+    "prompt": "Close-up professional photograph of decorative frosted window film pattern on interior glass partition, modern office setting, soft natural light, editorial photography, no people, photorealistic",
+    "resolution": "1k",
+    "aspect_ratio": "4:3"
+  },
+  "how_it_works_installation": {
+    "prompt": "Professional photograph of a window film installer applying tint film to a large glass window, plain neutral installer uniform with no city-specific branding or text, generic bright interior background, editorial photography, photorealistic",
+    "resolution": "1k",
+    "aspect_ratio": "4:3"
+  },
+  "urban_heat_aerial": {
+    "prompt": "Aerial photograph of a Chicago residential neighborhood showing rows of brick two-flats and bungalows with the Chicago skyline visible in the background, daytime, summer haze, editorial real estate photography, no people, photorealistic",
+    "resolution": "2k",
+    "aspect_ratio": "16:9"
+  },
+  "residential_housing_stock": {
+    "prompt": "Professional street-level photograph of a row of classic Chicago brick bungalows, front lawns, tree-lined residential street, Chicago Northwest Side architecture style, daytime, editorial real estate photography, no people, photorealistic",
+    "resolution": "2k",
+    "aspect_ratio": "16:9"
+  },
+  "commercial_storefront_strip": {
+    "prompt": "Professional photograph of a Chicago neighborhood commercial strip with brick storefronts, generic small business signage (no real brand names), daytime, editorial street photography, few or no people, photorealistic",
+    "resolution": "2k",
+    "aspect_ratio": "16:9"
+  },
+  "restaurant_streetview": {
+    "prompt": "Professional interior photograph looking out through a restaurant's large storefront window onto a generic Chicago commercial street, daytime, warm interior lighting, editorial photography, no people, photorealistic",
+    "resolution": "1k",
+    "aspect_ratio": "4:3"
+  },
+  "brand_3m_office": {
+    "prompt": "Professional photograph of a modern open-plan office interior with large windows showing a generic Chicago Loop skyline view outside, desk with laptop, daylight, editorial corporate photography, no people, no visible logos, photorealistic",
+    "resolution": "1k",
+    "aspect_ratio": "4:3"
+  },
+  "brand_llumar_office": {
+    "prompt": "Professional photograph of a bright modern office conference room, floor-to-ceiling windows with a soft blurred Chicago skyline visible outside, editorial corporate photography, no people, no visible logos, photorealistic",
+    "resolution": "1k",
+    "aspect_ratio": "4:3"
+  },
+  "brand_madico_office": {
+    "prompt": "Professional photograph of a modern office reception area with large glass windows, generic Chicago cityscape visible outside softly blurred, editorial corporate photography, no people, no visible logos, photorealistic",
+    "resolution": "1k",
+    "aspect_ratio": "4:3"
+  },
+  "brand_vista_home": {
+    "prompt": "Professional photograph of a bright modern living room with large windows showing a residential Chicago neighborhood view outside, editorial interior design photography, no people, no visible logos, photorealistic",
+    "resolution": "1k",
+    "aspect_ratio": "4:3"
+  },
+  "brand_casper_storefront": {
+    "prompt": "Professional photograph of a generic modern retail storefront exterior with large display windows, Chicago-style brick commercial building, daytime, editorial street photography, no people, no visible real brand signage, photorealistic",
+    "resolution": "1k",
+    "aspect_ratio": "4:3"
+  },
+  "brand_graffiti_shield_storefront": {
+    "prompt": "Professional photograph of an urban commercial storefront with security grating and windows, generic Chicago commercial street context, daytime, editorial street photography, no people, no visible real brand signage, photorealistic",
+    "resolution": "1k",
+    "aspect_ratio": "4:3"
+  },
+  "brand_solargard_home": {
+    "prompt": "Professional photograph of a suburban Chicago-area home exterior with large energy-efficient windows, daytime, tree-lined yard, editorial real estate photography, no people, no visible logos, photorealistic",
+    "resolution": "1k",
+    "aspect_ratio": "4:3"
+  }
+}
