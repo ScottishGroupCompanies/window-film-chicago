@@ -253,3 +253,32 @@
 [12:05:34] [80/109] Processing src/pages/applications/arenas-stadiums.astro
 [12:05:34]     (skipped 25 path-only lines in arenas-stadiums.astro -- left untouched, image/PDF paths are never text-rewritten)
 [12:06:44]   -> CHANGED
+[12:06:44]   Checkpoint commit after 80 files
+[12:06:44] [81/109] Processing src/pages/applications/healthcare.astro
+[12:06:44]     (skipped 15 path-only lines in healthcare.astro -- left untouched, image/PDF paths are never text-rewritten)
+[12:10:15]   -> CHANGED
+[12:10:15] [82/109] Processing src/pages/applications/churches.astro
+[12:13:09]   -> CHANGED
+[12:13:09] [83/109] Processing src/pages/applications/retail.astro
+[12:13:09]     (skipped 7 path-only lines in retail.astro -- left untouched, image/PDF paths are never text-rewritten)
+[12:14:42]   -> CHANGED
+[12:14:42] [84/109] Processing src/pages/applications/museums-libraries.astro
+[12:16:37]   -> CHANGED
+[12:16:37] [85/109] Processing src/pages/resources.astro
+[12:16:37]     (skipped 11 path-only lines in resources.astro -- left untouched, image/PDF paths are never text-rewritten)
+[12:16:49]   -> CHANGED
+[12:16:49] [86/109] Processing src/pages/benefits/blast-mitigation.astro
+[12:16:49]     (skipped 7 path-only lines in blast-mitigation.astro -- left untouched, image/PDF paths are never text-rewritten)
+[12:17:53]   -> CHANGED
+[12:17:53] [87/109] Processing src/pages/benefits/mirror-refinishing.astro
+[12:17:53]     (skipped 9 path-only lines in mirror-refinishing.astro -- left untouched, image/PDF paths are never text-rewritten)
+[12:19:45]   -> CHANGED
+[12:19:45] [88/109] Processing src/pages/benefits/decorative-promotional.astro
+[12:19:45]     (skipped 9 path-only lines in decorative-promotional.astro -- left untouched, image/PDF paths are never text-rewritten)
+[12:21:13]   -> CHANGED
+[12:21:13] [89/109] Processing src/pages/benefits/exterior-building-wraps.astro
+[12:21:13]     (skipped 18 path-only lines in exterior-building-wraps.astro -- left untouched, image/PDF paths are never text-rewritten)
+[12:22:18]   -> CHANGED
+[12:22:18] [90/109] Processing src/pages/benefits/updating-surfaces.astro
+[12:22:18]     (skipped 1 path-only lines in updating-surfaces.astro -- left untouched, image/PDF paths are never text-rewritten)
+[12:22:25]   -> CHANGED
