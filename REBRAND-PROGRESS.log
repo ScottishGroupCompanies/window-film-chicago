@@ -81,3 +81,30 @@
 [11:17:49]   -> CHANGED
 [11:17:49] [20/109] Processing src/pages/404.astro
 [11:17:53]   -> CHANGED
+[11:17:53]   Checkpoint commit after 20 files
+[11:17:53] [21/109] Processing src/pages/terms-and-conditions.astro
+[11:17:53]     (skipped 1 path-only lines in terms-and-conditions.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:18:00]   -> CHANGED
+[11:18:00] [22/109] Processing src/pages/government-buildings.astro
+[11:18:00]     (skipped 6 path-only lines in government-buildings.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:19:27]   -> CHANGED
+[11:19:27] [23/109] Processing src/pages/products/llumar/[slug].astro
+[11:19:52]   -> CHANGED
+[11:19:52] [24/109] Processing src/pages/products/3m/[slug].astro
+[11:20:07]   -> CHANGED
+[11:20:07] [25/109] Processing src/pages/products/madico-window-film.astro
+[11:20:07]     (skipped 26 path-only lines in madico-window-film.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:21:25]   -> CHANGED
+[11:21:25] [26/109] Processing src/pages/products/3m-window-film.astro
+[11:21:25]     (skipped 25 path-only lines in 3m-window-film.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:22:35]   -> CHANGED
+[11:22:35] [27/109] Processing src/pages/products/index.astro
+[11:22:35]     (skipped 12 path-only lines in index.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:22:39]   -> CHANGED
+[11:22:39] [28/109] Processing src/pages/products/v-kool/[slug].astro
+[11:22:59]   -> CHANGED
+[11:22:59] [29/109] Processing src/pages/products/huper-optik.astro
+[11:22:59]     (skipped 33 path-only lines in huper-optik.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:24:25]   -> CHANGED
+[11:24:25] [30/109] Processing src/pages/products/huper-optik/[slug].astro
+[11:24:49]   -> CHANGED

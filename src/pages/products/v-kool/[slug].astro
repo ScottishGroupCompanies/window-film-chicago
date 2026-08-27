@@ -14,7 +14,7 @@ const { product } = Astro.props;
 const relatedProducts = products.filter((p) => product.relatedSlugs.includes(p.slug)).slice(0, 3);
 
 const title = `${product.name} | V-Kool ${product.series}`;
-const description = `${product.shortDescription} Authorized Solyx installer serving Salt Lake City, Downtown Salt Lake City, and the surrounding region.`.slice(0, 155);
+const description = `${product.shortDescription} Authorized Solyx installer serving Chicago, Downtown Chicago, and the surrounding region.`.slice(0, 155);
 const canonical = `https://windowfilmsaltlakecity.com/products/v-kool/${product.slug}/`;
 
 const faqItems = [
@@ -23,12 +23,12 @@ const faqItems = [
     answer: product.description.split('\n\n')[0].replace(/<[^>]+>/g, '')
   },
   {
-    question: `Where is ${product.name} film used in Salt Lake City?`,
-    answer: product.description.split('\n\n')[1]?.replace(/<[^>]+>/g, '') || `${product.name} is used in Salt Lake City offices, retail storefronts, healthcare facilities, and residential properties throughout Downtown Salt Lake City and surrounding neighborhoods.`
+    question: `Where is ${product.name} film used in Chicago?`,
+    answer: product.description.split('\n\n')[1]?.replace(/<[^>]+>/g, '') || `${product.name} is used in Chicago offices, retail storefronts, healthcare facilities, and residential properties throughout Downtown Chicago and surrounding neighborhoods.`
   },
   {
-    question: `How is ${product.name} film installed in Salt Lake City?`,
-    answer: `${product.name} film is applied to the interior glass surface by Window Film Salt Lake City's authorized installation team. We assess glass type, dimensions, and application requirements before installation to ensure compatibility and long-term performance.`
+    question: `How is ${product.name} film installed in Chicago?`,
+    answer: `${product.name} film is applied to the interior glass surface by Window Film Chicago's authorized installation team. We assess glass type, dimensions, and application requirements before installation to ensure compatibility and long-term performance.`
   }
 ];
 
@@ -61,8 +61,8 @@ const pageSchemas = [
     "category": product.series,
     "offers": {
       "@type": "Offer",
-      "seller": { "@type": "LocalBusiness", "name": "Window Film Salt Lake City" },
-      "areaServed": "Salt Lake City, UT",
+      "seller": { "@type": "LocalBusiness", "name": "Window Film Chicago" },
+      "areaServed": "Chicago, IL",
       "availability": "https://schema.org/InStock"
     }
   }
@@ -77,7 +77,7 @@ const specEntries = Object.entries(product.specs).filter(([, v]) => v && v !== '
 
 <!-- ══ HERO ══ -->
 <section class="vkp-hero">
-  <div class="vkp-hero__bg" style={`background-image:url('${product.image}')`} role="img" aria-label={`${product.name} window film installed in Salt Lake City`}></div>
+  <div class="vkp-hero__bg" style={`background-image:url('${product.image}')`} role="img" aria-label={`${product.name} window film installed in Chicago`}></div>
   <div class="vkp-hero__overlay"></div>
   <div class="vkp-hero__content">
     <div class="vkp-hero__eyebrow">
@@ -111,8 +111,8 @@ const specEntries = Object.entries(product.specs).filter(([, v]) => v && v !== '
     <div class="vkp-overview__img-col">
       <img
         src={product.image}
-        alt={`${product.name} window film installed in Salt Lake City`}
-        title={`${product.name} — Solyx ${product.series} — Window Film Salt Lake City`}
+        alt={`${product.name} window film installed in Chicago`}
+        title={`${product.name} — Solyx ${product.series} — Window Film Chicago`}
         width="600" height="400"
         loading="lazy"
         class="vkp-overview__img"
@@ -140,7 +140,7 @@ const specEntries = Object.entries(product.specs).filter(([, v]) => v && v !== '
 <section class="vkp-benefits">
   <div class="vkp-benefits__inner">
     <span class="pp-eyebrow">Key Benefits</span>
-    <h2 class="vkp-benefits__title">Why specify {product.name} for Salt Lake City glass</h2>
+    <h2 class="vkp-benefits__title">Why specify {product.name} for Chicago glass</h2>
     <div class="vkp-benefits__grid">
       {product.benefits.map((b) => (
         <div class="vkp-benefits__card">
@@ -171,14 +171,14 @@ const specEntries = Object.entries(product.specs).filter(([, v]) => v && v !== '
         ))}
       </tbody>
     </table>
-    <p class="vkp-specs__note">Source: V-Kool product specifications (v-kool-usa.com). Contact Window Film Salt Lake City for product-specific technical documentation.</p>
+    <p class="vkp-specs__note">Source: V-Kool product specifications (v-kool-usa.com). Contact Window Film Chicago for product-specific technical documentation.</p>
   </div>
 </section>
 
 <!-- ══ APPLICATIONS ══ -->
 <section class="vkp-apps">
   <div class="vkp-apps__inner">
-    <h2 class="vkp-apps__title">Salt Lake City Applications</h2>
+    <h2 class="vkp-apps__title">Chicago Applications</h2>
     <div class="vkp-apps__grid">
       {product.categories.map((cat) => (
         <div class="vkp-apps__card">
@@ -249,8 +249,8 @@ const specEntries = Object.entries(product.specs).filter(([, v]) => v && v !== '
 <!-- ══ CTA ══ -->
 <section class="vkp-cta">
   <div class="vkp-cta__inner">
-    <h2 class="vkp-cta__title">Install {product.name} in Salt Lake City</h2>
-    <p class="vkp-cta__sub">Window Film Salt Lake City is an authorized V-Kool installer. Get a free assessment for your space — no obligation, just expert advice on the right film for your glass.</p>
+    <h2 class="vkp-cta__title">Install {product.name} in Chicago</h2>
+    <p class="vkp-cta__sub">Window Film Chicago is an authorized V-Kool installer. Get a free assessment for your space — no obligation, just expert advice on the right film for your glass.</p>
     <div class="vkp-cta__btns">
       <a href="/contact/" class="vkp-cta__btn vkp-cta__btn--primary">Get Your Free Estimate</a>
       <a href="tel:8018954681" class="vkp-cta__btn vkp-cta__btn--secondary">
