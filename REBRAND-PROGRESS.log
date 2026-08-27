@@ -108,3 +108,33 @@
 [11:24:25]   -> CHANGED
 [11:24:25] [30/109] Processing src/pages/products/huper-optik/[slug].astro
 [11:24:49]   -> CHANGED
+[11:24:49]   Checkpoint commit after 30 files
+[11:24:49] [31/109] Processing src/pages/products/c-bond-window-film.astro
+[11:24:49]     (skipped 2 path-only lines in c-bond-window-film.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:26:30]   -> CHANGED
+[11:26:30] [32/109] Processing src/pages/products/nanotint-window-film.astro
+[11:26:30]     (skipped 13 path-only lines in nanotint-window-film.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:27:12]   -> CHANGED
+[11:27:12] [33/109] Processing src/pages/products/solar-gard-window-film.astro
+[11:27:12]     (skipped 16 path-only lines in solar-gard-window-film.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:28:08]   -> CHANGED
+[11:28:08] [34/109] Processing src/pages/products/madico/[slug].astro
+[11:28:46]   -> CHANGED
+[11:28:46] [35/109] Processing src/pages/products/casper-cloaking-film.astro
+[11:28:46]     (skipped 9 path-only lines in casper-cloaking-film.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:31:59]   -> CHANGED
+[11:31:59] [36/109] Processing src/pages/products/llumar.astro
+[11:31:59]     (skipped 16 path-only lines in llumar.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:33:02]   -> CHANGED
+[11:33:02] [37/109] Processing src/pages/products/solar-gard/[slug].astro
+[11:33:09]   -> CHANGED
+[11:33:09] [38/109] Processing src/pages/products/graffiti-shield-window-film.astro
+[11:33:09]     (skipped 11 path-only lines in graffiti-shield-window-film.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:34:42]   -> CHANGED
+[11:34:42] [39/109] Processing src/pages/products/vista-window-film.astro
+[11:34:42]     (skipped 2 path-only lines in vista-window-film.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:37:06]   -> CHANGED
+[11:37:06] [40/109] Processing src/pages/products/solyx-window-film.astro
+[11:37:06]     (skipped 17 path-only lines in solyx-window-film.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:40:33] GLM call failed (attempt 1): The read operation timed out
+[11:42:53]   -> CHANGED
