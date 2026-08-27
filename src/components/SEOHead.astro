@@ -28,7 +28,7 @@ const canonicalURL = canonical ?? new URL(Astro.url.pathname, Astro.site).toStri
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:type" content="website" />
-<meta property="og:site_name" content="Window Film Salt Lake City" />
+<meta property="og:site_name" content="Window Film Chicago" />
 <meta property="og:locale" content="en_US" />
 {ogImage && <meta property="og:image" content={new URL(ogImage, Astro.site).toString()} />}
 {ogImage && <meta property="og:image:width" content="1200" />}
@@ -44,4 +44,4 @@ const canonicalURL = canonical ?? new URL(Astro.url.pathname, Astro.site).toStri
 <!-- Robots -->
 <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large"} />
 
-<!-- Google Analytics: not yet configured for Salt Lake City (add GA4 snippet here when property is created) -->
+<!-- Google Analytics: not yet configured for Chicago (add GA4 snippet here when property is created) -->

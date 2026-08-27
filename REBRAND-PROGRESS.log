@@ -1,0 +1,58 @@
+[11:16:01] === Starting full Chicago rebrand (GLM 5.2) ===
+[11:16:01] Pre-flight asset-path check:
+[11:16:01] Asset-path check: 1634 total refs, 359 currently broken (before any renaming)
+[11:16:01] Broken refs (left as-is, no Chicago equivalent found -- NOT touched, flagged for manual follow-up):
+[11:16:01]     /images/3m-products/di-noc.jpg
+[11:16:01]     /images/about/about-avatar-1.jpg
+[11:16:01]     /images/about/about-avatar-2.jpg
+[11:16:01]     /images/about/about-avatar-3.jpg
+[11:16:01]     /images/about/about-avatar-4.jpg
+[11:16:01]     /images/about/about-avatar-5.jpg
+[11:16:01]     /images/about/about-avatar-6.jpg
+[11:16:01]     /images/about/about-avatar-7.jpg
+[11:16:01]     /images/about/about-avatar-8.jpg
+[11:16:01]     /images/about/center-city-window-film-salt-lake-city-bento.jpg
+[11:16:01]     /images/about/commercial-storefront-window-film-salt-lake-city-bento.jpg
+[11:16:01]     /images/about/decorative-window-film-salt-lake-city-gallery.jpg
+[11:16:01]     /images/about/high-rise-window-film-installation-salt-lake-city-bento.jpg
+[11:16:01]     /images/about/martin-faith-utility-bill-after-window-film.jpg
+[11:16:01]     /images/about/martin-faith-utility-bill-before-window-film.jpg
+[11:16:01]     /images/about/office-window-tinting-salt-lake-city-gallery.jpg
+[11:16:01]     /images/about/retail-security-window-film-salt-lake-city-gallery.jpg
+[11:16:01]     /images/about/salt-lake-city-rowhome-window-film-bento.jpg
+[11:16:01]     /images/about/salt-lake-city-rowhome-window-tinting-gallery.jpg
+[11:16:01]     /images/about/window-film-consultation-salt-lake-city-process.jpg
+[11:16:01]     /images/about/window-film-installation-salt-lake-city-craftsmanship.jpg
+[11:16:01]     /images/about/window-film-installation-salt-lake-city-process.jpg
+[11:16:01]     /images/about/window-film-installation-tools-salt-lake-city-bento.jpg
+[11:16:01]     /images/about/window-film-installer-salt-lake-city-gallery.jpg
+[11:16:01]     /images/about/window-film-plotter-cutting-salt-lake-city-process.jpg
+[11:16:01]     /images/about/window-film-salt-lake-city-about-hero.jpg
+[11:16:01]     /images/about/window-film-salt-lake-city-workshop.jpg
+[11:16:01]     /images/about/window-film-walkthrough-salt-lake-city-process.jpg
+[11:16:01]     /images/about/window-tint-film-detail-salt-lake-city-bento.jpg
+[11:16:01]     /images/applications/church-window-film-salt-lake-city.jpg
+[11:16:01] Total files to process: 109
+[11:16:01] [1/109] Processing src/components/SEOHead.astro
+[11:16:01]     (skipped 1 path-only lines in SEOHead.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:16:03]   -> CHANGED
+[11:16:03] [2/109] Processing src/components/CoveragePinMap.astro
+[11:16:09]   -> CHANGED
+[11:16:09] [3/109] Processing src/components/ProcessRoadmap.astro
+[11:16:11]   -> CHANGED
+[11:16:11] [4/109] Processing src/components/Footer.astro
+[11:16:16]   -> CHANGED
+[11:16:16] [5/109] Processing src/components/CitiesTicker.astro
+[11:16:23]   -> CHANGED
+[11:16:23] [6/109] Processing src/components/CityBlogFeed.astro
+[11:16:28]   -> CHANGED
+[11:16:28] [7/109] Processing src/components/BeforeAfterSlider.astro
+[11:16:28]     (skipped 2 path-only lines in BeforeAfterSlider.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:16:33]   -> CHANGED
+[11:16:33] [8/109] Processing src/components/BentoGridSymmetric.astro
+[11:16:35]   -> CHANGED
+[11:16:35] [9/109] Processing src/components/TestimonialMarquee.astro
+[11:16:44]   -> CHANGED
+[11:16:44] [10/109] Processing src/components/CTAAvatars.astro
+[11:16:44]     (skipped 1 path-only lines in CTAAvatars.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:16:49]   -> CHANGED
