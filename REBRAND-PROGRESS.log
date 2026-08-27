@@ -56,3 +56,28 @@
 [11:16:44] [10/109] Processing src/components/CTAAvatars.astro
 [11:16:44]     (skipped 1 path-only lines in CTAAvatars.astro -- left untouched, image/PDF paths are never text-rewritten)
 [11:16:49]   -> CHANGED
+[11:16:49]   Checkpoint commit after 10 files
+[11:16:49] [11/109] Processing src/components/CategoryBlogFeed.astro
+[11:16:55]   -> CHANGED
+[11:16:55] [12/109] Processing src/components/CtaLightRays.astro
+[11:16:58]   -> CHANGED
+[11:16:58] [13/109] Processing src/components/Benefits.astro
+[11:17:02]   -> CHANGED
+[11:17:02] [14/109] Processing src/components/Header.astro
+[11:17:10]   -> CHANGED
+[11:17:10] [15/109] Processing src/components/CbondSection.astro
+[11:17:10]     (skipped 5 path-only lines in CbondSection.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:17:19]   -> CHANGED
+[11:17:19] [16/109] Processing src/components/InstallSteps.astro
+[11:17:19]     (skipped 3 path-only lines in InstallSteps.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:17:25]   -> CHANGED
+[11:17:25] [17/109] Processing src/components/CTAStrip.astro
+[11:17:28]   -> CHANGED
+[11:17:28] [18/109] Processing src/layouts/BaseLayout.astro
+[11:17:28]     (skipped 1 path-only lines in BaseLayout.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:17:42]   -> CHANGED
+[11:17:42] [19/109] Processing src/pages/privacy-policy.astro
+[11:17:42]     (skipped 1 path-only lines in privacy-policy.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:17:49]   -> CHANGED
+[11:17:49] [20/109] Processing src/pages/404.astro
+[11:17:53]   -> CHANGED

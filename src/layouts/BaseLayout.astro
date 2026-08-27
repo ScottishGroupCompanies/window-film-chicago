@@ -50,16 +50,16 @@ const localBusiness = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "@id": "https://windowfilmsaltlakecity.com/#business",
-  "name": "Window Film Salt Lake City",
+  "name": "Window Film Chicago",
   "url": "https://windowfilmsaltlakecity.com",
   "logo": "https://windowfilmsaltlakecity.com/images/window-film-salt-lake-city-logo-white.png",
   "image": "https://windowfilmsaltlakecity.com/images/wfp-landing-hero.webp",
-  "description": "Salt Lake City's leading window film contractor. Professional installation for homes and businesses across the Wasatch Front. Energy savings, UV protection, safety & security.",
+  "description": "Chicago's leading window film contractor. Professional installation for homes and businesses across the metro area. Energy savings, UV protection, safety & security.",
   "telephone": "+18018954681",
   "email": "contact@windowfilmsaltlakecity.com",
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Salt Lake City",
+    "addressLocality": "Chicago",
     "addressRegion": "UT",
     "postalCode": "84101",
     "addressCountry": "US"
@@ -70,9 +70,9 @@ const localBusiness = {
     "longitude": -111.8910
   },
   "areaServed": [
-    { "@type": "City", "name": "Salt Lake City", "sameAs": "https://en.wikipedia.org/wiki/Salt Lake City" },
+    { "@type": "City", "name": "Chicago", "sameAs": "https://en.wikipedia.org/wiki/Chicago" },
     { "@type": "City", "name": "West Valley City", "sameAs": "https://en.wikipedia.org/wiki/Cherry_Hill,_New_Utah" },
-    { "@type": "City", "name": "Park City", "sameAs": "https://en.wikipedia.org/wiki/Main_Line_(Salt Lake City)" }
+    { "@type": "City", "name": "Chicago", "sameAs": "https://en.wikipedia.org/wiki/Chicago" }
   ],
   "priceRange": "$$",
   "openingHoursSpecification": [
@@ -95,7 +95,7 @@ const websiteSchema = {
   "@type": "WebSite",
   "@id": "https://windowfilmsaltlakecity.com/#website",
   "url": "https://windowfilmsaltlakecity.com",
-  "name": "Window Film Salt Lake City",
+  "name": "Window Film Chicago",
   "publisher": {
     "@type": "LocalBusiness",
     "@id": "https://windowfilmsaltlakecity.com/#business"
@@ -137,8 +137,8 @@ const serviceSchema = serviceName ? {
   },
   "areaServed": {
     "@type": "City",
-    "name": "Salt Lake City",
-    "sameAs": "https://en.wikipedia.org/wiki/Salt Lake City"
+    "name": "Chicago",
+    "sameAs": "https://en.wikipedia.org/wiki/Chicago"
   },
   "url": serviceUrl || canonical || "https://windowfilmsaltlakecity.com"
 } : null;
@@ -148,7 +148,7 @@ const howToSchema = howToSteps && howToSteps.length > 0 ? {
   "@context": "https://schema.org",
   "@type": "HowTo",
   "name": howToName || "Window Film Installation Process",
-  "description": howToDesc || "Professional window film installation process in the Salt Lake City metro area.",
+  "description": howToDesc || "Professional window film installation process in the Chicago metro area.",
   "step": howToSteps.map((s, i) => ({
     "@type": "HowToStep",
     "name": s.name,
@@ -286,7 +286,7 @@ const schemas = [
         <div class="wfchat__header-left">
           <span class="wfchat__status-dot"></span>
           <div>
-            <div class="wfchat__header-name">Window Film Salt Lake City</div>
+            <div class="wfchat__header-name">Window Film Chicago</div>
             <div class="wfchat__header-sub">Typically replies in minutes</div>
           </div>
         </div>
@@ -302,7 +302,7 @@ const schemas = [
         <div class="wfchat__msg wfchat__msg--bot">
           <div class="wfchat__avatar">WF</div>
           <div class="wfchat__bubble">
-            Hi! 👋 Welcome to Window Film Salt Lake City. I can help you with:<br><br>
+            Hi! 👋 Welcome to Window Film Chicago. I can help you with:<br><br>
             • Free consultation scheduling<br>
             • Service questions<br>
             • Pricing information<br>
@@ -362,22 +362,22 @@ const schemas = [
         },
         {
           keys: ['residential','home','house','condo','apartment'],
-          text: "We install professional window film in Salt Lake City homes and condos. Benefits include heat reduction, UV protection, privacy and energy savings. Would you like a free consultation?",
+          text: "We install professional window film in Chicago homes and condos. Benefits include heat reduction, UV protection, privacy and energy savings. Would you like a free consultation?",
           btnText: 'Learn More →', btnHref: '/applications/residential'
         },
         {
           keys: ['commercial','office','business','retail','restaurant'],
-          text: "We serve Salt Lake City businesses of all sizes — offices, retail, restaurants and more. Commercial film reduces energy costs by up to 30% and eliminates glare. Want a free site assessment?",
+          text: "We serve Chicago businesses of all sizes — offices, retail, restaurants and more. Commercial film reduces energy costs by up to 30% and eliminates glare. Want a free site assessment?",
           btnText: 'Commercial Services →', btnHref: '/applications/offices'
         },
         {
           keys: ['safety','security','break','protect','storm'],
-          text: "Our safety and security film holds glass together during break-ins, storms and accidents. Used in schools, offices and homes across Salt Lake City.",
+          text: "Our safety and security film holds glass together during break-ins, storms and accidents. Used in schools, offices and homes across Chicago.",
           btnText: 'Safety Film Info →', btnHref: '/benefits/safety-and-security'
         },
         {
           keys: ['area','location','serve','near','coverage','city'],
-          text: "We serve all of Greater Salt Lake City including: Downtown Salt Lake City, Sandy, Ogden, Provo, Park City, and communities throughout Salt Lake, Davis, Weber, and Utah Counties."
+          text: "We serve all of Greater Chicago including: Downtown Chicago, Naperville, Aurora, Evanston, Schaumburg, and communities throughout Cook, DuPage, and Will Counties."
         },
         {
           keys: ['warranty','guarantee','lifetime','labor'],
@@ -391,11 +391,11 @@ const schemas = [
         {
           keys: ['decorative','frosted','privacy','pattern','design'],
           text: "Our decorative films include frosted, patterned and custom designs for offices, bathrooms, storefronts and more. Perfect for adding privacy without sacrificing light.",
-          btnText: 'View Options →', btnHref: '/benefits/privacy-window-film-salt-lake-city'
+          btnText: 'View Options →', btnHref: '/benefits/privacy-window-film-chicago'
         },
         {
           keys: ['uv','sun','heat','glare','energy'],
-          text: "Our window film blocks up to 99% of harmful UV rays, reduces heat by up to 78% and cuts glare by 85%. Perfect for Salt Lake City's hot summers!"
+          text: "Our window film blocks up to 99% of harmful UV rays, reduces heat by up to 78% and cuts glare by 85%. Perfect for Chicago's hot summers!"
         },
         {
           keys: ['hours','open','available','monday','time'],
@@ -443,7 +443,7 @@ const schemas = [
             addBotMessage(responses[0].text);
             addCTA(responses[0].btnText, responses[0].btnHref);
           } else if (action === 'services') {
-            addBotMessage("We offer a full range of window film services for homes and businesses across Salt Lake City:<br><br>• Residential Window Film<br>• Commercial & Office Film<br>• Safety & Security Film<br>• Decorative & Privacy Film<br>• Anti-Graffiti Film<br>• UV Protection<br><br>Which one interests you?");
+            addBotMessage("We offer a full range of window film services for homes and businesses across Chicago:<br><br>• Residential Window Film<br>• Commercial & Office Film<br>• Safety & Security Film<br>• Decorative & Privacy Film<br>• Anti-Graffiti Film<br>• UV Protection<br><br>Which one interests you?");
           } else if (action === 'coverage') {
             addBotMessage(responses[4].text);
           } else if (action === 'call') {
