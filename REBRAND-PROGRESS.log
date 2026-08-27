@@ -196,3 +196,30 @@
 [11:51:55] [60/109] Processing src/pages/resources/window-film-fact-sheet.astro
 [11:51:55]     (skipped 9 path-only lines in window-film-fact-sheet.astro -- left untouched, image/PDF paths are never text-rewritten)
 [11:52:11]   -> CHANGED
+[11:52:11]   Checkpoint commit after 60 files
+[11:52:11] [61/109] Processing src/pages/resources/warranty.astro
+[11:52:11]     (skipped 30 path-only lines in warranty.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:52:19]   -> CHANGED
+[11:52:19] [62/109] Processing src/pages/resources/window-film-alternatives.astro
+[11:52:19]     (skipped 4 path-only lines in window-film-alternatives.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:52:25]   -> CHANGED
+[11:52:25] [63/109] Processing src/pages/resources/window-film-pricing.astro
+[11:52:25]     (skipped 11 path-only lines in window-film-pricing.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:52:43]   -> CHANGED
+[11:52:43] [64/109] Processing src/pages/about/team.astro
+[11:53:03]   -> CHANGED
+[11:53:03] [65/109] Processing src/pages/blog.astro
+[11:53:09]   -> CHANGED
+[11:53:09] [66/109] Processing src/pages/blog/category/[category].astro
+[11:53:12]   -> CHANGED
+[11:53:12] [67/109] Processing src/pages/blog/[slug].astro
+[11:53:12]     (skipped 2 path-only lines in [slug].astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:53:26]   -> CHANGED
+[11:53:26] [68/109] Processing src/pages/2026/04/22/benefits-window-tint-salt-lake-city-energy-comfort-uv-defense.astro
+[11:53:26]     (skipped 1 path-only lines in benefits-window-tint-salt-lake-city-energy-comfort-uv-defense.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:53:58]   -> CHANGED
+[11:53:58] [69/109] Processing src/pages/applications.astro
+[11:53:58]     (skipped 10 path-only lines in applications.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:54:39]   -> CHANGED
+[11:54:39] [70/109] Processing src/pages/contact.astro
+[11:54:53]   -> CHANGED
