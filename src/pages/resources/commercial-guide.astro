@@ -1,0 +1,547 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BrandLogos from '../../components/BrandLogos.astro';
+import GalleryBanner from '../../components/GalleryBanner.astro';
+import BentoGridPhoto from '../../components/BentoGridPhoto.astro';
+import AccordionBenefits from '../../components/AccordionBenefits.astro';
+import HowItWorksSlideshow from '../../components/HowItWorksSlideshow.astro';
+import AccordionFAQ from '../../components/AccordionFAQ.astro';
+import CTAAvatars from '../../components/CTAAvatars.astro';
+
+const title = 'Commercial Window Film Guide | Window Film Salt Lake City';
+const description = 'A step-by-step guide to choosing and installing commercial window film in Salt Lake City. Identify your goals, choose the right film type, and work with the right contractor.';
+const dateModified = new Date().toISOString().slice(0, 10);
+
+const galleryPhotos = [
+  '/images/commercial-guide/commercial-window-film-salt-lake-city-gallery-1.jpg',
+  '/images/commercial-guide/commercial-window-film-salt-lake-city-gallery-2.jpg',
+  '/images/commercial-guide/commercial-window-film-salt-lake-city-gallery-3.jpg',
+  '/images/commercial-guide/commercial-window-film-salt-lake-city-gallery-4.jpg',
+  '/images/commercial-guide/commercial-window-film-salt-lake-city-gallery-5.jpg',
+];
+
+const bentoItems = [
+  { span: 'lg', title: 'Energy Savings', desc: 'HVAC cost reduction and LEED eligibility for commercial buildings with significant glazing.', img: '/images/commercial-guide/energy-saving-commercial-window-film-salt-lake-city.jpg', href: '/benefits/energy-savings/' },
+  { span: 'sm', title: 'Safety & Security', desc: 'Impact resistance and smash-and-grab deterrence for ground-floor and entry glass.', img: '/images/commercial-guide/security-commercial-window-film-salt-lake-city.jpg', href: '/benefits/safety-and-security/' },
+  { span: 'sm', title: 'Decorative & Branding', desc: 'Custom graphics, frosted partitions, and promotional film for retail and office spaces.', img: '/images/commercial-guide/decorative-commercial-window-film-salt-lake-city.jpg', href: '/benefits/decorative-promotional/' },
+  { span: 'md', title: 'Privacy Solutions', desc: 'One-way daytime privacy and frosted films for conference rooms, HR departments, and sensitive areas.', img: '/images/commercial-guide/privacy-commercial-window-film-salt-lake-city.jpg', href: '/benefits/privacy-window-film-salt-lake-city/' },
+  { span: 'md', title: 'UV & Glare Control', desc: '99.9% UV block and glare reduction for employee comfort and interior protection.', img: '/images/commercial-guide/uv-glare-commercial-window-film-salt-lake-city.jpg', href: '/benefits/uv-protection-film/' },
+  { span: 'md', title: 'Anti-Graffiti', desc: 'Surface protection for high-traffic areas, elevator banks, and transit-adjacent properties.', img: '/images/commercial-guide/anti-graffiti-commercial-window-film-salt-lake-city.jpg', href: '/benefits/anti-graffiti/' },
+];
+
+const benefits = [
+  {
+    number: '01',
+    title: 'Identify Your Project Goals',
+    detail: '<p>The first step for any commercial window film project is identifying your needs. Think about the dysfunction or opportunity at your property — are you losing energy through large glass facades? Do conference rooms lack privacy? Is glare affecting productivity? Are you looking to reinforce glass against break-ins or severe weather? Once you have identified your primary goal, you can narrow the field from hundreds of products to a short list of candidates.</p>',
+    image: '/images/commercial-guide/commercial-window-film-goal-salt-lake-city.jpg',
+    imageAlt: 'Commercial window film project goal identification in Salt Lake City',
+  },
+  {
+    number: '02',
+    title: 'Choose the Right Film Type',
+    detail: '<p>Once your goals are clear, a professional window film contractor can help you select the right product from the options available. There are films optimized for energy savings, UV blocking, glare reduction, safety and security, privacy, decorative branding, anti-graffiti protection, bird strike prevention, and surface refinishing. Many films serve multiple goals simultaneously — an energy film also blocks UV; a security film also reduces glare. Our team helps you find the overlap.</p>',
+    image: '/images/commercial-guide/choose-window-film-type-salt-lake-city.jpg',
+    imageAlt: 'Choosing the right commercial window film type in Salt Lake City',
+  },
+  {
+    number: '03',
+    title: 'Work With the Right Contractor',
+    detail: '<p>Commercial window film installation requires experienced contractors — especially for high-security clearances, government facilities, LEED documentation, or multi-floor deployments. The right contractor minimizes project mistakes, saves money through accurate product selection, and provides documentation for warranty, LEED, and project closeout. According to the <a href="https://www.irs.gov/credits-deductions/energy-efficient-commercial-buildings-deduction" target="_blank" rel="noopener noreferrer">IRS Section 179D deduction</a>, energy-efficient commercial building property — including window film that reduces the building envelope\'s energy use — may qualify for a tax deduction of up to $1.16 per square foot for 2025. Window Film Salt Lake City brings decades of commercial expertise to every project in the Salt Lake City region.</p>',
+    image: '/images/commercial-guide/commercial-window-film-contractor-salt-lake-city.jpg',
+    imageAlt: 'Commercial window film contractor working in Salt Lake City',
+  },
+];
+
+const slides = [
+  {
+    step: 'Step 01',
+    title: 'Free Consultation',
+    desc: 'We assess your glass type, building orientation, and specific needs. Every commercial property is different — from a South Salt Lake warehouse to a Downtown Salt Lake City high-rise. Our team identifies your goals and recommends the right product.',
+    img: '/images/commercial-guide/commercial-window-film-consultation-salt-lake-city.jpg',
+    imgAlt: 'Commercial window film consultation in Salt Lake City',
+    navLabel: 'Consultation',
+    cta: 'Schedule a Free Consultation',
+    ctaHref: '/contact/',
+  },
+  {
+    step: 'Step 02',
+    title: 'Product Selection',
+    desc: 'Based on your goals, we recommend the right film from the brands we carry — 3M, LLumar, Vista, Solar Gard, Huper Optik, and more. Different zones of the same building often need different films: solar control on the west facade, glare reduction on the south, security film on the ground floor.',
+    img: '/images/commercial-guide/commercial-window-film-selection-salt-lake-city.jpg',
+    imgAlt: 'Commercial window film product selection in Salt Lake City',
+    navLabel: 'Product Selection',
+    cta: 'Explore Our Products',
+    ctaHref: '/products/',
+  },
+  {
+    step: 'Step 03',
+    title: 'Professional Installation',
+    desc: 'Our certified installers work around your business hours to minimize operational impact. A typical commercial floor can be completed in one to two days. Most installs require only interior access — no exterior scaffolding, no structural work, no permits for most projects.',
+    img: '/images/commercial-guide/commercial-window-film-installation-salt-lake-city.jpg',
+    imgAlt: 'Commercial window film installation in Salt Lake City',
+    navLabel: 'Installation',
+    cta: 'See Our Process',
+    ctaHref: '/process/',
+  },
+  {
+    step: 'Step 04',
+    title: 'Walkthrough & Warranty',
+    desc: 'After installation, we walk through the completed work with your facilities team, provide warranty documentation for the installed product, and share maintenance and care instructions. The film requires a 30-day curing period during which it should not be cleaned.',
+    img: '/images/commercial-guide/commercial-window-film-walkthrough-salt-lake-city.jpg',
+    imgAlt: 'Commercial window film walkthrough and warranty in Salt Lake City',
+    navLabel: 'Walkthrough',
+    cta: 'View Warranty Info',
+    ctaHref: '/resources/warranty/',
+  },
+];
+
+const faqItems = [
+  { question: 'How do I know which type of window film is right for my property?', answer: 'It starts with identifying your primary goal. Our team provides free consultations and onsite assessments to evaluate your property\'s glass, orientation, and specific needs — and then recommends the best product match for your goals and budget.' },
+  { question: 'Can one film address multiple goals?', answer: 'Yes — many films serve multiple purposes simultaneously. An energy film also blocks UV. A security film also reduces glare. Our team helps you find the product that provides the greatest overlap between your goals, so you don\'t have to choose just one benefit.' },
+  { question: 'Do commercial window film installs require permits?', answer: 'Generally no — film is a surface treatment, not a structural alteration, so no permits are required for most commercial window film installations. Our team will advise on any jurisdiction-specific requirements for your project.' },
+  { question: 'How long does a typical commercial installation take?', answer: 'It depends on scope. A single floor typically takes 1–2 days. Multi-floor projects are scheduled around your operations to minimize disruption. Our team works around your business hours and coordinates with your facilities team throughout the project.' },
+  { question: 'Can window film be installed on any glass type?', answer: 'Most flat architectural glass is compatible with window film. Some double-pane and specialty glass require specific film selection to avoid thermal stress. Our team assesses your glass type during the consultation process and recommends only products that are compatible with your specific glass.' },
+  { question: 'What is the typical ROI for commercial window film?', answer: 'Energy-saving films typically achieve a 2–3 year payback through HVAC savings. Security films deliver ROI through reduced forced-entry risk and potential insurance premium reductions. Decorative films provide immediate value as a fraction of replacement frosted or etched glass cost.' },
+];
+
+const faqAccordionItems = faqItems.map(f => ({ q: f.question, a: f.answer }));
+
+const pageSchemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://windowfilmsaltlakecity.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Resources', item: 'https://windowfilmsaltlakecity.com/resources/' },
+      { '@type': 'ListItem', position: 3, name: 'Commercial Guide', item: 'https://windowfilmsaltlakecity.com/resources/commercial-guide/' },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': 'https://windowfilmsaltlakecity.com/resources/commercial-guide/',
+    url: 'https://windowfilmsaltlakecity.com/resources/commercial-guide/',
+    name: 'Commercial Window Film Guide',
+    description,
+    dateModified,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map(f => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: { '@type': 'Answer', text: f.answer },
+    })),
+  },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical="https://windowfilmsaltlakecity.com/resources/commercial-guide/"
+  faqItems={faqItems}
+  serviceName="Window Film Salt Lake City Commercial Guide"
+  serviceDesc="A step-by-step guide to choosing and installing commercial window film in Salt Lake City."
+  serviceUrl="https://windowfilmsaltlakecity.com/resources/commercial-guide/"
+  schemas={pageSchemas}
+>
+
+<!-- ═══ HERO ═══ -->
+<section class="cg-hero">
+  <div class="cg-hero__bg" style="background-image: url('/images/commercial-guide/commercial-window-film-guide-salt-lake-city-hero.jpg')" role="img" aria-label="Salt Lake City office building interior with professionally installed commercial window film"></div>
+  <div class="cg-hero__overlay"></div>
+  <div class="cg-hero__content">
+    <div class="cg-hero__eyebrow">
+      <span class="cg-hero__eyebrow-dot" aria-hidden="true"></span>
+      COMMERCIAL GUIDE
+      <span class="cg-hero__eyebrow-dot" aria-hidden="true"></span>
+    </div>
+    <h1 class="cg-hero__title">Window Film Guide for Salt Lake City Businesses</h1>
+    <p class="cg-hero__subtitle">Commercial window film delivers a great ROI for Salt Lake City properties across every industry — from LEED certification support to security upgrades, privacy solutions, and marketing-grade decorative film. The key to a successful project is knowing your goals before you start.</p>
+    <div class="cg-hero__cta">
+      <a href="/contact/" class="cg-hero__btn-primary">Get a Free Quote</a>
+      <a href="#benefits" class="cg-hero__btn-secondary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v4.5a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18.75v-4.5M8.25 6L12 2.25 15.75 6M12 2.25v15"/></svg>
+        Explore the Guide
+      </a>
+    </div>
+    <div class="cg-hero__stats-panel" aria-label="Key statistics">
+      <div class="cg-hero__stats-inner">
+        <div class="cg-hero__stat">
+          <span class="cg-hero__stat-number">2–3 yrs</span>
+          <span class="cg-hero__stat-label">Typical ROI Payback</span>
+        </div>
+        <div class="cg-hero__stat-divider" aria-hidden="true"></div>
+        <div class="cg-hero__stat">
+          <span class="cg-hero__stat-number">15+</span>
+          <span class="cg-hero__stat-label">Brands Carried</span>
+        </div>
+        <div class="cg-hero__stat-divider" aria-hidden="true"></div>
+        <div class="cg-hero__stat">
+          <span class="cg-hero__stat-number">2008</span>
+          <span class="cg-hero__stat-label">Serving Since</span>
+        </div>
+        <div class="cg-hero__stat-divider" aria-hidden="true"></div>
+        <div class="cg-hero__stat">
+          <span class="cg-hero__stat-number">1.2M+</span>
+          <span class="cg-hero__stat-label">Sq Ft Installed</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cg-body">
+
+<!-- TRUST BAR -->
+<section class="cg-trust">
+  <div class="cg-container">
+    <p class="cg-trust__label">Commercial window film expertise across every Salt Lake City industry — from LEED buildings to security upgrades</p>
+  </div>
+</section>
+
+<BrandLogos />
+
+<!-- ═══ INTRO — 2-col ═══ -->
+<section class="cg-intro">
+  <div class="cg-intro__container">
+    <div class="cg-intro__content">
+      <span class="cg-eyebrow">Commercial Guide</span>
+      <h2 class="cg-intro__title">How do you find the right film for your property?</h2>
+      <p class="cg-intro__lead">Commercial window film delivers a great ROI for <a href="/services/commercial/" style="color: var(--cg-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">Salt Lake City commercial properties</a> across every industry — from LEED certification support to security upgrades, privacy solutions, and marketing-grade decorative film. The key to a successful project is knowing your goals before you start. This guide walks you through the three steps every commercial property owner should take before specifying or installing window film.</p>
+      <p class="cg-intro__lead">Whether you manage an <a href="/applications/office/" style="color: var(--cg-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">office building</a>, <a href="/applications/retail/" style="color: var(--cg-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">retail space</a>, <a href="/applications/hotels-hospitality/" style="color: var(--cg-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">hotel</a>, or <a href="/applications/government-buildings/" style="color: var(--cg-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">government facility</a>, the process is the same: identify your goals, choose the right film type, and work with an experienced contractor.</p>
+    </div>
+    <div class="cg-intro__image-wrap">
+      <img src="/images/commercial-guide/commercial-window-film-salt-lake-city-intro.jpg" alt="Commercial window film guide for Salt Lake City properties" class="cg-intro__image" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GALLERY BANNER ═══ -->
+<GalleryBanner
+  titleLines={['YOUR', 'PROJECT.']}
+  eyebrow="COMMERCIAL INSTALLS"
+  description="A collection of real commercial window film installations across Salt Lake City. Every project measured, applied, and finished by our certified team."
+  photos={galleryPhotos}
+  hintText="Hover the photos · click to bring forward"
+  theme="dark"
+/>
+
+<!-- ═══ ACCORDION BENEFITS — 3 Steps ═══ -->
+<section id="benefits">
+  <AccordionBenefits
+    eyebrow="Three Steps"
+    title="Your Commercial Window Film Project, Step by Step"
+    subtitle="Every successful commercial window film project follows the same three-step process. Skip any step and you risk over-spending, under-specifying, or choosing a product that does not match your goals."
+    benefits={benefits}
+  />
+</section>
+
+<!-- ═══ BENTO GRID — Film Types ═══ -->
+<BentoGridPhoto
+  heading="What types of window film are available for commercial properties?"
+  sub="Here are the window film types available for your commercial project. Each serves different goals — and many overlap. Click any type to learn more."
+  items={bentoItems}
+/>
+
+<!-- ═══ HOW IT WORKS SLIDESHOW ═══ -->
+<HowItWorksSlideshow
+  id="cg-process"
+  eyebrow="Installation Process"
+  title="From consultation to walkthrough"
+  subtitle="Our commercial window film installation process is designed to minimize disruption to your operations while delivering professional results."
+  slides={slides}
+/>
+
+<!-- ═══ FAQ ═══ -->
+<AccordionFAQ
+  eyebrow="FAQ"
+  heading="Common questions about commercial window film projects"
+  sub="Everything you need to know about selecting, installing, and maintaining commercial window film."
+  items={faqAccordionItems}
+/>
+
+<!-- ═══ CTA ═══ -->
+<CTAAvatars
+  title="Ready to start your commercial window film project?"
+  subtitle="Contact us for a free onsite consultation. We assess your glass, understand your goals, and recommend the right product from the right brand."
+  count="Trusted by 2,400+ Salt Lake City property owners"
+  btnLabel="Get a Free Quote"
+  btnHref="/contact/"
+  avatars={[
+    { name: 'Michael T.', location: 'The Avenues', img: '/images/about/about-avatar-4.jpg' },
+    { name: 'Lisa M.', location: 'Federal Heights', img: '/images/about/about-avatar-3.jpg' },
+    { name: 'Robert K.', location: 'South Street', img: '/images/about/about-avatar-2.jpg' },
+    { name: 'Janet F.', location: 'Millcreek', img: '/images/about/about-avatar-5.jpg' },
+    { name: 'Sarah M.', location: 'Sugar House', img: '/images/about/about-avatar-8.jpg' },
+    { name: 'Marco V.', location: 'The Avenues', img: '/images/about/about-avatar-7.jpg' },
+  ]}
+/>
+
+</div>
+
+</BaseLayout>
+
+<style>
+/* ── DESIGN TOKENS — site palette ══ */
+:root {
+  --cg-radius: 5px;
+  --cg-charcoal: #272E32;
+  --cg-green: #81AB4C;
+  --cg-green-light: #eef4e4;
+  --cg-green-dark: #7CB342;
+  --cg-off-white: #F7F6F3;
+  --cg-light-gray: #EFEFED;
+  --cg-text-dark: #1a1a1a;
+  --cg-text-mid: #4a4a4a;
+  --cg-text-light: #888;
+}
+
+.cg-body { background: #ffffff; }
+.cg-container { max-width: 1280px; margin: 0 auto; padding: 0 5%; }
+
+/* ── EYEBROW ══ */
+.cg-eyebrow {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--cg-green);
+  margin-bottom: 16px;
+}
+.cg-eyebrow--center { display: block; text-align: center; margin-bottom: 20px; }
+
+/* ── HERO ══ */
+.cg-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.cg-hero__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.cg-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(39,46,50,0.55) 0%, rgba(39,46,50,0.78) 55%, rgba(39,46,50,0.95) 100%);
+}
+.cg-hero__content {
+  position: relative;
+  z-index: 10;
+  max-width: 860px;
+  padding: 120px 24px 80px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cg-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(124, 179, 66, 0.85);
+  margin-bottom: 28px;
+  background: rgba(124, 179, 66, 0.08);
+  border: 1px solid rgba(124, 179, 66, 0.2);
+  padding: 8px 18px;
+  border-radius: 100px;
+}
+.cg-hero__eyebrow-dot {
+  width: 4px; height: 4px; border-radius: 50%;
+  background: rgba(124, 179, 66, 0.4);
+  flex-shrink: 0;
+}
+.cg-hero__title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.25rem, 5.5vw, 3.75rem);
+  font-weight: 700;
+  color: #F3F6F1;
+  line-height: 1.1;
+  margin: 0 0 20px;
+  letter-spacing: -0.01em;
+}
+.cg-hero__subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+  color: rgba(243, 246, 241, 0.72);
+  max-width: 680px;
+  margin: 0 0 36px;
+  line-height: 1.75;
+}
+.cg-hero__cta {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 56px;
+}
+.cg-hero__btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cg-green-dark);
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 14px 32px;
+  border-radius: 100px;
+  border: 2px solid var(--cg-green-dark);
+  transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+}
+.cg-hero__btn-primary:hover {
+  background: #6aa032;
+  border-color: #6aa032;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(124, 179, 66, 0.3);
+}
+.cg-hero__btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: #F3F6F1;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: 100px;
+  border: 2px solid rgba(243, 246, 241, 0.35);
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.2s ease;
+}
+.cg-hero__btn-secondary:hover {
+  border-color: var(--cg-green-dark);
+  color: var(--cg-green-dark);
+  transform: translateY(-2px);
+}
+.cg-hero__stats-panel {
+  width: 100%;
+  max-width: 720px;
+  background: rgba(39, 46, 50, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--cg-radius);
+  padding: 28px 32px;
+}
+.cg-hero__stats-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.cg-hero__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+}
+.cg-hero__stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-weight: 700;
+  color: #F3F6F1;
+  line-height: 1;
+}
+.cg-hero__stat-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: rgba(243, 246, 241, 0.55);
+}
+.cg-hero__stat-divider {
+  width: 1px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .cg-hero__stats-inner { flex-direction: column; gap: 16px; }
+  .cg-hero__stat-divider { width: 60%; height: 1px; }
+}
+
+/* ── TRUST BAR ══ */
+.cg-trust {
+  padding: 40px 0 20px;
+  text-align: center;
+}
+.cg-trust__label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--cg-text-mid);
+  letter-spacing: 0.3px;
+}
+
+/* ── INTRO ══ */
+.cg-intro {
+  padding: 80px 0;
+}
+.cg-intro__container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 5%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.cg-intro__content { max-width: 520px; }
+.cg-intro__title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: var(--cg-text-dark);
+  line-height: 1.2;
+  margin: 0 0 24px;
+  letter-spacing: -0.01em;
+}
+.cg-intro__lead {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--cg-text-mid);
+  margin: 0 0 20px;
+}
+.cg-intro__image-wrap {
+  border-radius: var(--cg-radius);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+.cg-intro__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+@media (max-width: 860px) {
+  .cg-intro__container { grid-template-columns: 1fr; gap: 40px; }
+  .cg-intro { padding: 60px 0; }
+}
+
+/* ── ACCORDION FAQ OVERRIDE ══ */
+:global(.faq) { background: #272E32 !important; }
+:global(.faq__item) { background: #2d363b !important; }
+</style>

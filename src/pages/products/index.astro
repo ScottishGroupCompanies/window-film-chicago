@@ -1,0 +1,242 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroSubpage from '../../components/HeroSubpage.astro';
+import BrandLogos from '../../components/BrandLogos.astro';
+import TestimonialMarquee from '../../components/TestimonialMarquee.astro';
+import AccordionFAQ from '../../components/AccordionFAQ.astro';
+import CTATintSlider from '../../components/CTATintSlider.astro';
+import MobileStickyCTA from '../../components/MobileStickyCTA.astro';
+import ScrollReveal from '../../components/animations/ScrollReveal.astro';
+
+const title = 'Window Film Products Salt Lake City | 3M, LLumar, Vista & More';
+const description = 'Window Film Salt Lake City installs every leading brand — 3M, LLumar, Vista, Solar Gard, Huper Optik, Madico, and V-Kool. One installer, all warranties.';
+
+const allBrands = [
+  { src: '/images/2021-09-3m-window-film-salt-lake-city.webp',              alt: '3M Window Film',       href: '/products/3m-window-film/' },
+  { src: '/images/2021-09-llumar-window-film-salt-lake-city.webp',          alt: 'LLumar',               href: '/products/llumar/' },
+  { src: '/images/2021-09-vista-window-film-salt-lake-city.webp',           alt: 'Vista Window Film',    href: '/products/vista-window-film/' },
+  { src: '/images/2021-09-solar-gard-window-film-salt-lake-city.webp',      alt: 'Solar Gard',           href: '/products/solar-gard-window-film/' },
+  { src: '/images/2021-09-huper-optik-window-film-salt-lake-city.webp',     alt: 'Huper Optik',          href: '/products/huper-optik/' },
+  { src: '/images/2021-09-madico-window-film-salt-lake-city.webp',          alt: 'Madico',               href: '/products/madico-window-film/' },
+  { src: '/images/2021-09-casper-window-film-salt-lake-city.webp',          alt: 'Casper Cloaking Film', href: '/products/casper-cloaking-film/' },
+  { src: '/images/2021-09-cbond-window-film-salt-lake-city.webp',           alt: 'C-Bond Systems',       href: '/products/c-bond-window-film/' },
+  { src: '/images/2021-09-hdclear-window-film-salt-lake-city.webp',         alt: 'HDClear',              href: '/products/hdclear-window-film/' },
+  { src: '/images/2021-09-hanita-coatings-window-film-salt-lake-city.webp', alt: 'Hanita Coatings',      href: '/products/hanita-coatings-window-film/' },
+  { src: '/images/2021-09-solyx-window-film-salt-lake-city.webp',           alt: 'Solyx',                href: '/products/solyx-window-film/' },
+  { src: '/images/graffiti-shield-logo.jpg',                              alt: 'Graffiti Shield',      href: '/products/graffiti-shield-window-film/' },
+  { src: '/images/bird-divert-logo.jpg',                                  alt: 'Bird Divert',          href: '/products/bird-divert/' },
+  { src: '/images/drywired-logo.png',                                     alt: 'DryWired NanoTint',    href: '/products/nanotint-window-film/', bg: '#144964' },
+  { src: '/images/v-kool-logo.jpg',                                       alt: 'V-Kool',               href: '/products/v-kool/' },
+];
+
+const faqSchema = [
+  { question: 'How do I know which window film brand is right for my property?', answer: "Every property is different — glass type, building orientation, occupancy type, and budget all factor in. During our free on-site consultation, we'll assess your specific situation and recommend the film brands and performance levels that make the most sense for your goals." },
+  { question: 'Are all these brands available for both residential and commercial projects?', answer: 'Yes. Every brand we carry offers residential and commercial product lines. Some brands like 3M, Madico, and Solar Gard have specialized commercial-grade films for high-rise buildings, government facilities, and healthcare environments.' },
+  { question: 'Do you offer manufacturer warranties on all installations?', answer: 'All our installations carry a lifetime manufacturer warranty on film adhesion, peeling, bubbling, and fading for the original property owner. Warranty terms vary by brand — we provide full documentation at the time of installation.' },
+  { question: 'Can I mix different brands on different windows of the same building?', answer: 'Absolutely. Many projects use different film types on different elevations — for example, a high-performance ceramic on the west-facing facade and a decorative film on the street-level storefront. We spec each area independently.' },
+  { question: 'How do I verify that a brand is genuinely premium vs. budget film?', answer: 'Look for established manufacturer warranty programs, third-party lab testing (e.g., NFRC ratings), and certified installer networks. All the brands we carry meet these criteria. Budget films often lack these safeguards and degrade within a few years.' },
+  { question: 'What is the lead time for ordering these film brands?', answer: 'Most standard film orders ship within 5–10 business days. Specialty films (decorative prints, custom patterns, specialty tints) may require 2–4 weeks. We maintain a local inventory of the most popular films for same-week installation on time-sensitive projects.' },
+];
+
+const faqItems = faqSchema.map(f => ({ q: f.question, a: f.answer }));
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical="https://windowfilmsaltlakecity.com/products/"
+  serviceName="Window Film Products Salt Lake City"
+  serviceDesc="Window Film Salt Lake City installs every leading manufacturer — 3M, LLumar, Vista, Solar Gard, Huper Optik, Madico, V-Kool and more."
+  serviceUrl="https://windowfilmsaltlakecity.com/products/"
+  faqItems={faqSchema}
+>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://windowfilmsaltlakecity.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Window Film Products Salt Lake City", "item": "https://windowfilmsaltlakecity.com/products/" }
+    ]
+  })}></script>
+
+  <!-- ══ 1. HERO ══ -->
+  <HeroSubpage
+    eyebrow="TOP BRANDS · EVERY APPLICATION · EXPERT ADVICE"
+    title={"Every brand.\nOne installer."}
+    subtitle="Window Film Salt Lake City partners with every leading manufacturer to offer the most comprehensive product selection in the Greater Salt Lake City region."
+    bg="/images/products-hero-salt-lake-city.jpg"
+    ctaText="Get a free quote"
+    ctaHref="/contact/"
+    secondaryText="See all brands"
+    secondaryHref="#all-brands"
+  />
+
+  <!-- ══ 2. BRAND LOGOS (à la homes-condos) ══ -->
+  <section class="swt-trust">
+    <p class="swt-trust__label">Our manufacturer partners</p>
+    <BrandLogos />
+  </section>
+
+  <!-- ══ 3. INTRO ══ -->
+  <section class="prod-intro">
+    <div class="prod-intro__inner">
+      <h2 class="prod-intro__heading">Which window film brand is right for you?</h2>
+      <p class="prod-intro__body">
+        We're certified installers for 3M, LLumar, Vista, Solar Gard, Huper Optik, Madico, V-Kool, and more.
+        That means we recommend the right film for your project — not whichever brand we happen to carry.
+        Every installation is backed by a manufacturer warranty.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══ 4. BRAND LOGO GRID ══ -->
+  <section id="all-brands" class="prod-brands">
+    <div class="prod-brands__head">
+
+    </div>
+    <div class="prod-brands__grid">
+      {allBrands.map((brand) => (
+        <a class="prod-brand-card" href={brand.href} aria-label={brand.alt} style={brand.bg ? `background:${brand.bg}` : ''}>
+          <img src={brand.src} alt={brand.alt} title={brand.alt} loading="lazy" />
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- ══ 5. TESTIMONIALS ══ -->
+  <TestimonialMarquee />
+
+  <!-- ══ 6. FAQ ══ -->
+  <section class="prod-faq">
+    <AccordionFAQ heading="Window film brand FAQ" sub="Common questions about our manufacturer lineup." items={faqItems} />
+  </section>
+
+  <!-- ══ 7. CTA ══ -->
+  <CTATintSlider
+    heading="Find your perfect tint."
+    sub="Drag to preview how window film tames Salt Lake City heat and glare — then get it installed for real."
+    ctaText="Get a Free Quote"
+    ctaHref="/contact/"
+  />
+
+  <!-- ══ 8. MOBILE STICKY ══ -->
+  <MobileStickyCTA phone="(801) 895-4681" quoteHref="/contact/" />
+
+  <ScrollReveal />
+
+</BaseLayout>
+
+<style>
+  /* ── Map UI-library vars → site tokens ── */
+  :root {
+    --ink:         var(--dark-bg);
+    --brand-green: var(--green);
+    --cream:       var(--off-white);
+    --slate:       #1c2e20;
+  }
+
+  /* ── Brand logos strip ── */
+  .swt-trust {
+    background: #ffffff;
+    padding: 32px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  .swt-trust__label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #4a5c48;
+    text-align: center;
+    margin: 0 0 20px;
+    opacity: 0.7;
+  }
+
+  /* ── Intro band ── */
+  .prod-intro {
+    background: var(--off-white);
+    padding: 3rem 1.5rem 0;
+    text-align: center;
+  }
+  .prod-intro__inner { max-width: 44rem; margin: 0 auto; }
+  .prod-intro__heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: var(--dark-bg);
+    font-weight: 700;
+    margin: 0 0 1.25rem;
+    letter-spacing: -0.02em;
+  }
+  .prod-intro__body {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* ── Brand logo grid ── */
+  .prod-brands {
+    background: var(--off-white);
+    padding: 3rem 1.5rem 5rem;
+    scroll-margin-top: 80px;
+  }
+  .prod-brands__head {
+    text-align: center;
+    max-width: 40rem;
+    margin: 0 auto 3rem;
+  }
+  .prod-brands__title {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    color: var(--dark-bg);
+    font-weight: 700;
+    margin: 0.5rem 0 0.5rem;
+    letter-spacing: -0.02em;
+  }
+  .prod-brands__sub {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  .prod-brands__grid {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  @media (max-width: 600px) {
+    .prod-brands__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .prod-brand-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 1rem;
+    padding: 2.5rem 2rem;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  }
+  .prod-brand-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 36px rgba(0,0,0,0.4);
+  }
+  .prod-brand-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  /* ── FAQ ── */
+  .prod-faq { background: var(--dark-bg); }
+</style>

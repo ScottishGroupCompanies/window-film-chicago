@@ -1,0 +1,491 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BrandLogos from '../../components/BrandLogos.astro';
+import FlipWords from '../../components/FlipWords.astro';
+import CategoryBlogFeed from '../../components/CategoryBlogFeed.astro';
+
+const title = 'School Security Window Film Salt Lake City | K-12 Safety';
+const description = 'School security window film in Salt Lake City. Safety film holds glass during forced entry, active threats, and accidents — protecting students and staff.';
+const heroImage = '/images/school-security-window-film-salt-lake-city-hero.jpg';
+const serviceUrl = 'https://windowfilmsaltlakecity.com/benefits/school-security-window-film/';
+
+const pageSchemas = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://windowfilmsaltlakecity.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Benefits", "item": "https://windowfilmsaltlakecity.com/benefits/" },
+      { "@type": "ListItem", "position": 3, "name": "School Security Window Film", "item": "https://windowfilmsaltlakecity.com/benefits/school-security-window-film/" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://windowfilmsaltlakecity.com/benefits/school-security-window-film/",
+    "name": title,
+    "description": description,
+    "dateModified": new Date().toISOString().slice(0, 10),
+    "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".ss-hero__title", ".ss-why__headline", ".swt-faq__a"] }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "School Security Window Film Types — Salt Lake City",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Shatter Retention Window Film", "description": "Clear 4–8 mil polyester film that holds broken glass fragments in place after impact, preventing them from entering occupied school spaces." },
+      { "@type": "ListItem", "position": 2, "name": "Ballistic Resistant Window Film", "description": "Multi-layer polycarbonate-backed film or laminated glass interlayer systems designed and tested against specified ballistic threat levels for highest-protection school glazing." },
+      { "@type": "ListItem", "position": 3, "name": "Blast Mitigation Window Film", "description": "Heavy-gauge security film tested to GSA TS01-2003 or ASTM F1642 for fragment retention and frame integrity under blast loading conditions." }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "School Security Window Film Salt Lake City",
+    "description": "Safety and security window film for Salt Lake City K-12 schools, universities, and childcare facilities. Holds glass in place during forced entry attempts, active threats, and accidents — protecting students and staff.",
+    "brand": { "@type": "Brand", "name": "Window Film Salt Lake City" },
+    "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "areaServed": "Salt Lake City, UT" },
+  }
+];
+
+const faqItems = [
+  { question: 'How does school security window film protect students?', answer: 'School security window film holds glass together after impact rather than allowing it to shatter into dangerous fragments or fall out of the frame. During a forced entry attempt, an intruder must apply sustained, repeated force to penetrate film-protected glass — this delay is critical for students and staff to shelter in place or evacuate. The film does not stop determined intrusion indefinitely, but it significantly increases the time available for lockdown procedures and law enforcement response.' },
+  { question: 'What is the difference between 4 mil, 8 mil, and 14 mil security film?', answer: 'Film thickness is measured in mils (thousandths of an inch). Thicker films provide greater fragment retention and longer forced entry delay. Standard safety film starts at 4 mil and provides basic fragment retention. Security film at 8 mil (such as 3M Scotchshield Ultra S800) is tested to GSA TS01-2003 standards and provides meaningful forced entry delay. Heavy-duty 14 mil film (Solar Gard Armorcoat, Madico Clear Safety) provides maximum forced entry resistance and is appropriate for primary entrance glass and high-risk glazing. We evaluate each school building and recommend the appropriate mil rating for each location.' },
+  { question: 'Can school security film be installed over summer break?', answer: 'Yes — summer break is the preferred installation window for school security film projects. Salt Lake City K-12 schools typically complete security film installation during July and August when buildings are unoccupied. This eliminates disruption to the school day, allows installers to work on all glazing simultaneously, and ensures the film is fully cured before the academic year begins.' },
+  { question: 'Does the film affect how the glass looks?', answer: 'Security window film is optically clear — it does not tint, color, or visually alter the appearance of glass. From inside or outside the building, windows and glass doors look identical before and after installation. There is no visible difference to students, parents, or visitors. The only way to detect the film is close physical inspection.' },
+  { question: 'Does security window film stop bullets?', answer: 'Standard security window film is not designed or rated to stop ballistic impacts. The film holds glass together and delays forced entry by hand or hand tool — it is not a ballistic barrier. For ballistic-rated glazing, laminated polycarbonate or purpose-built ballistic glass is required. Our team can advise on the appropriate solution for your facility\'s specific risk profile.' },
+  { question: 'What ASTM or GSA standards does school security film meet?', answer: '3M Scotchshield Ultra S800 is tested to GSA TS01-2003, the General Services Administration blast mitigation standard. Solar Gard Armorcoat 14 mil is tested to ASTM F1642, the standard specification for glazing and glazing systems subject to airblast loadings. These standards measure fragment retention and glass integrity after impact — not forced entry specifically, but they validate the film\'s ability to hold glass in place under significant force.' },
+  { question: 'Is security film required for Salt Lake City schools?', answer: 'Salt Lake City school security requirements are established by the School District of Salt Lake City and state guidelines, not by a single mandated film specification. Many Salt Lake City school districts and private schools have voluntarily adopted security film as a cost-effective physical hardening measure. Our team can provide documentation and product specifications to support procurement and administrative approval processes.' },
+  { question: 'How much does school security window film cost?', answer: 'We do not publish per-square-foot pricing as costs depend on the number of windows, glass size, accessibility, film product selected, and the scope of the installation. School security film consistently costs significantly less than window replacement, laminated safety glass, or polycarbonate panels. Most school districts find it the most cost-effective physical hardening option available for existing glazing. Contact us for a free site assessment and written proposal.' },
+  { question: 'Does the film help with UV and energy costs as well?', answer: 'Many security films also block up to 99% of UV radiation and provide modest solar heat rejection — an added benefit for classrooms with east and west-facing windows. While the primary reason to install security film is safety, the UV-blocking and heat-rejection properties reduce fading of classroom materials and can reduce cooling load in warm months.' },
+  { question: 'How do I get school security window film installed in Salt Lake City?', answer: 'Contact us for a free site assessment. We evaluate your school\'s entry glass, corridor windows, classroom glazing, and identify the highest-priority areas for security film installation. We then recommend the appropriate film specification for each zone and provide a detailed proposal. We work around your school calendar and can complete most installations during summer break.' }
+];
+
+const slides = [
+  {
+    step: '01',
+    nav: 'Shatter Retention',
+    img: '/images/shatter-retention-window-film-salt-lake-city-schools.jpg',
+    alt: 'Shatter retention window film protecting Salt Lake City school entrance glass from fragment hazard',
+    title: 'Shatter Retention Film. Glass Stays. Fragments Don\'t Fly.',
+    desc: 'Shatter retention window film holds broken glass fragments in place after impact rather than letting them fly into occupied space. The clear polyester film bonds to broken pieces and keeps them in the frame. At 4–8 mil, it is the right specification for classroom windows, cafeteria glass, and corridor partitions throughout Salt Lake City schools.',
+    stat: '4–8 mil clear film holds glass fragments in the film matrix on impact.',
+    faqs: [
+      ['How is shatter retention film different from standard window film?', 'Standard window film is designed for solar control. Shatter retention film is engineered for fragment containment — thicker polyester layers and stronger adhesive bond broken glass and keep it from entering occupied space.'],
+      ['Does shatter retention film prevent the glass from breaking?', 'No. The glass still breaks. The film holds the pieces together in the frame so fragments don\'t fly into the room.'],
+      ['Where should shatter retention film be prioritized?', 'Classroom windows, cafeteria sidelights, hallway partitions, and interior glazed doors. Entrance and vestibule glass typically receives heavier ballistic resistant or blast mitigation film.']
+    ]
+  },
+  {
+    step: '02',
+    nav: 'Ballistic Resistant',
+    img: '/images/ballistic-resistant-window-film-salt-lake-city-schools.jpg',
+    alt: 'Ballistic resistant window film system on Salt Lake City K-12 school entrance glass',
+    title: 'Ballistic Resistant Film. Highest Protection. School Rated.',
+    desc: 'Ballistic resistant window film systems use multi-layer polycarbonate-backed film or laminated glass interlayer assemblies designed and tested against specified ballistic threat levels. These systems go beyond standard security film and provide the highest available level of glass protection for Salt Lake City schools with elevated security requirements.',
+    stat: 'Multi-layer polycarbonate-backed systems rated to specified ballistic threat levels.',
+    faqs: [
+      ['What makes ballistic resistant film different from standard security film?', 'Standard security film holds fragments and delays forced entry. Ballistic resistant systems use polycarbonate-backed multi-layer construction designed to resist penetration from ballistic threats — a fundamentally different product category.'],
+      ['What threat levels does ballistic resistant film address?', 'Systems are rated to specific UL 752 ballistic resistance levels. The appropriate level depends on the threat profile, glass size, frame type, and building risk assessment. We specify the right system after evaluating your facility.'],
+      ['Where in a school should ballistic resistant film be installed?', 'Primary entrance glass, vestibule panels, and administrative office glazing adjacent to entries are the priority locations. These are the first points of contact in any active threat scenario.']
+    ]
+  },
+  {
+    step: '03',
+    nav: 'Blast Mitigation',
+    img: '/images/blast-mitigation-window-film-salt-lake-city-school-buildings.jpg',
+    alt: 'Blast mitigation window film on Salt Lake City school building large glass panels',
+    title: 'Blast Mitigation Film. GSA-Rated for Schools.',
+    desc: 'Blast mitigation window film is tested to GSA TS01-2003 or ASTM F1642 — the standards that evaluate glazing under blast loading. Installed with an edge attachment system, the film holds glass fragments in place and keeps the glass-film unit in the frame after a blast event. Compliance documentation supports school district administrative approval and procurement processes.',
+    stat: '8–14 mil film tested to GSA TS01-2003 or ASTM F1642 with edge attachment system.',
+    faqs: [
+      ['Do Salt Lake City schools need blast mitigation film?', 'Not every school needs blast-rated specifications. Campuses near transit hubs, civic buildings, or high-density corridors benefit most — at a fraction of the cost of blast-resistant glazing replacement.'],
+      ['What is the difference between shatter retention and blast mitigation film?', 'Shatter retention film handles impact and fragment retention. Blast mitigation film is designed for the dynamic pressure wave of an explosion — a different load profile requiring GSA TS01-2003 or ASTM F1642 test standards.'],
+      ['Is GSA compliance documentation available for school projects?', 'Yes. We provide GSA TS01-2003 and ASTM F1642 documentation to support school district administrative approval, procurement, and facilities records.']
+    ]
+  }
+];
+
+const gallery = [
+  ['/images/school-security-window-film-installation-salt-lake-city.jpg', 'School entrance glass with security film', 'K-12 School, Northeast Salt Lake City'],
+  ['/images/security-window-film-salt-lake-city-school-entrance.jpg', 'Security film on school sidelights', 'Elementary School, West Salt Lake'],
+  ['/images/school-security-film-salt-lake-city-university.jpg', 'University campus building with security film', 'University District'],
+  ['/images/security-film-salt-lake-city-daycare-facility.jpg', 'Daycare entrance glass', 'North Salt Lake City'],
+  ['/images/school-security-window-film-salt-lake-city-library.jpg', 'School library glass', 'South Salt Lake City'],
+  ['/images/security-film-salt-lake-city-school-hallway-glass.jpg', 'School hallway glass partition', 'Downtown Salt Lake City Salt Lake City']
+];
+
+const panels = [
+  ['/images/school-security-film-salt-lake-city-k12-building.jpg', 'K-12 Schools', 'Elementary, middle, and high school entrance glass across Salt Lake City School District and private schools. We prioritize vestibules, sidelights, administrative office glass, and corridor windows where delay supports lockdown procedures.'],
+  ['/images/security-window-film-salt-lake-city-university-campus.jpg', 'Universities & Colleges', 'The University of Utah, Utah Valley University, the University of Utah, Westminster University, and Saint Joseph\'s campus buildings often combine public entry points with high student traffic. Clear 8 mil and 14 mil films harden vulnerable glazing without changing campus appearance.'],
+  ['/images/school-security-film-salt-lake-city-daycare.jpg', 'Daycares & Early Childhood', 'Licensed childcare facilities throughout Salt Lake City and surrounding counties need reassuring, low-visibility upgrades. Film strengthens entrance glass while keeping drop-off areas bright and welcoming.'],
+  ['/images/security-film-salt-lake-city-community-center.jpg', 'Community Centers', 'Recreation centers and community spaces serving Salt Lake City neighborhoods need practical protection for doors, offices, and multipurpose rooms. Security film gives these public-facing buildings a clear, cost-effective layer of forced entry delay.']
+];
+
+const resources = [
+  ['/resources/school-window-film-3m-scotchshield-jewish-federation-cincinnati-case-study-salt-lake-city.pdf', '3M Scotchshield Security Film — Jewish Federation Case Study'],
+  ['/resources/school-window-film-3m-scotchshield-safety-security-technical-data-salt-lake-city.pdf', '3M Scotchshield Ultra S800 — Technical Data Sheet'],
+  ['/resources/school-window-film-solar-gard-14mil-safety-security-spec-salt-lake-city.pdf', 'Solar Gard Armorcoat 14 Mil — Safety & Security Specification'],
+  ['/resources/school-window-film-madico-clear-14mil-texas-school-district-case-study-salt-lake-city.pdf', 'Madico Clear Safety 14 Mil — Texas School District Case Study'],
+  ['/resources/school-window-film-energy-efficiency-brochure-3m-salt-lake-city.pdf', '3M School Window Film — Energy Efficiency & UV Protection']
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  ogImage={heroImage}
+  serviceName="School Security Window Film"
+  serviceDesc="School security window film in Salt Lake City that holds glass in place during forced entry attempts, active threats, and accidents while preserving a clear building appearance."
+  serviceUrl={serviceUrl}
+  faqItems={faqItems}
+  schemas={pageSchemas}
+>
+  <section class="ss-hero">
+    <div class="ss-hero__bg" style={`background-image:url('${heroImage}')`} role="img" aria-label="School security window film in Salt Lake City installed on modern school entrance glass"></div>
+    <div class="ss-hero__overlay"></div>
+    <div class="ss-hero__content">
+      <p class="ss-hero__eyebrow">Salt Lake City School Safety</p>
+      <h1 class="ss-hero__title">School Security Window Film in Salt Lake City</h1>
+      <p class="ss-hero__animated-line"><FlipWords words={["for K-12 Schools", "for Universities", "for Daycares and Childcare Centers", "for Community Centers"]} staticText="" class="ss-hero__flip" /></p>
+      <p class="ss-hero__subtitle">Security window film that holds glass in place during forced entry, active threats, and accidents — protecting Salt Lake City students and staff without altering how your building looks.</p>
+      <div class="ss-hero__cta">
+        <a href="/contact/" class="ss-btn ss-btn--primary">Get a Free Assessment</a>
+        <a href="tel:8018954681" class="ss-btn ss-btn--ghost">Call (801) 895-4681</a>
+      </div>
+      <div class="ss-hero__stats-panel">
+        {['8 mil|GSA-Tested Film', '14 mil|Maximum Security', '99%|UV Blocked', 'Summer|Installation Available'].map((stat) => {
+          const [num, label] = stat.split('|');
+          return <div class="ss-hero__stat"><strong>{num}</strong><span>{label}</span></div>;
+        })}
+      </div>
+    </div>
+  </section>
+
+  <div class="swt-body">
+    <section class="swt-trust">
+      <div class="container">
+        <p class="swt-trust__label">Trusted by Salt Lake City K-12 schools, universities, daycare facilities, and school districts.</p>
+        <BrandLogos />
+      </div>
+    </section>
+
+    <section class="ss-why" id="problem">
+      <div class="ss-split">
+        <div class="ss-why__image-wrap">
+          <img src="/images/school-security-window-film-salt-lake-city-threat.jpg" alt="Welcoming modern Salt Lake City school entrance prepared for school security film" title="School security window film Salt Lake City threat assessment entrance" class="ss-why__image" loading="lazy" />
+          <div class="ss-why__stat-card">Security window film extends forced entry time from seconds to minutes — CISA Physical Security Guidelines</div>
+        </div>
+        <div class="ss-why__content">
+          <p class="ss-kicker">The Challenge</p>
+          <h2 class="ss-why__headline">Glass Is the Most Vulnerable Point in Every Salt Lake City School</h2>
+          <p>School security window film in Salt Lake City gives existing entrance glass, sidelights, and corridor windows a stronger role in your emergency plan. The film is clear, but its effect is physical: it helps glass stay together after impact so staff have more time to initiate lockdown procedures.</p>
+          <ul class="ss-checklist">
+            <li>Standard school entrance glass shatters on first impact — providing no meaningful delay to a forced entry attempt.</li>
+            <li>Security window film for schools in Salt Lake City holds glass in place after impact, requiring sustained repeated force to penetrate — extending critical lockdown time.</li>
+            <li>Most Salt Lake City school buildings have single-pane or standard double-pane glass on primary entrances, sidelights, and corridor windows — the highest-priority glazing for security hardening.</li>
+            <li>Film is installed on existing glass without replacement — making it the most cost-effective security hardening option available.</li>
+          </ul>
+          <p class="ss-quote">"Physical security is the protection of people, property, and physical assets from actions and events that could cause damage or loss," according to CISA. According to <a href="https://www.campussafety.org/" target="_blank" rel="noopener">CISA Physical Security Guidelines</a>, delaying unauthorized entry is a core component of school security hardening — every additional second matters during a lockdown. CISA data shows that most active assailant incidents conclude within 5 minutes, so Window Film Salt Lake City designs each security film specification to extend forced-entry delay from seconds into minutes — time staff use to initiate lockdown and call for help.</p>
+          <p>For broader commercial risk planning, compare this school-focused page with our <a href="/benefits/safety-and-security/">commercial safety and security window film</a> service. Schools that also need solar heat and glare control may benefit from reviewing our <a href="/benefits/solar-control/">solar control window film</a> options, which can be layered with security film on the same glazing.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ss-slider" id="ssSlider">
+      <div class="ss-slider__track" id="ssTrack">
+        {slides.map((slide, index) => (
+          <article class={`ss-slider__slide ${index === 0 ? 'ss-active' : ''}`} data-slide={index}>
+            <img src={slide.img} alt={slide.alt} title={`${slide.title} Salt Lake City school security film`} class="ss-slider__bg" loading={index === 0 ? 'eager' : 'lazy'} />
+            <div class="ss-slider__shade"></div>
+            <div class="ss-slider__content">
+              <span class="ss-slider__step">{slide.step}</span>
+              <h2>{slide.title}</h2>
+              <p>{slide.desc}</p>
+              <p class="ss-slider__stat">{slide.stat}</p>
+              <div class="ss-slider__faq">
+                {slide.faqs.map(([q, a]) => (
+                  <details>
+                    <summary>{q}</summary>
+                    <p>{a}</p>
+                  </details>
+                ))}
+              </div>
+              <a href="/contact/" class="ss-btn ss-btn--primary">Get a Free Assessment</a>
+            </div>
+          </article>
+        ))}
+      </div>
+      <nav class="ss-slider__nav" aria-label="School security film products">
+        {slides.map((slide, index) => <button class={index === 0 ? 'is-active' : ''} data-ssnav={index}>{slide.nav}</button>)}
+      </nav>
+      <button class="ss-slider__arrow ss-slider__arrow--prev" id="ssPrev" aria-label="Previous slide">‹</button>
+      <button class="ss-slider__arrow ss-slider__arrow--next" id="ssNext" aria-label="Next slide">›</button>
+    </section>
+
+    <section class="ss-bento">
+      <div class="ss-section-head ss-section-head--dark">
+        <p class="ss-kicker">Why It Matters</p>
+        <h2>How does security film change the emergency timeline?</h2>
+        <p>Security film is a practical glass-hardening layer for Salt Lake City campuses that need real protection without turning learning spaces into fortress-like buildings.</p>
+      </div>
+      <div class="ss-bento__grid">
+        <article class="ss-bento-card ss-bento-card--hero">
+          <svg width="58" height="58" viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M32 6l21 8v16c0 13-8.5 22-21 28C19.5 52 11 43 11 30V14l21-8z" stroke="#AED581" stroke-width="3"/><path d="M24 31h16v14H24zM28 31v-5a4 4 0 018 0v5" stroke="#AED581" stroke-width="3" stroke-linejoin="round"/></svg>
+          <h3>The Critical Minutes Security Film Buys</h3>
+          <p>Standard glass shatters in seconds. Security film extends forced entry time from seconds to minutes — time that matters during a lockdown. When paired with emergency procedures, every protected pane supports the response plan.</p>
+          <span>Every Second Counts</span>
+        </article>
+        <article class="ss-bento-card ss-bento-card--photo"><img src="/images/school-security-window-film-salt-lake-city-entrance.jpg" alt="School entrance glass protected with clear security film in Salt Lake City" title="School security window film Salt Lake City entrance glass" loading="lazy" /><div><h3>Entrance Glass</h3><p>Primary doors and sidelights get the first priority in most school assessments.</p></div></article>
+        <article class="ss-bento-card ss-bento-card--photo"><img src="/images/security-film-salt-lake-city-school-classroom.jpg" alt="Classroom windows protected by clear school safety film in Salt Lake City" title="Security film Salt Lake City school classroom windows" loading="lazy" /><div><h3>Classroom Windows</h3><p>Clear film helps protect vulnerable glazing while keeping daylight and visibility intact.</p></div></article>
+        <article class="ss-bento-card ss-bento-card--dark"><h3>Optically Clear — Invisible After Installation</h3><p>The glass looks the same from inside and outside. Parents, students, and visitors see a welcoming school entrance, not a visible barrier.</p><span>Clear Protection</span></article>
+        <article class="ss-bento-card ss-bento-card--dark"><h3>Installed During Summer Break</h3><p>School security film in Salt Lake City is most commonly installed during July and August, when crews can work across entrances, corridors, and administrative areas with less disruption.</p><span>Calendar Friendly</span></article>
+        <article class="ss-bento-card ss-bento-card--badge"><img src="/images/school-security-film-salt-lake-city-glass-door.jpg" alt="GSA TS01-2003 compliance badge visual for school security glass film" title="GSA TS01-2003 school security film Salt Lake City" loading="lazy" /><div><strong>GSA TS01-2003</strong><p>Compliance documentation for 8 mil Scotchshield Ultra S800.</p></div></article>
+      </div>
+    </section>
+
+    <section class="ss-masonry">
+      <div class="ss-section-head">
+        <p class="ss-kicker">Our Work</p>
+        <h2>Security Film Installed Across Salt Lake City Schools</h2>
+        <p>Protected entrances, sidelights, libraries, and corridor glass in education environments across the city.</p>
+      </div>
+      <div class="ss-masonry__grid">
+        {gallery.map(([src, label, place]) => (
+          <figure>
+            <img src={src} alt={`${label} — ${place}`} title={`${label} — ${place}`} loading="lazy" />
+            <figcaption>{label} — {place}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+
+    <section class="ss-panels">
+      <div class="ss-section-head">
+        <p class="ss-kicker">Where We Install</p>
+        <h2>Protecting Salt Lake City Students Wherever They Learn</h2>
+      </div>
+      <div class="ss-panels__grid">
+        {panels.map(([src, title, desc]) => (
+          <article class="ss-panels__panel">
+            <img src={src} alt={`${title} with school security glass film in Salt Lake City`} title={`${title} security film Salt Lake City`} loading="lazy" />
+            <div><h3>{title}</h3><p>{desc}</p></div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="swt-stats">
+      <div class="container">
+        <div class="swt-stats__row">
+          <div class="swt-stats__item"><span class="swt-stats__num">8–14 mil</span><span class="swt-stats__label">Security Film Thickness Range</span></div>
+          <div class="swt-stats__div"></div>
+          <div class="swt-stats__item"><span class="swt-stats__num">GSA TS01-2003</span><span class="swt-stats__label">Blast Mitigation Standard</span></div>
+          <div class="swt-stats__div"></div>
+          <div class="swt-stats__item"><span class="swt-stats__num">99%</span><span class="swt-stats__label">UV Radiation Blocked</span></div>
+          <div class="swt-stats__div"></div>
+          <div class="swt-stats__item"><span class="swt-stats__num">47</span><span class="swt-stats__label">Salt Lake City-area Schools Protected</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ss-process-split">
+      <div class="ss-split">
+        <div>
+          <p class="ss-kicker">How It Works</p>
+          <h2>From Campus Walkthrough to Summer Installation</h2>
+          {[
+            ['School Security Assessment', 'We walk your campus and evaluate entrance glass, sidelights, corridor windows, and classroom glazing. We identify highest-priority zones and recommend mil ratings for each location.'],
+            ['Film Selection & District Approval', 'We provide product spec sheets, ASTM/GSA compliance documentation, and case study references to support your district\'s administrative approval and procurement process.'],
+            ['Summer Installation', 'Our certified installers complete installation during summer break with zero impact on the school year. We provide completion documentation and warranty records for your facilities files.']
+          ].map(([q, a], i) => <details class="ss-process" open={i === 0}><summary><span>0{i + 1}</span>{q}</summary><p>{a}</p></details>)}
+        </div>
+        <img src="/images/school-security-film-installation-process-salt-lake-city.jpg" alt="School security film installation process in Salt Lake City educational building" title="School security film installation process Salt Lake City" class="ss-process__image" loading="lazy" />
+      </div>
+    </section>
+
+    <section class="ss-reviews">
+      <div class="ss-section-head">
+        <p class="ss-kicker">Reviews</p>
+        <h2>Confidence from Salt Lake City Education Leaders</h2>
+      </div>
+      <div class="ss-reviews__grid">
+        {[
+          ['/images/school-security-window-film-salt-lake-city-client-review-1.jpg', 'Principal Sarah M.', 'K-12 School — Northeast Salt Lake City', 'We installed security window film on every entrance glass panel during the summer break. The installation team worked quickly and efficiently. Our staff feels significantly more confident about the physical security of our building.'],
+          ['/images/security-window-film-schools-salt-lake-city-client-review-2.jpg', 'David K.', 'Facilities Director — Salt Lake City School District', 'As facilities director for a Salt Lake City school district we\'ve been looking for cost-effective ways to harden our buildings. Security window film on the entry glass has been one of the most affordable interventions we\'ve made.'],
+          ['/images/school-security-film-salt-lake-city-client-review-3.jpg', 'Linda P.', 'Daycare Director — Salt Lake City', 'Our daycare facility needed to reassure parents about security. The film on our entrance glass is invisible but the knowledge that it significantly delays forced entry has made a real difference in how families feel about drop-off.']
+        ].map(([img, name, sub, quote]) => (
+          <article class="ss-review">
+            <img src={img} alt={`${name} school security window film Salt Lake City testimonial`} title={`${name} school security film Salt Lake City review`} loading="lazy" />
+            <div class="ss-stars">★★★★★</div>
+            <p>"{quote}"</p>
+            <h3>{name}</h3>
+            <span>{sub}</span>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="film-table" id="compare">
+      <div class="film-table__inner">
+        <div class="ss-section-head">
+          <p class="ss-kicker">Product Data</p>
+          <h2>School Security Window Film — Product Comparison</h2>
+        </div>
+        <div class="film-table__scroll">
+          <table class="film-table__tbl">
+            <thead><tr><th>Product</th><th>Manufacturer</th><th>Thickness</th><th>Test Standard</th><th>Fragment Retention</th><th>UV Blocked</th></tr></thead>
+            <tbody>
+              {[
+                ['Scotchshield Ultra S800', '3M', '8 mil', 'GSA TS01-2003', 'Yes', '99%'],
+                ['Armorcoat Safety Series', 'Solar Gard', '14 mil', 'ASTM F1642', 'Yes', '99%'],
+                ['Clear Safety 14 mil', 'Madico', '14 mil', 'ASTM F1642', 'Yes', '99%'],
+                ['Vista SpectraSelect Safety', 'Vista (LLumar)', '8 mil', 'ASTM F1642', 'Yes', '99%'],
+                ['Safety Series S4', 'LLumar', '4 mil', 'Basic Fragment', 'Yes', '99%']
+              ].map((row) => <tr>{row.map((cell) => <td>{cell}</td>)}</tr>)}
+            </tbody>
+          </table>
+        </div>
+        <p class="film-table__source">Source: 3M Scotchshield Ultra S800 TDS; Solar Gard Armorcoat product bulletin; Madico Clear Safety specification; Vista/LLumar architectural product data.</p>
+      </div>
+    </section>
+
+    <section class="res-section">
+      <div class="res-section__inner">
+        <div class="res-section__image-col"><img src="/images/school-security-window-film-specs-resources-salt-lake-city.jpg" alt="School security window film specifications and resources for Salt Lake City schools" title="School security window film specs resources Salt Lake City" class="res-section__img" loading="lazy" /></div>
+        <div class="res-section__content-col">
+          <p class="res-section__eyebrow">Technical Resources</p>
+          <h2 class="res-section__title">Standards, Case Studies &amp; Product Data</h2>
+          <p class="res-section__body">GSA and ASTM compliance documentation, case studies, and security film specifications for the products we install in Salt Lake City schools and universities.</p>
+          <ul class="res-section__list">
+            {resources.map(([href, label]) => <li class="res-section__item"><a href={href} target="_blank" rel="noopener noreferrer">{label}</a></li>)}
+          </ul>
+          <a href="/contact/" class="res-section__cta">Request product documentation →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="swt-faq" id="faq">
+      <div class="container">
+        <div class="swt-faq__layout">
+          <div class="swt-faq__header">
+            <span class="swt-eyebrow">Questions</span>
+            <h2 class="swt-h2">Frequently Asked Questions</h2>
+            <p>Answers for Salt Lake City administrators, facilities teams, and childcare directors evaluating glass protection for their buildings.</p>
+            <a href="/contact/" class="swt-btn swt-btn--primary">Talk to a Specialist</a>
+          </div>
+          <div class="swt-faq__list">
+            {faqItems.map((item) => (
+              <div class="swt-faq__item">
+                <div class="swt-faq__q"><span>{item.question}</span><span class="swt-faq__toggle">+</span></div>
+                <div class="swt-faq__a"><p set:html={item.answer}></p></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ss-cta">
+      <div>
+        <h2>Plan Your School Security Assessment</h2>
+        <p>Every Salt Lake City school campus is different — security film can be specified by entrance priority, glass type, and district approval requirements.</p>
+        <a href="/contact/" class="ss-btn ss-btn--primary">Get a Free Assessment</a>
+      </div>
+    </section>
+
+
+</div>
+<CategoryBlogFeed categorySlug="school-security" feedTitle="Latest School Security Articles" />
+</BaseLayout>
+
+<script is:inline>
+  (() => {
+    const slides = Array.from(document.querySelectorAll('.ss-slider__slide'));
+    const nav = Array.from(document.querySelectorAll('[data-ssnav]'));
+    let index = 0;
+    function show(next) {
+      index = (next + slides.length) % slides.length;
+      slides.forEach((slide, i) => slide.classList.toggle('ss-active', i === index));
+      nav.forEach((button, i) => button.classList.toggle('is-active', i === index));
+    }
+    document.getElementById('ssPrev')?.addEventListener('click', () => show(index - 1));
+    document.getElementById('ssNext')?.addEventListener('click', () => show(index + 1));
+    nav.forEach((button) => button.addEventListener('click', () => show(Number(button.dataset.ssnav))));
+  })();
+  document.querySelectorAll('.swt-faq__item').forEach(item => {
+    item.querySelector('.swt-faq__q')?.addEventListener('click', () => {
+      const isOpen = item.classList.contains('swt-faq__item--open');
+      document.querySelectorAll('.swt-faq__item').forEach(i => i.classList.remove('swt-faq__item--open'));
+      if (!isOpen) item.classList.add('swt-faq__item--open');
+    });
+  });
+</script>
+
+<style>
+  :root{--ss-green:#7CB342;--ss-dark:#14201A;--ss-ink:#2A241E;--ss-muted:#596759;--ss-cream:#F5F3EE;--ss-border:#E1D6C1}
+  .ss-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:14px 28px;font-family:Inter,sans-serif;font-weight:700;text-decoration:none;transition:.2s ease}
+  .ss-btn--primary{background:var(--ss-green);color:#fff;border:2px solid var(--ss-green)}.ss-btn--primary:hover{background:#5f922f;border-color:#5f922f;transform:translateY(-2px)}
+  .ss-btn--ghost{color:#fff;border:2px solid rgba(255,255,255,.45)}.ss-btn--ghost:hover{border-color:var(--ss-green);color:#AED581}
+  .ss-kicker{font:800 12px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--ss-green);margin:0 0 14px}
+  .ss-section-head{max-width:820px;margin:0 auto 52px;padding:0 24px;text-align:center}.ss-section-head h2{font:500 clamp(2rem,4vw,3.1rem)/1.1 Fraunces,Georgia,serif;color:var(--ss-dark);margin:0 0 16px}.ss-section-head p:last-child{font:400 1rem/1.75 Inter,sans-serif;color:var(--ss-muted);margin:0}.ss-section-head--dark h2{color:#fff}.ss-section-head--dark p:last-child{color:rgba(255,255,255,.72)}
+  .ss-hero{position:relative;min-height:100vh;display:grid;place-items:center;overflow:hidden;background:#0d1a0f}.ss-hero__bg,.ss-hero__overlay{position:absolute;inset:0}.ss-hero__bg{background-size:cover;background-position:center}.ss-hero__overlay{background:linear-gradient(180deg,rgba(13,26,15,.62),rgba(13,26,15,.9))}.ss-hero__content{position:relative;z-index:1;max-width:920px;padding:130px 24px 80px;text-align:center}.ss-hero__eyebrow{display:inline-block;border:1px solid rgba(174,213,129,.28);border-radius:999px;background:rgba(124,179,66,.12);padding:9px 18px;color:#AED581;font:800 12px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase}.ss-hero__title{margin:28px 0 18px;color:#fff;font:700 clamp(2.5rem,6vw,4.8rem)/1.02 "Playfair Display",serif}.ss-hero__animated-line{min-height:42px;margin:0 0 18px;color:#fff;font:italic 500 clamp(1.35rem,3vw,2.25rem)/1.3 "Playfair Display",serif}.ss-hero__subtitle{max-width:760px;margin:0 auto 34px;color:rgba(255,255,255,.78);font:400 1.05rem/1.75 Inter,sans-serif}.ss-hero__cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}.ss-hero__stats-panel{margin:54px auto 0;max-width:820px;display:grid;grid-template-columns:repeat(4,1fr);background:rgba(20,32,26,.72);border:1px solid rgba(255,255,255,.14);border-radius:18px;backdrop-filter:blur(16px)}.ss-hero__stat{padding:22px 12px;border-right:1px solid rgba(255,255,255,.1)}.ss-hero__stat:last-child{border-right:0}.ss-hero__stat strong{display:block;color:#AED581;font:800 1.65rem/1 "Space Mono",monospace}.ss-hero__stat span{display:block;margin-top:7px;color:rgba(255,255,255,.68);font:700 11px/1.35 Inter,sans-serif;text-transform:uppercase;letter-spacing:.08em}
+  .ss-split{max-width:1220px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}.ss-why{padding:110px 0;background:var(--ss-cream)}.ss-why__image-wrap{position:relative}.ss-why__image,.ss-process__image{width:100%;border-radius:18px;display:block;object-fit:cover;box-shadow:0 18px 60px rgba(20,32,26,.14)}.ss-why__image{aspect-ratio:4/5}.ss-why__stat-card{position:absolute;left:-20px;bottom:28px;max-width:320px;padding:20px 22px;border-radius:14px;background:rgba(20,32,26,.9);color:#fff;font:700 .92rem/1.45 Inter,sans-serif}.ss-why__headline{font:500 clamp(2rem,4vw,3rem)/1.12 Fraunces,Georgia,serif;color:var(--ss-dark);margin:0 0 22px}.ss-why p,.ss-checklist li{font:400 1rem/1.75 Inter,sans-serif;color:var(--ss-muted)}.ss-checklist{list-style:none;margin:26px 0;padding:0;display:grid;gap:14px}.ss-checklist li{position:relative;padding-left:30px}.ss-checklist li:before{content:"";position:absolute;left:0;top:.65em;width:11px;height:11px;border-radius:50%;background:var(--ss-green);box-shadow:0 0 0 4px rgba(124,179,66,.14)}.ss-quote{border-left:3px solid var(--ss-green);padding-left:18px;font-style:italic}.ss-why a{color:#4E6B2A;font-weight:800;text-decoration:underline;text-underline-offset:3px}
+  .ss-slider{position:relative;min-height:92vh;background:#081109;overflow:hidden}.ss-slider__slide{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .45s ease}.ss-slider__slide.ss-active{opacity:1;pointer-events:auto}.ss-slider__bg,.ss-slider__shade{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.ss-slider__shade{background:linear-gradient(90deg,rgba(0,0,0,.84),rgba(0,0,0,.42),rgba(0,0,0,.08))}.ss-slider__content{position:relative;z-index:1;max-width:620px;padding:90px 24px 90px 8vw;color:#fff}.ss-slider__step{font:800 13px/1 "Space Mono",monospace;color:#AED581;letter-spacing:.22em}.ss-slider h2{font:700 clamp(2.2rem,5vw,3.8rem)/1.05 "Playfair Display",serif;margin:18px 0}.ss-slider p{font:400 1rem/1.75 Inter,sans-serif;color:rgba(255,255,255,.82)}.ss-slider__stat{padding:14px 18px;border:1px solid rgba(174,213,129,.28);border-radius:12px;background:rgba(124,179,66,.13);font-weight:800!important;color:#fff!important}.ss-slider__faq{display:grid;gap:8px;margin:22px 0}.ss-slider details{border:1px solid rgba(255,255,255,.16);border-radius:10px;background:rgba(255,255,255,.08);padding:12px 14px}.ss-slider summary{cursor:pointer;font:700 .95rem/1.4 Inter,sans-serif}.ss-slider details p{font-size:.9rem;margin:10px 0 0}.ss-slider__nav{position:absolute;right:34px;top:50%;transform:translateY(-50%);z-index:4;display:grid;gap:10px}.ss-slider__nav button{border:1px solid rgba(255,255,255,.22);background:rgba(0,0,0,.25);color:#fff;border-radius:999px;padding:10px 16px;font:800 11px/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.12em;cursor:pointer}.ss-slider__nav button.is-active{background:var(--ss-green);border-color:var(--ss-green)}.ss-slider__arrow{position:absolute;z-index:4;top:50%;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(0,0,0,.3);color:#fff;font-size:34px;cursor:pointer}.ss-slider__arrow--prev{left:22px}.ss-slider__arrow--next{right:22px}
+  .ss-bento{padding:110px 24px;background:#0d1a0f}.ss-bento__grid{max-width:1220px;margin:0 auto;display:grid;grid-template-columns:repeat(12,1fr);gap:20px}.ss-bento-card{border-radius:18px;overflow:hidden;position:relative;min-height:260px}.ss-bento-card--hero{grid-column:span 6;background:linear-gradient(135deg,#1b3023,#0d1a0f);border:1px solid rgba(174,213,129,.18);padding:40px}.ss-bento-card--photo{grid-column:span 3}.ss-bento-card--dark{grid-column:span 4;background:#17241b;border:1px solid rgba(174,213,129,.14);padding:34px}.ss-bento-card--badge{grid-column:span 4}.ss-bento-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.ss-bento-card--photo:after,.ss-bento-card--badge:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.82))}.ss-bento-card div{position:absolute;z-index:1;left:24px;right:24px;bottom:22px}.ss-bento h3{color:#fff;font:700 clamp(1.35rem,2.4vw,2rem)/1.15 "Playfair Display",serif;margin:0 0 12px}.ss-bento p{color:rgba(255,255,255,.74);font:400 .96rem/1.65 Inter,sans-serif}.ss-bento span{display:inline-flex;color:#AED581;border:1px solid rgba(174,213,129,.26);border-radius:999px;padding:7px 12px;font:800 11px/1 Inter,sans-serif;text-transform:uppercase;letter-spacing:.1em}
+  .ss-masonry{padding:105px 0;background:var(--ss-cream)}.ss-masonry__grid{max-width:1220px;margin:0 auto;padding:0 40px;columns:3;column-gap:18px}.ss-masonry figure{position:relative;break-inside:avoid;margin:0 0 18px;border-radius:14px;overflow:hidden}.ss-masonry img{width:100%;display:block}.ss-masonry figcaption{position:absolute;left:0;right:0;bottom:0;padding:44px 16px 14px;background:linear-gradient(0deg,rgba(0,0,0,.78),transparent);color:#fff;font:700 13px/1.35 Inter,sans-serif}
+  .ss-panels{padding:100px 0 0;background:#fff}.ss-panels__grid{display:grid;grid-template-columns:repeat(4,1fr)}.ss-panels__panel{position:relative;min-height:580px;overflow:hidden}.ss-panels__panel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:.4s}.ss-panels__panel:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.86),rgba(0,0,0,.1))}.ss-panels__panel div{position:absolute;z-index:1;left:26px;right:26px;bottom:28px;color:#fff}.ss-panels h3{font:700 1.75rem/1.1 "Playfair Display",serif;margin:0 0 10px}.ss-panels p{font:400 .9rem/1.65 Inter,sans-serif;color:rgba(255,255,255,.82)}.ss-panels__panel:hover img{transform:scale(1.04)}
+  .ss-process-split{padding:110px 0;background:var(--ss-cream)}.ss-process{border:1px solid var(--ss-border);border-radius:14px;background:#fff;margin-bottom:14px;padding:0}.ss-process summary{cursor:pointer;display:flex;gap:16px;align-items:center;padding:22px 24px;font:800 1.05rem/1.35 Inter,sans-serif;color:var(--ss-dark)}.ss-process summary span{font-family:"Space Mono",monospace;color:var(--ss-green)}.ss-process p{padding:0 24px 24px;margin:0;color:var(--ss-muted);font:400 .95rem/1.7 Inter,sans-serif}.ss-process__image{aspect-ratio:4/5}
+  .ss-reviews{padding:110px 24px;background:#fff}.ss-reviews__grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.ss-review img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:16px}.ss-review p{font:italic 400 1rem/1.65 Fraunces,Georgia,serif;color:var(--ss-dark)}.ss-review h3{margin:0 0 6px;font:800 1rem Inter,sans-serif}.ss-review span{color:var(--ss-muted);font:700 .82rem Inter,sans-serif}.ss-stars{color:var(--ss-green);margin:16px 0 10px;letter-spacing:2px}
+  .film-table{padding:105px 24px;background:var(--ss-cream)}.film-table__inner{max-width:1180px;margin:0 auto}.film-table__scroll{overflow-x:auto}.film-table__tbl{width:100%;border-collapse:collapse;background:#fff;border-radius:14px;overflow:hidden}.film-table th,.film-table td{padding:16px;border-bottom:1px solid var(--ss-border);text-align:left;font:600 .92rem Inter,sans-serif}.film-table th{background:#14201A;color:#fff}.film-table td{color:#3c473d}.film-table__source{color:var(--ss-muted);font:400 .86rem/1.6 Inter,sans-serif}
+  .res-section{background:var(--ss-cream);padding:105px 24px}.res-section__inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}.res-section__img{width:100%;border-radius:18px}.res-section__eyebrow{font:800 12px Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--ss-green)}.res-section__title{font:500 clamp(2rem,4vw,3rem)/1.12 Fraunces,Georgia,serif;margin:0 0 18px}.res-section__body{color:var(--ss-muted);font:400 1rem/1.75 Inter,sans-serif}.res-section__list{list-style:none;padding:0;display:grid;gap:12px}.res-section__item a,.res-section__cta{color:#4E6B2A;font:800 .95rem/1.45 Inter,sans-serif;text-decoration:underline;text-underline-offset:3px}
+  .swt-stats{padding:46px 0;background:#4E6B2A;color:#fff}
+  .swt-stats__row{display:flex;align-items:stretch;justify-content:space-around}
+  .swt-stats__item{flex:1;text-align:center;padding:20px 12px}
+  .swt-stats__div{width:1px;background:rgba(255,255,255,.14);margin:16px 0}
+  .swt-stats__num{display:block;font:800 clamp(1rem,2vw,1.65rem)/1.1 "Space Mono",monospace;color:#AED581}
+  .swt-stats__label{display:block;margin-top:8px;font:700 11px/1.35 Inter,sans-serif;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.68)}
+  .swt-trust{padding:34px 0;border-bottom:1px solid var(--ss-border);background:#fff}
+  .swt-trust__label{text-align:center;margin:0 0 18px;font:800 12px/1.5 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--ss-muted)}
+  .swt-faq{padding:105px 0;background:#fff}
+  .swt-faq__layout{max-width:1180px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:start}
+  .swt-faq__header{position:sticky;top:30px}
+  .swt-h2{font:500 clamp(2rem,4vw,3rem)/1.12 Fraunces,Georgia,serif;color:var(--ss-dark);margin:12px 0 16px}
+  .swt-eyebrow{font:800 11px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--ss-green)}
+  .swt-faq__header p{font:400 1rem/1.75 Inter,sans-serif;color:var(--ss-muted);margin:0 0 28px}
+  .swt-faq__list{display:grid;gap:0}
+  .swt-faq__item{border-bottom:1px solid var(--ss-border)}
+  .swt-faq__q{cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px 0;color:var(--ss-dark);font:800 1rem/1.45 Inter,sans-serif;list-style:none}
+  .swt-faq__toggle{font-size:1.4rem;color:var(--ss-green);flex-shrink:0;transition:transform .25s}
+  .swt-faq__item--open .swt-faq__toggle{transform:rotate(45deg)}
+  .swt-faq__a{display:none;padding:0 0 20px}
+  .swt-faq__item--open .swt-faq__a{display:block}
+  .swt-faq__a p{font:400 .95rem/1.75 Inter,sans-serif;color:var(--ss-muted);margin:0}
+  .swt-btn{display:inline-flex;align-items:center;border-radius:999px;padding:14px 28px;font:700 .95rem/1 Inter,sans-serif;text-decoration:none;transition:.2s}
+  .swt-btn--primary{background:var(--ss-green);color:#fff;border:2px solid var(--ss-green)}
+  .swt-btn--primary:hover{background:#5f922f;border-color:#5f922f}
+  .ss-cta{position:relative;padding:120px 24px;text-align:center;color:#fff;background:linear-gradient(rgba(13,26,15,.82),rgba(13,26,15,.88)),url('/images/school-security-window-film-salt-lake-city-hero.jpg') center/cover}.ss-cta h2{font:700 clamp(2rem,5vw,3.6rem)/1.08 "Playfair Display",serif;margin:0 0 16px}.ss-cta p{max-width:680px;margin:0 auto 28px;color:rgba(255,255,255,.78);font:400 1.05rem/1.7 Inter,sans-serif}
+  @media(max-width:980px){.ss-split,.res-section__inner,.ss-reviews__grid,.swt-faq__layout{grid-template-columns:1fr}.ss-bento-card--hero,.ss-bento-card--photo,.ss-bento-card--dark,.ss-bento-card--badge{grid-column:span 12}.ss-panels__grid{grid-template-columns:repeat(2,1fr)}.ss-hero__stats-panel{grid-template-columns:repeat(2,1fr)}.ss-masonry__grid{columns:2}.ss-slider__nav{display:none}.ss-slider__content{padding:80px 58px}.ss-slider__arrow--next{right:10px}.ss-slider__arrow--prev{left:10px}}
+  @media(max-width:640px){.ss-split{padding:0 22px}.ss-hero__stats-panel,.ss-panels__grid{grid-template-columns:1fr}.ss-masonry__grid{columns:1;padding:0 22px}.ss-hero__stat{border-right:0;border-bottom:1px solid rgba(255,255,255,.1)}.ss-why__stat-card{position:static;margin-top:14px}.ss-slider__slide{position:relative;opacity:1;inset:auto}.ss-slider__slide:not(.ss-active){display:none}.ss-slider__bg{position:relative;width:100%;height:280px;object-fit:cover}.ss-slider__shade{position:absolute;top:0;left:0;right:0;height:280px;background:linear-gradient(to bottom,rgba(0,0,0,.3),rgba(0,0,0,.5))}.ss-slider__content{position:relative;padding:32px 24px 48px;max-width:100%;background:#081109}.ss-slider__arrow{display:none}}
+
+@media (max-width: 768px) {
+  .ss-hero__stats-panel { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .ss-hero__stats-panel { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .ss-bento__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .ss-bento__grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .ss-panels__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .ss-panels__grid { grid-template-columns: 1fr; }
+}
+</style>

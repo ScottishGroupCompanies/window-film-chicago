@@ -1,0 +1,635 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BrandLogos from '../../components/BrandLogos.astro';
+import GalleryBanner from '../../components/GalleryBanner.astro';
+import BentoGridPhoto from '../../components/BentoGridPhoto.astro';
+import AccordionFAQ from '../../components/AccordionFAQ.astro';
+import CTAAvatars from '../../components/CTAAvatars.astro';
+
+const title = 'Window Film Warranty Salt Lake City | Coverage & Guarantee';
+const description = 'Every window film we install comes with manufacturer warranty. Download warranty documents for 3M, LLumar, Vista, Solar Gard, Huper Optik, and Madico.';
+const dateModified = new Date().toISOString().slice(0, 10);
+
+const galleryPhotos = [
+  '/images/warranty/manufacturer-warranty-certificate-salt-lake-city.jpg',
+  '/images/warranty/installer-warranty-card-salt-lake-city.jpg',
+  '/images/warranty/window-film-maintenance-care-salt-lake-city.jpg',
+  '/images/warranty/premium-window-film-rolls-salt-lake-city.jpg',
+  '/images/warranty/flawless-window-film-installation-salt-lake-city.jpg',
+];
+
+const bentoItems = [
+  { span: 'lg', title: 'Manufacturer Warranties', desc: 'Every brand we install stands behind its products with warranty coverage. Terms vary by manufacturer and product line.', img: '/images/warranty/manufacturer-warranty-certificate-salt-lake-city.jpg', href: '#warranty-downloads' },
+  { span: 'sm', title: 'Workmanship Guarantee', desc: 'We stand behind our installation work. Questions about your install? Contact us.', img: '/images/warranty/installer-warranty-card-salt-lake-city.jpg', href: '/contact/' },
+  { span: 'sm', title: 'Warranty Care', desc: 'Proper care helps protect your coverage. Follow our maintenance guide for best practices.', img: '/images/warranty/window-film-maintenance-care-salt-lake-city.jpg', href: '/resources/maintenance-and-care/' },
+  { span: 'md', title: 'All Brands Covered', desc: '15 brands — residential and commercial. Every product we carry has manufacturer warranty coverage.', img: '/images/warranty/premium-window-film-rolls-salt-lake-city.jpg', href: '/products/' },
+  { span: 'md', title: 'Claim Support', desc: 'Need to file a claim? We will help you understand the process and point you in the right direction.', img: '/images/warranty/flawless-window-film-installation-salt-lake-city.jpg', href: '/contact/' },
+  { span: 'md', title: 'Transferable Coverage', desc: 'Some warranties transfer with property sale. Check your warranty document or ask us for details.', img: '/images/warranty/window-film-installation-warranty-salt-lake-city.jpg', href: '/contact/' },
+];
+
+const warrantyBrands = [
+  { brand: '3M', docs: [
+    { label: '3M Commercial Window Film Warranty', url: '/resources/3M-Commercial-Window-Film-Warranty-salt-lake-city.pdf' },
+    { label: '3M Residential Window Film Warranty', url: '/resources/3M-Residential-Window-Film-Warranty-salt-lake-city.pdf' },
+  ]},
+  { brand: 'LLumar', docs: [
+    { label: 'LLumar Window Film Warranty', url: '/resources/LLumar-Window-Film-Warranty-salt-lake-city.pdf' },
+  ]},
+  { brand: 'Vista', docs: [
+    { label: 'Vista Residential Window Film Gold Warranty', url: '/resources/Vista-Residential-Window-Film-Gold-Warranty-salt-lake-city.pdf' },
+    { label: 'Vista Residential Window Film Warranty', url: '/resources/Vista-Residential-Window-Film-Warranty-salt-lake-city.pdf' },
+    { label: 'Vista Window Film Warranty', url: '/resources/Vista-Window-Film-Warranty-salt-lake-city.pdf' },
+  ]},
+  { brand: 'Solar Gard', docs: [
+    { label: 'SolarGard Limited Warranty', url: '/resources/SolarGard-Limited-Warranty-salt-lake-city.pdf' },
+    { label: 'Solar Gard Residential and Commercial Warranty', url: '/resources/Solar-Gard-Residential-and-Commercial-Window-Film-Warranty-salt-lake-city.pdf' },
+  ]},
+  { brand: 'Huper Optik', docs: [
+    { label: 'Huper Optik Standard Window Film Warranty', url: '/resources/Huper-Optik-Standard-Window-Film-Warranty-salt-lake-city.pdf' },
+    { label: 'Huper Optik Residential Window Film Warranty', url: '/resources/Huper-Optik-Residential-Window-Film-Warranty-salt-lake-city.pdf' },
+  ]},
+  { brand: 'Madico', docs: [
+    { label: 'Madico Residential and Commercial Warranty', url: '/resources/Madico-Residential-and-Commercial-Window-Film-Warranty-salt-lake-city.pdf' },
+  ]},
+  { brand: 'C-Bond', docs: [
+    { label: 'C-Bond Commercial Warranty', url: '/resources/C-Bond-Commercial-Warranty-salt-lake-city.pdf' },
+    { label: 'C-Bond Residential Warranty', url: '/resources/C-Bond-Residential-Warranty-salt-lake-city.pdf' },
+  ]},
+  { brand: 'Casper Cloaking Film', docs: [
+    { label: 'Designtex Casper Cloaking Film Warranty', url: '/resources/Designtex-Casper-Cloaking-Film-Warranty-salt-lake-city.pdf' },
+  ]},
+  { brand: 'Graffiti Shield', docs: [
+    { label: 'Graffiti Shield Limited Warranty', url: '/resources/graffiti-shield-warranty-salt-lake-city.pdf' },
+  ]},
+  { brand: 'Hanita Coatings', docs: [
+    { label: 'Hanita Coatings Window Film Warranty', url: '/resources/Hanita-Coatings-Window-Film-Warranty-salt-lake-city.pdf' },
+  ]},
+  { brand: 'DryWired NanoTint', docs: [
+    { label: 'Drywired Liquid Nanotint Warranty', url: '/resources/Drywired-Liquid-Nanotint-Warranty-salt-lake-city.pdf' },
+  ]},
+  { brand: 'SunTek', docs: [
+    { label: 'SunTek Residential and Commercial Warranty', url: '/resources/SunTek-Residential-and-Commercial-Window-Film-Warranty-salt-lake-city.pdf' },
+  ]},
+  { brand: 'Sunscape', docs: [
+    { label: 'Sunscape Residential Window Film Warranty', url: '/resources/Sunscape-Residential-Window-Film-Warranty-salt-lake-city.pdf' },
+  ]},
+  { brand: 'HDClear', docs: [
+    { label: '10 Year Warranty for flat glass applications — contact us for full details', url: '/contact/' },
+  ]},
+  { brand: 'Solyx', docs: [
+    { label: 'Solyx Window Film Warranty', url: 'https://www.decorativefilm.com/warranty' },
+  ]},
+  { brand: 'V-Kool', docs: [
+    { label: 'V-Kool Residential and Commercial Warranty', url: 'https://v-kool-usa.com/residential-and-commercial-warranties/' },
+  ]},
+];
+
+const faqItems = [
+  { question: 'Do all window film products come with a warranty?', answer: 'Yes — all major manufacturers provide warranties on their window film products. Warranty length and terms vary by manufacturer and product line. We provide warranty documentation at the time of installation for every product we install, and you can download those documents below.' },
+  { question: 'What does the manufacturer warranty cover?', answer: 'Coverage varies by manufacturer and product. We recommend reviewing the specific warranty document for your installed product for full terms and conditions. In general, manufacturer warranties address product performance issues under normal use conditions. Download the warranty document for your product below or contact us and we will point you in the right direction.' },
+  { question: 'What is the Window Film Salt Lake City workmanship warranty?', answer: 'We stand behind the quality of our installation work. If you experience an issue related to the installation, contact us and we will help assess the situation and determine the appropriate next steps.' },
+  { question: 'Does cleaning my film incorrectly void the warranty?', answer: 'Improper cleaning can affect warranty coverage. We recommend following the care instructions provided at installation and reviewing the manufacturer warranty document for your specific product. Our <a href="/resources/maintenance-and-care/">maintenance guide</a> outlines cleaning practices that help protect your film and maintain coverage.' },
+  { question: 'Is my warranty transferable if I sell my property?', answer: 'Transferability varies by manufacturer and product. We recommend checking the warranty document for your specific film, or contacting us with your installation details and we will help point you in the right direction.' },
+  { question: 'How do I make a warranty claim?', answer: 'Contact us with your installation date, product name, and a description of the issue. We will help you understand the warranty process for your specific product and point you in the right direction for filing a claim with the manufacturer. We are here to help however we can.' },
+];
+
+const faqAccordionItems = faqItems.map(f => ({ q: f.question, a: f.answer }));
+
+const pageSchemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://windowfilmsaltlakecity.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Resources', item: 'https://windowfilmsaltlakecity.com/resources/' },
+      { '@type': 'ListItem', position: 3, name: 'Warranty', item: 'https://windowfilmsaltlakecity.com/resources/warranty/' },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': 'https://windowfilmsaltlakecity.com/resources/warranty/',
+    url: 'https://windowfilmsaltlakecity.com/resources/warranty/',
+    name: 'Window Film Warranty Salt Lake City',
+    description,
+    dateModified,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map(f => ({
+      '@type': 'Question',
+      name: f.question.replace(/<[^>]+>/g, ''),
+      acceptedAnswer: { '@type': 'Answer', text: f.answer.replace(/<[^>]+>/g, '') },
+    })),
+  },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical="https://windowfilmsaltlakecity.com/resources/warranty/"
+  faqItems={faqItems}
+  serviceName="Window Film Salt Lake City Warranty"
+  serviceDesc="Manufacturer warranties and workmanship guarantee for every window film installation in Salt Lake City."
+  serviceUrl="https://windowfilmsaltlakecity.com/resources/warranty/"
+  schemas={pageSchemas}
+>
+
+<!-- ═══ HERO ═══ -->
+<section class="wr-hero">
+  <div class="wr-hero__bg" style="background-image: url('/images/warranty/window-film-warranty-salt-lake-city-hero.jpg')" role="img" aria-label="Salt Lake City brick rowhome with professional window film installed"></div>
+  <div class="wr-hero__overlay"></div>
+  <div class="wr-hero__content">
+    <div class="wr-hero__eyebrow">
+      <span class="wr-hero__eyebrow-dot" aria-hidden="true"></span>
+      WARRANTY INFORMATION
+      <span class="wr-hero__eyebrow-dot" aria-hidden="true"></span>
+    </div>
+    <h1 class="wr-hero__title">Window Film Salt Lake City Warranties</h1>
+    <p class="wr-hero__subtitle">Every window film product we install comes backed by a manufacturer warranty. We provide warranty documentation at installation and help you navigate the process whenever you need it.</p>
+    <div class="wr-hero__cta">
+      <a href="/contact/" class="wr-hero__btn-primary">Get a Free Quote</a>
+      <a href="#warranty-downloads" class="wr-hero__btn-secondary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
+        Download Warranty Docs
+      </a>
+    </div>
+    <div class="wr-hero__stats-panel" aria-label="Key statistics">
+      <div class="wr-hero__stats-inner">
+        <div class="wr-hero__stat">
+          <span class="wr-hero__stat-number">15</span>
+          <span class="wr-hero__stat-label">Brands Covered</span>
+        </div>
+        <div class="wr-hero__stat-divider" aria-hidden="true"></div>
+        <div class="wr-hero__stat">
+          <span class="wr-hero__stat-number">2008</span>
+          <span class="wr-hero__stat-label">Serving Since</span>
+        </div>
+        <div class="wr-hero__stat-divider" aria-hidden="true"></div>
+        <div class="wr-hero__stat">
+          <span class="wr-hero__stat-number">2,400+</span>
+          <span class="wr-hero__stat-label">Projects Warranted</span>
+        </div>
+        <div class="wr-hero__stat-divider" aria-hidden="true"></div>
+        <div class="wr-hero__stat">
+          <span class="wr-hero__stat-number">4.9</span>
+          <span class="wr-hero__stat-label">Google Rating</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wr-body">
+
+<!-- TRUST BAR -->
+<section class="wr-trust">
+  <div class="wr-container">
+    <p class="wr-trust__label">Every brand we install comes with manufacturer warranty documentation — and we help you navigate the process</p>
+  </div>
+</section>
+
+<BrandLogos />
+
+<!-- ═══ INTRO — 2-col ═══ -->
+<section class="wr-intro">
+  <div class="wr-intro__container">
+    <div class="wr-intro__image-wrap">
+      <img src="/images/warranty/window-film-installation-warranty-salt-lake-city.jpg" alt="Professional window film installer showing warranty documentation to a Salt Lake City homeowner" title="Professional window film installer showing warranty documentation to a Salt Lake City homeowner" class="wr-intro__image" loading="lazy" />
+    </div>
+    <div class="wr-intro__content">
+      <span class="wr-eyebrow">Warranty Coverage</span>
+      <h2 class="wr-intro__title">What warranty coverage comes with your installation?</h2>
+      <p class="wr-intro__lead">Every <a href="/services/residential/" style="color: var(--wr-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">residential</a> and <a href="/services/commercial/" style="color: var(--wr-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">commercial</a> window film installation we complete comes with manufacturer warranty coverage. The specific terms, length, and conditions vary by product and manufacturer — brands like <a href="/products/3m-window-film/" style="color: var(--wr-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">3M</a>, <a href="/products/llumar-window-film/" style="color: var(--wr-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">LLumar</a>, <a href="/products/vista-window-film/" style="color: var(--wr-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">Vista</a>, <a href="/products/solar-gard-window-film/" style="color: var(--wr-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">Solar Gard</a>, <a href="/products/huper-optik-window-film/" style="color: var(--wr-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">Huper Optik</a>, and <a href="/products/madico-window-film/" style="color: var(--wr-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">Madico</a> each have their own warranty programs. We provide the warranty documentation for your specific product at installation.</p>
+      <p class="wr-intro__lead">If you ever need to file a warranty claim or have questions about your coverage, contact us with your installation details. We will help you understand the process and point you in the right direction. Download the specific warranty document for your installed product below.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GALLERY BANNER — Our Work ═══ -->
+<GalleryBanner
+  titleLines={['YOUR', 'COVERAGE.']}
+  eyebrow="WARRANTY DOCUMENTS"
+  description="Every project we complete comes with manufacturer warranty documentation. Download the warranty documents for your installed product below."
+  photos={galleryPhotos}
+  hintText="Hover the photos · click to bring forward"
+  theme="dark"
+/>
+
+<!-- ═══ BENTO GRID PHOTO — warranty coverage ═══ -->
+<BentoGridPhoto
+  heading="Every brand. Every install. Fully warranted."
+  sub="Manufacturer warranty documentation for every product we install. Download the documents for your installed film below."
+  items={bentoItems}
+/>
+
+<!-- ═══ WARRANTY DOWNLOADS ═══ -->
+<section class="wr-downloads" id="warranty-downloads">
+  <div class="wr-container">
+    <div class="wr-downloads__head">
+      <span class="wr-eyebrow wr-eyebrow--center">Downloads</span>
+      <h2 class="wr-downloads__title">Warranty Documents by Brand</h2>
+      <p class="wr-downloads__intro">Download the manufacturer warranty for your installed product. Don't see your brand? <a href="/contact/" style="color: var(--wr-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">Contact us</a> — we carry warranty documentation for every product we install, including <a href="/products/hdclear-window-film/" style="color: var(--wr-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">HDClear</a>, <a href="/products/solyx-window-film/" style="color: var(--wr-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">Solyx</a>, and <a href="/products/v-kool/" style="color: var(--wr-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">V-Kool</a>.</p>
+    </div>
+    <div class="wr-downloads__grid">
+      {warrantyBrands.map((brand) => (
+        <div class={`wr-downloads__card${brand.docs.length === 0 ? ' wr-downloads__card--empty' : ''}`}>
+          <h3 class="wr-downloads__brand">{brand.brand}</h3>
+          {brand.docs.length > 0 ? (
+            <ul class="wr-downloads__list">
+              {brand.docs.map((doc) => (
+                <li class="wr-downloads__item">
+                  <a href={doc.url} target="_blank" rel="noopener noreferrer" class="wr-downloads__link">
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/></svg>
+                    {doc.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p class="wr-downloads__empty">Warranty handled per-project. <a href="/contact/">Contact us</a> for details.</p>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<AccordionFAQ
+  eyebrow="FAQ"
+  heading="Common questions about window film warranties"
+  sub="Everything you need to know about manufacturer coverage, workmanship guarantees, and warranty claims."
+  items={faqAccordionItems}
+/>
+
+<!-- ═══ CTA ═══ -->
+<CTAAvatars
+  title="Questions about your warranty? We're here to help."
+  subtitle="Contact us with your installation date, product name, and any warranty questions. We will help you understand the process and point you in the right direction."
+  count="Trusted by 2,400+ Salt Lake City property owners"
+  btnLabel="Get a Free Consultation"
+  btnHref="/contact/"
+  avatars={[
+    { name: 'David R.', location: 'Downtown Salt Lake City', img: '/images/about/about-avatar-1.jpg' },
+    { name: 'Lisa M.', location: 'Federal Heights', img: '/images/about/about-avatar-3.jpg' },
+    { name: 'Robert K.', location: 'South Street', img: '/images/about/about-avatar-2.jpg' },
+    { name: 'Janet F.', location: 'Millcreek', img: '/images/about/about-avatar-5.jpg' },
+    { name: 'Sarah M.', location: 'Sugar House', img: '/images/about/about-avatar-8.jpg' },
+    { name: 'Marco V.', location: 'The Avenues', img: '/images/about/about-avatar-7.jpg' },
+  ]}
+/>
+
+<!-- ═══ GEO BLOCK (hidden SEO/AEO content) ═══ -->
+
+</div>
+
+</BaseLayout>
+
+<style>
+/* ── DESIGN TOKENS — site palette ══ */
+:root {
+  --wr-radius: 5px;
+  --wr-charcoal: #272E32;
+  --wr-green: #81AB4C;
+  --wr-green-light: #eef4e4;
+  --wr-green-dark: #7CB342;
+  --wr-off-white: #F7F6F3;
+  --wr-light-gray: #EFEFED;
+  --wr-text-dark: #1a1a1a;
+  --wr-text-mid: #4a4a4a;
+  --wr-text-light: #888;
+}
+
+.wr-body { background: #ffffff; }
+.wr-container { max-width: 1280px; margin: 0 auto; padding: 0 5%; }
+
+/* ── EYEBROW ══ */
+.wr-eyebrow {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--wr-green);
+  margin-bottom: 16px;
+}
+.wr-eyebrow--center { display: block; text-align: center; margin-bottom: 20px; }
+
+/* ── HERO ══ */
+.wr-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.wr-hero__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.wr-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(39,46,50,0.68) 0%, rgba(39,46,50,0.82) 55%, rgba(39,46,50,0.95) 100%);
+}
+.wr-hero__content {
+  position: relative;
+  z-index: 10;
+  max-width: 860px;
+  padding: 120px 24px 80px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.wr-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(124, 179, 66, 0.85);
+  margin-bottom: 28px;
+  background: rgba(124, 179, 66, 0.08);
+  border: 1px solid rgba(124, 179, 66, 0.2);
+  padding: 8px 18px;
+  border-radius: 100px;
+}
+.wr-hero__eyebrow-dot {
+  width: 4px; height: 4px; border-radius: 50%;
+  background: rgba(124, 179, 66, 0.4);
+  flex-shrink: 0;
+}
+.wr-hero__title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.25rem, 5.5vw, 3.75rem);
+  font-weight: 700;
+  color: #F3F6F1;
+  line-height: 1.1;
+  margin: 0 0 20px;
+  letter-spacing: -0.01em;
+}
+.wr-hero__subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+  color: rgba(243, 246, 241, 0.72);
+  max-width: 680px;
+  margin: 0 0 36px;
+  line-height: 1.75;
+}
+.wr-hero__cta {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 56px;
+}
+.wr-hero__btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--wr-green-dark);
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 14px 32px;
+  border-radius: 100px;
+  border: 2px solid var(--wr-green-dark);
+  transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+}
+.wr-hero__btn-primary:hover {
+  background: #6aa032;
+  border-color: #6aa032;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(124, 179, 66, 0.3);
+}
+.wr-hero__btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: #F3F6F1;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: 100px;
+  border: 2px solid rgba(243, 246, 241, 0.35);
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.2s ease;
+}
+.wr-hero__btn-secondary:hover {
+  border-color: var(--wr-green-dark);
+  color: var(--wr-green-dark);
+  transform: translateY(-2px);
+}
+/* Stats Panel */
+.wr-hero__stats-panel {
+  width: 100%;
+  max-width: 720px;
+  background: rgba(39, 46, 50, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--wr-radius);
+  padding: 28px 32px;
+}
+.wr-hero__stats-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.wr-hero__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+}
+.wr-hero__stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-weight: 700;
+  color: #F3F6F1;
+  line-height: 1;
+}
+.wr-hero__stat-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: rgba(243, 246, 241, 0.55);
+}
+.wr-hero__stat-divider {
+  width: 1px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .wr-hero__stats-inner { flex-direction: column; gap: 16px; }
+  .wr-hero__stat-divider { width: 60%; height: 1px; }
+}
+
+/* ── TRUST BAR ══ */
+.wr-trust {
+  padding: 40px 0 20px;
+  text-align: center;
+}
+.wr-trust__label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--wr-text-mid);
+  letter-spacing: 0.3px;
+}
+
+/* ── INTRO ══ */
+.wr-intro {
+  padding: 80px 0;
+}
+.wr-intro__container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 5%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.wr-intro__content { max-width: 520px; }
+.wr-intro__title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: var(--wr-text-dark);
+  line-height: 1.2;
+  margin: 0 0 24px;
+  letter-spacing: -0.01em;
+}
+.wr-intro__lead {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--wr-text-mid);
+  margin: 0 0 20px;
+}
+.wr-intro__image-wrap {
+  border-radius: var(--wr-radius);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+.wr-intro__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+@media (max-width: 860px) {
+  .wr-intro__container { grid-template-columns: 1fr; gap: 40px; }
+  .wr-intro { padding: 60px 0; }
+}
+
+/* ── DOWNLOADS ══ */
+.wr-downloads {
+  padding: 80px 0;
+  background: var(--wr-off-white);
+}
+.wr-downloads__head {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 60px;
+}
+.wr-downloads__title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: var(--wr-text-dark);
+  margin: 0 0 16px;
+  letter-spacing: -0.01em;
+}
+.wr-downloads__intro {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--wr-text-mid);
+  margin: 0;
+}
+.wr-downloads__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+.wr-downloads__card {
+  background: #fff;
+  border: 1px solid var(--wr-light-gray);
+  border-radius: var(--wr-radius);
+  padding: 24px 28px;
+}
+.wr-downloads__card--empty {
+  background: #fff;
+  border-style: dashed;
+}
+.wr-downloads__brand {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--wr-green);
+  margin: 0 0 16px;
+}
+.wr-downloads__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.wr-downloads__link {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--wr-text-mid);
+  text-decoration: none;
+  line-height: 1.4;
+  transition: color 0.2s;
+}
+.wr-downloads__link svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.wr-downloads__link:hover {
+  color: var(--wr-green);
+}
+.wr-downloads__empty {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: var(--wr-text-light);
+  line-height: 1.5;
+  margin: 0;
+}
+.wr-downloads__empty a {
+  color: var(--wr-green-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+</style>

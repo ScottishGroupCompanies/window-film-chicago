@@ -1,0 +1,626 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BrandLogos from '../../components/BrandLogos.astro';
+import FlipWords from '../../components/FlipWords.astro';
+import CategoryBlogFeed from '../../components/CategoryBlogFeed.astro';
+
+const title = 'Bird Strike Window Film Salt Lake City | Bird-Safe Glass';
+const description = 'Bird strike window film for Salt Lake City buildings. UV-reflective and fritted patterns that protect birds without changing how your glass looks.';
+const heroImage = '/images/bird-strike-window-film-salt-lake-city-hero.jpg';
+
+const pageSchemas = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://windowfilmsaltlakecity.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Benefits", "item": "https://windowfilmsaltlakecity.com/benefits/" },
+      { "@type": "ListItem", "position": 3, "name": "Bird Strike Window Film", "item": "https://windowfilmsaltlakecity.com/benefits/bird-strike-prevention/" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://windowfilmsaltlakecity.com/benefits/bird-strike-prevention/",
+    "name": title,
+    "description": description,
+    "dateModified": new Date().toISOString().slice(0, 10),
+    "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".br-hero__title", ".br-why__headline", ".swt-faq__a"] }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Bird Strike Window Film Types — Salt Lake City",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Bird Divert UV-Reflective Film", "description": "UV-reflective dot pattern visible to birds, transparent to humans. Meets ABC 2x4 Rule with 2-inch spacing." },
+      { "@type": "ListItem", "position": 2, "name": "Fritted Ceramic Dot Pattern Film", "description": "Opaque ceramic frit dots or stripes applied to glass. ABC-compliant at 50% coverage or greater." },
+      { "@type": "ListItem", "position": 3, "name": "Etched and Textured Decorative Film", "description": "Decorative patterned film that creates visible surface contrast birds detect as a solid barrier." }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Bird Strike Window Film Salt Lake City",
+    "description": "UV-reflective, fritted, and patterned bird-safe window film for Salt Lake City office buildings, universities, hospitals, and government facilities. Protects birds without changing the appearance of your glass.",
+    "brand": { "@type": "Brand", "name": "Window Film Salt Lake City" },
+    "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "areaServed": "Salt Lake City, UT" },
+  }
+];
+
+const faqItems = [
+  { question: 'How does bird strike window film work?', answer: 'Bird strike prevention film works by making glass visible to birds. Birds cannot perceive glass as a solid barrier — they see only reflections of sky and trees. Film creates a visible pattern on the glass surface that birds recognize as a solid object and avoid. UV-reflective films like Bird Divert use UV wavelengths visible to birds but invisible to humans. Fritted and patterned films use physical contrast patterns detectable by birds under all lighting conditions.' },
+  { question: 'Will bird-safe film change the appearance of my building?', answer: 'UV-reflective films like Bird Divert are visually transparent to human observers — the UV dot pattern is not visible to people and does not alter the exterior appearance of the building. Fritted and patterned films create a visible surface treatment — the degree of visual change depends on the pattern density and type. During your consultation we will review all options and show you samples so you can choose the solution that balances bird safety with the aesthetic requirements of your building.' },
+  { question: 'What is the ABC 2x4 Rule for bird-friendly glass?', answer: 'The American Bird Conservancy 2x4 Rule is the most widely adopted standard for bird-friendly glass treatments. It requires that any pattern applied to glass have elements spaced no more than 2 inches apart horizontally and 4 inches apart vertically. This spacing creates a visual barrier dense enough that birds consistently detect and avoid it. Films that meet the 2x4 Rule are considered effective deterrents.' },
+  { question: 'How many birds are killed by window collisions in Salt Lake City each year?', answer: 'Nationwide, estimates range from 600 million to 1 billion bird deaths annually from glass collisions — making building glass one of the leading causes of bird mortality in North America. Salt Lake City is a significant bird migration corridor, particularly during spring and fall migration. Buildings along the Jordan River and in areas adjacent to City Creek Canyon and Jordan River Parkway trails see elevated collision rates due to proximity to migratory routes.' },
+  { question: 'Does Salt Lake City require bird-safe glazing?', answer: 'Salt Lake City has adopted bird-friendly building design requirements for new construction and major renovations in certain categories. The requirements reference the ABC 2x4 Rule and specify minimum coverage for glazing in bird-hazard zones. Our team is familiar with Salt Lake City building code requirements and can document compliance for permit applications. We recommend consulting your architect or permit authority for the specific requirements applicable to your project.' },
+  { question: 'Can bird strike film be applied to existing buildings?', answer: 'Yes. Film is a retrofit solution specifically designed for existing glass. It applies to the existing glass surface without glass removal or replacement and is far more cost-effective than replacing glass with fritted or etched glazing. Most commercial installations can be completed with minimal disruption during normal business hours.' },
+  { question: 'How long does bird-safe window film last?', answer: 'Bird strike prevention films carry manufacturer warranties of 10–15 years for commercial exterior applications and 10 years for interior-applied versions. UV-reflective films like Bird Divert maintain their UV-reflective properties for the duration of the warranty period. Performance longevity depends on film type, application method, and exposure conditions.' },
+  { question: 'Does UV film really work if humans cannot see it?', answer: 'Yes. Birds have tetrachromatic vision — they see four color channels including ultraviolet. Humans are trichromatic and cannot perceive UV wavelengths. Bird Divert film reflects UV light at wavelengths birds detect as bright and solid while remaining visually transparent to human observers. This is the same principle used in UV-reflective spider webs — birds see them clearly as objects to avoid.' },
+  { question: 'Which Salt Lake City buildings are required to have bird-safe glazing?', answer: 'Salt Lake City building code applies bird-friendly glazing requirements to new construction and substantial renovations in specified building categories, particularly buildings exceeding certain square footage thresholds and those in proximity to designated natural areas. Historic buildings may have specific exemptions. Our team reviews your building type and permit category during the consultation and advises on applicable requirements.' },
+  { question: 'How do I get bird strike window film installed in Salt Lake City?', answer: 'Contact us for a free site assessment. We evaluate your building orientation, glass type, existing glazing treatment, and the proximity of bird flight paths and vegetation. We then recommend the appropriate film — UV-reflective, fritted pattern, or decorative — and provide a written proposal with compliance documentation if required. Most installations are completed within a single project window.' }
+];
+
+const sliderSlides = [
+  {
+    label: 'Bird Divert',
+    step: '01',
+    img: '/images/bird-divert-uv-film-salt-lake-city-office-glass.jpg',
+    alt: 'Bird Divert UV-reflective bird strike window film in Salt Lake City on office tower glass',
+    title: 'Bird Divert UV-reflective bird strike window film in Salt Lake City office glass',
+    heading: 'Bird Divert. Invisible to You. Unmistakable to Birds.',
+    desc: 'Bird strike window film in Salt Lake City projects often begin with Bird Divert UV-reflective film because it applies a micro-dot pattern to glass that reflects ultraviolet light at wavelengths birds can see but humans cannot. The dots are spaced at 2-inch intervals horizontally — meeting the ABC 2x4 Rule standard. From inside the building, the glass looks completely clear. From outside, the glass appears unaltered to human observers. Birds detect the UV dots as a solid pattern and consistently avoid the glass. Bird Divert is validated to reduce bird-glass collisions by up to 76% in controlled studies according to the American Bird Conservancy testing program.',
+    faqs: [
+      ['Does Bird Divert actually work indoors at reducing strikes?', "Bird Divert is designed for exterior application on glass surfaces directly in the bird's flight path. Interior-applied versions can help in select conditions, but exterior placement gives birds the earliest and clearest signal."],
+      ['Can I see the dots from inside my office?', 'No. The UV-reflective dots are invisible to human observers under normal lighting conditions, so the interior view remains clear while the exterior glass becomes visible to birds.'],
+      ["Is Bird Divert approved for Salt Lake City's bird-friendly building requirements?", "Yes. Bird Divert meets the ABC 2x4 Rule specifications referenced in Salt Lake City's bird-friendly building requirements, and we provide compliance documentation for project files."]
+    ],
+    cta: 'Get a Bird Divert estimate →'
+  },
+  {
+    label: 'Fritted Pattern',
+    step: '02',
+    img: '/images/fritted-pattern-bird-safe-film-salt-lake-city.jpg',
+    alt: 'Fritted ceramic bird safe film in Salt Lake City applied to commercial glass',
+    title: 'Fritted pattern bird-safe glass film for Salt Lake City commercial buildings',
+    heading: 'Fritted Pattern. Visible Coverage. ABC Compliant.',
+    desc: 'Fritted ceramic dot or stripe pattern films apply an opaque physical pattern to the glass surface. Unlike UV films, fritted patterns are visible to both birds and human observers — the pattern creates a clear visual barrier that birds consistently avoid. Patterns spaced at 2 inches horizontal × 4 inches vertical achieve at least 50% coverage, the threshold at which collisions are reliably prevented. This is the most widely specified bird-safe film type for Salt Lake City new construction compliance. Bird safe film in Salt Lake City fritted applications typically covers 50–100% of the glass area depending on the pattern density required.',
+    faqs: [
+      ['How visible is the fritted pattern?', 'It is visible by design. The pattern can be subtle, architectural, or graphic, but it must create enough contrast and density for birds to read the surface as solid.'],
+      ['Can you provide compliance documentation?', 'Yes. For bird strike window film in Salt Lake City code reviews, we provide pattern spacing, coverage, product data, and ABC 2x4 Rule documentation for architects and permit files.'],
+      ['Are there aesthetic options beyond dots?', 'Yes. Dots, lines, gradients, and custom decorative layouts can be specified as long as the pattern spacing and coverage meet bird-safe criteria.']
+    ],
+    cta: 'Get a fritted film estimate →'
+  },
+  {
+    label: 'Decorative',
+    step: '03',
+    img: '/images/bird-safe-film-salt-lake-city-decorative-pattern.jpg',
+    alt: 'Decorative patterned bird strike window film in Salt Lake City lobby glass',
+    title: 'Decorative patterned bird strike prevention film for Salt Lake City glass',
+    heading: 'Decorative Pattern. Bird Safety Meets Design.',
+    desc: 'Decorative etched, textured, and patterned films can meet bird-safe standards when the pattern density and element spacing are specified to meet the ABC 2x4 Rule. This approach is popular for bird strike window film in Salt Lake City buildings where bird safety requirements intersect with design goals — the same film delivers code compliance and a distinctive architectural statement. 3M Fasara and Solyx decorative series both offer patterns that can be specified for bird-safe compliance.',
+    faqs: [
+      ['Do decorative patterns count for compliance?', 'They can. Decorative film must be dense enough and spaced correctly; we review the selected pattern against the ABC 2x4 Rule before recommending it for compliance use.'],
+      ['Can the pattern match our architecture?', 'Yes. We can use etched, frosted, gradient, or custom graphic patterns so the bird-safe treatment looks intentional on lobbies, bridges, and campus buildings.'],
+      ['Can this support LEED goals?', 'Bird-friendly design strategies may support sustainability narratives and project documentation. We provide product and pattern records your design team can include in LEED or owner requirement files.']
+    ],
+    cta: 'Explore decorative bird-safe options →'
+  }
+];
+
+const gallery = [
+  ['/images/bird-strike-window-film-installation-salt-lake-city.jpg', 'Office tower bird strike window film in Salt Lake City installation in Downtown Salt Lake City', 'Office tower installation — Downtown Salt Lake City'],
+  ['/images/bird-safe-film-salt-lake-city-office-tower.jpg', 'Bird-safe film on Salt Lake City university campus glass in University District', 'University campus — University District'],
+  ['/images/bird-strike-prevention-film-salt-lake-city-campus.jpg', 'Bird strike prevention film on Salt Lake City hospital health campus glass', 'Hospital health campus — Salt Lake City'],
+  ['/images/bird-safety-window-film-salt-lake-city-hospital.jpg', 'Bird safety film on Salt Lake City commercial high-rise glass facade', 'Commercial high-rise — Market Street'],
+  ['/images/bird-divert-film-salt-lake-city-commercial.jpg', 'Bird Divert film on Salt Lake City government building glass', 'Government building — The Avenues'],
+  ['/images/bird-safe-glass-film-salt-lake-city-residential.jpg', 'Bird-safe glass film on Salt Lake City residential building near City Creek Canyon', 'Residential building — City Creek Canyon']
+];
+
+const panels = [
+  ['/images/bird-strike-film-salt-lake-city-office-building.jpg', 'Office Towers', 'Downtown Salt Lake City glass curtain walls along migration corridors', 'Bird strike window film in Salt Lake City office towers treats high-reflection glass where sky, trees, and river corridors mirror into the facade. UV-reflective or fritted films preserve the commercial look while helping birds detect the barrier.'],
+  ['/images/bird-safety-film-salt-lake-city-university-campus.jpg', 'Universities & Campuses', 'The University of Utah, Utah Valley University, and Weber State with large glass facades', 'Campus buildings often combine transparent bridges, atriums, and landscaped courtyards. Bird strike window film in Salt Lake City campus projects can be specified as Bird Divert, fritted pattern, or decorative film tied to architecture.'],
+  ['/images/bird-strike-window-film-salt-lake-city-hospital.jpg', 'Hospitals & Medical', 'Intermountain Health, University of Utah Health, Primary Children\'s Hospital, campus buildings near green space', 'Medical campuses use large windows near courtyards, trees, and patient gardens. Bird-safe treatments reduce collision risk without darkening patient rooms or public corridors.'],
+  ['/images/bird-safe-film-salt-lake-city-government-building.jpg', 'Government & Civic', 'Municipal buildings, federal facilities, civic architecture', 'Civic buildings need durable, documented treatments that respect architecture and public visibility. Patterned bird-safe glazing gives facility teams a retrofit path without replacing existing glass.']
+];
+
+const resources = [
+  ['/resources/bird-strike-window-film-abc-bird-friendly-building-design-guidelines-salt-lake-city.pdf', 'American Bird Conservancy — Bird-Friendly Building Design Guidelines'],
+  ['/resources/bird-strike-window-film-3m-scotchshield-bird-divert-spec-salt-lake-city.pdf', 'Bird Divert UV-Reflective Film — Product Specification'],
+  ['/resources/bird-strike-window-film-solyx-fritted-pattern-spec-salt-lake-city.pdf', 'Solyx Fritted Pattern Film — Bird-Safe Specification'],
+  ['/resources/bird-strike-window-film-llumar-bird-safe-architectural-spec-salt-lake-city.pdf', 'LLumar Architectural Film — Bird-Safe Application Guide'],
+  ['/resources/bird-strike-window-film-collision-research-american-bird-conservancy-salt-lake-city.pdf', 'Bird-Glass Collision Research — American Bird Conservancy']
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  ogImage={heroImage}
+  serviceName="Bird Strike Window Film"
+  serviceDesc="Bird strike window film in Salt Lake City for office buildings, campuses, hospitals, and civic facilities that need UV-reflective, fritted, or patterned bird-safe glass."
+  serviceUrl="https://windowfilmsaltlakecity.com/benefits/bird-strike-prevention/"
+  faqItems={faqItems}
+  schemas={pageSchemas}
+>
+  <section class="br-hero">
+    <div class="br-hero__bg" style={`background-image: url('${heroImage}')`} role="img" aria-label="Bird strike window film in Salt Lake City on commercial bird-safe glass"></div>
+    <div class="br-hero__overlay"></div>
+    <div class="br-hero__content">
+      <p class="br-hero__eyebrow">Salt Lake City Bird-Safe Glazing</p>
+      <h1 class="br-hero__title">Bird Strike Window Film for Salt Lake City</h1>
+      <p class="br-hero__animated-line">
+        <FlipWords
+          words={["for Office Towers", "for Universities", "for Hospitals", "for Government Buildings"]}
+          staticText=""
+          class="br-hero__flip"
+        />
+      </p>
+      <p class="br-hero__subtitle">UV-reflective and patterned films that make your glass visible to birds — installed on Salt Lake City commercial buildings without changing how your glass looks from inside or out.</p>
+      <div class="br-hero__cta">
+        <a href="/contact/" class="br-btn br-btn--primary">Get a Free Assessment</a>
+        <a href="tel:8018954681" class="br-btn br-btn--ghost">Call (801) 895-4681</a>
+      </div>
+      <div class="br-hero__stats-panel" aria-label="Bird strike prevention statistics">
+        <div><strong>1 Billion</strong><span>Birds/year from glass</span></div>
+        <div><strong>ABC 2×4</strong><span>Rule Compliant</span></div>
+        <div><strong>99%</strong><span>UV Blocked</span></div>
+        <div><strong>10–15yr</strong><span>Manufacturer Warranty</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="swt-body">
+    <section class="swt-trust">
+      <div class="container">
+        <p class="swt-trust__label">Trusted by Salt Lake City office buildings, universities, hospitals, and building owners along migration corridors.</p>
+        <BrandLogos />
+      </div>
+    </section>
+
+    <section class="br-why" id="problem">
+      <div class="br-why__container">
+        <div class="br-why__image-wrap">
+          <img src="/images/bird-strike-window-film-salt-lake-city-problem.jpg" alt="Bird strike window film in Salt Lake City protecting reflective glass near trees" title="Bird strike window film in Salt Lake City problem glass near vegetation" class="br-why__image" loading="lazy" />
+          <div class="br-why__stat-card">600M–1B birds killed by glass annually in the U.S. — American Bird Conservancy</div>
+        </div>
+        <div class="br-why__content">
+          <p class="br-eyebrow">The Problem</p>
+          <h2 class="br-why__headline">Salt Lake City Glass Is Invisible to Birds — and Lethal</h2>
+          <p>Bird strike window film in Salt Lake City solves a glass visibility problem, not a tinting problem. Birds read reflected trees, sky, and water as flyable habitat, so a clear facade can become a lethal barrier during migration.</p>
+          <ul class="br-checks">
+            <li>Birds cannot perceive glass as a solid surface — they see only reflections of sky and vegetation.</li>
+            <li>Salt Lake City sits along the Atlantic Flyway, one of North America's busiest bird migration corridors. Buildings near the Jordan River, City Creek Canyon, and the Jordan River Parkway see the highest collision rates.</li>
+            <li>Bird safety window film for Salt Lake City buildings is now required for many new construction projects under local building code referencing the ABC 2x4 Rule.</li>
+            <li>Without treatment, standard commercial glass — even glass that looks tinted — is effectively invisible to migrating birds.</li>
+          </ul>
+          <p class="br-why__closing">"Building glass kills hundreds of millions of birds every year — it is one of the top direct human-caused sources of bird mortality," according to the <a href="https://abcbirds.org/glass-collisions/" target="_blank" rel="noopener">American Bird Conservancy</a>. Salt Lake City sits on the Atlantic Flyway, a migration corridor used by an estimated 500 million birds each year, making untreated glass along the Jordan River and City Creek Canyon corridors especially hazardous. Where design is also a priority, Window Film Salt Lake City can coordinate bird strike window film in Salt Lake City with <a href="/benefits/decorative-promotional/">decorative window film</a> that gives glass a visible, intentional pattern. Salt Lake City buildings near the Jordan River corridor or City Creek Canyon Valley may also benefit from our <a href="/applications/office/">commercial office window film</a> services, which cover energy, glare, and safety alongside bird-safe glazing.</p>
+          <a href="/contact/" class="br-link">Schedule a glass risk review →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="br-slider" id="brSlider" aria-label="Bird-safe film types">
+      <div class="br-slider__track" id="brTrack">
+        {sliderSlides.map((slide) => (
+          <article class="br-slider__slide">
+            <img src={slide.img} alt={slide.alt} title={slide.title} class="br-slider__bg" loading="lazy" />
+            <div class="br-slider__overlay"></div>
+            <div class="br-slider__content">
+              <p class="br-slider__step">{slide.step}</p>
+              <h2 class="br-slider__title">{slide.heading}</h2>
+              <p class="br-slider__desc">{slide.desc}</p>
+              <div class="br-slider__faq">
+                {slide.faqs.map(([question, answer]) => (
+                  <details class="br-slider__faq-item">
+                    <summary>{question}</summary>
+                    <p>{answer}</p>
+                  </details>
+                ))}
+              </div>
+              <a href="/contact/" class="br-slider__cta">{slide.cta}</a>
+            </div>
+          </article>
+        ))}
+      </div>
+      <nav class="br-slider__nav" aria-label="Bird strike film type slides">
+        {sliderSlides.map((slide, i) => <button class:list={["br-slider__nav-item", { "is-active": i === 0 }]} data-brnav={i}>{slide.label}</button>)}
+      </nav>
+      <button class="br-slider__arrow br-slider__arrow--prev" id="brPrev" aria-label="Previous slide">‹</button>
+      <button class="br-slider__arrow br-slider__arrow--next" id="brNext" aria-label="Next slide">›</button>
+    </section>
+
+    <section class="br-bento" id="technology">
+      <div class="br-section-head">
+        <p class="br-eyebrow">Why It Works</p>
+        <h2>What makes glass visible to birds?</h2>
+        <p>Bird-safe window film turns reflective Salt Lake City glass into a readable surface while preserving daylight, views, and architectural intent.</p>
+      </div>
+      <div class="br-bento__grid">
+        <article class="br-bento-card br-bento-card--hero">
+          <svg width="58" height="58" viewBox="0 0 58 58" fill="none" aria-hidden="true"><path d="M10 40c11-4 17-14 19-28 8 6 10 16 5 28" stroke="#A8C96B" stroke-width="2" stroke-linecap="round"/><rect x="38" y="8" width="10" height="42" rx="2" stroke="#A8C96B" stroke-width="2"/><path d="M42 14h4M42 23h4M42 32h4M42 41h4" stroke="#A8C96B" stroke-width="1.5"/></svg>
+          <h3>UV Wavelengths Birds See. Humans Don't.</h3>
+          <p>Birds have tetrachromatic vision — they see 4 color channels including UV, which makes UV-reflective films detectable as solid objects while remaining invisible to human observers. That is why this treatment can protect Salt Lake City flight paths without forcing a dark or heavy facade change.</p>
+          <span class="br-pill">Bird Tetrachromatic Vision</span>
+        </article>
+        <article class="br-bento-card br-bento-card--photo">
+          <img src="/images/bird-strike-window-film-salt-lake-city-building.jpg" alt="Bird strike window film in Salt Lake City on reflective building exterior" title="Bird strike window film in Salt Lake City building exterior" loading="lazy" />
+          <div><h3>Exterior Glass Facades</h3><p>UV-reflective dots suit buildings where appearance cannot change.</p></div>
+        </article>
+        <article class="br-bento-card br-bento-card--photo">
+          <img src="/images/bird-safety-window-film-salt-lake-city-high-rise.jpg" alt="Bird-safe high-rise film installation for Salt Lake City office glass" title="Bird-safe high-rise film installation in Salt Lake City" loading="lazy" />
+          <div><h3>Campus & High-Rise Zones</h3><p>Patterned glass treatments protect migration corridors around tall glass.</p></div>
+        </article>
+        <article class="br-bento-card br-bento-card--dark">
+          <h3>Meets ABC 2×4 Rule</h3>
+          <p>Dots, stripes, or textures are specified so open spaces between pattern elements stay within the 2-inch by 4-inch standard birds detect.</p>
+          <span class="br-pill">Compliance Ready</span>
+        </article>
+        <article class="br-bento-card br-bento-card--dark">
+          <h3>No Glass Replacement Required</h3>
+          <p>Bird-safe film retrofits existing glass, avoiding full glazing replacement while creating measurable contrast birds can detect.</p>
+          <span class="br-pill">Retrofit Friendly</span>
+        </article>
+        <article class="br-bento-card br-bento-card--retail">
+          <img src="/images/bird-safe-film-salt-lake-city-glass-wall.jpg" alt="Bird strike prevention film on Salt Lake City glass wall with bird-safe pattern" title="Bird-safe film on Salt Lake City glass wall" loading="lazy" />
+          <div><span class="br-pill">Up to 76%</span><h3>Collision Reduction</h3><p>UV-reflective film has reduced bird-glass collisions by up to 76% in ABC testing.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="br-masonry">
+      <div class="br-section-head">
+        <p class="br-eyebrow">Our Work</p>
+        <h2>Bird-Safe Glass Installed Across Salt Lake City</h2>
+        <p>Installed bird-safe glass treatments for offices, universities, hospitals, civic buildings, and residential properties near active habitat.</p>
+      </div>
+      <div class="br-masonry__grid">
+        {gallery.map(([src, alt, caption]) => (
+          <figure class="br-masonry__item">
+            <img src={src} alt={alt} title={alt} loading="lazy" />
+            <figcaption>{caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+
+    <section class="br-panels">
+      <div class="br-section-head">
+        <p class="br-eyebrow">WHERE WE INSTALL</p>
+        <h2>Bird-Safe Glass Across Salt Lake City</h2>
+        <p>Bird-safe glazing treatment is most urgent where Salt Lake City reflective glass intersects vegetation, river corridors, campus landscapes, and night-lit facades.</p>
+      </div>
+      <div class="br-panels__grid">
+        {panels.map(([src, title, sub, desc]) => (
+          <article class="br-panels__panel">
+            <img src={src} alt={`${title} bird strike window film in Salt Lake City`} title={`${title} bird-safe glass in Salt Lake City`} loading="lazy" />
+            <div class="br-panels__overlay"></div>
+            <div class="br-panels__content">
+              <h3>{title}</h3>
+              <p class="br-panels__sub-sm">{sub}</p>
+              <p>{desc}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="swt-stats">
+      <div class="container br-stats__row">
+        <div><strong>600M–1B</strong><span>Birds killed by building glass annually (U.S.)</span></div>
+        <div><strong>ABC 2×4</strong><span>Rule standard met by Bird Divert and fritted films</span></div>
+        <div><strong>76%</strong><span>Collision reduction from UV-reflective film (ABC testing)</span></div>
+        <div><strong>10–15yr</strong><span>Manufacturer warranty on commercial bird-safe films</span></div>
+      </div>
+    </section>
+
+    <section class="br-process-split">
+      <div class="br-process-split__container">
+        <div>
+          <p class="br-eyebrow">Process</p>
+          <h2>From Collision Risk to Documented Bird-Safe Glass</h2>
+          <details open>
+            <summary>01 Site Assessment</summary>
+            <p>We evaluate your building's glass orientation, proximity to vegetation and flight paths, and applicable Salt Lake City building code requirements. We identify which glass zones require treatment.</p>
+          </details>
+          <details>
+            <summary>02 Film Selection & Compliance Review</summary>
+            <p>We recommend the appropriate bird-safe film type — UV-reflective, fritted, or decorative — and provide ABC 2x4 Rule compliance documentation for permit applications if required. Salt Lake City bird-safe projects often involve architects, sustainability managers, and facilities teams — so the documentation is built for review.</p>
+          </details>
+          <details>
+            <summary>03 Installation & Documentation</summary>
+            <p>Our certified installers apply the film to exterior or interior glass surfaces. We provide a written warranty and compliance record for your building files.</p>
+          </details>
+        </div>
+        <img src="/images/bird-strike-film-installation-process-salt-lake-city.jpg" alt="Bird strike window film installation process in Salt Lake City commercial building" title="Bird strike film installation process in Salt Lake City" loading="lazy" />
+      </div>
+    </section>
+
+    <section class="br-reviews">
+      <div class="br-section-head">
+        <p class="br-eyebrow">Reviews</p>
+        <h2>Salt Lake City Building Teams Protecting Birds</h2>
+        <p>Project-specific feedback from Salt Lake City building owners and facility managers who addressed active bird collision zones with UV-reflective and fritted film.</p>
+      </div>
+      <div class="br-reviews__grid">
+        <article>
+          <img src="/images/bird-safe-film-salt-lake-city-client-review-1.jpg" alt="Karen B. Salt Lake City bird-safe film client review" title="Karen B. bird-safe film client review in Salt Lake City" loading="lazy" />
+          <p class="stars">★★★★★</p>
+          <blockquote>"Our Downtown Salt Lake City office tower was killing dozens of birds every year. After the Bird Divert film went on the south facade, we've had zero strikes reported. The film is invisible from inside and looks completely normal from the street."</blockquote>
+          <h3>Karen B.</h3>
+          <p>Sustainability Manager — Downtown Salt Lake City Office Tower</p>
+        </article>
+        <article>
+          <img src="/images/bird-safety-window-film-salt-lake-city-client-review-2.jpg" alt="Thomas R. Salt Lake City bird safety window film client review" title="Thomas R. bird safety film client review in Salt Lake City" loading="lazy" />
+          <p class="stars">★★★★★</p>
+          <blockquote>"the University of Utah required bird-safe glazing for our new academic building. The fritted film solution was the most cost-effective option and the compliance documentation was thorough."</blockquote>
+          <h3>Thomas R.</h3>
+          <p>Facilities Director — University District Campus</p>
+        </article>
+        <article>
+          <img src="/images/bird-strike-film-salt-lake-city-client-review-3.jpg" alt="Diane M. Salt Lake City bird strike film client review" title="Diane M. bird strike film client review in Salt Lake City" loading="lazy" />
+          <p class="stars">★★★★★</p>
+          <blockquote>"The City Creek Canyon watershed runs right past our building. We installed bird-safe film after seeing too many casualties. The installation was done over a weekend and we've seen a dramatic reduction."</blockquote>
+          <h3>Diane M.</h3>
+          <p>Property Manager — City Creek Canyon Area</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="film-table" id="compare">
+      <div class="film-table__inner">
+        <div class="br-section-head">
+          <p class="br-eyebrow">Product Data</p>
+          <h2>Bird-Safe Window Film — Product Comparison</h2>
+          <p>Performance specifications for bird strike prevention films we install in Salt Lake City.</p>
+        </div>
+        <div class="film-table__scroll">
+          <table class="film-table__tbl" aria-label="Bird-safe window film product comparison">
+            <thead>
+              <tr><th>Product</th><th>Manufacturer</th><th>Type</th><th>Pattern Spacing</th><th>UV-Reflective</th><th>VLT</th><th>ABC 2×4 Compliant</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Bird Divert</td><td>Arnold Glas</td><td>UV-Reflective Dot</td><td>2" × 2"</td><td>Yes</td><td>&gt;95%</td><td>Yes</td></tr>
+              <tr><td>Feather Friendly</td><td>FLAP Canada</td><td>Dot Marker</td><td>2" × 4"</td><td>No (opaque)</td><td>Varies</td><td>Yes</td></tr>
+              <tr><td>3M Fasara Matte</td><td>3M</td><td>Fritted Frost</td><td>Custom</td><td>No</td><td>81%</td><td>When specified at 50%</td></tr>
+              <tr><td>Solyx SX-1305</td><td>Solyx</td><td>Textured</td><td>Custom</td><td>No</td><td>65%</td><td>When specified at 50%</td></tr>
+
+            </tbody>
+          </table>
+        </div>
+        <p class="film-table__source">Source: American Bird Conservancy product testing database; manufacturer product bulletins. Recommendations vary by glass type, facade orientation, and Salt Lake City code requirement.</p>
+      </div>
+    </section>
+
+    <section class="res-section">
+      <div class="res-section__inner">
+        <img src="/images/bird-strike-window-film-specs-resources-salt-lake-city.jpg" alt="Bird strike window film specification documents and ABC compliance guides for Salt Lake City" title="Bird strike window film specification documents and ABC compliance guides for Salt Lake City" loading="lazy" />
+        <div>
+          <p class="br-eyebrow">SPECS, COMPLIANCE & GUIDES</p>
+          <h2>ABC Compliance Guides &amp; Film Specifications</h2>
+          <p>ABC 2x4 Rule compliance guides, manufacturer product specs, and bird-friendly building design references for the bird strike prevention films we install across Salt Lake City.</p>
+          <ul>
+            {resources.map(([href, label]) => (
+              <li><a href={href} target="_blank" rel="noopener noreferrer">{label}</a></li>
+            ))}
+          </ul>
+          <a href="/contact/" class="br-link">Request specification support →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="swt-faq br-faq" id="faq">
+      <div class="container">
+        <div class="swt-faq__layout">
+          <div class="swt-faq__header">
+            <span class="br-eyebrow">Questions</span>
+            <h2>Frequently Asked Questions</h2>
+            <p>Everything you need to know about bird strike window film for Salt Lake City buildings.</p>
+            <a href="/contact/" class="br-btn br-btn--primary">Talk to a Specialist</a>
+          </div>
+          <div class="swt-faq__list">
+            {faqItems.map((item) => (
+              <div class="swt-faq__item">
+                <button class="swt-faq__q" type="button">
+                  <span>{item.question}</span>
+                  <span class="swt-faq__toggle">+</span>
+                </button>
+                <div class="swt-faq__a">
+                  <p set:html={item.answer}></p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="br-cta">
+      <div>
+        <p class="br-eyebrow">Bird-Safe Retrofit</p>
+        <h2>Make Your Glass Visible Before Migration Peaks</h2>
+        <p>Schedule a bird-safe glass assessment for your Salt Lake City office tower, campus, hospital, civic property, or residential building near habitat.</p>
+        <a href="/contact/" class="br-btn br-btn--primary">Get a Free Assessment</a>
+      </div>
+    </section>
+
+
+</div>
+<CategoryBlogFeed categorySlug="bird-strike" feedTitle="Latest Bird Strike Prevention Articles" />
+</BaseLayout>
+
+<style>
+  :root { --br-dark:#101b14; --br-green:#7CB342; --br-green-2:#A8C96B; --br-cream:#F5F3EE; --br-text:#3F4F44; --br-border:#DDE5D8; }
+  .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+  .swt-body { background:#fff; color:var(--br-text); }
+  .br-eyebrow { margin:0 0 12px; font:700 11px/1.2 Inter, sans-serif; letter-spacing:.16em; text-transform:uppercase; color:var(--br-green); }
+  .br-section-head { max-width:780px; margin:0 auto 44px; padding:0 24px; text-align:center; }
+  .br-section-head h2, .br-why__headline, .br-process-split h2, .res-section h2, .swt-faq h2, .br-cta h2 { margin:0 0 16px; font-family:'Fraunces', Georgia, serif; font-size:clamp(2rem,4vw,3.2rem); line-height:1.12; color:#14201A; font-weight:500; }
+  .br-section-head p, .br-why p, .br-process-split p, .res-section p, .swt-faq p, .br-cta p { font:400 16px/1.75 Inter, sans-serif; }
+  .br-btn { display:inline-flex; align-items:center; justify-content:center; border-radius:999px; padding:14px 28px; font:700 15px/1 Inter, sans-serif; text-decoration:none; transition:.2s ease; }
+  .br-btn--primary { background:var(--br-green); color:#fff; border:2px solid var(--br-green); }
+  .br-btn--primary:hover { background:#5D8D2F; border-color:#5D8D2F; transform:translateY(-2px); }
+  .br-btn--ghost { color:#fff; border:2px solid rgba(255,255,255,.42); }
+  .br-link { color:#4E6B2A; font-weight:800; text-decoration:underline; text-underline-offset:3px; }
+  .br-hero { position:relative; min-height:100vh; display:grid; place-items:center; overflow:hidden; background:var(--br-dark); }
+  .br-hero__bg, .br-hero__overlay { position:absolute; inset:0; }
+  .br-hero__bg { background-size:cover; background-position:center; }
+  .br-hero__overlay { background:linear-gradient(180deg, rgba(12,24,16,.66), rgba(12,24,16,.94)); }
+  .br-hero__content { position:relative; z-index:2; max-width:920px; padding:120px 24px 80px; text-align:center; color:#fff; }
+  .br-hero__eyebrow { display:inline-flex; border:1px solid rgba(168,201,107,.32); background:rgba(168,201,107,.12); border-radius:999px; padding:8px 16px; color:var(--br-green-2); font:800 12px/1 Inter, sans-serif; letter-spacing:.12em; text-transform:uppercase; }
+  .br-hero__title { margin:28px 0 12px; font-family:'Fraunces', Georgia, serif; font-size:clamp(2.7rem,6vw,5.6rem); line-height:.98; font-weight:500; color:#fff; }
+  .br-hero__animated-line { min-height:2.3em; margin:0 0 18px; font-family:'Fraunces', Georgia, serif; font-size:clamp(1.3rem,3vw,2.2rem); font-style:italic; color:#fff; }
+  .br-hero__subtitle { max-width:760px; margin:0 auto 34px; color:rgba(255,255,255,.78); font:400 17px/1.8 Inter, sans-serif; }
+  .br-hero__cta { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-bottom:46px; }
+  .br-hero__stats-panel { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.14); border-radius:18px; overflow:hidden; backdrop-filter:blur(14px); }
+  .br-hero__stats-panel div { padding:20px 14px; background:rgba(14,28,18,.62); }
+  .br-hero__stats-panel strong { display:block; color:var(--br-green-2); font:800 clamp(1.25rem,2vw,1.8rem)/1 'Space Mono', monospace; }
+  .br-hero__stats-panel span { display:block; margin-top:7px; color:rgba(255,255,255,.72); font:700 11px/1.35 Inter, sans-serif; text-transform:uppercase; letter-spacing:.06em; }
+  .swt-trust { background:#fff; border-bottom:1px solid var(--br-border); padding:34px 0; text-align:center; }
+  .swt-trust__label { margin:0 0 18px; color:#5D695F; font:800 12px/1.5 Inter, sans-serif; letter-spacing:.08em; text-transform:uppercase; }
+  .br-why { padding:110px 24px; background:var(--br-cream); }
+  .br-why__container { max-width:1220px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:center; }
+  .br-why__image-wrap { position:relative; }
+  .br-why__image { width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:18px; display:block; box-shadow:0 26px 70px rgba(16,27,20,.18); }
+  .br-why__stat-card { position:absolute; left:-22px; bottom:30px; max-width:300px; padding:18px 20px; border-radius:14px; background:rgba(16,27,20,.88); color:#fff; font:800 15px/1.45 Inter, sans-serif; box-shadow:0 18px 40px rgba(0,0,0,.22); }
+  .br-checks { list-style:none; padding:0; margin:24px 0; display:grid; gap:14px; }
+  .br-checks li { position:relative; padding-left:28px; font:400 15px/1.7 Inter, sans-serif; }
+  .br-checks li:before { content:""; position:absolute; left:0; top:.6em; width:10px; height:10px; border-radius:50%; background:var(--br-green); }
+  .br-why__closing { border-left:3px solid var(--br-green); padding-left:18px; font-style:italic; }
+  .br-why__closing a, .br-slider__faq a, .res-section a { color:#4E6B2A; font-weight:800; text-decoration:underline; text-underline-offset:3px; }
+  .br-slider { position:relative; min-height:92vh; overflow:hidden; background:#111; }
+  .br-slider__track { display:flex; transition:transform .55s ease; }
+  .br-slider__slide { min-width:100%; min-height:92vh; position:relative; display:flex; align-items:center; }
+  .br-slider__bg, .br-slider__overlay { position:absolute; inset:0; width:100%; height:100%; }
+  .br-slider__bg { object-fit:cover; }
+  .br-slider__overlay { background:linear-gradient(90deg, rgba(0,0,0,.82), rgba(0,0,0,.44), rgba(0,0,0,.14)); }
+  .br-slider__content { position:relative; z-index:2; max-width:640px; padding:90px 24px 90px 7vw; color:#fff; }
+  .br-slider__step { color:var(--br-green-2); font:800 13px/1 'Space Mono', monospace; letter-spacing:.2em; }
+  .br-slider__title { margin:0 0 18px; color:#fff; font-family:'Fraunces', Georgia, serif; font-size:clamp(2.2rem,4.2vw,4rem); line-height:1.05; font-weight:500; }
+  .br-slider__desc { color:rgba(255,255,255,.83); font:400 16px/1.75 Inter, sans-serif; }
+  .br-slider__faq { display:grid; gap:8px; margin:22px 0; }
+  .br-slider__faq-item { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.15); border-radius:10px; padding:0 16px; }
+  .br-slider__faq-item summary { cursor:pointer; padding:14px 0; font:800 14px/1.35 Inter, sans-serif; }
+  .br-slider__faq-item p { margin:0; padding:0 0 14px; color:rgba(255,255,255,.78); font:400 14px/1.65 Inter, sans-serif; }
+  .br-slider__cta { display:inline-flex; border-radius:999px; background:var(--br-green); color:#fff; text-decoration:none; padding:13px 24px; font:800 14px/1 Inter, sans-serif; }
+  .br-slider__nav { position:absolute; right:32px; top:50%; transform:translateY(-50%); z-index:5; display:grid; gap:10px; }
+  .br-slider__nav-item { border:1px solid rgba(255,255,255,.24); background:rgba(0,0,0,.38); color:#fff; border-radius:999px; padding:10px 14px; cursor:pointer; font:800 11px/1 Inter, sans-serif; text-transform:uppercase; letter-spacing:.08em; }
+  .br-slider__nav-item.is-active { background:var(--br-green); border-color:var(--br-green); }
+  .br-slider__arrow { position:absolute; bottom:24px; z-index:5; width:48px; height:48px; border-radius:50%; border:1px solid rgba(255,255,255,.32); background:rgba(0,0,0,.36); color:#fff; font-size:32px; cursor:pointer; }
+  .br-slider__arrow--prev { right:92px; } .br-slider__arrow--next { right:32px; }
+  .br-bento { padding:110px 24px; background:var(--br-dark); color:#fff; }
+  .br-bento .br-section-head h2, .br-bento .br-section-head p { color:#fff; }
+  .br-bento__grid { max-width:1220px; margin:0 auto; display:grid; grid-template-columns:repeat(12,1fr); gap:18px; }
+  .br-bento-card { border-radius:18px; overflow:hidden; min-height:260px; position:relative; background:#19281D; border:1px solid rgba(168,201,107,.16); }
+  .br-bento-card--hero { grid-column:span 6; padding:42px; display:flex; flex-direction:column; justify-content:center; }
+  .br-bento-card--photo { grid-column:span 3; }
+  .br-bento-card--dark, .br-bento-card--retail { grid-column:span 4; padding:32px; }
+  .br-bento-card img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .35s ease; }
+  .br-bento-card:hover img { transform:scale(1.04); }
+  .br-bento-card--photo div, .br-bento-card--retail div { position:absolute; inset:auto 0 0; padding:28px; background:linear-gradient(0deg, rgba(0,0,0,.86), transparent); }
+  .br-bento-card h3 { margin:0 0 10px; color:#fff; font-family:'Fraunces', Georgia, serif; font-size:clamp(1.3rem,2vw,2rem); line-height:1.12; }
+  .br-bento-card p { margin:0 0 18px; color:rgba(255,255,255,.78); font:400 14px/1.7 Inter, sans-serif; }
+  .br-pill { display:inline-flex; align-self:flex-start; border:1px solid rgba(168,201,107,.28); background:rgba(168,201,107,.12); color:var(--br-green-2); border-radius:999px; padding:6px 11px; font:800 10px/1 Inter, sans-serif; letter-spacing:.12em; text-transform:uppercase; }
+  .br-masonry { padding:105px 0; background:var(--br-cream); }
+  .br-masonry__grid { max-width:1220px; margin:0 auto; padding:0 24px; columns:3; column-gap:18px; }
+  .br-masonry__item { break-inside:avoid; margin:0 0 18px; position:relative; border-radius:15px; overflow:hidden; background:#ddd; }
+  .br-masonry__item img { width:100%; display:block; }
+  .br-masonry__item figcaption { position:absolute; left:0; right:0; bottom:0; padding:34px 16px 14px; color:#fff; background:linear-gradient(0deg, rgba(0,0,0,.78), transparent); font:800 13px/1.3 Inter, sans-serif; }
+  .br-panels { padding:100px 0 0; background:#fff; }
+  .br-panels__grid { display:grid; grid-template-columns:repeat(4,1fr); }
+  .br-panels__panel { position:relative; min-height:560px; overflow:hidden; color:#fff; }
+  .br-panels__panel img, .br-panels__overlay { position:absolute; inset:0; width:100%; height:100%; }
+  .br-panels__panel img { object-fit:cover; transition:transform .4s ease; }
+  .br-panels__panel:hover img { transform:scale(1.05); }
+  .br-panels__overlay { background:linear-gradient(0deg, rgba(0,0,0,.88), rgba(0,0,0,.16)); }
+  .br-panels__content { position:absolute; inset:auto 0 0; padding:28px; }
+  .br-panels__content h3 { margin:0 0 8px; font-family:'Fraunces', Georgia, serif; font-size:28px; color:#fff; }
+  .br-panels__content p { font:400 14px/1.65 Inter, sans-serif; color:rgba(255,255,255,.82); }
+  .br-panels__sub-sm { font-weight:800!important; color:#fff!important; }
+  .swt-stats { padding:46px 0; background:#4E6B2A; color:#fff; }
+  .br-stats__row { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; text-align:center; }
+  .br-stats__row strong { display:block; font:800 clamp(1.8rem,3vw,2.6rem)/1 'Space Mono', monospace; }
+  .br-stats__row span { display:block; margin-top:9px; font:700 12px/1.4 Inter, sans-serif; text-transform:uppercase; letter-spacing:.06em; opacity:.86; }
+  .br-process-split { padding:110px 24px; background:var(--br-cream); }
+  .br-process-split__container { max-width:1220px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:center; }
+  .br-process-split details { background:#fff; border:1px solid var(--br-border); border-radius:12px; margin:12px 0; padding:0 20px; }
+  .br-process-split summary { cursor:pointer; padding:18px 0; color:#14201A; font:800 16px/1.4 Inter, sans-serif; }
+  .br-process-split img { width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:18px; display:block; }
+  .br-reviews { padding:105px 24px; background:#fff; }
+  .br-reviews__grid { max-width:1220px; margin:0 auto; display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .br-reviews article { border:1px solid var(--br-border); border-radius:18px; padding:22px; background:#fff; box-shadow:0 14px 40px rgba(16,27,20,.07); }
+  .br-reviews img { width:100%; aspect-ratio:1; object-fit:cover; border-radius:12px; display:block; margin-bottom:18px; }
+  .stars { color:var(--br-green); letter-spacing:.12em; }
+  .br-reviews blockquote { margin:0 0 16px; color:#2E3830; font:italic 17px/1.65 'Fraunces', Georgia, serif; }
+  .br-reviews h3 { margin:0 0 4px; color:#14201A; font:800 17px/1.2 Inter, sans-serif; }
+  .film-table { padding:105px 24px; background:var(--br-cream); }
+  .film-table__inner { max-width:1220px; margin:0 auto; }
+  .film-table__scroll { overflow-x:auto; background:#fff; border:1px solid var(--br-border); border-radius:16px; }
+  .film-table__tbl { width:100%; border-collapse:collapse; min-width:820px; }
+  .film-table th, .film-table td { padding:15px 16px; border-bottom:1px solid var(--br-border); text-align:left; font:500 14px/1.35 Inter, sans-serif; }
+  .film-table th { background:#14201A; color:#fff; font-weight:800; }
+  .film-table__source { color:#5D695F; font:400 13px/1.6 Inter, sans-serif; }
+  .res-section { padding:105px 24px; background:#F5F3EE; }
+  .res-section__inner { max-width:1220px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+  .res-section img { width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:18px; display:block; }
+  .res-section ul { list-style:none; padding:0; margin:22px 0; display:grid; gap:12px; }
+  .res-section li { background:#fff; border:1px solid var(--br-border); border-radius:10px; padding:14px 16px; }
+  .swt-faq { padding:105px 0; background:#fff; }
+  .swt-faq__layout { display:grid; grid-template-columns:.85fr 1.15fr; gap:60px; align-items:start; }
+  .swt-faq__item { border-bottom:1px solid var(--br-border); }
+  .swt-faq__q { width:100%; display:flex; justify-content:space-between; gap:20px; background:transparent; border:0; cursor:pointer; text-align:left; padding:20px 0; color:#14201A; font:800 16px/1.45 Inter, sans-serif; }
+  .swt-faq__a { display:none; padding:0 0 18px; }
+  .swt-faq__item.is-open .swt-faq__a { display:block; }
+  .swt-faq__a p { margin:0; }
+  .br-cta { min-height:460px; display:grid; place-items:center; padding:90px 24px; text-align:center; color:#fff; background:linear-gradient(rgba(16,27,20,.86), rgba(16,27,20,.9)), url('/images/bird-strike-window-film-salt-lake-city-hero.jpg') center/cover; }
+  .br-cta h2, .br-cta p { color:#fff; max-width:760px; }
+  .br-cta p { margin:0 auto 28px; color:rgba(255,255,255,.82); }
+  @media (max-width: 980px) {
+    .br-why__container, .br-process-split__container, .res-section__inner, .swt-faq__layout { grid-template-columns:1fr; }
+    .br-hero__stats-panel, .br-stats__row, .br-reviews__grid { grid-template-columns:repeat(2,1fr); }
+    .br-bento-card--hero, .br-bento-card--photo, .br-bento-card--dark, .br-bento-card--retail { grid-column:span 6; }
+    .br-panels__grid { grid-template-columns:repeat(2,1fr); }
+    .br-masonry__grid { columns:2; }
+  }
+  @media (max-width: 768px) {
+    .br-hero__stats-panel, .br-stats__row, .br-reviews__grid, .br-panels__grid { grid-template-columns:1fr; }
+    .br-bento-card--hero, .br-bento-card--photo, .br-bento-card--dark, .br-bento-card--retail { grid-column:span 12; }
+    .br-masonry__grid { columns:1; }
+    .br-slider { min-height: auto; }
+    .br-slider__slide { min-height: auto; display: block; padding: 0; }
+    .br-slider__bg { position: relative; width: 100%; height: 280px; object-fit: cover; }
+    .br-slider__overlay { position:absolute; top:0; left:0; right:0; height:280px; background:linear-gradient(to bottom,rgba(0,0,0,.3),rgba(0,0,0,.5)); }
+    .br-slider__content { position:relative; padding:32px 24px 48px; max-width:100%; background:#0e1a14; }
+    .br-slider__nav { display:none; }
+    .br-slider__title { font-size: 1.75rem; }
+    .br-slider__desc { font-size: 0.9rem; }
+    .br-slider__arrow--prev { right:82px; }
+    .br-slider__arrow--next { right:24px; }
+  }
+
+@media (max-width: 768px) {
+  .br-bento__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .br-bento__grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<script is:inline>
+  const track = document.getElementById('brTrack');
+  const slides = Array.from(document.querySelectorAll('.br-slider__slide'));
+  const navButtons = Array.from(document.querySelectorAll('[data-brnav]'));
+  let currentSlide = 0;
+  function showSlide(index) {
+    if (!track || slides.length === 0) return;
+    currentSlide = (index + slides.length) % slides.length;
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    navButtons.forEach((button, i) => button.classList.toggle('is-active', i === currentSlide));
+  }
+  document.getElementById('brPrev')?.addEventListener('click', () => showSlide(currentSlide - 1));
+  document.getElementById('brNext')?.addEventListener('click', () => showSlide(currentSlide + 1));
+  navButtons.forEach((button) => button.addEventListener('click', () => showSlide(Number(button.dataset.brnav))));
+  document.querySelectorAll('.swt-faq__q').forEach((button) => {
+    button.addEventListener('click', () => button.closest('.swt-faq__item')?.classList.toggle('is-open'));
+  });
+</script>

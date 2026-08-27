@@ -1,0 +1,618 @@
+---
+// Benefits — Completely rebuilt with left tabs + right content (3-image grid + content below)
+interface Props {
+  city?: string;
+  title?: string;
+  eyebrow?: string;
+  subtitle?: string;
+  images?: Record<string, string>;
+}
+const { city = 'Salt Lake City', title, eyebrow = 'BENEFITS', subtitle = 'Click any benefit to explore', images } = Astro.props;
+const img = (tab: string, fallback1: string, fallback2: string, fallback3: string) =>
+  images?.[tab] ? [images[tab]] : [fallback1, fallback2, fallback3];
+---
+
+<section class="benefits-new" id="benefits">
+  
+  <!-- Section Header -->
+  <div class="benefits-new__header">
+    <p class="benefits-new__label">{eyebrow}</p>
+    <h2 class="benefits-new__title">{title ?? `Why ${city} chooses window film`}</h2>
+    <p class="benefits-new__subtitle">{subtitle}</p>
+  </div>
+
+  <!-- Main Layout: Left Tabs + Right Content -->
+  <div class="benefits-new__main">
+    
+    <!-- LEFT COLUMN: Tabs Sidebar -->
+    <div class="benefits-new__tabs">
+      
+      <button class="benefits-new__tab benefits-new__tab--active" data-tab="energy">
+        <svg class="benefits-new__tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <span>Energy Savings</span>
+      </button>
+
+      <button class="benefits-new__tab" data-tab="uv">
+        <svg class="benefits-new__tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        <span>UV Protection</span>
+      </button>
+
+      <button class="benefits-new__tab" data-tab="privacy">
+        <svg class="benefits-new__tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+          <line x1="1" y1="1" x2="23" y2="23"/>
+        </svg>
+        <span>Privacy Film</span>
+      </button>
+
+      <button class="benefits-new__tab" data-tab="glare">
+        <svg class="benefits-new__tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M12 1v6m0 6v6M5.64 5.64l4.24 4.24m4.24 4.24l4.24 4.24M1 12h6m6 0h6M5.64 18.36l4.24-4.24m4.24-4.24l4.24-4.24"/>
+        </svg>
+        <span>Glare Reduction</span>
+      </button>
+
+      <button class="benefits-new__tab" data-tab="graffiti">
+        <svg class="benefits-new__tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+        <span>Anti-Graffiti</span>
+      </button>
+
+      <button class="benefits-new__tab" data-tab="safety">
+        <svg class="benefits-new__tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <path d="M9 12l2 2 4-4"/>
+        </svg>
+        <span>Safety & Security</span>
+      </button>
+
+      <button class="benefits-new__tab" data-tab="decorative">
+        <svg class="benefits-new__tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+        <span>Decorative Film</span>
+      </button>
+
+      <button class="benefits-new__tab" data-tab="solar">
+        <svg class="benefits-new__tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <circle cx="12" cy="12" r="6"/>
+          <line x1="12" y1="2" x2="12" y2="6"/>
+          <line x1="12" y1="18" x2="12" y2="22"/>
+        </svg>
+        <span>Solar Control</span>
+      </button>
+
+    </div>
+
+    <!-- RIGHT COLUMN: Content Area -->
+    <div class="benefits-new__content">
+      
+      <!-- TOP: 3-Image Grid (no text inside, completely separate) -->
+      <div class="benefits-new__images">
+        <!-- Energy Savings images -->
+        <div class="benefits-new__image-set" data-tab="energy" data-single={images?.energy ? 'true' : 'false'}>
+          {img('energy','https://res.cloudinary.com/deunehrew/image/fetch/f_auto,q_auto,w_800/https://d8j0ntlcm91z4.cloudfront.net/user_39gHIafquScvuUngNf6xPBDD37B/hf_20260617_205338_4306c30d-a629-427e-ba93-fabda5d217ea.png','https://res.cloudinary.com/deunehrew/image/fetch/f_auto,q_auto,w_800/https://d8j0ntlcm91z4.cloudfront.net/user_39gHIafquScvuUngNf6xPBDD37B/hf_20260617_212909_0a602e33-c6d1-48cc-a897-a897630afac9.jpeg','https://res.cloudinary.com/deunehrew/image/fetch/f_auto,q_auto,w_800/https://d8j0ntlcm91z4.cloudfront.net/user_39gHIafquScvuUngNf6xPBDD37B/hf_20260617_212909_2da5be1c-101b-4e51-8ab8-945ba91fb1b5.jpeg').map((src,i) => <img src={src} alt={`Energy Savings ${i+1}`} title={`Energy Savings ${i+1}`} class="benefits-new__img" loading="lazy" />)}
+        </div>
+        <!-- UV Protection Images -->
+        <div class="benefits-new__image-set" data-tab="uv" data-single={images?.uv ? 'true' : 'false'}>
+          {img('uv','https://res.cloudinary.com/deunehrew/image/fetch/f_auto,q_auto,w_800/https://d8j0ntlcm91z4.cloudfront.net/user_39gHIafquScvuUngNf6xPBDD37B/hf_20260617_205351_6885da35-271a-4bbd-8eac-3a06292446aa.png','https://res.cloudinary.com/deunehrew/image/fetch/f_auto,q_auto,w_800/https://d8j0ntlcm91z4.cloudfront.net/user_39gHIafquScvuUngNf6xPBDD37B/hf_20260617_213834_d00c9253-db85-47da-ad7a-cb5dd532a458.jpeg','https://res.cloudinary.com/deunehrew/image/fetch/f_auto,q_auto,w_800/https://d8j0ntlcm91z4.cloudfront.net/user_39gHIafquScvuUngNf6xPBDD37B/hf_20260617_213834_e93679ff-d9f6-47c3-8d8a-5f5264c6497f.jpeg').map((src,i) => <img src={src} alt={`UV Protection ${i+1}`} title={`UV Protection ${i+1}`} class="benefits-new__img" loading="lazy" />)}
+        </div>
+        <!-- Privacy Film Images -->
+        <div class="benefits-new__image-set" data-tab="privacy" data-single={images?.privacy ? 'true' : 'false'}>
+          {img('privacy','https://res.cloudinary.com/deunehrew/image/fetch/f_auto,q_auto,w_800/https://d8j0ntlcm91z4.cloudfront.net/user_39gHIafquScvuUngNf6xPBDD37B/hf_20260617_205353_ae059be3-abf8-477b-863d-29155fb219fc.png','https://res.cloudinary.com/deunehrew/image/fetch/f_auto,q_auto,w_800/https://d8j0ntlcm91z4.cloudfront.net/user_39gHIafquScvuUngNf6xPBDD37B/hf_20260617_213842_e0005c4f-043a-449b-b48e-afe591795878.png','https://res.cloudinary.com/deunehrew/image/fetch/f_auto,q_auto,w_800/https://d8j0ntlcm91z4.cloudfront.net/user_39gHIafquScvuUngNf6xPBDD37B/hf_20260617_213841_6a0de6c2-bbcb-4f63-8fbe-d7dd4ee6e4aa.jpeg').map((src,i) => <img src={src} alt={`Privacy Film ${i+1}`} title={`Privacy Film ${i+1}`} class="benefits-new__img" loading="lazy" />)}
+        </div>
+        <!-- Glare Reduction Images -->
+        <div class="benefits-new__image-set" data-tab="glare" data-single={images?.glare ? 'true' : 'false'}>
+          {img('glare','https://res.cloudinary.com/deunehrew/image/fetch/f_auto,q_auto,w_800/https://d8j0ntlcm91z4.cloudfront.net/user_39gHIafquScvuUngNf6xPBDD37B/hf_20260617_205354_32b72cfc-9638-4577-9c0a-35b16cdd5a6d.png','https://res.cloudinary.com/deunehrew/image/fetch/f_auto,q_auto,w_800/https://d8j0ntlcm91z4.cloudfront.net/user_39gHIafquScvuUngNf6xPBDD37B/hf_20260617_214043_4367af94-1909-4804-81b6-f6e0c6edd38b.png','https://res.cloudinary.com/deunehrew/image/fetch/f_auto,q_auto,w_800/https://d8j0ntlcm91z4.cloudfront.net/user_39gHIafquScvuUngNf6xPBDD37B/hf_20260617_214043_75216380-f58e-4874-ad15-55afb20e3151.png').map((src,i) => <img src={src} alt={`Glare Reduction ${i+1}`} title={`Glare Reduction ${i+1}`} class="benefits-new__img" loading="lazy" />)}
+        </div>
+        <!-- Anti-Graffiti Images -->
+        <div class="benefits-new__image-set" data-tab="graffiti" data-single={images?.graffiti ? 'true' : 'false'}>
+          {img('graffiti','https://res.cloudinary.com/deunehrew/image/fetch/f_auto,q_auto,w_800/https://d8j0ntlcm91z4.cloudfront.net/user_39gHIafquScvuUngNf6xPBDD37B/hf_20260617_205356_066fdc59-30f1-4fd5-b6ae-c76724452d04.png','https://res.cloudinary.com/deunehrew/image/fetch/f_auto,q_auto,w_800/https://d8j0ntlcm91z4.cloudfront.net/user_39gHIafquScvuUngNf6xPBDD37B/hf_20260617_214048_d72e3db2-fe83-48fe-ab6c-b8b326b96cfd.png','https://res.cloudinary.com/deunehrew/image/fetch/f_auto,q_auto,w_800/https://d8j0ntlcm91z4.cloudfront.net/user_39gHIafquScvuUngNf6xPBDD37B/hf_20260617_214048_1f3fefa3-8690-4e11-a095-c71f5f2715e0.png').map((src,i) => <img src={src} alt={`Anti-Graffiti ${i+1}`} title={`Anti-Graffiti ${i+1}`} class="benefits-new__img" loading="lazy" />)}
+        </div>
+        <!-- Safety & Security Images -->
+        <div class="benefits-new__image-set" data-tab="safety" data-single={images?.safety ? 'true' : 'false'}>
+          {img('safety','https://res.cloudinary.com/deunehrew/image/fetch/f_auto,q_auto,w_800/https://d8j0ntlcm91z4.cloudfront.net/user_39gHIafquScvuUngNf6xPBDD37B/hf_20260617_205359_fbdf856f-b753-4049-a791-661998b13420.png','https://res.cloudinary.com/deunehrew/image/fetch/f_auto,q_auto,w_800/https://d8j0ntlcm91z4.cloudfront.net/user_39gHIafquScvuUngNf6xPBDD37B/hf_20260617_214054_ad00d53d-ad38-4ed8-b452-f1ee13168404.png','https://res.cloudinary.com/deunehrew/image/fetch/f_auto,q_auto,w_800/https://d8j0ntlcm91z4.cloudfront.net/user_39gHIafquScvuUngNf6xPBDD37B/hf_20260617_214054_9ade5808-57e2-460a-89a1-2db3da8d3780.png').map((src,i) => <img src={src} alt={`Safety & Security ${i+1}`} title={`Safety & Security ${i+1}`} class="benefits-new__img" loading="lazy" />)}
+        </div>
+        <!-- Decorative Film Images -->
+        <div class="benefits-new__image-set" data-tab="decorative" data-single={images?.decorative ? 'true' : 'false'}>
+          {img('decorative','https://res.cloudinary.com/deunehrew/image/fetch/f_auto,q_auto,w_800/https://d8j0ntlcm91z4.cloudfront.net/user_39gHIafquScvuUngNf6xPBDD37B/hf_20260617_205401_70ab0fbe-30b2-4deb-b2ac-587f2ac9c38c.png','https://res.cloudinary.com/deunehrew/image/fetch/f_auto,q_auto,w_800/https://d8j0ntlcm91z4.cloudfront.net/user_39gHIafquScvuUngNf6xPBDD37B/hf_20260617_214101_392c53fe-40df-4935-85e2-934b1302d9ee.png','https://res.cloudinary.com/deunehrew/image/fetch/f_auto,q_auto,w_800/https://d8j0ntlcm91z4.cloudfront.net/user_39gHIafquScvuUngNf6xPBDD37B/hf_20260617_214101_bc7d7fb5-ef49-4289-8a52-91b064410923.png').map((src,i) => <img src={src} alt={`Decorative Film ${i+1}`} title={`Decorative Film ${i+1}`} class="benefits-new__img" loading="lazy" />)}
+        </div>
+        <!-- Solar Control Images -->
+        <div class="benefits-new__image-set" data-tab="solar" data-single={images?.solar ? 'true' : 'false'}>
+          {img('solar','https://res.cloudinary.com/deunehrew/image/fetch/f_auto,q_auto,w_800/https://d8j0ntlcm91z4.cloudfront.net/user_39gHIafquScvuUngNf6xPBDD37B/hf_20260617_205403_571bf8a2-e358-4779-b12d-bef0d39d1ca5.png','https://res.cloudinary.com/deunehrew/image/fetch/f_auto,q_auto,w_800/https://d8j0ntlcm91z4.cloudfront.net/user_39gHIafquScvuUngNf6xPBDD37B/hf_20260617_214108_2a589f2d-4994-407e-abf2-36bd03045e66.png','https://res.cloudinary.com/deunehrew/image/fetch/f_auto,q_auto,w_800/https://d8j0ntlcm91z4.cloudfront.net/user_39gHIafquScvuUngNf6xPBDD37B/hf_20260617_214108_bb51da79-dc66-44a9-8c92-85abc1964a82.png').map((src,i) => <img src={src} alt={`Solar Control ${i+1}`} title={`Solar Control ${i+1}`} class="benefits-new__img" loading="lazy" />)}
+        </div>
+      </div>
+
+      <!-- BOTTOM: Content Area (completely separate from images) -->
+      <div class="benefits-new__text-area">
+        
+        <!-- Energy Savings Content -->
+        <div class="benefits-new__panel" data-tab="energy">
+          <h3 class="benefits-new__panel-title">Cut Your Energy Bills Year-Round</h3>
+          <ul class="benefits-new__list">
+            <li>Blocks up to 80% of solar heat before it enters your space</li>
+            <li>Most clients see lower energy bills within the first summer</li>
+            <li>Works year-round — reduces heating costs in winter too</li>
+            <li>Pays for itself within 2 to 3 years for most properties</li>
+          </ul>
+          <div class="benefits-new__stat">
+            <span class="benefits-new__stat-number">30%</span>
+            <span class="benefits-new__stat-label">Average Energy Reduction</span>
+          </div>
+          <a href="/services/energy-efficiency/" class="benefits-new__cta">Learn More →</a>
+        </div>
+
+        <!-- UV Protection Content -->
+        <div class="benefits-new__panel" data-tab="uv">
+          <h3 class="benefits-new__panel-title">Block 99% of Harmful UV Rays</h3>
+          <ul class="benefits-new__list">
+            <li>Stops UV rays that fade floors, furniture, and artwork</li>
+            <li>Keeps interiors bright while filtering damaging wavelengths</li>
+            <li>Protects merchandise in retail spaces on Main Street</li>
+            <li>Reduces UV-related skin exposure for occupants daily</li>
+          </ul>
+          <div class="benefits-new__stat">
+            <span class="benefits-new__stat-number">99%</span>
+            <span class="benefits-new__stat-label">UV Block Rate</span>
+          </div>
+          <a href="/benefits/uv-protection-film/" class="benefits-new__cta">Learn More →</a>
+        </div>
+
+        <!-- Privacy Film Content -->
+        <div class="benefits-new__panel" data-tab="privacy">
+          <h3 class="benefits-new__panel-title">See Out. Not In.</h3>
+          <ul class="benefits-new__list">
+            <li>One-way daytime privacy — see out clearly, no one sees in</li>
+            <li>Perfect for ground-floor homes and street-facing offices</li>
+            <li>Available in frosted, reflective, and custom patterns</li>
+            <li>No permanent changes to the glass — fully removable</li>
+          </ul>
+          <div class="benefits-new__stat">
+            <span class="benefits-new__stat-number">100%</span>
+            <span class="benefits-new__stat-label">Custom Coverage Options</span>
+          </div>
+          <a href="/benefits/privacy-window-film-salt-lake-city/" class="benefits-new__cta">Learn More →</a>
+        </div>
+
+        <!-- Glare Reduction Content -->
+        <div class="benefits-new__panel" data-tab="glare">
+          <h3 class="benefits-new__panel-title">Eliminate Eye Strain and Screen Glare</h3>
+          <ul class="benefits-new__list">
+            <li>Reduces glare by up to 87% while keeping natural light</li>
+            <li>Eliminates screen reflections in home offices and workplaces</li>
+            <li>Available from nearly invisible to heavily tinted options</li>
+            <li>South and west-facing rooms benefit most in Salt Lake City</li>
+          </ul>
+          <div class="benefits-new__stat">
+            <span class="benefits-new__stat-number">87%</span>
+            <span class="benefits-new__stat-label">Glare Reduction</span>
+          </div>
+          <a href="/services/glare-reduction/" class="benefits-new__cta">Learn More →</a>
+        </div>
+
+        <!-- Anti-Graffiti Content -->
+        <div class="benefits-new__panel" data-tab="graffiti">
+          <h3 class="benefits-new__panel-title">Protect Your Glass from Vandalism</h3>
+          <ul class="benefits-new__list">
+            <li>Sacrificial film takes the damage — not your glass</li>
+            <li>Replace only the film at a fraction of glass replacement cost</li>
+            <li>Used by retailers, restaurants, and transit facilities citywide</li>
+            <li>Optically clear and invisible — customers never notice it</li>
+          </ul>
+          <div class="benefits-new__stat">
+            <span class="benefits-new__stat-number">90%</span>
+            <span class="benefits-new__stat-label">Cost Savings vs Glass Replacement</span>
+          </div>
+          <a href="/services/anti-graffiti/" class="benefits-new__cta">Learn More →</a>
+        </div>
+
+        <!-- Safety & Security Content -->
+        <div class="benefits-new__panel" data-tab="safety">
+          <h3 class="benefits-new__panel-title">Hold Glass Together When It Matters</h3>
+          <ul class="benefits-new__list">
+            <li>Holds shattered glass in place during break-ins and storms</li>
+            <li>Meets ANSI Z97.1 and GSA government safety standards</li>
+            <li>Slows or prevents entry during forced break-in attempts</li>
+            <li>Protects against accidental breakage in high-traffic spaces</li>
+          </ul>
+          <div class="benefits-new__stat">
+            <span class="benefits-new__stat-number">400%</span>
+            <span class="benefits-new__stat-label">Stronger Than Untreated Glass</span>
+          </div>
+          <a href="/services/safety-security/" class="benefits-new__cta">Learn More →</a>
+        </div>
+
+        <!-- Decorative Film Content -->
+        <div class="benefits-new__panel" data-tab="decorative">
+          <h3 class="benefits-new__panel-title">Transform Any Glass Surface</h3>
+          <ul class="benefits-new__list">
+            <li>Frosted, etched, colored, and custom-branded options available</li>
+            <li>No permanent alteration to glass — removable and replaceable</li>
+            <li>Used for conference rooms, storefronts, and residential spaces</li>
+            <li>Works with logos, patterns, gradients, and architectural designs</li>
+          </ul>
+          <div class="benefits-new__stat">
+            <span class="benefits-new__stat-number">50+</span>
+            <span class="benefits-new__stat-label">Design Options Available</span>
+          </div>
+          <a href="/services/decorative-film/" class="benefits-new__cta">Learn More →</a>
+        </div>
+
+        <!-- Solar Control Content -->
+        <div class="benefits-new__panel" data-tab="solar">
+          <h3 class="benefits-new__panel-title">Stay Cool Without Blocking Your View</h3>
+          <ul class="benefits-new__list">
+            <li>Rejects solar heat while preserving your view and natural light</li>
+            <li>Spectrally selective films invisible to the eye but highly effective</li>
+            <li>Building managers report significant HVAC runtime reductions</li>
+            <li>Extends the life of your air conditioning equipment</li>
+          </ul>
+          <div class="benefits-new__stat">
+            <span class="benefits-new__stat-number">80%</span>
+            <span class="benefits-new__stat-label">Solar Heat Rejection</span>
+          </div>
+          <a href="/benefits/solar-control/" class="benefits-new__cta">Learn More →</a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+/* ═══════════════════════════════════════════════════════════
+   BENEFITS NEW — Left Tabs + Right Content (3-image grid + text)
+   ═══════════════════════════════════════════════════════════ */
+
+.benefits-new {
+  background: #0d1a0f;
+  padding: 80px 0 48px;
+}
+
+/* Header */
+.benefits-new__header {
+  max-width: 1200px;
+  margin: 0 auto 48px;
+  padding: 0 40px;
+  text-align: left;
+}
+
+.benefits-new__label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #7CB342;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  margin-bottom: 16px;
+}
+
+.benefits-new__title {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.benefits-new__subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.6;
+}
+
+/* Main Layout: 2 columns (Left Tabs + Right Content) */
+.benefits-new__main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 0;
+}
+
+/* LEFT COLUMN — Tabs Sidebar */
+.benefits-new__tabs {
+  background: #0a150c;
+  display: flex;
+  flex-direction: column;
+}
+
+.benefits-new__tab {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 28px;
+  background: transparent;
+  border: none;
+  border-left: 3px solid transparent;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.4);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.benefits-new__tab:hover {
+  color: rgba(255,255,255,0.7);
+  background: rgba(124,179,66,0.05);
+}
+
+.benefits-new__tab--active {
+  color: #fff;
+  background: rgba(124,179,66,0.1);
+  border-left-color: #7CB342;
+}
+
+.benefits-new__tab-icon {
+  width: 18px;
+  height: 18px;
+  stroke: #7CB342;
+  flex-shrink: 0;
+}
+
+/* RIGHT COLUMN — Content Area */
+.benefits-new__content {
+  background: #0d1a0f;
+  display: flex;
+  flex-direction: column;
+}
+
+/* TOP ZONE — 3-Image Grid (no text, completely separate) */
+.benefits-new__images {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.benefits-new__image-set {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 0 8px 0 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.benefits-new__image-set[data-tab="energy"] {
+  opacity: 1;
+  visibility: visible;
+}
+
+.benefits-new__img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.benefits-new__image-set[data-single="true"] {
+  grid-column: 1 / -1;
+}
+.benefits-new__image-set[data-single="true"] .benefits-new__img {
+  height: 320px;
+}
+
+/* BOTTOM ZONE — Content Area (completely separate, no overlap) */
+.benefits-new__text-area {
+  position: relative;
+  width: 100%;
+  background: #0d1a0f;
+  padding: 36px 48px;
+}
+
+.benefits-new__panel {
+  display: none;
+}
+
+.benefits-new__panel[data-tab="energy"] {
+  display: block;
+}
+
+.benefits-new__panel-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+
+.benefits-new__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+}
+
+.benefits-new__list li {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.8;
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.benefits-new__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  background: #7CB342;
+  border-radius: 50%;
+}
+
+.benefits-new__stat {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
+.benefits-new__stat-number {
+  font-family: 'Space Mono', monospace;
+  font-size: 48px;
+  font-weight: 700;
+  color: #7CB342;
+  line-height: 1;
+}
+
+.benefits-new__stat-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: rgba(255,255,255,0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.benefits-new__cta {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #7CB342;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.benefits-new__cta:hover {
+  color: #fff;
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+  .benefits-new {
+    padding: 60px 0 40px;
+  }
+
+  .benefits-new__header {
+    padding: 0 24px;
+    margin-bottom: 32px;
+  }
+
+  .benefits-new__title {
+    font-size: 36px;
+  }
+
+  .benefits-new__main {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+
+  .benefits-new__tabs {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    background: #0a150c;
+    padding: 0;
+    gap: 0;
+  }
+
+  .benefits-new__tab {
+    flex: 0 0 auto;
+    padding: 16px 20px;
+    border-left: none;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+  }
+
+  .benefits-new__tab--active {
+    border-left: none;
+    border-bottom-color: #7CB342;
+  }
+
+  .benefits-new__content {
+    padding: 0;
+  }
+
+  .benefits-new__image-set {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0;
+  }
+
+  .benefits-new__text-area {
+    padding: 32px 24px;
+  }
+
+  .benefits-new__panel-title {
+    font-size: 24px;
+  }
+
+  .benefits-new__stat-number {
+    font-size: 36px;
+  }
+}
+</style>
+
+<script>
+// Tab Switching Logic
+document.addEventListener('DOMContentLoaded', () => {
+  const tabs = document.querySelectorAll('.benefits-new__tab');
+  const imageSets = document.querySelectorAll('.benefits-new__image-set');
+  const panels = document.querySelectorAll('.benefits-new__panel');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.tab;
+
+      // Update tabs
+      tabs.forEach(t => t.classList.remove('benefits-new__tab--active'));
+      tab.classList.add('benefits-new__tab--active');
+
+      // Update image sets
+      imageSets.forEach(set => {
+        if (set.dataset.tab === target) {
+          set.style.opacity = '1';
+          set.style.visibility = 'visible';
+        } else {
+          set.style.opacity = '0';
+          set.style.visibility = 'hidden';
+        }
+      });
+
+      // Update content panels
+      panels.forEach(panel => {
+        if (panel.dataset.tab === target) {
+          panel.style.display = 'block';
+        } else {
+          panel.style.display = 'none';
+        }
+      });
+    });
+  });
+});
+</script>

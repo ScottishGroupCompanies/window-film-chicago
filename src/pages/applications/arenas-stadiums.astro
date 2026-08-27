@@ -1,0 +1,1269 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BrandLogos from '../../components/BrandLogos.astro';
+import BeforeAfterSlider from '../../components/BeforeAfterSlider.astro';
+import GalleryBanner from '../../components/GalleryBanner.astro';
+import BentoGridPhoto from '../../components/BentoGridPhoto.astro';
+import AccordionBenefits from '../../components/AccordionBenefits.astro';
+import HowItWorksSlideshow from '../../components/HowItWorksSlideshow.astro';
+import TestimonialMarquee from '../../components/TestimonialMarquee.astro';
+import AccordionFAQ from '../../components/AccordionFAQ.astro';
+import CTAAvatars from '../../components/CTAAvatars.astro';
+
+const title = 'Stadium Window Film Salt Lake City | Arena & Venue';
+const description = 'Stadium window film in Salt Lake City — glare control for fans and suites, UV protection, energy savings on glass facades.';
+
+const serviceName = 'Arena & Stadium Window Film Installation';
+const serviceDesc = 'Professional window film installation for Salt Lake City arenas, stadiums, concert venues, and convention centers — glare control, UV protection, energy savings, and security film for fan safety.';
+const serviceUrl = 'https://windowfilmsaltlakecity.com/applications/arenas-stadiums/';
+
+// ─── FAQ items (BaseLayout expects { question, answer }) ───
+const faqItems = [
+  {
+    question: 'Can window film handle the curved and angled glass in modern arenas?',
+    answer: 'Yes. Modern arenas feature curved facade panels, angled atrium glass, and retractable roof sections. Our engineering team performs a full glass geometry survey before specifying the right film and adhesive system for each unique surface. We have experience with thermally stressed zones, dome panels, and non-standard glazing across Salt Lake City venues.'
+  },
+  {
+    question: 'How does stadium window film perform during extreme temperature swings?',
+    answer: 'Salt Lake City summers push untreated glass temperatures to dangerous levels in non-climate-controlled concourses and press areas. Our heat-rejecting films are rated for thermal stress and reduce interior temperatures significantly in direct sun zones. Security films also perform reliably through winter freeze-thaw cycles. Film is engineered to handle the thermal cycling that large glass facades experience season after season.'
+  },
+  {
+    question: 'Does security film meet venue safety codes and insurance requirements?',
+    answer: 'Our security films meet or exceed ASTM E1886/1996 impact standards and are accepted by venue insurers and municipal building departments throughout Utah and Utah. We provide a full documentation package including material specifications, independent lab test reports, and post-installation certification — ready for submission to your insurer, safety inspector, or municipal building department.'
+  },
+  {
+    question: 'Can film be installed during the season without closing sections?',
+    answer: 'Absolutely. One of the main advantages of window film over glass replacement is that it can be installed in occupied spaces with no downtime. We schedule work around your event calendar, perform phased installation in non-game areas, and use low-odor products that allow immediate re-occupancy. Most arena installations are completed in night shifts with zero disruption to operations or fan experience.'
+  },
+  {
+    question: 'What maintenance does arena window film require?',
+    answer: 'Window film requires minimal maintenance — standard glass cleaning with non-abrasive solutions. Unlike retrofitted glass systems, there are no mechanical parts, seals, or frames to maintain. Commercial installations come with manufacturer warranties covering delamination, bubbling, and color shift, and we provide annual inspection service for large venue accounts to catch any issues early.'
+  },
+  {
+    question: 'Will window film darken the venue or affect broadcast lighting?',
+    answer: 'Not with the right film selection. Spectrally selective films like 3M Prestige 70 maintain 70% visible light transmission while still rejecting up to 50% of solar heat. For broadcast-critical areas, we specify high-VLT films that preserve natural light levels and do not interfere with camera exposure. We assess each zone individually and bring samples before specifying.'
+  },
+  {
+    question: 'How much can arena window film reduce cooling costs?',
+    answer: 'Solar heat gain through untreated glass is a major contributor to arena cooling loads. Heat-rejecting window film can reduce solar heat gain by up to 78% at the glass surface, translating to meaningful reductions in HVAC operating costs — especially for large glass facades facing south and west. The actual impact depends on your venue\'s glass area, orientation, HVAC capacity, and usage patterns. We provide performance data for every film we recommend.'
+  },
+  {
+    question: 'Do you install anti-graffiti film for high-traffic arena areas?',
+    answer: 'Yes. Anti-graffiti film is a clear sacrificial layer that protects arena glass partitions, concession windows, elevator interiors, and entry doors from etching, scratching, and spray paint. When vandalized, only the film is replaced — not the glass underneath — at a fraction of replacement cost. It is particularly valuable for concourse areas and high-traffic entry points that see heavy public use event after event.'
+  },
+];
+
+// Map for AccordionFAQ component which expects { q, a } keys
+const faqAccordionItems = faqItems.map(f => ({ q: f.question, a: f.answer }));
+
+// ─── AccordionBenefits data ───
+const benefits = [
+  {
+    number: '01',
+    title: 'Glare Control for Fans and VIP Suites',
+    image: '/images/arenas-stadiums/arena-glare-reduction-window-film-salt-lake-city.jpg',
+    imageAlt: 'Arena VIP suite with glare control window film — comfortable diffused light through treated glass',
+    detail: `
+      <p>West-facing suites that turn into solar ovens by the second quarter represent a premium product failure. Suite holders notice, press box operators notice, and fans in affected seating sections notice. Stadium window film in Salt Lake City eliminates the worst afternoon glare while maintaining full outdoor views and natural daylight.</p>
+      <p>Spectrally selective films block the infrared wavelengths that cause heat and visible light scatter without darkening the space. Fans in treated suites stay comfortable without closing blinds or retreating from the glass, and broadcast cameras get clean, glare-free shots through treated press box windows.</p>
+      <ul>
+        <li>Eliminates harsh glare in VIP suites, press boxes, and premium seating</li>
+        <li>Maintains 70%+ visible light transmission — spaces stay bright</li>
+        <li>No blinds required — full outdoor views preserved</li>
+      </ul>
+    `,
+  },
+  {
+    number: '02',
+    title: 'UV Protection for Interiors and Branding',
+    image: '/images/arenas-stadiums/arena-uv-protection-window-film-salt-lake-city.jpg',
+    imageAlt: 'Arena luxury suite interior with UV protection window film preserving upholstery and flooring',
+    detail: `
+      <p>UV-A and UV-B radiation entering through untreated arena glass creates cumulative health exposure for staff who work hundreds of events per year near the same windows. UV is also the primary driver of interior fading in VIP suites, concession signage, lobby displays, and branded upholstery.</p>
+      <p>Our <a href="/benefits/uv-protection-film/" style="color: var(--as-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">UV protection window film</a> blocks up to 99% of UV transmission, protecting your brand assets, signage, and interior finishes from irreversible UV degradation — with no visible change to how the space looks.</p>
+      <ul>
+        <li>Blocks 99% of UV-A and UV-B radiation</li>
+        <li>Protects suite upholstery, branding, signage, and interior finishes from fading</li>
+        <li>Reduces long-term health liability for window-adjacent staff</li>
+      </ul>
+    `,
+  },
+  {
+    number: '03',
+    title: 'Energy Savings on Massive Glass Facades',
+    image: '/images/arenas-stadiums/stadium-energy-savings-window-film-salt-lake-city.jpg',
+    imageAlt: 'Large arena exterior glass facade with energy-saving window film — reflective curtain wall',
+    detail: `
+      <p>Arena glass facades create concentrated solar heat gain that HVAC systems must fight for every hour of direct sun exposure. In older Salt Lake City venues with aging cooling infrastructure, this strain accelerates equipment failure and creates uncomfortable conditions during summer events and afternoon games.</p>
+      <p>Heat-rejecting window film addresses the root cause — it rejects solar heat at the glass surface before it enters the building. The payback is typically 3–5 years through reduced cooling costs alone. See our full guide to <a href="/benefits/energy-savings/" style="color: var(--as-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">energy-saving window film</a> for Salt Lake City commercial buildings.</p>
+      <ul>
+        <li>Rejects up to 78% of solar heat at the glass surface</li>
+        <li>Reduces HVAC load on massive glass facades — lower cooling costs</li>
+        <li>3–5 year payback period, then 10+ years of continued savings</li>
+      </ul>
+    `,
+  },
+  {
+    number: '04',
+    title: 'Security Film for Entry Points',
+    image: '/images/arenas-stadiums/arena-security-window-film-salt-lake-city-benefit.jpg',
+    imageAlt: 'Arena entrance with security window film on glass doors — modern institutional architecture',
+    detail: `
+      <p>Arena entry points, tunnel glazing, and exterior concession windows represent the highest-risk glass in any venue. Security window film holds shattered panes in the frame on impact — dramatically reducing injury risk from broken glass in crowd surges, severe weather events, and accidental damage.</p>
+      <p>For Salt Lake City venues subject to municipal safety inspections and insurance requirements, <a href="/benefits/safety-and-security/" style="color: var(--as-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">security window film</a> provides documented protection that satisfies regulators and may qualify for reduced insurance premiums. Learn more about our <a href="/services/commercial/" style="color: var(--as-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">commercial window film services</a> for large venues.</p>
+      <ul>
+        <li>Holds shattered glass in the frame — reduces injury risk in crowd areas</li>
+        <li>Meets ASTM E1886/1996 impact standards accepted by venue insurers</li>
+        <li>Full documentation package for insurance and regulatory compliance</li>
+      </ul>
+    `,
+  },
+  {
+    number: '05',
+    title: 'Anti-Graffiti Film for High-Traffic Areas',
+    image: '/images/arenas-stadiums/arena-anti-graffiti-window-film-salt-lake-city.jpg',
+    imageAlt: 'Clean arena concourse glass partition with anti-graffiti film — pristine transparent surface',
+    detail: `
+      <p>Arena concourses, concession windows, and elevator interiors take a beating event after event. Etching, scratching, and spray paint on glass are expensive to repair — and replacement glass means downtime. <a href="/benefits/anti-graffiti/" style="color: var(--as-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">Anti-graffiti window film</a> is a clear sacrificial layer that takes the abuse instead of your glass.</p>
+      <p>When vandalized, only the film is peeled and replaced — the glass underneath stays pristine. This costs a fraction of glass replacement, with no venue downtime. It is essential for high-traffic concourse areas, restroom partitions, and entry vestibules.</p>
+      <ul>
+        <li>Clear sacrificial layer protects glass from etching, scratching, and spray paint</li>
+        <li>Only the film is replaced — not the glass — at fraction of replacement cost</li>
+        <li>Zero venue downtime — film replacement takes minutes, not days</li>
+      </ul>
+    `,
+  },
+  {
+    number: '06',
+    title: 'HVAC Load Reduction and Equipment Longevity',
+    image: '/images/arenas-stadiums/venue-hvac-reduction-window-film-salt-lake-city.jpg',
+    imageAlt: 'Arena mechanical room with HVAC equipment — modern building systems',
+    detail: `
+      <p>Every degree of solar heat gain through untreated glass is a degree your HVAC system has to remove. For large venues with massive glass facades, that translates to significant cooling load — and accelerated wear on chillers, air handlers, and distribution systems that are expensive to replace and difficult to service during event seasons.</p>
+      <p>Stadium window film in Salt Lake City reduces the thermal load at the source, extending the service life of existing HVAC equipment and deferring capital replacement. According to the <a href="https://betterbuildingssolutioncenter.energy.gov/" target="_blank" rel="noopener noreferrer">U.S. Department of Energy Better Buildings Initiative</a>, window film is one of the most cost-effective energy upgrades available for commercial buildings with significant glazing.</p>
+      <ul>
+        <li>Reduces solar heat load — extends HVAC equipment service life</li>
+        <li>Defers capital replacement of chillers and air handlers</li>
+        <li>Lower operating costs season after season</li>
+      </ul>
+    `,
+  },
+];
+
+// ─── BentoGridPhoto items ───
+const bentoItems = [
+  { span: 'lg', title: 'VIP Suites & Premium Seating', desc: 'Glare control and UV protection for the highest-revenue spaces in your venue.', img: '/images/arenas-stadiums/arena-vip-suite-window-tinting-salt-lake-city.jpg', href: '/contact/' },
+  { span: 'sm', title: 'Concourses', desc: 'Heat and glare reduction for fan circulation areas.', img: '/images/arenas-stadiums/stadium-concourse-window-film-salt-lake-city.jpg', href: '/contact/' },
+  { span: 'sm', title: 'Press Boxes', desc: 'Glare-free broadcast windows with full visibility.', img: '/images/arenas-stadiums/arena-press-box-window-film-salt-lake-city.jpg', href: '/contact/' },
+  { span: 'md', title: 'Entry Points', desc: 'Security film for crowd safety at main entrances and vestibules.', img: '/images/arenas-stadiums/arena-entry-window-film-salt-lake-city.jpg', href: '/contact/' },
+  { span: 'md', title: 'Concession Areas', desc: 'Anti-graffiti and solar control for high-traffic food service glass.', img: '/images/arenas-stadiums/stadium-concession-window-film-salt-lake-city.jpg', href: '/contact/' },
+  { span: 'md', title: 'Atriums & Lobbies', desc: 'Energy savings and comfort for soaring glass entrance spaces.', img: '/images/arenas-stadiums/convention-atrium-window-film-salt-lake-city.jpg', href: '/contact/' },
+];
+
+// ─── HowItWorks slides ───
+const hiwSlides = [
+  {
+    step: '01',
+    title: 'Venue Survey & Engineering Review',
+    desc: 'We perform a full site survey of all glass surfaces — including curved dome panels, angled facade glass, and retractable roof sections. Our engineering team produces a glass-by-glass specification and thermal analysis before any work begins. Every pane is assessed for type, age, condition, and thermal stress risk.',
+    img: '/images/arenas-stadiums/arena-window-film-assessment-salt-lake-city.jpg',
+    imgAlt: 'Building assessment checklist on a clipboard in an arena glass concourse',
+    navLabel: 'Venue Survey',
+    cta: 'Request a free venue survey',
+    ctaHref: '/contact/',
+    faq: [
+      { q: 'How long does a venue survey take?', a: 'Most arena surveys take 2–4 hours depending on the size and complexity of the glass surfaces. We document every pane, assess thermal stress zones, and produce a detailed specification — all at no cost or obligation.' },
+      { q: 'Do you work around our event schedule?', a: 'Yes. We schedule all surveys and installation around your event calendar — typically during off-days or between events. We never disrupt your operations or fan experience.' },
+    ],
+  },
+  {
+    step: '02',
+    title: 'Custom Film Specification',
+    desc: 'Arena glass is rarely flat. Our team specifies the correct film and adhesive system for each unique glass geometry in your venue — with particular attention to thermally stressed zones, curved panels, and high-traffic entry areas. You receive a written proposal with 2–3 film options and verified performance data.',
+    img: '/images/arenas-stadiums/stadium-window-film-specification-salt-lake-city.jpg',
+    imgAlt: 'Window film specification sheets and product samples laid out for arena installation planning',
+    navLabel: 'Film Specification',
+    cta: 'Get your written proposal',
+    ctaHref: '/contact/',
+    faq: [
+      { q: 'Can different zones get different films?', a: 'Absolutely. We typically specify different films for different zones — solar control for south-facing facades, glare control for suites, security film for entry points, and anti-graffiti for concourse areas. Each zone gets the right film for its specific challenge.' },
+      { q: 'What brands do you install?', a: 'We install 3M, LLumar, Vista, Solar Gard, Huper Optik, Madico, and more. We recommend based on your venue\'s specific needs but defer to your preference.' },
+    ],
+  },
+  {
+    step: '03',
+    title: 'Phased Installation Around Events',
+    desc: 'We schedule all installation around your event calendar — typically night shifts and off-days. Most arena projects complete in 2–4 night shifts with zero disruption to operations or fan experience. Our certified W-2 installers (not subcontractors) protect your space, work cleanly, and coordinate with your facilities team throughout.',
+    img: '/images/arenas-stadiums/arena-window-film-installation-salt-lake-city.jpg',
+    imgAlt: 'Professional window film installer applying film to a large arena glass window',
+    navLabel: 'Installation',
+    cta: 'Schedule installation',
+    ctaHref: '/contact/',
+    faq: [
+      { q: 'How long does installation take?', a: 'Most arena installations complete in 2–4 night shifts depending on glass area and complexity. We work in phased sections so no area is disrupted during events. Your facilities team receives a detailed schedule before work begins.' },
+      { q: 'Will there be a curing period?', a: 'Film requires approximately 30 days to fully cure. During that time you may see small water bubbles or haziness — this is normal and resolves completely. We provide care instructions and advise against cleaning the treated glass for 30 days.' },
+    ],
+  },
+  {
+    step: '04',
+    title: 'Post-Installation Certification',
+    desc: 'We provide a complete documentation package including material spec sheets, independent lab test reports, and post-installation certification — ready for submission to your insurer, municipal building department, or venue safety inspector. Annual inspection service is available for ongoing venue accounts.',
+    img: '/images/arenas-stadiums/venue-window-film-certification-salt-lake-city.jpg',
+    imgAlt: 'Certification document and technical documentation on a clipboard in an arena setting',
+    navLabel: 'Certification',
+    cta: 'Start your venue project',
+    ctaHref: '/contact/',
+    faq: [
+      { q: 'What documentation do you provide?', a: 'Every installation comes with material specification sheets, NFRC performance data, independent lab test reports for security films, and a post-installation certification package. This is ready for submission to insurers, building departments, or safety inspectors.' },
+      { q: 'Do you offer ongoing maintenance?', a: 'Yes. We provide annual inspection service for large venue accounts — checking film condition, addressing any edge issues, and documenting the installation status for your records and insurer.' },
+    ],
+  },
+];
+
+// ─── TestimonialMarquee reviews ───
+const reviews = [
+  { quote: "Our west-facing suites were essentially unusable for afternoon games. After stadium window film in Salt Lake City was installed, we got two full seasons of suite utilization before any complaints. The film paid for itself in retained suite revenue alone.", name: 'James K.', role: 'Operations Director · South Salt Lake City sports complex', img: '/images/arenas-stadiums/arena-window-film-testimonial-1.jpg' },
+  { quote: "Our security team had been flagged by our insurer for the glass at our main entry points. Security film was a fraction of the cost of laminated glass replacement and gave us the documentation our insurer needed to close the deficiency notice.", name: 'Michelle R.', role: 'Director of Operations · Regional sports arena', img: '/images/arenas-stadiums/arena-window-film-testimonial-2.jpg' },
+  { quote: "The installation team worked overnight for three nights and was done before our next event. Zero disruption, clean work, and the energy bill the following summer was measurably lower. The ROI was faster than projected.", name: 'Carlos M.', role: 'Facilities Director · Salt Lake City-area indoor arena', img: '/images/arenas-stadiums/arena-window-film-testimonial-3.jpg' },
+  { quote: "We manage a concert venue with a massive glass lobby. The glare was brutal during daytime events and the HVAC couldn't keep up. Arena window film solved both problems in one installation. Our patrons notice the difference immediately.", name: 'Patricia L.', role: 'Venue Manager · Downtown Salt Lake City concert hall', img: '/images/arenas-stadiums/arena-window-film-testimonial-4.jpg' },
+  { quote: "The anti-graffiti film on our concourse partitions has saved us thousands in glass replacement. Before, we were replacing etched panels every few months. Now we just replace the film — in minutes, not days.", name: 'Robert D.', role: 'Facilities Manager · Convention center', img: '/images/arenas-stadiums/arena-window-film-testimonial-5.jpg' },
+  { quote: "Our press box windows had a glare problem that affected every broadcast. The venue window film eliminated it completely. Camera operators are happy, the broadcast looks clean, and you can't even tell the film is there.", name: 'Sandra T.', role: 'Broadcast Operations · Sports venue', img: '/images/arenas-stadiums/arena-window-film-testimonial-6.jpg' },
+  { quote: "We were skeptical that film could handle the thermal stress on our curved atrium glass. The engineering survey was thorough, the film specification was right, and three years later there's zero issues. Professional from start to finish.", name: 'Thomas W.', role: 'Building Engineer · Convention center', img: '/images/arenas-stadiums/arena-window-film-testimonial-7.jpg' },
+  { quote: "The UV protection film in our VIP suites stopped the fading on our branded upholstery and suite carpeting. What was going to be a five-figure interior refresh became a non-issue. The film was invisible and the problem disappeared.", name: 'Jennifer H.', role: 'Premium Seating Manager · Arena', img: '/images/arenas-stadiums/arena-window-film-testimonial-8.jpg' },
+];
+
+// ─── CTAAvatars data ───
+const ctaAvatars = [
+  { name: 'James K.', location: 'South Salt Lake City', img: '/images/arenas-stadiums/arena-window-film-testimonial-1.jpg' },
+  { name: 'Michelle R.', location: 'Regional Arena', img: '/images/arenas-stadiums/arena-window-film-testimonial-2.jpg' },
+  { name: 'Carlos M.', location: 'Salt Lake City', img: '/images/arenas-stadiums/arena-window-film-testimonial-3.jpg' },
+  { name: 'Patricia L.', location: 'Downtown Salt Lake City', img: '/images/arenas-stadiums/arena-window-film-testimonial-4.jpg' },
+  { name: 'Robert D.', location: 'Convention Center', img: '/images/arenas-stadiums/arena-window-film-testimonial-5.jpg' },
+  { name: 'Sandra T.', location: 'Sports Venue', img: '/images/arenas-stadiums/arena-window-film-testimonial-6.jpg' },
+];
+
+// ─── Gallery photos ───
+const galleryPhotos = [
+  '/images/arenas-stadiums/stadium-press-box-window-tinting-salt-lake-city.jpg',
+  '/images/arenas-stadiums/concert-venue-window-film-salt-lake-city.jpg',
+  '/images/arenas-stadiums/convention-center-window-film-salt-lake-city.jpg',
+  '/images/arenas-stadiums/arena-entry-security-window-film-salt-lake-city.jpg',
+  '/images/arenas-stadiums/stadium-glass-facade-window-film-salt-lake-city.jpg',
+];
+
+// ─── Schemas ───
+const pageSchemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    '@id': 'https://windowfilmsaltlakecity.com/applications/arenas-stadiums/#breadcrumb',
+    'itemListElement': [
+      { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://windowfilmsaltlakecity.com/' },
+      { '@type': 'ListItem', 'position': 2, 'name': 'Applications', 'item': 'https://windowfilmsaltlakecity.com/applications/' },
+      { '@type': 'ListItem', 'position': 3, 'name': 'Arenas & Stadiums', 'item': 'https://windowfilmsaltlakecity.com/applications/arenas-stadiums/' },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': 'https://windowfilmsaltlakecity.com/applications/arenas-stadiums/#webpage',
+    'url': 'https://windowfilmsaltlakecity.com/applications/arenas-stadiums/',
+    'name': 'Stadium Window Film in Salt Lake City | Arena & Venue Window Tinting',
+    'description': 'Stadium window film in Salt Lake City — glare control for fans and suites, UV protection, energy savings on massive glass facades, and security film for entry points.',
+    'dateModified': new Date().toISOString().slice(0, 10),
+    'inLanguage': 'en-US',
+    'isPartOf': { '@type': 'WebSite', '@id': 'https://windowfilmsaltlakecity.com/#website', 'url': 'https://windowfilmsaltlakecity.com/', 'name': 'Window Film Salt Lake City' },
+    'speakable': { '@type': 'SpeakableSpecification', 'cssSelector': ['.as-hero__subtitle', '.as-intro__body', '.faq__a-inner'] },
+    'breadcrumb': { '@id': 'https://windowfilmsaltlakecity.com/applications/arenas-stadiums/#breadcrumb' },
+    'primaryImageOfPage': { '@type': 'ImageObject', 'url': 'https://windowfilmsaltlakecity.com/images/arenas-stadiums/stadium-window-film-salt-lake-city-hero.jpg', 'name': 'Arena and stadium window film installation in Salt Lake City' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    'name': 'Arena & Stadium Window Film Benefits — Salt Lake City',
+    'description': 'Professional window film benefits for Salt Lake City arenas, stadiums, concert venues, and convention centers.',
+    'itemListElement': [
+      { '@type': 'ListItem', 'position': 1, 'name': 'Glare Control for Fans and VIP Suites', 'description': 'Spectrally selective film eliminates afternoon glare in suites, press boxes, and premium seating while maintaining 70%+ visible light transmission.' },
+      { '@type': 'ListItem', 'position': 2, 'name': 'UV Protection for Interiors and Branding', 'description': 'Blocks 99% of UV-A and UV-B radiation, protecting suite upholstery, signage, branding, and interior finishes from irreversible fading.' },
+      { '@type': 'ListItem', 'position': 3, 'name': 'Energy Savings on Massive Glass Facades', 'description': 'Rejects up to 78% of solar heat at the glass surface, reducing HVAC load and cutting cooling costs with a 3–5 year payback.' },
+      { '@type': 'ListItem', 'position': 4, 'name': 'Security Film for Entry Points', 'description': 'Holds shattered glass in the frame on impact — meets ASTM E1886/1996 standards for crowd safety and insurance compliance.' },
+      { '@type': 'ListItem', 'position': 5, 'name': 'Anti-Graffiti Film for High-Traffic Areas', 'description': 'Clear sacrificial film protects concourse glass, concession windows, and elevator interiors from etching and vandalism at a fraction of replacement cost.' },
+      { '@type': 'ListItem', 'position': 6, 'name': 'HVAC Load Reduction and Equipment Longevity', 'description': 'Reduces thermal load at the source, extending HVAC equipment service life and deferring capital replacement.' },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    'name': 'Arena & Stadium Window Film Installation — Salt Lake City',
+    'description': 'Professional window film installation for Salt Lake City arenas, stadiums, concert venues, and convention centers — glare control, UV protection, energy savings, and security film.',
+    'brand': { '@type': 'Brand', 'name': 'Window Film Salt Lake City' },
+  },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical="https://windowfilmsaltlakecity.com/applications/arenas-stadiums/"
+  serviceName={serviceName}
+  serviceDesc={serviceDesc}
+  serviceUrl={serviceUrl}
+  faqItems={faqItems}
+  schemas={pageSchemas}
+>
+
+  <!-- ══ HERO ══ -->
+  <section class="as-hero">
+    <div
+      class="as-hero__bg"
+      role="img"
+      aria-label="Salt Lake City sports arena interior concourse with professional window film installed on massive glass curtain wall — diffused sunlight, no glare"
+      style={`background-image: url('/images/arenas-stadiums/stadium-window-film-salt-lake-city-hero.jpg')`}
+    ></div>
+    <div class="as-hero__overlay"></div>
+
+    <div class="as-hero__content">
+      <div class="as-hero__eyebrow">
+        <span>Arena &amp; Stadium Window Film</span>
+        <span class="as-hero__eyebrow-dot" aria-hidden="true"></span>
+        <span>Salt Lake City, UT</span>
+        <span class="as-hero__eyebrow-dot" aria-hidden="true"></span>
+        <span>Since 2008</span>
+      </div>
+
+      <h1 class="as-hero__title">Arena &amp; Stadium<br class="as-hero__br" /> Window Film in Salt Lake City</h1>
+
+      <p class="as-hero__subtitle">
+        Professional window film for Salt Lake City arenas, stadiums, concert venues, and convention centers. We install glare control film for fans and suites, UV protection for interiors, energy-saving film for massive glass facades, and security film for entry points — all scheduled around your event calendar.
+      </p>
+
+      <div class="as-hero__cta">
+        <a href="/contact/" class="as-hero__btn-primary">Get a Free Venue Assessment</a>
+        <a href="tel:8018954681" class="as-hero__btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" fill="currentColor"/></svg>
+          Call (801) 895-4681
+        </a>
+      </div>
+
+      <div class="as-hero__stats-panel" aria-label="Key statistics">
+        <div class="as-hero__stats-inner">
+          <div class="as-hero__stat">
+            <span class="as-hero__stat-number">78%</span>
+            <span class="as-hero__stat-label">Heat Rejected</span>
+          </div>
+          <div class="as-hero__stat-divider" aria-hidden="true"></div>
+          <div class="as-hero__stat">
+            <span class="as-hero__stat-number">1.2M+</span>
+            <span class="as-hero__stat-label">Sq Ft Installed</span>
+          </div>
+          <div class="as-hero__stat-divider" aria-hidden="true"></div>
+          <div class="as-hero__stat">
+            <span class="as-hero__stat-number">2008</span>
+            <span class="as-hero__stat-label">Serving Since</span>
+          </div>
+          <div class="as-hero__stat-divider" aria-hidden="true"></div>
+          <div class="as-hero__stat">
+            <span class="as-hero__stat-number">4.9</span>
+            <span class="as-hero__stat-label">Google Rating</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="swt-body">
+
+    <!-- ══ TRUST BAR ══ -->
+    <section class="swt-trust">
+      <div class="container">
+        <p class="swt-trust__label">Trusted by Salt Lake City venues, arenas, and entertainment facilities across the Wasatch Front</p>
+        <BrandLogos />
+      </div>
+    </section>
+
+    <!-- ══ INTRO ══ -->
+    <section class="as-intro">
+      <div class="as-intro__container">
+        <div class="as-intro__content">
+          <span class="as-intro__eyebrow">VENUE WINDOW FILM</span>
+          <h2 class="as-intro__title">Your Arena's Glass Is Working Against You</h2>
+          <p class="as-intro__body">Modern arenas and stadiums are defined by glass — soaring atriums, press boxes with panoramic views, suite walls that feel open to the sky. But that glass becomes a liability on clear summer afternoons, turning east-facing seating into solar ovens and west-facing suites unbearable by the fourth quarter.</p>
+          <p class="as-intro__body">Stadium window film in Salt Lake City solves it at the source. A professionally applied film bonds to your existing glass, rejecting solar heat, blocking 99% of UV, eliminating glare in <a href="/benefits/glare-reduction/" style="color: var(--as-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">suites and press boxes</a>, and adding security at entry points. There is no window replacement, no renovation, and no downtime — installation is scheduled around your event calendar. For broader commercial applications, see our <a href="/applications/office/" style="color: var(--as-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">office building window film</a> page.</p>
+          <div class="as-intro__links">
+            <a href="/benefits/glare-reduction/" class="as-intro__link">Glare reduction for venues →</a>
+            <a href="/applications/office/" class="as-intro__link">Commercial applications →</a>
+          </div>
+        </div>
+        <div class="as-intro__image-wrap">
+          <img
+            src="/images/arenas-stadiums/arena-vip-suite-window-film-salt-lake-city.jpg"
+            alt="Stadium VIP suite interior with window film — comfortable diffused natural light, no harsh glare" title="Stadium VIP suite interior with window film — comfortable diffused natural light, no harsh glare"
+            class="as-intro__image"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ BEFORE/AFTER SLIDER ══ -->
+    <BeforeAfterSlider
+      before="/images/arenas-stadiums/arena-concourse-glare-salt-lake-city-before.jpg"
+      after="/images/arenas-stadiums/arena-concourse-window-film-salt-lake-city-after.jpg"
+      beforeAlt="Arena concourse with harsh direct sunlight and glare through untreated glass — uncomfortable, overexposed"
+      afterAlt="Same type of arena concourse with window film — soft, even, comfortable diffused natural light"
+      beforeTag="Without film"
+      afterTag="With film"
+      heading="See the difference window film makes"
+      sub="Drag the handle to compare an arena concourse before and after window film installation. Same type of space. Completely different fan experience."
+    />
+
+    <!-- ══ GALLERY BANNER ══ -->
+    <GalleryBanner
+      titleLines={['VENUE', 'WORK.']}
+      eyebrow="ARENA & STADIUM INSTALLS"
+      description="Real installations from Salt Lake City sports arenas, concert venues, and convention centers — measured, applied, and finished by our certified team."
+      photos={galleryPhotos}
+      hintText="Hover the photos · click to bring forward"
+      theme="dark"
+    />
+
+    <!-- ══ VENUE TYPES — Inline alternating rows ══ -->
+    <section class="as-venues" id="venue-types">
+      <div class="as-venues__header">
+        <span class="as-venues__eyebrow">VENUE TYPES WE SERVE</span>
+        <h2 class="as-venues__title">What's the right film for your venue?</h2>
+        <p class="as-venues__sub">From sports arenas to concert halls to convention centers — each venue type has distinct glass challenges. Here's how we approach each one.</p>
+      </div>
+
+      <!-- Row 1: Sports Arenas — image LEFT, text RIGHT -->
+      <div class="as-venue-row">
+        <div class="as-venue-row__image">
+          <img src="/images/arenas-stadiums/sports-arena-window-film-salt-lake-city.jpg" alt="Sports arena interior concourse with glass curtain wall and solar control window film" title="Sports arena concourse with solar control window film — Window Film Salt Lake City" loading="lazy" />
+        </div>
+        <div class="as-venue-row__text">
+          <div class="as-venue-row__eyebrow">01 · Sports Arenas</div>
+          <h3 class="as-venue-row__title">Sports Arenas &amp; Indoor Stadiums</h3>
+          <p class="as-venue-row__body">Sports arenas like the the Delta Center type feature massive glass curtain walls, soaring atriums, and VIP suites with panoramic views. The challenge is threefold: solar heat gain through south- and west-facing glass, glare in premium seating and press boxes, and security at high-traffic entry points.</p>
+          <p class="as-venue-row__body">We specify different films for different zones — <a href="/benefits/solar-control/" class="as-green-link">solar control film</a> for the facade, glare control for suites, security film for entries, and anti-graffiti for concourse areas. Stadium window film in Salt Lake City is installed in night shifts around your event calendar — zero downtime.</p>
+        </div>
+      </div>
+
+      <!-- Row 2: Concert Venues — text LEFT, image RIGHT -->
+      <div class="as-venue-row as-venue-row--rev">
+        <div class="as-venue-row__image">
+          <img src="/images/arenas-stadiums/concert-venue-window-tinting-salt-lake-city.jpg" alt="Modern concert venue lobby with tall glass windows treated with decorative and solar control window film" title="Concert venue lobby with decorative window film — Window Film Salt Lake City" loading="lazy" />
+        </div>
+        <div class="as-venue-row__text">
+          <div class="as-venue-row__eyebrow">02 · Concert Venues</div>
+          <h3 class="as-venue-row__title">Concert Halls &amp; Live Music Venues</h3>
+          <p class="as-venue-row__body">Concert venues face a unique combination of challenges: large glass lobbies that create greenhouse conditions during daytime load-in, glare that interferes with stage lighting during early shows, and UV damage to lobby artwork and branded displays.</p>
+          <p class="as-venue-row__body">Arena window film for concert venues prioritizes high visible light transmission to preserve the open, welcoming lobby feel while rejecting infrared heat. For venues with <a href="/applications/restaurants/" class="as-green-link">hospitality-adjacent spaces</a>, decorative film can also create visual interest and brand identity on lobby glass.</p>
+        </div>
+      </div>
+
+      <!-- Row 3: Convention Centers — image LEFT, text RIGHT -->
+      <div class="as-venue-row">
+        <div class="as-venue-row__image">
+          <img src="/images/arenas-stadiums/convention-center-atrium-window-film-salt-lake-city.jpg" alt="Convention center grand atrium with massive skylight and glass walls with energy-efficient window film" title="Convention center atrium with energy-efficient window film — Window Film Salt Lake City" loading="lazy" />
+        </div>
+        <div class="as-venue-row__text">
+          <div class="as-venue-row__eyebrow">03 · Convention Centers</div>
+          <h3 class="as-venue-row__title">Convention Centers &amp; Exhibition Halls</h3>
+          <p class="as-venue-row__body">Convention centers feature some of the largest glazed atriums in commercial architecture — soaring skylights, glass curtain walls, and exhibition hall windows that can span hundreds of feet. The solar heat load on these surfaces is enormous, and the HVAC systems serving them are among the most expensive to operate in any building type.</p>
+          <p class="as-venue-row__body">Venue window film for convention centers focuses on energy savings at scale — rejecting solar heat before it enters the conditioned space, reducing HVAC operating costs, and protecting exhibit hall flooring and temporary displays from UV fading. See our <a href="/benefits/energy-savings/" class="as-green-link">energy savings guide</a> for large commercial buildings.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FULL-BLEED SLIDER — Why Choose Us ══ -->
+    <section class="as-ftype" id="asWhyChoose">
+      <div class="as-ftype__track" id="asFtypeTrack">
+
+        <!-- SLIDE 01: Glare Control -->
+        <div class="as-ftype__slide as-ftype-active" data-slide="0">
+          <img src="/images/arenas-stadiums/stadium-glare-control-window-film-salt-lake-city.jpg" alt="Stadium seating area with glare control window film on large glass windows" title="Stadium seating with glare control window film — Window Film Salt Lake City" class="as-ftype__bg" />
+          <div class="as-ftype__overlay"></div>
+          <div class="as-ftype__content">
+            <div class="as-ftype__step">01</div>
+            <h2 class="as-ftype__title">Glare Control.<br />Fans See the Game, Not the Sun.</h2>
+            <p class="as-ftype__desc">Spectrally selective film eliminates afternoon glare in VIP suites, press boxes, and premium seating while maintaining 70%+ visible light transmission. Full outdoor views are preserved without blinds or darkening, and broadcast cameras get clean, glare-free shots through treated press box windows.</p>
+            <a href="/contact/" class="as-ftype__cta">Get a glare control estimate →</a>
+          </div>
+        </div>
+
+        <!-- SLIDE 02: Energy Savings -->
+        <div class="as-ftype__slide" data-slide="1">
+          <img src="/images/arenas-stadiums/arena-energy-saving-window-film-salt-lake-city.jpg" alt="Modern arena exterior glass facade at dusk with energy-efficient window film" title="Arena exterior with energy-efficient window film — Window Film Salt Lake City" class="as-ftype__bg" />
+          <div class="as-ftype__overlay"></div>
+          <div class="as-ftype__content">
+            <div class="as-ftype__step">02</div>
+            <h2 class="as-ftype__title">Energy Savings.<br />Less HVAC Load, Lower Bills.</h2>
+            <p class="as-ftype__desc">Solar heat gain through untreated arena glass is a major contributor to cooling costs. Heat-rejecting film rejects up to 78% of solar heat at the glass surface — reducing HVAC load, extending equipment life, and cutting cooling costs with a typical 3–5 year payback period.</p>
+            <a href="/contact/" class="as-ftype__cta">Get an energy savings estimate →</a>
+          </div>
+        </div>
+
+        <!-- SLIDE 03: Security -->
+        <div class="as-ftype__slide" data-slide="2">
+          <img src="/images/arenas-stadiums/arena-security-window-film-salt-lake-city.jpg" alt="Arena main entrance with security window film on glass doors and partitions" title="Arena entrance with security window film — Window Film Salt Lake City" class="as-ftype__bg" />
+          <div class="as-ftype__overlay"></div>
+          <div class="as-ftype__content">
+            <div class="as-ftype__step">03</div>
+            <h2 class="as-ftype__title">Security Film.<br />Glass Stays Put When It Matters.</h2>
+            <p class="as-ftype__desc">Security window film holds shattered glass in the frame on impact — reducing injury risk in crowd surges and severe weather. Meets ASTM E1886/1996 impact standards accepted by venue insurers. Full documentation package provided for insurance and regulatory compliance.</p>
+            <a href="/contact/" class="as-ftype__cta">Get a security film estimate →</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right nav -->
+      <nav class="as-ftype__nav" aria-label="Why choose us navigation">
+        <button class="as-ftype__nav-item as-ftype__nav-item--active" data-asnav="0">
+          <span class="as-ftype__nav-line"></span>
+          <span class="as-ftype__nav-label">Glare Control</span>
+        </button>
+        <button class="as-ftype__nav-item" data-asnav="1">
+          <span class="as-ftype__nav-line"></span>
+          <span class="as-ftype__nav-label">Energy Savings</span>
+        </button>
+        <button class="as-ftype__nav-item" data-asnav="2">
+          <span class="as-ftype__nav-line"></span>
+          <span class="as-ftype__nav-label">Security</span>
+        </button>
+      </nav>
+
+      <!-- Arrows -->
+      <button class="as-ftype__arrow as-ftype__arrow--prev" id="asFtypePrev" aria-label="Previous slide">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <button class="as-ftype__arrow as-ftype__arrow--next" id="asFtypeNext" aria-label="Next slide">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+
+      <!-- Progress bar -->
+      <div class="as-ftype__progress"><div class="as-ftype__progress-bar" id="asFtypeProgressBar"></div></div>
+    </section>
+
+    <!-- ══ ACCORDION BENEFITS ══ -->
+    <AccordionBenefits
+      eyebrow="THE BENEFITS"
+      title="Benefits That Address Every Glass Challenge in Your Venue"
+      subtitle="Glare, UV, energy, security, anti-graffiti, and HVAC load — all addressed in a single professional installation. No window replacement. No renovation. No venue downtime."
+      benefits={benefits}
+    />
+
+    <!-- ══ BENTO GRID PHOTO ══ -->
+    <BentoGridPhoto
+      heading="Every Zone of Your Venue, Protected"
+      sub="From VIP suites to concourse partitions — professional window film for every zone of your arena, stadium, or convention center."
+      items={bentoItems}
+    />
+
+    <!-- ══ HOW IT WORKS ══ -->
+    <HowItWorksSlideshow
+      id="asHiw"
+      eyebrow="THE PROCESS"
+      title="From Venue Survey to Final Certification"
+      subtitle="From free venue survey to post-installation certification — a proven process for every Salt Lake City venue."
+      slides={hiwSlides}
+    />
+
+    <!-- ══ TESTIMONIAL MARQUEE ══ -->
+    <section class="as-tmarq-header">
+      <span class="as-tmarq-eyebrow">VENUE STORIES</span>
+      <h2 class="as-tmarq-title">Real Results from Salt Lake City Venues</h2>
+    </section>
+    <TestimonialMarquee reviews={reviews} />
+
+    <!-- ══ FAQ ══ -->
+    <AccordionFAQ
+      eyebrow="FAQ"
+      heading="Arena & Stadium Window Film FAQ"
+      sub="Honest answers from specialists who've been installing stadium window film in Salt Lake City venues since 2008."
+      items={faqAccordionItems}
+      single={true}
+    />
+
+    <!-- ══ GEO BLOCK (hidden — SEO only) ══ -->
+
+<!-- ══ CTA AVATARS ══ -->
+    <CTAAvatars
+      title="Ready to transform your venue?"
+      subtitle="Free venue assessment and thermal analysis. No obligation, no pressure — just honest advice from specialists who've been installing stadium window film in Salt Lake City since 2008."
+      count="Trusted by 60+ Salt Lake City venues & businesses"
+      btnLabel="Get a Free Venue Assessment"
+      btnHref="/contact/"
+      avatars={ctaAvatars}
+    />
+
+  </div><!-- /swt-body -->
+</BaseLayout>
+
+<style>
+  /* ══════════════════════════════════════
+     BRAND TOKENS
+     ══════════════════════════════════════ */
+  :root {
+    --as-brand:     #272E32;
+    --as-green:     #81AB4C;
+    --as-green-dark: #6e9640;
+    --as-off-white: #F7F6F3;
+    --as-text-dark: #1a1a1a;
+    --as-text-mid:  #4a4a4a;
+    --as-text-light: #888;
+    --as-light-gray: #EFEFED;
+    --as-radius:     5px;
+    --as-radius-pill: 100px;
+  }
+
+  /* ══════════════════════════════════════
+     HERO
+     ══════════════════════════════════════ */
+  .as-hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .as-hero__bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+  }
+  .as-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(39, 46, 50, 0.55) 0%,
+      rgba(39, 46, 50, 0.78) 50%,
+      rgba(39, 46, 50, 0.95) 100%
+    );
+  }
+  .as-hero__content {
+    position: relative;
+    z-index: 10;
+    max-width: 860px;
+    padding: 120px 24px 80px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .as-hero__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .as-hero__eyebrow-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--as-green);
+  }
+  .as-hero__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(38px, 5.5vw, 64px);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.1;
+    margin: 0 0 24px;
+    letter-spacing: -0.02em;
+  }
+  .as-hero__br { display: inline; }
+  .as-hero__subtitle {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.7;
+    margin: 0 0 36px;
+    max-width: 520px;
+  }
+  .as-hero__cta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+  .as-hero__btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    border-radius: var(--as-radius-pill);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    background: var(--as-green);
+    color: #fff;
+    border: 2px solid var(--as-green);
+    transition: all 0.25s ease;
+    white-space: nowrap;
+  }
+  .as-hero__btn-primary:hover {
+    background: var(--as-green-dark);
+    border-color: var(--as-green-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(129,171,76,0.35);
+  }
+  .as-hero__btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: var(--as-radius-pill);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(8px);
+    color: #fff;
+    border: 2px solid rgba(255,255,255,0.25);
+    transition: all 0.25s ease;
+    white-space: nowrap;
+  }
+  .as-hero__btn-secondary:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(129,171,76,0.6);
+    transform: translateY(-2px);
+  }
+
+  /* Stats panel */
+  .as-hero__stats-panel {
+    background: rgba(39,46,50,0.55);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 24px 28px;
+    max-width: 640px;
+  }
+  .as-hero__stats-inner {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .as-hero__stat {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .as-hero__stat-number {
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-weight: 700;
+    color: var(--as-green);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .as-hero__stat-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.4;
+  }
+  .as-hero__stat-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(255,255,255,0.12);
+    flex-shrink: 0;
+  }
+  @media (max-width: 768px) {
+    .as-hero { min-height: 90vh; }
+    .as-hero__content { padding: 100px 5% 60px; }
+    .as-hero__stats-panel { padding: 20px 16px; }
+    .as-hero__stats-inner { flex-wrap: wrap; gap: 16px; }
+    .as-hero__stat { flex: 0 0 calc(50% - 8px); }
+    .as-hero__stat-divider { display: none; }
+  }
+
+  /* ══════════════════════════════════════
+     TRUST BAR
+     ══════════════════════════════════════ */
+  .swt-trust {
+    padding: 40px 5%;
+    background: #272E32;
+    text-align: center;
+  }
+  .swt-trust__label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    color: rgba(243, 246, 241, 0.55);
+    margin: 0 0 20px;
+  }
+  .container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* ══════════════════════════════════════
+     INTRO
+     ══════════════════════════════════════ */
+  .as-intro {
+    padding: 80px 5%;
+    background: #fff;
+  }
+  .as-intro__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .as-intro__eyebrow {
+    display: block;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--as-green);
+    margin-bottom: 1rem;
+  }
+  .as-intro__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 700;
+    color: var(--as-text-dark);
+    line-height: 1.15;
+    margin: 0 0 1.25rem;
+    letter-spacing: -0.02em;
+  }
+  .as-intro__body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.05rem;
+    color: var(--as-text-mid);
+    line-height: 1.8;
+    margin: 0 0 1rem;
+  }
+  .as-intro__links {
+    display: flex;
+    gap: 24px;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .as-intro__link {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--as-green);
+    text-decoration: underline;
+    text-decoration-color: var(--as-green);
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+  }
+  .as-intro__link:hover { color: var(--as-green-dark); }
+  .as-intro__image-wrap {
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 24px 60px rgba(39,46,50,0.12);
+  }
+  .as-intro__image {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    display: block;
+  }
+  @media (max-width: 768px) {
+    .as-intro__container { grid-template-columns: 1fr; gap: 2rem; }
+    .as-intro__image { height: 320px; }
+  }
+
+  /* ══════════════════════════════════════
+     VENUE TYPES — Inline alternating rows
+     ══════════════════════════════════════ */
+  .as-venues {
+    padding: 80px 5%;
+    background: var(--as-off-white);
+  }
+  .as-venues__header {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 56px;
+  }
+  .as-venues__eyebrow {
+    display: block;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--as-green);
+    margin-bottom: 0.75rem;
+  }
+  .as-venues__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 700;
+    color: var(--as-text-dark);
+    line-height: 1.15;
+    margin: 0 0 1rem;
+    letter-spacing: -0.02em;
+  }
+  .as-venues__sub {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    color: var(--as-text-mid);
+    line-height: 1.7;
+    margin: 0;
+  }
+  .as-venue-row {
+    max-width: 1200px;
+    margin: 0 auto 64px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .as-venue-row--rev {
+    direction: rtl;
+  }
+  .as-venue-row--rev > * { direction: ltr; }
+  .as-venue-row__image {
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 16px 48px rgba(39,46,50,0.1);
+  }
+  .as-venue-row__image img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+  .as-venue-row__image:hover img { transform: scale(1.03); }
+  .as-venue-row__eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--as-green);
+    margin-bottom: 12px;
+  }
+  .as-venue-row__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.35rem, 2.5vw, 1.875rem);
+    font-weight: 700;
+    color: var(--as-text-dark);
+    margin: 0 0 20px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+  .as-venue-row__body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    color: var(--as-text-mid);
+    line-height: 1.8;
+    margin: 0 0 16px;
+  }
+  .as-green-link {
+    color: var(--as-green);
+    text-decoration: underline;
+    text-decoration-color: var(--as-green);
+    text-underline-offset: 3px;
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+  .as-green-link:hover { color: var(--as-green-dark); }
+  @media (max-width: 900px) {
+    .as-venue-row { grid-template-columns: 1fr; gap: 2rem; margin-bottom: 48px; }
+    .as-venue-row--rev { direction: ltr; }
+    .as-venue-row__image img { height: 320px; }
+  }
+
+  /* ══════════════════════════════════════
+     FULL-BLEED SLIDER (of-ftype pattern)
+     ══════════════════════════════════════ */
+  .as-ftype {
+    position: relative;
+    width: 100%;
+    min-height: 90vh;
+    overflow: hidden;
+    background: var(--as-brand);
+  }
+  .as-ftype__track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+    will-change: transform;
+  }
+  .as-ftype__slide {
+    position: relative;
+    min-width: 100%;
+    min-height: 90vh;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+  }
+  .as-ftype__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+  }
+  .as-ftype__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(39,46,50,0.82) 0%, rgba(39,46,50,0.3) 60%, transparent 100%);
+    z-index: 1;
+  }
+  .as-ftype__content {
+    position: relative;
+    z-index: 2;
+    max-width: 560px;
+    padding-left: 80px;
+    color: #fff;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s;
+  }
+  .as-ftype-active .as-ftype__content {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .as-ftype__step {
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    color: var(--as-green);
+    letter-spacing: 0.2em;
+    margin-bottom: 1rem;
+  }
+  .as-ftype__title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 4vw, 3.25rem);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.1;
+    margin: 0 0 1.5rem;
+    white-space: pre-line;
+  }
+  .as-ftype__desc {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.85);
+    max-width: 460px;
+    margin-bottom: 2rem;
+  }
+  .as-ftype__cta {
+    display: inline-block;
+    background: var(--as-green);
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 14px 32px;
+    border-radius: var(--as-radius-pill);
+    text-decoration: none;
+    transition: background 0.25s ease, transform 0.2s ease;
+  }
+  .as-ftype__cta:hover {
+    background: var(--as-green-dark);
+    transform: translateY(-2px);
+  }
+  .as-ftype__nav {
+    position: absolute;
+    top: 50%;
+    right: 48px;
+    transform: translateY(-50%);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .as-ftype__nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    opacity: 0.35;
+    transition: opacity 0.3s ease;
+  }
+  .as-ftype__nav-item:hover { opacity: 0.65; }
+  .as-ftype__nav-item--active { opacity: 1; }
+  .as-ftype__nav-line {
+    display: block;
+    width: 3px;
+    height: 28px;
+    background: rgba(255,255,255,0.4);
+    border-radius: 2px;
+    transition: background 0.3s ease, height 0.3s ease;
+  }
+  .as-ftype__nav-item--active .as-ftype__nav-line {
+    background: var(--as-green);
+    height: 44px;
+  }
+  .as-ftype__nav-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    white-space: nowrap;
+  }
+  .as-ftype__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 48px;
+    height: 48px;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #fff;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  .as-ftype__arrow:hover { background: rgba(0,0,0,0.6); color: var(--as-green); }
+  .as-ftype__arrow--prev { left: 32px; }
+  .as-ftype__arrow--next { right: 32px; }
+  .as-ftype__progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgba(255,255,255,0.15);
+    z-index: 10;
+  }
+  .as-ftype__progress-bar {
+    height: 100%;
+    background: var(--as-green);
+    width: 0;
+    transition: width 0.05s linear;
+  }
+  @media (max-width: 768px) {
+    .as-ftype__nav { display: none; }
+    .as-ftype__content { padding-left: 32px; padding-right: 32px; max-width: calc(100% - 64px); }
+    .as-ftype__arrow--prev { left: 16px; }
+    .as-ftype__arrow--next { right: 16px; }
+  }
+
+  /* ══════════════════════════════════════
+     TESTIMONIAL HEADER
+     ══════════════════════════════════════ */
+  .as-tmarq-header {
+    background: var(--as-off-white);
+    padding: 64px 5% 0;
+    text-align: center;
+  }
+  .as-tmarq-eyebrow {
+    display: block;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--as-green);
+    margin-bottom: 0.75rem;
+  }
+  .as-tmarq-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 700;
+    color: var(--as-text-dark);
+    line-height: 1.2;
+    margin: 0 0 2rem;
+    letter-spacing: -0.02em;
+  }
+
+  /* ══════════════════════════════════════
+     OVERRIDES — Component navy to charcoal
+     ══════════════════════════════════════ */
+  /* AccordionFAQ: override #14201A → #272E32 and #1a2e22 → #2d363b */
+  :global(.faq) {
+    background: #272E32 !important;
+  }
+  :global(.faq__item) {
+    background: #2d363b !important;
+  }
+  :global(.faq__title) {
+    font-family: 'Playfair Display', serif !important;
+  }
+  :global(.faq__a-inner p) {
+    font-family: 'DM Sans', sans-serif !important;
+  }
+  /* BentoGridPhoto: verify #272E32 (already correct) */
+  /* HowItWorksSlideshow: verify #F7F6F3 (already correct) */
+  /* TestimonialMarquee: verify #F7F6F3 (already correct) */
+  /* GalleryBanner dark: verify #272E32 (already correct) */
+  /* BeforeAfterSlider: uses var(--brand, #272E32) — already correct */
+</style>
+
+<script>
+  // ── Full-bleed slider (of-ftype pattern) ──
+  (() => {
+    const track = document.getElementById('asFtypeTrack');
+    if (!track) return;
+    const slides = Array.from(document.querySelectorAll('.as-ftype__slide'));
+    const navItems = Array.from(document.querySelectorAll('[data-asnav]'));
+    const progressBar = document.getElementById('asFtypeProgressBar');
+    let current = 0;
+    let timer;
+    let progress = 0;
+    const DURATION = 7000;
+    const TICK = 50;
+
+    function goTo(idx) {
+      slides[current].classList.remove('as-ftype-active');
+      navItems[current] && navItems[current].classList.remove('as-ftype__nav-item--active');
+      current = ((idx % slides.length) + slides.length) % slides.length;
+      slides[current].classList.add('as-ftype-active');
+      navItems[current] && navItems[current].classList.add('as-ftype__nav-item--active');
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      progress = 0;
+      if (progressBar) progressBar.style.width = '0%';
+    }
+
+    function startTimer() {
+      clearInterval(timer);
+      progress = 0;
+      timer = setInterval(() => {
+        progress += (TICK / DURATION) * 100;
+        if (progressBar) progressBar.style.width = Math.min(progress, 100) + '%';
+        if (progress >= 100) goTo(current + 1);
+      }, TICK);
+    }
+
+    goTo(0);
+    startTimer();
+
+    const nextBtn = document.getElementById('asFtypeNext');
+    const prevBtn = document.getElementById('asFtypePrev');
+    if (nextBtn) nextBtn.addEventListener('click', () => { goTo(current + 1); startTimer(); });
+    if (prevBtn) prevBtn.addEventListener('click', () => { goTo(current - 1); startTimer(); });
+    navItems.forEach(btn => btn.addEventListener('click', () => { goTo(Number(btn.dataset.asnav)); startTimer(); }));
+  })();
+</script>

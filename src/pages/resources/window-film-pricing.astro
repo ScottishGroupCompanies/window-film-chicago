@@ -1,0 +1,648 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BrandLogos from '../../components/BrandLogos.astro';
+import GalleryBanner from '../../components/GalleryBanner.astro';
+import BentoGridPhoto from '../../components/BentoGridPhoto.astro';
+import AccordionFAQ from '../../components/AccordionFAQ.astro';
+import CTAAvatars from '../../components/CTAAvatars.astro';
+import CountUp from '../../components/animations/CountUp.astro';
+
+const title = 'Window Film Cost Salt Lake City | Pricing Guide & Estimates';
+const description = 'Understand what window film costs — and what drives the price. A transparent pricing guide for Salt Lake City residential and commercial window film.';
+const dateModified = new Date().toISOString().slice(0, 10);
+
+const galleryPhotos = [
+  '/images/pricing-guide/window-film-installation-cost-salt-lake-city.jpg',
+  '/images/pricing-guide/window-film-pricing-consultation-salt-lake-city.jpg',
+  '/images/pricing-guide/window-film-roi-salt-lake-city.jpg',
+  '/images/pricing-guide/commercial-window-film-pricing-salt-lake-city.jpg',
+  '/images/pricing-guide/residential-window-film-cost-salt-lake-city.jpg',
+];
+
+const bentoItems = [
+  { span: 'lg', title: 'Film Material Cost', desc: 'Higher-quality materials like ceramic or spectrally selective films cost more but deliver superior heat rejection, UV protection, and optical clarity.', img: '/images/pricing-guide/spectrally-selective-film-cost-salt-lake-city.jpg', href: '/benefits/energy-savings/' },
+  { span: 'sm', title: 'Project Size', desc: 'Larger projects with more glass area typically have a lower per-square-foot cost due to economies of scale.', img: '/images/pricing-guide/large-commercial-window-film-salt-lake-city.jpg', href: '/services/commercial/' },
+  { span: 'sm', title: 'Access Complexity', desc: 'Multi-story installations, difficult-to-reach windows, or specialty glass require larger crews and more time.', img: '/images/pricing-guide/high-rise-window-film-installation-salt-lake-city.jpg', href: '/services/commercial/' },
+  { span: 'md', title: 'Installer Quality', desc: 'Experienced, manufacturer-certified installers deliver better results and include meaningful warranties.', img: '/images/pricing-guide/certified-installer-salt-lake-city.jpg', href: '/about/' },
+  { span: 'md', title: 'Film Type Selection', desc: 'Energy, security, decorative, and anti-graffiti films each occupy different price tiers based on technology and performance.', img: '/images/pricing-guide/window-film-types-salt-lake-city.jpg', href: '/benefits/' },
+  { span: 'md', title: 'Warranty Coverage', desc: 'Products backed by manufacturer warranties and our workmanship guarantee carry long-term value beyond the initial price.', img: '/images/pricing-guide/window-film-warranty-salt-lake-city.jpg', href: '/resources/warranty/' },
+];
+
+const pricingData = [
+  { type: 'Spectrally Selective', cost: '$9–18 per sq ft', best: 'Blocking heat, glare, and UV radiation' },
+  { type: 'Low-E Film', cost: '~$20 per sq ft', best: 'Year-round climate control and energy savings' },
+  { type: 'Safety / Security', cost: '$8–16 per sq ft', best: 'Protection against forced entry, accidents, and weather' },
+  { type: 'Bullet Resistant', cost: '~$125 per sq ft', best: 'Strengthen glass against ballistics and severe impact' },
+  { type: 'Security Attachment Systems', cost: '$2–5 per linear ft', best: 'Attach security film for increased impact resistance' },
+  { type: 'Decorative / Frosted', cost: '$6–12 per sq ft', best: 'Privacy and decorative features' },
+];
+
+const faqItems = [
+  { question: 'How do I get an accurate price for my project?', answer: 'Contact us for a free onsite consultation. Pricing depends on glass area, film type, access complexity, and installer experience — all variables our team assesses during a site visit. We provide itemized quotes with no surprises after the assessment.' },
+  { question: 'Why does bullet-resistant film cost so much more than other security film?', answer: 'Ballistic-resistant film is multi-ply, significantly thicker, and uses specialized materials engineered to meet military and law enforcement ballistic standards. It is a fundamentally different product from standard safety and security film, designed to a completely different performance specification.' },
+  { question: 'Is the cheapest quote always the best deal?', answer: 'Rarely. Lower-cost installs often use thinner film with less UV protection, skip proper surface preparation, or do not include meaningful warranties. Total cost of ownership — including energy savings, warranty coverage, and product longevity — consistently favors quality installation over the cheapest initial price.' },
+  { question: 'Does film price include installation?', answer: 'Our quotes always include professional installation, surface preparation, and warranty documentation. Be cautious of film-only quotes that do not account for labor, proper surface prep, and workmanship warranty — the installation quality is as important as the film itself.' },
+  { question: 'Can I get financing or payment terms for a large commercial install?', answer: 'Contact us to discuss payment options for large commercial projects. We work with property managers and building owners on project scheduling, phasing, and payment structures that work for your operational and financial requirements.' },
+  { question: 'How long after installation does pricing typically pay back through energy savings?', answer: 'Energy films typically achieve full payback in 2–5 years for most commercial properties. Residential varies by glazing area and orientation. Our team can model projected savings based on your specific building during your free consultation — giving you a real payback projection before you commit.' },
+];
+
+const faqAccordionItems = faqItems.map(f => ({ q: f.question, a: f.answer }));
+
+const pageSchemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://windowfilmsaltlakecity.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Resources', item: 'https://windowfilmsaltlakecity.com/resources/' },
+      { '@type': 'ListItem', position: 3, name: 'Pricing Guide', item: 'https://windowfilmsaltlakecity.com/resources/window-film-pricing/' },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': 'https://windowfilmsaltlakecity.com/resources/window-film-pricing/',
+    url: 'https://windowfilmsaltlakecity.com/resources/window-film-pricing/',
+    name: 'Window Film Pricing Guide',
+    description,
+    dateModified,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map(f => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: { '@type': 'Answer', text: f.answer },
+    })),
+  },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical="https://windowfilmsaltlakecity.com/resources/window-film-pricing/"
+  faqItems={faqItems}
+  serviceName="Window Film Salt Lake City Pricing"
+  serviceDesc="Transparent window film pricing guide for Salt Lake City residential and commercial properties."
+  serviceUrl="https://windowfilmsaltlakecity.com/resources/window-film-pricing/"
+  schemas={pageSchemas}
+>
+
+<!-- ═══ HERO ═══ -->
+<section class="pr-hero">
+  <div class="pr-hero__bg" style="background-image: url('/images/pricing-guide/window-film-pricing-salt-lake-city-hero.jpg')" role="img" aria-label="Salt Lake City commercial building with professionally installed window film"></div>
+  <div class="pr-hero__overlay"></div>
+  <div class="pr-hero__content">
+    <div class="pr-hero__eyebrow">
+      <span class="pr-hero__eyebrow-dot" aria-hidden="true"></span>
+      PRICING GUIDE
+      <span class="pr-hero__eyebrow-dot" aria-hidden="true"></span>
+    </div>
+    <h1 class="pr-hero__title">Window Film Pricing in Salt Lake City</h1>
+    <p class="pr-hero__subtitle">Window film pricing varies by film type, glass area, and installation complexity. This guide explains how pricing works — and why the only way to get a precise number is a site assessment.</p>
+    <div class="pr-hero__cta">
+      <a href="/contact/" class="pr-hero__btn-primary">Get a Free Quote</a>
+      <a href="#pricing-table" class="pr-hero__btn-secondary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v4.5a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18.75v-4.5M8.25 6L12 2.25 15.75 6M12 2.25v15"/></svg>
+        View Price Estimates
+      </a>
+    </div>
+    <div class="pr-hero__stats-panel" aria-label="Key statistics">
+      <div class="pr-hero__stats-inner">
+        <div class="pr-hero__stat">
+          <span class="pr-hero__stat-number">2–5 yrs</span>
+          <span class="pr-hero__stat-label">Typical Payback</span>
+        </div>
+        <div class="pr-hero__stat-divider" aria-hidden="true"></div>
+        <div class="pr-hero__stat">
+          <span class="pr-hero__stat-number">15+</span>
+          <span class="pr-hero__stat-label">Brands Carried</span>
+        </div>
+        <div class="pr-hero__stat-divider" aria-hidden="true"></div>
+        <div class="pr-hero__stat">
+          <span class="pr-hero__stat-number">2008</span>
+          <span class="pr-hero__stat-label">Serving Since</span>
+        </div>
+        <div class="pr-hero__stat-divider" aria-hidden="true"></div>
+        <div class="pr-hero__stat">
+          <span class="pr-hero__stat-number">2,400+</span>
+          <span class="pr-hero__stat-label">Projects Completed</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="pr-body">
+
+<!-- TRUST BAR -->
+<section class="pr-trust">
+  <div class="pr-container">
+    <p class="pr-trust__label">Transparent pricing. No hidden costs. Free onsite consultations for every Salt Lake City property.</p>
+  </div>
+</section>
+
+<BrandLogos />
+
+<!-- ═══ INTRO — 2-col ═══ -->
+<section class="pr-intro">
+  <div class="pr-intro__container">
+    <div class="pr-intro__image-wrap">
+      <img src="/images/pricing-guide/window-film-consultation-salt-lake-city.jpg" alt="Professional window film consultation in Salt Lake City showing pricing factors" class="pr-intro__image" loading="lazy" />
+    </div>
+    <div class="pr-intro__content">
+      <span class="pr-eyebrow">Pricing Guide</span>
+      <h2 class="pr-intro__title">How window film pricing works in Salt Lake City</h2>
+      <p class="pr-intro__lead">Window film pricing varies significantly by <a href="/benefits/" style="color: var(--pr-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">film type</a>, glass area, and installation complexity. This guide provides a framework for understanding how pricing works — but for an accurate quote for your specific project, <a href="/contact/" style="color: var(--pr-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">contact us directly</a>. Every project is unique, and the only way to get a precise number is a site assessment.</p>
+      <p class="pr-intro__lead">Whether you are considering <a href="/services/residential/" style="color: var(--pr-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">residential window film</a> for a South Salt Lake rowhome or <a href="/services/commercial/" style="color: var(--pr-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">commercial window film</a> for a Downtown Salt Lake City office tower, the same three variables determine your total investment: film material, project scope, and installer quality. According to the <a href="https://iwfa.com/energy-control/" target="_blank" rel="noopener noreferrer" style="color: var(--pr-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">International Window Film Association</a>, window film professionals can help predict energy savings using tools based on the Department of Energy's Energy+ platform — giving you real cost-savings projections before you commit.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GALLERY BANNER ═══ -->
+<GalleryBanner
+  titleLines={['YOUR', 'INVESTMENT.']}
+  eyebrow="PRICING TRANSPARENCY"
+  description="A collection of real window film installations across Salt Lake City. Every project measured, applied, and finished by our certified team — each with a transparent, itemized quote."
+  photos={galleryPhotos}
+  hintText="Hover the photos · click to bring forward"
+  theme="dark"
+/>
+
+<!-- ═══ PRICING TABLE ═══ -->
+<section class="pr-table" id="pricing-table">
+  <div class="pr-container">
+    <div class="pr-table__head">
+      <span class="pr-eyebrow pr-eyebrow--center">Price Estimates</span>
+      <h2 class="pr-table__title">General Price Estimates by Film Type</h2>
+      <p class="pr-table__intro">Window film prices are calculated per square foot. The estimates below reflect typical installed cost ranges. Contact us for an accurate quote for your project.</p>
+    </div>
+    <div class="pr-table__wrap">
+      <table class="pr-table__element">
+        <thead>
+          <tr>
+            <th>Film Type</th>
+            <th>Approx. Cost</th>
+            <th>Best For</th>
+          </tr>
+        </thead>
+        <tbody>
+          {pricingData.map((row) => (
+            <tr>
+              <td class="pr-table__film-type">{row.type}</td>
+              <td class="pr-table__cost">{row.cost}</td>
+              <td>{row.best}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p class="pr-table__disclaimer">* Prices vary and those listed may not reflect actual costs for your project. Contact us for an accurate quote.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BENTO GRID — Pricing Factors ═══ -->
+<BentoGridPhoto
+  heading="What drives the cost of your window film installation?"
+  sub="Six variables determine the total cost of a window film project. Understanding each one helps you make an informed decision."
+  items={bentoItems}
+/>
+
+<!-- ═══ COUNT UP — ROI Stats ═══ -->
+<section class="pr-roi">
+  <div class="pr-container">
+    <div class="pr-roi__head">
+      <span class="pr-eyebrow pr-eyebrow--center">Return on Investment</span>
+      <h2 class="pr-roi__title">Window film pays for itself</h2>
+      <p class="pr-roi__intro">Energy-saving films typically return their full cost within 2–5 years through HVAC savings alone — then continue delivering savings for 15–20+ years. Security films reduce forced-entry risk and potential insurance premiums. Decorative film replaces frosted or etched glass at a fraction of the cost.</p>
+    </div>
+    <div class="pr-roi__stats">
+      <div class="pr-roi__stat">
+        <CountUp end={2} suffix="–5" label="Year Payback (Energy Films)" />
+      </div>
+      <div class="pr-roi__stat">
+        <CountUp end={20} suffix="+ yrs" label="Continued Savings" />
+      </div>
+      <div class="pr-roi__stat">
+        <CountUp end={15} suffix="+" label="Brands With Warranty" />
+      </div>
+      <div class="pr-roi__stat">
+        <CountUp end={2400} suffix="+" label="Projects Completed" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<AccordionFAQ
+  eyebrow="FAQ"
+  heading="Common questions about window film pricing"
+  sub="Everything you need to know about cost factors, quotes, and return on investment."
+  items={faqAccordionItems}
+/>
+
+<!-- ═══ CTA ═══ -->
+<CTAAvatars
+  title="Ready for an accurate quote on your project?"
+  subtitle="Contact us for a free onsite consultation. We assess your glass, understand your goals, and provide an itemized quote with no surprises."
+  count="Trusted by 2,400+ Salt Lake City property owners"
+  btnLabel="Get a Free Quote"
+  btnHref="/contact/"
+  avatars={[
+    { name: 'David R.', location: 'Downtown Salt Lake City', img: '/images/about/about-avatar-1.jpg' },
+    { name: 'Lisa M.', location: 'Federal Heights', img: '/images/about/about-avatar-3.jpg' },
+    { name: 'Robert K.', location: 'South Street', img: '/images/about/about-avatar-2.jpg' },
+    { name: 'Janet F.', location: 'Millcreek', img: '/images/about/about-avatar-5.jpg' },
+    { name: 'Sarah M.', location: 'Sugar House', img: '/images/about/about-avatar-8.jpg' },
+    { name: 'Marco V.', location: 'The Avenues', img: '/images/about/about-avatar-7.jpg' },
+  ]}
+/>
+
+</div>
+
+</BaseLayout>
+
+<style>
+/* ── DESIGN TOKENS — site palette ══ */
+:root {
+  --pr-radius: 5px;
+  --pr-charcoal: #272E32;
+  --pr-green: #81AB4C;
+  --pr-green-light: #eef4e4;
+  --pr-green-dark: #7CB342;
+  --pr-off-white: #F7F6F3;
+  --pr-light-gray: #EFEFED;
+  --pr-text-dark: #1a1a1a;
+  --pr-text-mid: #4a4a4a;
+  --pr-text-light: #888;
+}
+
+.pr-body { background: #ffffff; }
+.pr-container { max-width: 1280px; margin: 0 auto; padding: 0 5%; }
+
+/* ── EYEBROW ══ */
+.pr-eyebrow {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--pr-green);
+  margin-bottom: 16px;
+}
+.pr-eyebrow--center { display: block; text-align: center; margin-bottom: 20px; }
+
+/* ── HERO ══ */
+.pr-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.pr-hero__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.pr-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(39,46,50,0.55) 0%, rgba(39,46,50,0.78) 55%, rgba(39,46,50,0.95) 100%);
+}
+.pr-hero__content {
+  position: relative;
+  z-index: 10;
+  max-width: 860px;
+  padding: 120px 24px 80px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pr-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(124, 179, 66, 0.85);
+  margin-bottom: 28px;
+  background: rgba(124, 179, 66, 0.08);
+  border: 1px solid rgba(124, 179, 66, 0.2);
+  padding: 8px 18px;
+  border-radius: 100px;
+}
+.pr-hero__eyebrow-dot {
+  width: 4px; height: 4px; border-radius: 50%;
+  background: rgba(124, 179, 66, 0.4);
+  flex-shrink: 0;
+}
+.pr-hero__title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.25rem, 5.5vw, 3.75rem);
+  font-weight: 700;
+  color: #F3F6F1;
+  line-height: 1.1;
+  margin: 0 0 20px;
+  letter-spacing: -0.01em;
+}
+.pr-hero__subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+  color: rgba(243, 246, 241, 0.72);
+  max-width: 680px;
+  margin: 0 0 36px;
+  line-height: 1.75;
+}
+.pr-hero__cta {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 56px;
+}
+.pr-hero__btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--pr-green-dark);
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 14px 32px;
+  border-radius: 100px;
+  border: 2px solid var(--pr-green-dark);
+  transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+}
+.pr-hero__btn-primary:hover {
+  background: #6aa032;
+  border-color: #6aa032;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(124, 179, 66, 0.3);
+}
+.pr-hero__btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: #F3F6F1;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: 100px;
+  border: 2px solid rgba(243, 246, 241, 0.35);
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.2s ease;
+}
+.pr-hero__btn-secondary:hover {
+  border-color: var(--pr-green-dark);
+  color: var(--pr-green-dark);
+  transform: translateY(-2px);
+}
+/* Stats Panel */
+.pr-hero__stats-panel {
+  width: 100%;
+  max-width: 720px;
+  background: rgba(39, 46, 50, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--pr-radius);
+  padding: 28px 32px;
+}
+.pr-hero__stats-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.pr-hero__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+}
+.pr-hero__stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-weight: 700;
+  color: #F3F6F1;
+  line-height: 1;
+}
+.pr-hero__stat-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: rgba(243, 246, 241, 0.55);
+}
+.pr-hero__stat-divider {
+  width: 1px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .pr-hero__stats-inner { flex-direction: column; gap: 16px; }
+  .pr-hero__stat-divider { width: 60%; height: 1px; }
+}
+
+/* ── TRUST BAR ══ */
+.pr-trust {
+  padding: 40px 0 20px;
+  text-align: center;
+}
+.pr-trust__label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--pr-text-mid);
+  letter-spacing: 0.3px;
+}
+
+/* ── INTRO ══ */
+.pr-intro {
+  padding: 80px 0;
+}
+.pr-intro__container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 5%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.pr-intro__content { max-width: 520px; }
+.pr-intro__title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: var(--pr-text-dark);
+  line-height: 1.2;
+  margin: 0 0 24px;
+  letter-spacing: -0.01em;
+}
+.pr-intro__lead {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--pr-text-mid);
+  margin: 0 0 20px;
+}
+.pr-intro__image-wrap {
+  border-radius: var(--pr-radius);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+.pr-intro__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+@media (max-width: 860px) {
+  .pr-intro__container { grid-template-columns: 1fr; gap: 40px; }
+  .pr-intro { padding: 60px 0; }
+}
+
+/* ── PRICING TABLE ══ */
+.pr-table {
+  padding: 80px 0;
+  background: var(--pr-off-white);
+}
+.pr-table__head {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 60px;
+}
+.pr-table__title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: var(--pr-text-dark);
+  margin: 0 0 16px;
+  letter-spacing: -0.01em;
+}
+.pr-table__intro {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--pr-text-mid);
+  margin: 0;
+}
+.pr-table__wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+.pr-table__element {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'DM Sans', sans-serif;
+  background: #fff;
+  border-radius: var(--pr-radius);
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.pr-table__element thead tr {
+  background: var(--pr-charcoal);
+}
+.pr-table__element thead th {
+  padding: 16px 24px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #fff;
+  text-align: left;
+}
+.pr-table__element tbody tr {
+  border-bottom: 1px solid var(--pr-light-gray);
+}
+.pr-table__element tbody tr:last-child {
+  border-bottom: none;
+}
+.pr-table__element tbody tr:nth-child(even) {
+  background: var(--pr-off-white);
+}
+.pr-table__element tbody td {
+  padding: 16px 24px;
+  font-size: 15px;
+  color: var(--pr-text-mid);
+}
+.pr-table__film-type {
+  font-weight: 600;
+  color: var(--pr-text-dark) !important;
+}
+.pr-table__cost {
+  font-weight: 700;
+  color: var(--pr-green) !important;
+  white-space: nowrap;
+}
+.pr-table__disclaimer {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-style: italic;
+  color: rgba(0,0,0,0.4);
+  margin-top: 16px;
+  text-align: center;
+}
+
+/* ── ROI STATS ══ */
+.pr-roi {
+  padding: 80px 0;
+  background: var(--pr-charcoal);
+}
+.pr-roi__head {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 60px;
+}
+.pr-roi__title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: #F3F6F1;
+  margin: 0 0 16px;
+  letter-spacing: -0.01em;
+}
+.pr-roi__intro {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(243, 246, 241, 0.72);
+  margin: 0;
+}
+.pr-roi__stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.pr-roi__stat {
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .pr-roi__stats { gap: 32px; }
+}
+
+/* ── ACCORDION FAQ OVERRIDE ══ */
+:global(.faq) { background: #272E32 !important; }
+:global(.faq__item) { background: #2d363b !important; }
+</style>

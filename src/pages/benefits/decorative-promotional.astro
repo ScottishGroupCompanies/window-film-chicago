@@ -1,0 +1,1025 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BrandLogos from '../../components/BrandLogos.astro';
+import CategoryBlogFeed from '../../components/CategoryBlogFeed.astro';
+
+const title = 'Decorative Window Film in Salt Lake City | Frosted Graphics';
+const description = 'Decorative window film in Salt Lake City for offices, retail, and healthcare. Frosted privacy, custom branding, and printed glass graphics.';
+
+const faqItems = [
+  { question: 'What is decorative window film and how is it different from tinted film?', answer: 'Decorative window film is applied to glass for aesthetic, privacy, or branding purposes rather than purely for solar performance. Options include frosted and sandblasted-style patterns for privacy, custom printed graphics for branding, color-gradient films, and architectural geometric patterns. Unlike solar tint, decorative film is chosen primarily for how it looks — privacy and light diffusion are secondary effects.' },
+  { question: 'Can decorative film provide privacy without blocking light?', answer: 'Yes. Frosted and translucent decorative films diffuse light rather than blocking it — they obscure direct sightlines while still allowing natural light to pass through. Conference rooms and healthcare examination rooms benefit most: occupants inside have visual privacy, but the space remains bright and naturally lit. Gradient films are particularly useful where you want privacy at seated eye level but openness above.' },
+  { question: 'Can I get my company logo or custom graphics printed on window film?', answer: 'Yes. We print full-color custom graphics, logos, patterns, and artwork directly onto window film. Custom printed film can be applied to storefront glass, interior partitions, lobby glass walls, and conference rooms. The printing is UV-stable and designed for long-term display. For seasonal or promotional campaigns, film can be replaced when the promotion ends without damaging the glass.' },
+  { question: 'Is decorative film removable? Will it damage the glass when removed?', answer: 'Decorative window film is designed for clean removal without damaging the underlying glass when installed and removed correctly. This makes it ideal for leased commercial spaces in Salt Lake City where tenants cannot make permanent alterations, and for seasonal or promotional campaigns where the design needs to change. Always use a professional installer for removal to avoid adhesive residue.' },
+  { question: 'Does decorative film also block UV rays?', answer: 'Yes. Most decorative films, including frosted, patterned, and printed options, block up to 99% of UV radiation. This protects interior furnishings, flooring, retail merchandise, and artwork from UV-induced fading. For retail storefronts on Main Street and Chestnut Street where merchandise is displayed in sunlit windows, UV-blocking decorative film provides protection alongside branding.' },
+  { question: 'What is the difference between frosted film and etched glass?', answer: 'Etched glass permanently alters the glass surface through acid or abrasive treatment — it cannot be reversed and is significantly more expensive. Frosted decorative window film achieves a visually identical sandblasted or etched appearance at a fraction of the cost and can be removed or updated at any time. For Salt Lake City commercial spaces with leased glass, film is almost always the better choice.' },
+  { question: 'Can decorative film be used on patterned or textured glass?', answer: 'Decorative film is generally applied to smooth flat glass surfaces. Highly textured, wired, or patterned glass may not accept film adhesion correctly depending on the texture depth. Our technicians evaluate the glass surface before installation to confirm compatibility. Most standard commercial glass in Salt Lake City office buildings and retail spaces is suitable.' },
+  { question: 'How long does decorative window film last?', answer: 'Interior decorative films typically carry warranties of 5–10 years. Films installed in exterior-facing positions or exposed to direct sun may experience more wear over time. Custom printed films follow similar warranty terms depending on the ink system used. Proper installation by a certified technician is required for warranty coverage.' },
+  { question: 'Which Salt Lake City settings use decorative window film most?', answer: 'The highest-use applications in Salt Lake City include conference room and office partition glass throughout Downtown Salt Lake City and University District, healthcare and medical office privacy glazing in Intermountain Health and University of Utah Health facilities, retail storefront branding on Main Street, Chestnut Street, and Federal Heights, restaurant and hospitality privacy in The Avenues and Sugar House, and residential glass in high-rise condos in Marmalade District and Capitol Hill.' },
+  { question: 'How do I get decorative window film installed in Salt Lake City?', answer: 'Contact us for a free consultation. We will discuss your privacy, branding, or design goals, evaluate your glass surfaces, and recommend the right decorative film option. For custom printed film, we work with your design team or create artwork from scratch. Most commercial installations are completed in a single visit with minimal disruption to your business.' }
+];
+
+const pageSchemas = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://windowfilmsaltlakecity.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Benefits", "item": "https://windowfilmsaltlakecity.com/benefits/" },
+      { "@type": "ListItem", "position": 3, "name": "Decorative Window Film", "item": "https://windowfilmsaltlakecity.com/benefits/decorative-promotional/" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://windowfilmsaltlakecity.com/benefits/decorative-promotional/",
+    "name": title,
+    "description": description,
+    "dateModified": new Date().toISOString().slice(0, 10),
+    "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".dc-hero__title", ".dc-hero__subtitle", ".faq__a-inner"] }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Decorative Window Film Applications",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Office Glass Partitions" },
+      { "@type": "ListItem", "position": 2, "name": "Retail Storefronts" },
+      { "@type": "ListItem", "position": 3, "name": "Conference Rooms" },
+      { "@type": "ListItem", "position": 4, "name": "Healthcare Facilities" },
+      { "@type": "ListItem", "position": 5, "name": "Restaurant & Hospitality" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Decorative Window Film Salt Lake City",
+    "description": "Custom frosted, printed, and branded decorative window film for Salt Lake City offices, retail storefronts, conference rooms, and healthcare facilities.",
+    "brand": { "@type": "Brand", "name": "Window Film Salt Lake City" },
+    "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "areaServed": "Salt Lake City, UT" },
+  }
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  serviceName="Decorative Window Film"
+  serviceDesc="Frosted privacy, custom printed graphics, and branded decorative glass film for Salt Lake City offices, retail, healthcare, and hospitality spaces."
+  serviceUrl="https://windowfilmsaltlakecity.com/benefits/decorative-promotional/"
+  faqItems={faqItems}
+  schemas={pageSchemas}
+>
+
+  <!-- ══ HERO — Hero Subpage (library component) ══ -->
+  <section class="hs">
+    <img src="/images/decorative-window-film-salt-lake-city-hero.jpg"
+         alt="Decorative window film installed on Salt Lake City office glass partition — elegant frosted stripe pattern"
+         title="Decorative window film Salt Lake City — office glass partition"
+         class="hs__bg" loading="eager" />
+    <div class="hs__overlay" aria-hidden="true"></div>
+    <div class="hs__inner">
+      <p class="hs__eyebrow">
+        <span class="hs__dot" aria-hidden="true"></span>
+        Salt Lake City Glass Design
+      </p>
+      <h1 class="hs__title dc-hero__title">Decorative Window Film in Salt Lake City</h1>
+      <p class="hs__sub dc-hero__subtitle">Transform your glass into a design element. Frosted privacy, custom printed graphics, and branded films — installed on Salt Lake City offices, retail storefronts, and healthcare facilities.</p>
+      <div class="hs__cta">
+        <a href="/contact/" class="hs__btn-primary">Get a Free Assessment</a>
+        <a href="/benefits/" class="hs__btn-secondary">All Benefits</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ TRUST BAR ══ -->
+  <section class="swt-trust">
+    <div class="container">
+      <p class="swt-trust__label">Trusted by Salt Lake City offices, retail boutiques, healthcare facilities, and restaurants.</p>
+      <BrandLogos />
+    </div>
+  </section>
+
+  <!-- ══ THE CHALLENGE — Accordion Vertical ══ -->
+  <section class="dc-accv-wrap">
+    <div class="dc-accv-wrap__header">
+      <div class="dc-accv-wrap__eyebrow">THE CHALLENGE</div>
+      <h2 class="dc-accv-wrap__title split-reveal" data-stagger="65" aria-label="Your Glass Can Work Harder">
+        <span class="split-reveal__unit" aria-hidden="true"><span class="split-reveal__inner" style="--i:0">Your&nbsp;</span></span><span class="split-reveal__unit" aria-hidden="true"><span class="split-reveal__inner" style="--i:1">Glass&nbsp;</span></span><span class="split-reveal__unit" aria-hidden="true"><span class="split-reveal__inner" style="--i:2">Can&nbsp;</span></span><span class="split-reveal__unit" aria-hidden="true"><span class="split-reveal__inner" style="--i:3">Work&nbsp;</span></span><span class="split-reveal__unit" aria-hidden="true"><span class="split-reveal__inner" style="--i:4">Harder</span></span>
+      </h2>
+      <p class="dc-accv-wrap__sub">Decorative film for Salt Lake City spaces turns plain glass into privacy, branding, or design — without construction, without etching, and without permanent alterations.</p>
+    </div>
+    <div class="accv">
+      <div class="accv__panel is-open" data-panel style="background-image:url('/images/decorative-window-film-salt-lake-city-frosted-privacy.jpg')">
+        <button class="accv__tab" data-tab aria-expanded="true">
+          <span class="accv__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 8h10M7 12h10M7 16h10"/></svg>
+          </span>
+          <span class="accv__title">Privacy</span>
+        </button>
+        <div class="accv__content">
+          <div class="accv__desc">
+            <h3>Privacy Without Losing Natural Light</h3>
+            <p>Open-plan Salt Lake City offices face a tension between transparency and privacy — glass walls look modern but leave conference rooms, HR offices, and executive suites exposed. Frosted decorative window film installed by Window Film Salt Lake City provides full visual privacy while diffusing rather than blocking natural light. 3M Fasara alone offers over 50 decorative glass patterns across multiple design collections, giving architects and facility teams a wide range of privacy and design options. According to the <a href="https://www.ada.gov/law-and-regs/design-standards/2010-stds/" target="_blank" rel="noopener">Americans with Disabilities Act (ADA)</a>, accessible design in commercial facilities requires consideration of visual privacy in sensitive spaces such as healthcare examination rooms and consultation areas — frosted film is one of the most compliant and cost-effective solutions available.</p>
+          </div>
+        </div>
+      </div>
+      <div class="accv__panel" data-panel style="background-image:url('/images/branded-decorative-film-salt-lake-city-retail.jpg')">
+        <button class="accv__tab" data-tab aria-expanded="false">
+          <span class="accv__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h16"/><path d="M16 10l4 2-4 2z"/></svg>
+          </span>
+          <span class="accv__title">Branding</span>
+        </button>
+        <div class="accv__content">
+          <div class="accv__desc">
+            <h3>Branded Glass That Reinforces Your Identity</h3>
+            <p>Salt Lake City retailers, restaurants, and professional offices use glass as a branding canvas. Custom printed window film delivers full-color logos, patterns, and promotional graphics directly onto glass surfaces — at a fraction of the cost of architectural modifications. Printed film by 3M Fasara and Solyx SXLT series achieve optical clarity at 95% visible light transmission while delivering print resolutions suitable for large-format logo work and detailed graphic patterns.</p>
+          </div>
+        </div>
+      </div>
+      <div class="accv__panel" data-panel style="background-image:url('/images/decorative-window-film-salt-lake-city-privacy-glass.jpg')">
+        <button class="accv__tab" data-tab aria-expanded="false">
+          <span class="accv__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 14l6-6 4 4 2-2 4 4"/></svg>
+          </span>
+          <span class="accv__title">Design</span>
+        </button>
+        <div class="accv__content">
+          <div class="accv__desc">
+            <h3>Architectural Glass Design Without Etching</h3>
+            <p>Sandblasted and acid-etched glass is expensive, permanent, and not viable in leased commercial spaces. Decorative window film achieves a visually identical result — geometric patterns, gradient frosts, and custom designs — at a fraction of the cost, with the ability to remove or update as your space evolves.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FILM OPTIONS — Bento Photo Grid ══ -->
+  <section class="bgp dc-film-bento">
+    <div class="bgp__head">
+      <div class="bgp__eyebrow">THE FILM OPTIONS</div>
+      <h2 class="bgp__title">Which decorative film fits your application?</h2>
+      <p class="bgp__sub">Frosted privacy, printed graphics, gradient designs, and architectural patterns — decorative window film is not one product, it is a family of glass design solutions.</p>
+    </div>
+    <div class="bgp__grid">
+      <div class="bgp__card bgp__card--lg">
+        <img src="/images/decorative-window-film-salt-lake-city-privacy-glass.jpg" alt="Decorative frosted privacy window film on Salt Lake City office conference room glass" title="Decorative frosted window film — Salt Lake City conference room" loading="lazy" />
+        <div class="bgp__overlay"></div>
+        <div class="bgp__body">
+          <h3>Frosted &amp; Privacy Films</h3>
+          <p>Sandblasted-style frosted patterns that block direct sightlines while preserving natural light. Available in full-frost, gradient, horizontal stripe, and custom geometric designs. Ideal for conference rooms, HR offices, and healthcare examination rooms.</p>
+        </div>
+      </div>
+      <div class="bgp__card bgp__card--sm">
+        <img src="/images/frosted-window-film-salt-lake-city-conference-room.jpg" alt="Frosted decorative window film on Salt Lake City conference room glass partition" title="Frosted decorative film — Salt Lake City office partition" loading="lazy" />
+        <div class="bgp__overlay"></div>
+        <div class="bgp__body">
+          <h3>Gradient &amp; Ombre Films</h3>
+          <p>Opacity transitions from opaque at seated height to clear above — providing privacy where it matters without fully obscuring the space. Popular for open-plan offices and co-working environments.</p>
+        </div>
+      </div>
+      <div class="bgp__card bgp__card--sm">
+        <img src="/images/decorative-film-salt-lake-city-retail-branding.jpg" alt="Custom branded decorative window film on Salt Lake City retail storefront glass" title="Branded decorative window film — Salt Lake City retail" loading="lazy" />
+        <div class="bgp__overlay"></div>
+        <div class="bgp__body">
+          <h3>Custom Printed Graphics</h3>
+          <p>Full-color logos, patterns, promotional graphics, and artwork printed directly on film. UV-stable inks, clean removal, and seasonal update capability. Ideal for Salt Lake City retail storefronts and restaurant frontages.</p>
+        </div>
+      </div>
+      <div class="bgp__card bgp__card--md">
+        <img src="/images/custom-printed-window-film-salt-lake-city-office.jpg" alt="Custom printed architectural window film on Salt Lake City office lobby glass" title="Custom architectural window film — Salt Lake City office lobby" loading="lazy" />
+        <div class="bgp__overlay"></div>
+        <div class="bgp__body">
+          <h3>Architectural Patterns</h3>
+          <p>Geometric patterns, etched-glass replication, and abstract designs that integrate with interior design schemes. 3M Fasara and Solyx SXLT series offer over 100 pre-designed patterns plus custom options.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ HOW DECORATIVE FILM WORKS — Accordion Benefits ══ -->
+  <section class="accb">
+    <div class="accb__head">
+      <h2 class="accb__title">What Each Decorative Film Type Actually Does</h2>
+      <p class="accb__sub">Privacy, branding, design, and UV protection — each decorative film type solves a different challenge for Salt Lake City commercial and residential glass.</p>
+    </div>
+    <div class="accb__wrap">
+      <div class="accb__list">
+        <div class="accb__row is-open" data-row data-index="0">
+          <button class="accb__trigger" data-trigger aria-expanded="true">
+            <span class="accb__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 8h10M7 12h10M7 16h10"/></svg></span>
+            <span class="accb__row-title">Frosted &amp; Privacy Film — Visual Privacy Without Blinds</span>
+            <span class="accb__chev" aria-hidden="true">›</span>
+          </button>
+          <div class="accb__detail">
+            <div class="accb__detail-inner">
+              <p>Salt Lake City offices lose the benefit of glass walls when employees feel observed in sensitive conversations. Frosted decorative window film resolves this without blinds, curtains, or construction — it diffuses direct sightlines while maintaining natural light flow. 3M Fasara SH2MCOS frost film achieves 95% visible light transmission while providing full visual privacy from normal viewing distances. The film is applied to interior glass surfaces and can cover the full panel, a gradient from floor level, or custom-cut geometric sections. This works especially well in <a href="/applications/office/">Salt Lake City office buildings</a> and <a href="/applications/healthcare/">healthcare facilities</a>.</p>
+              <img class="accb__mobile-img" src="/images/decorative-window-film-salt-lake-city-frosted-privacy.jpg" alt="Frosted privacy decorative window film on Salt Lake City office glass partition" title="Frosted privacy window film — Salt Lake City office" loading="lazy" />
+            </div>
+          </div>
+        </div>
+        <div class="accb__row" data-row data-index="1">
+          <button class="accb__trigger" data-trigger aria-expanded="false">
+            <span class="accb__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h16"/><path d="M16 10l4 2-4 2z"/></svg></span>
+            <span class="accb__row-title">Branded &amp; Printed Film — Custom Graphics on Glass</span>
+            <span class="accb__chev" aria-hidden="true">›</span>
+          </button>
+          <div class="accb__detail">
+            <div class="accb__detail-inner">
+              <p>Custom printed window film turns Salt Lake City storefront glass and interior partitions into brand-reinforcing displays. Full-color printing on UV-stable film adheres directly to glass and produces print quality suitable for logos, lifestyle imagery, and detailed graphic patterns. For <a href="/applications/retail/">Salt Lake City retail storefronts</a> and restaurant frontages, printed film can be changed seasonally or for promotional campaigns without damaging the glass. The Solyx SXLT-1305 series achieves 95% VLT with full-color print stability rated for 7+ years on interior glass. Frosted window film in Salt Lake City is a complementary option when privacy rather than branding is the primary goal.</p>
+              <img class="accb__mobile-img" src="/images/branded-decorative-film-salt-lake-city-retail.jpg" alt="Branded printed decorative window film on Salt Lake City retail storefront" title="Branded window film — Salt Lake City retail" loading="lazy" />
+            </div>
+          </div>
+        </div>
+        <div class="accb__row" data-row data-index="2">
+          <button class="accb__trigger" data-trigger aria-expanded="false">
+            <span class="accb__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 15h16M4 11h16"/></svg></span>
+            <span class="accb__row-title">Gradient &amp; Ombre Film — Precision Privacy at Eye Level</span>
+            <span class="accb__chev" aria-hidden="true">›</span>
+          </button>
+          <div class="accb__detail">
+            <div class="accb__detail-inner">
+              <p>Gradient films transition from opaque frosting at seated height to clear glass above — providing seated privacy while maintaining sightlines from standing height and preserving the open feel of a glass-walled space. This is the preferred solution for co-working spaces, trading floors, and executive suites throughout Downtown Salt Lake City, Federal Heights, and University District Salt Lake City. The International Window Film Association notes that architectural film can be selected to change appearance and function while retaining the glass already in place, making gradients a practical retrofit for occupied interiors.</p>
+              <img class="accb__mobile-img" src="/images/frosted-glass-film-salt-lake-city-office-partition.jpg" alt="Gradient frosted decorative window film on Salt Lake City office glass wall" title="Gradient frosted film — Salt Lake City office wall" loading="lazy" />
+            </div>
+          </div>
+        </div>
+        <div class="accb__row" data-row data-index="3">
+          <button class="accb__trigger" data-trigger aria-expanded="false">
+            <span class="accb__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+            <span class="accb__row-title">UV-Blocking Decorative Film — Protection Built In</span>
+            <span class="accb__chev" aria-hidden="true">›</span>
+          </button>
+          <div class="accb__detail">
+            <div class="accb__detail-inner">
+              <p>All decorative window films — frosted, printed, and patterned — block up to 99% of UV radiation as a baseline property of the polyester film substrate. For Salt Lake City retail storefronts where merchandise is displayed in sun-facing windows, this means fading protection is included alongside whatever design treatment is chosen. For residential applications in Sugar House, Capitol Hill, and Marmalade District condos with large glass facades, decorative film delivers both design character and furniture/floor protection in a single application.</p>
+              <img class="accb__mobile-img" src="/images/printed-window-film-salt-lake-city-custom-graphics.jpg" alt="Custom printed UV-blocking decorative window film on Salt Lake City commercial glass" title="UV-blocking decorative film — Salt Lake City commercial" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accb__media">
+        <img class="accb__img is-active" data-img data-index="0" src="/images/decorative-window-film-salt-lake-city-frosted-privacy.jpg" alt="Frosted privacy decorative window film on Salt Lake City office glass partition" title="Frosted privacy window film — Salt Lake City office" loading="lazy" />
+        <img class="accb__img" data-img data-index="1" src="/images/branded-decorative-film-salt-lake-city-retail.jpg" alt="Branded printed decorative window film on Salt Lake City retail storefront" title="Branded window film — Salt Lake City retail" loading="lazy" />
+        <img class="accb__img" data-img data-index="2" src="/images/frosted-glass-film-salt-lake-city-office-partition.jpg" alt="Gradient frosted decorative window film on Salt Lake City office glass wall" title="Gradient frosted film — Salt Lake City office wall" loading="lazy" />
+        <img class="accb__img" data-img data-index="3" src="/images/printed-window-film-salt-lake-city-custom-graphics.jpg" alt="Custom printed UV-blocking decorative window film on Salt Lake City commercial glass" title="UV-blocking decorative film — Salt Lake City commercial" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ BEFORE/AFTER SLIDER — Decorative Film in Action ══ -->
+  <section class="dc-slider-wrap">
+    <div class="dc-slider-wrap__header">
+      <div class="dc-slider-wrap__eyebrow">THE FILM IN ACTION</div>
+      <h2 class="dc-slider-wrap__title">Decorative Window Film in Action</h2>
+      <p class="dc-slider-wrap__sub">Drag the handle to see plain clear glass transformed with frosted decorative window film on a Salt Lake City conference room partition.</p>
+    </div>
+    <div class="dc-slider-wrap__slider">
+      <div class="before-after" style="--pos:50%">
+        <div class="before-after__frame">
+          <img src="/images/salt-lake-city-office-glass-clear-before-decorative-film.jpg" alt="Plain clear Salt Lake City office glass partition before decorative window film — full visibility" title="Salt Lake City office glass before decorative film installation" class="before-after__img before-after__img--before" draggable="false" loading="lazy" />
+          <div class="before-after__after-wrap">
+            <img src="/images/decorative-window-film-salt-lake-city-after-installation.jpg" alt="Same Salt Lake City office glass partition after decorative frosted window film — professional privacy" title="Decorative window film Salt Lake City — frosted partition after installation" class="before-after__img before-after__img--after" draggable="false" loading="lazy" />
+          </div>
+          <span class="before-after__tag before-after__tag--before">Plain clear glass</span>
+          <span class="before-after__tag before-after__tag--after">Decorative film applied</span>
+          <div class="before-after__handle" role="slider" tabindex="0" aria-label="Drag to compare clear and decorative Salt Lake City glass" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <span class="before-after__handle-grip">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M8 7L3 12L8 17M16 7L21 12L16 17" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ WHERE IT'S USED — What We Do Panels ══ -->
+  <section class="dc-wwd-wrap">
+    <div class="dc-wwd-wrap__header">
+      <div class="dc-wwd-wrap__eyebrow">WHERE IT'S USED</div>
+      <h2 class="dc-wwd-wrap__title">Who We Install Decorative Film For</h2>
+      <p class="dc-wwd-wrap__sub">Decorative window film works wherever glass needs privacy, branding, or design — across Salt Lake City's offices, retail spaces, healthcare facilities, and hospitality venues.</p>
+    </div>
+    <div class="dc-wwd-panels">
+      <a href="/applications/office/" class="wwd__panel">
+        <div class="wwd__panel-img-wrap">
+          <img src="/images/decorative-film-salt-lake-city-office-lobby-glass.jpg" alt="Decorative window film on Salt Lake City office lobby glass wall" title="Decorative window film for Salt Lake City office lobbies" class="wwd__panel-img" loading="lazy" />
+        </div>
+        <div class="wwd__panel-overlay"></div>
+        <div class="wwd__panel-content">
+          <h3>Offices &amp; Lobbies</h3>
+          <p class="wwd__panel-desc">Downtown Salt Lake City and University District office lobbies, reception areas, and conference room partitions. Frosted privacy film, branded graphics, and architectural patterns that align with corporate identity.</p>
+          <span class="wwd__panel-arrow">Learn more →</span>
+          <span class="wwd__panel-line"></span>
+        </div>
+      </a>
+      <a href="/applications/retail/" class="wwd__panel">
+        <div class="wwd__panel-img-wrap">
+          <img src="/images/decorative-window-film-salt-lake-city-retail-storefront.jpg" alt="Promotional decorative window film on Salt Lake City retail storefront glass" title="Decorative promotional film for Salt Lake City retail" class="wwd__panel-img" loading="lazy" />
+        </div>
+        <div class="wwd__panel-overlay"></div>
+        <div class="wwd__panel-content">
+          <h3>Retail &amp; Storefronts</h3>
+          <p class="wwd__panel-desc">Main Street boutiques, Chestnut Street shops, and Sugar House retail. Custom printed graphics, seasonal promotional designs, and branded storefront film that can be updated without glass replacement.</p>
+          <span class="wwd__panel-arrow">Learn more →</span>
+          <span class="wwd__panel-line"></span>
+        </div>
+      </a>
+      <a href="/applications/healthcare/" class="wwd__panel">
+        <div class="wwd__panel-img-wrap">
+          <img src="/images/frosted-film-salt-lake-city-conference-room-partition.jpg" alt="Frosted decorative window film on Salt Lake City healthcare facility glass partition" title="Frosted decorative film for Salt Lake City healthcare" class="wwd__panel-img" loading="lazy" />
+        </div>
+        <div class="wwd__panel-overlay"></div>
+        <div class="wwd__panel-content">
+          <h3>Healthcare Facilities</h3>
+          <p class="wwd__panel-desc">Intermountain Health, University of Utah Health, and independent practice glass partitions. Frosted and gradient privacy film for examination rooms, consultation offices, and HIPAA-sensitive spaces.</p>
+          <span class="wwd__panel-arrow">Learn more →</span>
+          <span class="wwd__panel-line"></span>
+        </div>
+      </a>
+      <a href="/applications/restaurants/" class="wwd__panel">
+        <div class="wwd__panel-img-wrap">
+          <img src="/images/decorative-film-salt-lake-city-healthcare-facility.jpg" alt="Decorative privacy window film in Salt Lake City restaurant dining room" title="Decorative film for Salt Lake City restaurants and hospitality" class="wwd__panel-img" loading="lazy" />
+        </div>
+        <div class="wwd__panel-overlay"></div>
+        <div class="wwd__panel-content">
+          <h3>Restaurants &amp; Hospitality</h3>
+          <p class="wwd__panel-desc">The Avenues and Sugar House restaurants, hotel lobbies, and hospitality venues. Street-level privacy frosting, branded frontage graphics, and decorative patterns that enhance atmosphere.</p>
+          <span class="wwd__panel-arrow">Learn more →</span>
+          <span class="wwd__panel-line"></span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ══ GALLERY BANNER — OUR WORK ══ -->
+  <section class="gallery-banner gallery-banner--light">
+    <div class="gallery-banner__inner">
+      <div class="gallery-banner__text">
+        <p class="gallery-banner__eyebrow">OUR WORK</p>
+        <h2 class="gallery-banner__title" aria-label="Our Decorative Film Work in Salt Lake City">
+          <span class="gallery-banner__title-line">OUR WORK</span>
+          <span class="gallery-banner__title-line">ACROSS SALT LAKE CITY.</span>
+        </h2>
+        <p class="gallery-banner__desc">Real decorative window film installations across Salt Lake City offices, retail storefronts, conference rooms, and healthcare facilities — custom frosted, printed, and patterned glass by our certified team.</p>
+      </div>
+      <div class="gallery-banner__gallery">
+        <div class="gallery-banner__strips">
+          <button class="gallery-banner__strip" style="--i:0; --n:5;" aria-label="View photo 1">
+            <img src="/images/decorative-window-film-installation-salt-lake-city-office.jpg" alt="Decorative window film installation on Salt Lake City office glass wall" title="Decorative window film installation — Salt Lake City office" loading="lazy" draggable="false" />
+          </button>
+          <button class="gallery-banner__strip" style="--i:1; --n:5;" aria-label="View photo 2">
+            <img src="/images/frosted-window-film-salt-lake-city-glass-wall.jpg" alt="Frosted decorative window film on Salt Lake City office glass wall partition" title="Frosted window film — Salt Lake City glass wall" loading="lazy" draggable="false" />
+          </button>
+          <button class="gallery-banner__strip" style="--i:2; --n:5;" aria-label="View photo 3">
+            <img src="/images/branded-window-film-salt-lake-city-retail-storefront.jpg" alt="Branded promotional window film on Salt Lake City retail storefront" title="Branded decorative film — Salt Lake City retail storefront" loading="lazy" draggable="false" />
+          </button>
+          <button class="gallery-banner__strip" style="--i:3; --n:5;" aria-label="View photo 4">
+            <img src="/images/decorative-film-salt-lake-city-restaurant-privacy.jpg" alt="Decorative privacy window film in Salt Lake City restaurant" title="Decorative privacy film — Salt Lake City restaurant" loading="lazy" draggable="false" />
+          </button>
+          <button class="gallery-banner__strip" style="--i:4; --n:5;" aria-label="View photo 5">
+            <img src="/images/custom-graphic-window-film-salt-lake-city-commercial.jpg" alt="Custom graphic decorative window film in Salt Lake City commercial space" title="Custom graphic window film — Salt Lake City commercial" loading="lazy" draggable="false" />
+          </button>
+        </div>
+        <p class="gallery-banner__hint">Hover the photos · click to bring forward</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ TESTIMONIALS — Testimonial Stack ══ -->
+  <section class="dc-tstack-wrap">
+    <div class="dc-tstack-wrap__header">
+      <span class="dc-tstack-wrap__eyebrow">What Salt Lake City Clients Say</span>
+      <h2 class="dc-tstack-wrap__title">From Office Managers, Retailers &amp; Healthcare Teams</h2>
+    </div>
+    <div class="tstack">
+      <div class="tstack__deck">
+        <article class="tstack__card" style="--i:0" data-index="0">
+          <div class="tstack__stars">★★★★★</div>
+          <blockquote class="tstack__quote">&ldquo;We had frosted film installed on our conference room glass walls. It looks completely professional and our employees actually feel comfortable having sensitive meetings now. The design was exactly what we envisioned.&rdquo;</blockquote>
+          <div class="tstack__person">
+            <img src="/images/decorative-film-salt-lake-city-client-review-1.jpg" alt="Sarah M. Salt Lake City office manager" title="Sarah M. — Downtown Salt Lake City Salt Lake City" class="tstack__avatar" draggable="false" loading="lazy" />
+            <div>
+              <div class="tstack__name">Sarah M.</div>
+              <div class="tstack__detail">Office manager — Downtown Salt Lake City Salt Lake City</div>
+            </div>
+          </div>
+        </article>
+        <article class="tstack__card" style="--i:1" data-index="1">
+          <div class="tstack__stars">★★★★★</div>
+          <blockquote class="tstack__quote">&ldquo;Our Federal Heights boutique needed storefront graphics that matched our brand identity. The custom printed film looks sharp, protects from UV, and we can update it seasonally. Best investment we made in the space.&rdquo;</blockquote>
+          <div class="tstack__person">
+            <img src="/images/decorative-film-salt-lake-city-client-review-2.jpg" alt="David K. Salt Lake City retail owner" title="David K. — Federal Heights Salt Lake City" class="tstack__avatar" draggable="false" loading="lazy" />
+            <div>
+              <div class="tstack__name">David K.</div>
+              <div class="tstack__detail">Retail owner — Federal Heights</div>
+            </div>
+          </div>
+        </article>
+        <article class="tstack__card" style="--i:2" data-index="2">
+          <div class="tstack__stars">★★★★★</div>
+          <blockquote class="tstack__quote">&ldquo;The healthcare facility I manage needed privacy on examination room glass without blocking light. The frosted gradient film solved it perfectly. Clean, professional, and HIPAA-conscious.&rdquo;</blockquote>
+          <div class="tstack__person">
+            <img src="/images/decorative-film-salt-lake-city-client-review-3.jpg" alt="Linda P. Salt Lake City healthcare facility manager" title="Linda P. — Salt Lake City healthcare facility" class="tstack__avatar" draggable="false" loading="lazy" />
+            <div>
+              <div class="tstack__name">Linda P.</div>
+              <div class="tstack__detail">Healthcare facility manager — Salt Lake City</div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <p class="tstack__hint">Drag the top card &middot; 3 reviews</p>
+    </div>
+  </section>
+
+  <!-- ══ RESOURCES ══ -->
+  <section class="res-section">
+    <div class="res-section__inner">
+      <div class="res-section__image-col">
+        <img
+          src="/images/decorative-window-film-specs-resources-salt-lake-city.jpg"
+          alt="Decorative window film specification sheets and design samples for Salt Lake City clients"
+          title="Decorative window film specs and resources — Salt Lake City"
+          class="res-section__img"
+          loading="lazy"
+        />
+      </div>
+      <div class="res-section__content">
+        <div class="res-section__eyebrow">SPECS, CASE STUDIES &amp; GUIDES</div>
+        <h2 class="res-section__title">The Design Case for Decorative Window Film</h2>
+        <p class="res-section__body">Product data sheets, pattern catalogs, privacy film specifications, and branding case studies for the decorative window films we install across Salt Lake City — from 3M Fasara and Solyx to custom printed solutions.</p>
+        <ul class="res-section__list">
+          <li class="res-section__item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="#7CB342" stroke-width="2"/><path d="M14 2v6h6" stroke="#7CB342" stroke-width="2"/></svg>
+            <a href="/resources/3m-fasara-decorative-film-product-bulletin-salt-lake-city.pdf" target="_blank" rel="noopener">3M Fasara Decorative Film — Product Bulletin</a>
+          </li>
+          <li class="res-section__item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="#7CB342" stroke-width="2"/><path d="M14 2v6h6" stroke="#7CB342" stroke-width="2"/></svg>
+            <a href="/resources/3m-fasara-decorative-privacy-window-film-salt-lake-city-tech-data-sheet.pdf" target="_blank" rel="noopener">3M Fasara Privacy Film — Technical Data Sheet</a>
+          </li>
+          <li class="res-section__item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="#7CB342" stroke-width="2"/><path d="M14 2v6h6" stroke="#7CB342" stroke-width="2"/></svg>
+            <a href="/resources/solyx-decorative-privacy-window-film-salt-lake-city-sxlt-1305-spec-sheet.pdf" target="_blank" rel="noopener">Solyx SXLT-1305 Decorative Privacy Film — Spec Sheet</a>
+          </li>
+          <li class="res-section__item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="#7CB342" stroke-width="2"/><path d="M14 2v6h6" stroke="#7CB342" stroke-width="2"/></svg>
+            <a href="/resources/3m-night-vision-series-technical-data-sheet-salt-lake-city.pdf" target="_blank" rel="noopener">3M Night Vision Series — One-Way Privacy Film Technical Data</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PROCESS — Process Roadmap ══ -->
+  <section class="prm">
+    <div class="prm__head">
+      <h2 class="prm__title">How It Works</h2>
+      <p class="prm__sub">How decorative window film for Salt Lake City glass works — from your first design consultation through installation.</p>
+    </div>
+    <div class="prm__map">
+      <img class="prm__bg" src="/images/decorative-film-installation-process-salt-lake-city.jpg" alt="Decorative film installation process for Salt Lake City glass projects" title="Decorative film installation process — Salt Lake City" loading="lazy" />
+      <div class="prm__overlay" aria-hidden="true"></div>
+      <svg class="prm__svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <path class="prm__track" d="M 14 78 Q 24 40 38 34 T 64 62 T 88 24" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="0.4" stroke-dasharray="2 2" stroke-linecap="round" vector-effect="non-scaling-stroke"></path>
+        <path class="prm__progress" d="M 14 78 Q 24 40 38 34 T 64 62 T 88 24" fill="none" stroke="#7CB342" stroke-width="0.6" stroke-linecap="round" vector-effect="non-scaling-stroke"></path>
+      </svg>
+      <div class="prm__milestone" style="--i:0; left:14%; top:78%;">
+        <span class="prm__dot"><span class="prm__num">1</span></span>
+        <div class="prm__card">
+          <h3>Design Consultation</h3>
+          <p>We discuss your privacy, branding, or design goals and evaluate your glass surfaces.</p>
+        </div>
+      </div>
+      <div class="prm__milestone" style="--i:1; left:38%; top:34%;">
+        <span class="prm__dot"><span class="prm__num">2</span></span>
+        <div class="prm__card">
+          <h3>Design &amp; Approval</h3>
+          <p>We develop the pattern, graphic, or frosted design and provide a visual mock-up for your approval.</p>
+        </div>
+      </div>
+      <div class="prm__milestone" style="--i:2; left:64%; top:62%;">
+        <span class="prm__dot"><span class="prm__num">3</span></span>
+        <div class="prm__card">
+          <h3>Professional Installation</h3>
+          <p>Our certified installers apply the film with minimal disruption to your business.</p>
+        </div>
+      </div>
+      <div class="prm__milestone" style="--i:3; left:88%; top:24%;">
+        <span class="prm__dot"><span class="prm__num">4</span></span>
+        <div class="prm__card">
+          <h3>Long-Term Support</h3>
+          <p>All decorative film installations are backed by manufacturer warranties. We handle updates and replacements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FAQ — Accordion FAQ ══ -->
+  <section class="faq dc-faq">
+    <div class="faq__head">
+      <h2 class="faq__title">Frequently Asked Questions</h2>
+      <p class="faq__sub">Everything you need to know about decorative window film for Salt Lake City glass.</p>
+    </div>
+    <div class="faq__list" data-single="true">
+      {faqItems.map((item, i) => (
+        <div class={`faq__item${i === 0 ? ' is-open' : ''}`} data-item>
+          <button class="faq__q" data-q aria-expanded={i === 0 ? 'true' : 'false'}>
+            <span>{item.question}</span>
+            <span class="faq__icon" aria-hidden="true"><span></span><span></span></span>
+          </button>
+          <div class="faq__a">
+            <div class="faq__a-inner">
+              <p>{item.answer}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ══ CTA — CTA Avatars ══ -->
+  <section class="ctav dc-ctav">
+    <div class="ctav__inner">
+      <div class="ctav__left">
+        <h2 class="ctav__title">Ready to Transform Your Salt Lake City Glass?</h2>
+        <p class="ctav__sub">Free design consultation, professional installation, and manufacturer warranties. Join Salt Lake City offices, retailers, and healthcare facilities who have upgraded their glass with decorative window film.</p>
+        <div class="ctav__proof">
+          <div class="ctav__stack">
+            <span class="ctav__avatar" style="--i:0; --r:-2deg">
+              <img src="/images/decorative-film-salt-lake-city-client-review-1.jpg" alt="Sarah M. Downtown Salt Lake City Office Salt Lake City" title="Sarah M. Downtown Salt Lake City Office Salt Lake City" loading="lazy" />
+              <span class="ctav__tip"><b>Sarah M.</b><small>Downtown Salt Lake City Office</small></span>
+            </span>
+            <span class="ctav__avatar" style="--i:1; --r:3deg">
+              <img src="/images/decorative-film-salt-lake-city-client-review-2.jpg" alt="David K. Federal Heights Retail Salt Lake City" title="David K. Federal Heights Retail Salt Lake City" loading="lazy" />
+              <span class="ctav__tip"><b>David K.</b><small>Federal Heights Retail</small></span>
+            </span>
+            <span class="ctav__avatar" style="--i:2; --r:-4deg">
+              <img src="/images/decorative-film-salt-lake-city-client-review-3.jpg" alt="Linda P. Healthcare Facility Salt Lake City" title="Linda P. Healthcare Facility Salt Lake City" loading="lazy" />
+              <span class="ctav__tip"><b>Linda P.</b><small>Healthcare Facility</small></span>
+            </span>
+            <span class="ctav__avatar" style="--i:3; --r:5deg">
+              <img src="/images/decorative-film-salt-lake-city-client-review-1.jpg" alt="James R. The Avenues Restaurant Salt Lake City" title="James R. The Avenues Restaurant Salt Lake City" loading="lazy" />
+              <span class="ctav__tip"><b>James R.</b><small>The Avenues Restaurant</small></span>
+            </span>
+            <span class="ctav__avatar" style="--i:4; --r:-6deg">
+              <img src="/images/decorative-film-salt-lake-city-client-review-2.jpg" alt="Maria T. University District Office Salt Lake City" title="Maria T. University District Office Salt Lake City" loading="lazy" />
+              <span class="ctav__tip"><b>Maria T.</b><small>University District Office</small></span>
+            </span>
+            <span class="ctav__avatar" style="--i:5; --r:7deg">
+              <img src="/images/decorative-film-salt-lake-city-client-review-3.jpg" alt="Tom B. Capitol Hill Condo Salt Lake City" title="Tom B. Capitol Hill Condo Salt Lake City" loading="lazy" />
+              <span class="ctav__tip"><b>Tom B.</b><small>Capitol Hill Condo</small></span>
+            </span>
+          </div>
+          <div class="ctav__meta">
+            <span class="ctav__stars">★★★★★</span>
+            <span class="ctav__trust">Trusted by 500+ Salt Lake City offices, retailers &amp; healthcare facilities</span>
+          </div>
+        </div>
+      </div>
+      <a href="/contact/" class="ctav__btn">Get Your Free Assessment <span class="ctav__arrow">→</span></a>
+    </div>
+  </section>
+
+  <!-- ══ GEO BLOCK (hidden — SEO only) ══ -->
+
+<CategoryBlogFeed categorySlug="decorative-promotional" feedTitle="Latest Decorative Film Articles" />
+</BaseLayout>
+
+<script>
+  // Split Text Reveal
+  var splitObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (!entry.isIntersecting) return;
+      var el = entry.target;
+      el.style.setProperty('--split-stagger', (el.dataset.stagger || '65') + 'ms');
+      el.classList.add('is-visible');
+      splitObs.unobserve(el);
+    });
+  }, { threshold: 0.35 });
+  document.querySelectorAll('.split-reveal').forEach(function(el) { splitObs.observe(el); });
+
+  // Accordion Vertical
+  document.querySelectorAll('.accv').forEach(function(el) {
+    var panels = Array.from(el.querySelectorAll('[data-panel]'));
+    panels.forEach(function(panel) {
+      var tab = panel.querySelector('[data-tab]');
+      if (!tab) return;
+      tab.addEventListener('click', function() {
+        panels.forEach(function(p) { p.classList.remove('is-open'); var t = p.querySelector('[data-tab]'); if(t) t.setAttribute('aria-expanded','false'); });
+        panel.classList.add('is-open');
+        tab.setAttribute('aria-expanded','true');
+      });
+    });
+  });
+
+  // Accordion Benefits
+  document.querySelectorAll('.accb').forEach(function(el) {
+    var rows = Array.from(el.querySelectorAll('[data-row]'));
+    var imgs = Array.from(el.querySelectorAll('[data-img]'));
+    rows.forEach(function(row) {
+      var trigger = row.querySelector('[data-trigger]');
+      if (!trigger) return;
+      trigger.addEventListener('click', function() {
+        var idx = row.dataset.index;
+        rows.forEach(function(r) { r.classList.remove('is-open'); var t = r.querySelector('[data-trigger]'); if(t) t.setAttribute('aria-expanded','false'); });
+        imgs.forEach(function(img) { img.classList.remove('is-active'); });
+        row.classList.add('is-open');
+        trigger.setAttribute('aria-expanded','true');
+        var activeImg = imgs.find(function(img) { return img.dataset.index === idx; });
+        if (activeImg) activeImg.classList.add('is-active');
+      });
+    });
+  });
+
+  // Before/After Slider
+  document.querySelectorAll('.before-after').forEach(function(el) {
+    var frame = el.querySelector('.before-after__frame');
+    var afterImg = el.querySelector('.before-after__img--after');
+    var handle = el.querySelector('.before-after__handle');
+    function setW() { afterImg.style.setProperty('--frame-width', frame.offsetWidth + 'px'); }
+    function setPos(x) {
+      var rect = frame.getBoundingClientRect();
+      var pct = Math.max(0, Math.min(100, (x - rect.left) / rect.width * 100));
+      el.style.setProperty('--pos', pct + '%');
+      handle.setAttribute('aria-valuenow', String(Math.round(pct)));
+    }
+    var drag = false;
+    frame.addEventListener('mousedown', function(e) { drag = true; setPos(e.clientX); });
+    window.addEventListener('mouseup', function() { drag = false; });
+    window.addEventListener('mousemove', function(e) { if (drag) setPos(e.clientX); });
+    frame.addEventListener('touchstart', function(e) { drag = true; setPos(e.touches[0].clientX); }, {passive:true});
+    window.addEventListener('touchend', function() { drag = false; });
+    window.addEventListener('touchmove', function(e) { if (drag) setPos(e.touches[0].clientX); }, {passive:true});
+    handle.addEventListener('keydown', function(e) {
+      var rect = frame.getBoundingClientRect();
+      var cur = parseFloat(getComputedStyle(el).getPropertyValue('--pos')) || 50;
+      if (e.key === 'ArrowLeft') setPos(rect.left + rect.width * (cur - 5) / 100);
+      if (e.key === 'ArrowRight') setPos(rect.left + rect.width * (cur + 5) / 100);
+    });
+    window.addEventListener('resize', setW);
+    setW();
+  });
+
+  // Gallery Banner pin
+  document.querySelectorAll('.gallery-banner').forEach(function(el) {
+    var strips = Array.from(el.querySelectorAll('.gallery-banner__strip'));
+    strips.forEach(function(strip) {
+      strip.addEventListener('click', function() {
+        var was = strip.classList.contains('is-active');
+        strips.forEach(function(s) { s.classList.remove('is-active'); });
+        if (!was) strip.classList.add('is-active');
+      });
+    });
+  });
+
+  // Testimonial Stack
+  document.querySelectorAll('.tstack').forEach(function(el) {
+    var deck = el.querySelector('.tstack__deck');
+    var cards = Array.from(deck.querySelectorAll('.tstack__card'));
+    var order = cards.map(function(_,i){return i;});
+    function restack() { order.forEach(function(ci,i){ cards[ci].style.setProperty('--i',String(i)); cards[ci].classList.remove('is-leaving'); }); }
+    function advance() { var top = order[0]; cards[top].classList.add('is-leaving'); setTimeout(function(){ order.push(order.shift()); restack(); }, 450); }
+    deck.addEventListener('click', advance);
+    var startX = 0, dragging = false;
+    deck.addEventListener('mousedown', function(e){dragging=true;startX=e.clientX;});
+    window.addEventListener('mouseup', function(e){if(dragging){dragging=false;if(Math.abs(startX-e.clientX)>60)advance();}});
+    deck.addEventListener('touchstart',function(e){dragging=true;startX=e.touches[0].clientX;},{passive:true});
+    window.addEventListener('touchend',function(e){if(dragging){dragging=false;if(Math.abs(startX-e.changedTouches[0].clientX)>60)advance();}});
+  });
+
+  // CTA Avatars observer
+  var ctavObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) { entry.target.classList.add('is-visible'); ctavObs.unobserve(entry.target); }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.ctav').forEach(function(el) { ctavObs.observe(el); });
+
+  // Process Roadmap observer
+  document.querySelectorAll('.prm').forEach(function(el) {
+    var progress = el.querySelector('.prm__progress');
+    if (progress) {
+      var len = progress.getTotalLength ? progress.getTotalLength() : 250;
+      el.style.setProperty('--len', String(len));
+    }
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) { el.classList.add('is-visible'); obs.unobserve(el); } });
+    }, { threshold: 0.35 });
+    obs.observe(el);
+  });
+
+  // FAQ Accordion
+  document.querySelectorAll('.faq__list').forEach(function(el) {
+    var single = el.dataset.single === 'true';
+    var items = Array.from(el.querySelectorAll('[data-item]'));
+    items.forEach(function(item) {
+      var btn = item.querySelector('[data-q]');
+      if (!btn) return;
+      btn.addEventListener('click', function() {
+        var wasOpen = item.classList.contains('is-open');
+        if (single) { items.forEach(function(i){ i.classList.remove('is-open'); var q=i.querySelector('[data-q]'); if(q)q.setAttribute('aria-expanded','false'); }); }
+        item.classList.toggle('is-open', !wasOpen);
+        btn.setAttribute('aria-expanded', String(!wasOpen));
+      });
+    });
+  });
+</script>
+
+<style>
+  /* ── CSS Custom Properties ── */
+  :root {
+    --dc-green: #7CB342;
+    --dc-ink: #111111;
+    --dc-slate: #2a2a2a;
+    --dc-cream: #F5F3EE;
+  }
+
+  /* ══ HERO — Hero Subpage (library component, Tailwind → plain CSS) ══ */
+  .hs { position: relative; display: flex; min-height: 420px; align-items: center; overflow: hidden; isolation: isolate; }
+  .hs__bg { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; object-fit: cover; }
+  .hs__overlay { position: absolute; inset: 0; z-index: -1; background: linear-gradient(to right, rgba(17,17,17,0.92), rgba(17,17,17,0.7), rgba(17,17,17,0.3)); }
+  .hs__inner { max-width: 72rem; margin: 0 auto; width: 100%; padding: 4rem 1.5rem; }
+  .hs__eyebrow { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: #AED581; }
+  .hs__dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #AED581; flex-shrink: 0; }
+  .hs__title { max-width: 42rem; font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4.5vw, 3.25rem); font-weight: 700; line-height: 1.15; color: #fff; margin: 0 0 1.25rem; }
+  .hs__sub { max-width: 36rem; font-size: 1.1rem; color: rgba(255,255,255,0.7); line-height: 1.7; margin: 0 0 2rem; }
+  .hs__cta { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .hs__btn-primary { display: inline-block; background: var(--dc-green); color: #fff; font-weight: 600; padding: 0.75rem 1.75rem; border-radius: 9999px; text-decoration: none; transition: background 0.2s; }
+  .hs__btn-primary:hover { background: #8BC34A; }
+  .hs__btn-secondary { display: inline-block; border: 1.5px solid rgba(255,255,255,0.3); color: #fff; font-weight: 600; padding: 0.75rem 1.75rem; border-radius: 9999px; text-decoration: none; transition: background 0.2s; }
+  .hs__btn-secondary:hover { background: rgba(255,255,255,0.1); }
+
+  /* ══ TRUST BAR ══ */
+  .swt-trust { background: #fff; padding: 32px 0; border-bottom: 1px solid #eee; }
+  .swt-trust__label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #888; text-align: center; margin: 0 0 20px; }
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 5%; }
+
+  /* ══ ACCORDION VERTICAL WRAP ══ */
+  .dc-accv-wrap { padding: 5rem 2rem; background: #fff; }
+  .dc-accv-wrap__header { text-align: center; max-width: 700px; margin: 0 auto 2.5rem; }
+  .dc-accv-wrap__eyebrow { display: block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dc-green); margin-bottom: 0.75rem; }
+  .dc-accv-wrap__title { font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 800; color: #1a1a1a; margin: 0 0 1rem; line-height: 1.15; }
+  .dc-accv-wrap__sub { font-size: 1rem; color: #555; line-height: 1.7; margin: 0; }
+
+  /* Accordion Vertical (shared from library) */
+  .accv { display: flex; flex-direction: column; width: 100%; max-width: 64rem; margin: 0 auto; border-radius: 1rem; overflow: hidden; gap: 4px; background: var(--dc-ink); }
+  @media (min-width: 1024px) { .accv { flex-direction: row; height: 440px; } }
+  .accv__panel { position: relative; overflow: hidden; background-size: cover; background-position: center; flex: 0 0 auto; display: flex; transition: flex 0.5s cubic-bezier(0.22,1,0.36,1); }
+  @media (min-width: 1024px) { .accv__panel { flex-direction: column; flex: 1 1 0; } .accv__panel.is-open { flex: 6 1 0; } }
+  @media (max-width: 1023px) { .accv__panel { flex-direction: column; } .accv__panel.is-open .accv__content { max-height: 280px; } }
+  .accv__tab { position: relative; z-index: 2; display: flex; align-items: center; gap: 0.75rem; background: #2a2a2a; color: #fff; border: none; cursor: pointer; padding: 1rem; transition: background 0.2s; }
+  .accv__tab:hover { background: #333333; }
+  @media (min-width: 1024px) {
+    .accv__panel:not(.is-open) .accv__tab { flex-direction: column; justify-content: flex-end; height: 100%; gap: 1rem; }
+    .accv__panel:not(.is-open) .accv__title { writing-mode: vertical-rl; transform: rotate(180deg); font-size: 1.05rem; }
+    .accv__panel.is-open .accv__tab { position: absolute; top: 0; left: 0; background: transparent; }
+    .accv__panel.is-open .accv__title { display: none; }
+  }
+  .accv__icon { flex-shrink: 0; width: 40px; height: 40px; border-radius: 0.6rem; background: var(--dc-green); color: var(--dc-ink); display: flex; align-items: center; justify-content: center; }
+  .accv__icon svg { width: 22px; height: 22px; }
+  .accv__title { font-family: Georgia, serif; font-weight: 600; }
+  .accv__content { flex: 1; display: flex; align-items: flex-end; max-height: 0; overflow: hidden; transition: max-height 0.5s; }
+  @media (min-width: 1024px) { .accv__content { max-height: none; width: 100%; } }
+  .accv__panel:not(.is-open) .accv__content { pointer-events: none; }
+  @media (min-width: 1024px) { .accv__panel:not(.is-open) .accv__content > * { opacity: 0; } }
+  .accv__desc { margin: 1rem; padding: 0.9rem 1.1rem; background: rgba(17,17,17,0.6); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.12); border-radius: 0.75rem; color: #fff; }
+  .accv__desc h3 { font-family: Georgia, serif; font-size: 1.2rem; margin: 0 0 0.4rem; }
+  .accv__desc p { font-size: 0.88rem; line-height: 1.55; color: rgba(255,255,255,0.8); margin: 0; }
+  .accv__desc a { color: #AED581; font-weight: 600; text-decoration: underline; text-decoration-color: #AED581; text-underline-offset: 3px; transition: color 0.2s; }
+  .accv__desc a:hover { color: #fff; }
+  @media (prefers-reduced-motion: reduce) { .accv__panel, .accv__content { transition: none; } }
+
+  /* ══ FILM TYPES BENTO ══ */
+  .dc-film-bento { background: #F5F3EE; }
+  .bgp { background: #F5F3EE; padding: 4rem 1.5rem; }
+  .bgp__head { max-width: 40rem; margin: 0 auto 2.5rem; text-align: center; }
+  .bgp__eyebrow { display: block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dc-green); margin-bottom: 0.75rem; }
+  .bgp__title { color: #14201A; font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; margin: 0 0 0.5rem; }
+  .bgp__sub { color: #666; margin: 0; }
+  .bgp__grid { max-width: 72rem; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 220px; gap: 1rem; }
+  .bgp__card--lg { grid-area: span 2 / span 2; }
+  .bgp__card--md { grid-area: span 1 / span 2; }
+  .bgp__card--sm { grid-area: span 1 / span 1; }
+  .bgp__card { position: relative; overflow: hidden; border-radius: 1rem; border: 1px solid rgba(0,0,0,0.08); }
+  .bgp__card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.22,1,0.36,1); }
+  .bgp__card:hover img { transform: scale(1.06); }
+  .bgp__overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(17,17,17,0.9), rgba(17,17,17,0.15) 55%); transition: background 0.3s; }
+  .bgp__card:hover .bgp__overlay { background: linear-gradient(to top, rgba(17,17,17,0.95), rgba(124,179,66,0.12) 60%); }
+  .bgp__body { position: absolute; left: 0; right: 0; bottom: 0; padding: 1.25rem; }
+  .bgp__body h3 { color: #fff; font-family: Georgia, serif; font-size: 1.1rem; margin: 0 0 0.25rem; }
+  .bgp__body p { color: rgba(255,255,255,0.7); font-size: 0.8rem; margin: 0; line-height: 1.5; opacity: 0; transform: translateY(6px); transition: opacity 0.3s, transform 0.3s; }
+  .bgp__card:hover .bgp__body p { opacity: 1; transform: translateY(0); }
+  @media (max-width: 860px) { .bgp__grid { grid-template-columns: repeat(2,1fr); } .bgp__card--lg, .bgp__card--md { grid-column: span 2; } }
+  @media (max-width: 480px) { .bgp__grid { grid-template-columns: 1fr; grid-auto-rows: 200px; } .bgp__card--lg, .bgp__card--md, .bgp__card--sm { grid-column: span 1; } }
+  @media (prefers-reduced-motion: reduce) { .bgp__card img, .bgp__body p { transition: none; } .bgp__body p { opacity: 1; transform: none; } }
+
+  /* ══ ACCORDION BENEFITS (shared from library) ══ */
+  .accb { background: var(--dc-ink); padding: 4rem 1.5rem; }
+  .accb__head { max-width: 42rem; margin: 0 auto 2.5rem; text-align: center; }
+  .accb__title { color: #fff; font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; margin: 0 0 0.5rem; }
+  .accb__sub { color: rgba(255,255,255,0.5); margin: 0; }
+  .accb__wrap { max-width: 64rem; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: center; }
+  @media (min-width: 900px) { .accb__wrap { grid-template-columns: 1fr 1fr; } }
+  .accb__row { border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .accb__trigger { width: 100%; display: flex; align-items: center; gap: 0.9rem; background: none; border: none; cursor: pointer; text-align: left; padding: 1.1rem 0.25rem; color: rgba(255,255,255,0.7); font-family: inherit; transition: color 0.2s; }
+  .accb__row.is-open .accb__trigger { color: #fff; }
+  .accb__icon { flex-shrink: 0; width: 40px; height: 40px; border-radius: 0.6rem; background: rgba(124,179,66,0.15); color: var(--dc-green); display: flex; align-items: center; justify-content: center; transition: background 0.3s, color 0.3s; }
+  .accb__row.is-open .accb__icon { background: var(--dc-green); color: var(--dc-ink); }
+  .accb__icon svg { width: 22px; height: 22px; }
+  .accb__row-title { flex: 1; font-family: Georgia, serif; font-size: 1.15rem; font-weight: 600; }
+  .accb__chev { color: var(--dc-green); font-size: 1.3rem; transition: transform 0.3s; }
+  .accb__row.is-open .accb__chev { transform: rotate(90deg); }
+  .accb__detail { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.35s; }
+  .accb__row.is-open .accb__detail { grid-template-rows: 1fr; }
+  .accb__detail-inner { overflow: hidden; }
+  .accb__detail-inner p { margin: 0 0 1rem; padding: 0 0 0.5rem 3.4rem; color: rgba(255,255,255,0.6); font-size: 0.92rem; line-height: 1.6; }
+  .accb__detail-inner a { color: #AED581; font-weight: 600; text-decoration: underline; text-decoration-color: #AED581; text-underline-offset: 3px; transition: color 0.2s; }
+  .accb__detail-inner a:hover { color: #fff; }
+  .accb__mobile-img { display: none; }
+  .accb__media { position: relative; aspect-ratio: 4/3; border-radius: 1rem; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+  .accb__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s, transform 0.6s; transform: scale(1.04); }
+  .accb__img.is-active { opacity: 1; transform: scale(1); }
+  @media (max-width: 899px) { .accb__media { display: none; } .accb__mobile-img { display: block; width: 100%; border-radius: 0.6rem; margin: 0 0 1rem 3.4rem; max-width: calc(100% - 3.4rem); } }
+  @media (prefers-reduced-motion: reduce) { .accb__detail, .accb__img, .accb__chev, .accb__icon { transition: none; } }
+
+  /* ══ BEFORE/AFTER SLIDER WRAP ══ */
+  .dc-slider-wrap { background: var(--dc-cream); padding: 5rem 2rem; }
+  .dc-slider-wrap__header { text-align: center; max-width: 680px; margin: 0 auto 2.5rem; }
+  .dc-slider-wrap__eyebrow { display: block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dc-green); margin-bottom: 0.75rem; }
+  .dc-slider-wrap__title { font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 800; color: #1a1a1a; margin: 0 0 1rem; line-height: 1.15; }
+  .dc-slider-wrap__sub { font-size: 1rem; color: #555; line-height: 1.7; margin: 0; }
+  .dc-slider-wrap__slider { max-width: 700px; margin: 0 auto; }
+  .before-after__frame { position: relative; width: 100%; aspect-ratio: 1/1; overflow: hidden; border-radius: 16px; cursor: ew-resize; user-select: none; background: #000; box-shadow: 0 24px 60px rgba(0,0,0,0.2); }
+  .before-after__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+  .before-after__after-wrap { position: absolute; inset: 0; width: var(--pos, 50%); overflow: hidden; }
+  .before-after__after-wrap .before-after__img { width: var(--frame-width, 100%); }
+  .before-after__handle { position: absolute; top: 0; bottom: 0; left: var(--pos, 50%); width: 3px; background: #fff; transform: translate(-50%); cursor: ew-resize; }
+  .before-after__handle-grip { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 40px; height: 40px; border-radius: 9999px; background: #fff; color: var(--dc-ink); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,0.35); transition: transform 0.15s; }
+  .before-after:active .before-after__handle-grip { transform: translate(-50%,-50%) scale(1.08); }
+  .before-after__tag { position: absolute; bottom: 14px; padding: 5px 12px; border-radius: 9999px; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; background: rgba(17,17,17,0.8); color: #fff; backdrop-filter: blur(4px); pointer-events: none; z-index: 2; }
+  .before-after__tag--before { left: 14px; }
+  .before-after__tag--after { right: 14px; }
+  @media (prefers-reduced-motion: reduce) { .before-after__handle-grip { transition: none; } }
+
+  /* ══ WHAT WE DO PANELS ══ */
+  .dc-wwd-wrap { background: var(--dc-slate); padding: 4rem 1.5rem; }
+  .dc-wwd-wrap__header { text-align: center; max-width: 600px; margin: 0 auto 2.5rem; }
+  .dc-wwd-wrap__eyebrow { display: block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dc-green); margin-bottom: 0.75rem; }
+  .dc-wwd-wrap__title { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; color: #fff; margin: 0 0 0.5rem; }
+  .dc-wwd-wrap__sub { color: rgba(255,255,255,0.5); margin: 0; font-size: 0.95rem; line-height: 1.65; }
+  .dc-wwd-panels { max-width: 72rem; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+  @media (max-width: 860px) { .dc-wwd-panels { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .dc-wwd-panels { grid-template-columns: 1fr; } }
+  .wwd__panel { position: relative; overflow: hidden; border-radius: 1rem; text-decoration: none; display: block; aspect-ratio: 3/4; }
+  .wwd__panel-img-wrap { position: absolute; inset: 0; overflow: hidden; }
+  .wwd__panel-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+  .wwd__panel:hover .wwd__panel-img { transform: scale(1.05); }
+  .wwd__panel-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(17,17,17,0.92) 0%, rgba(17,17,17,0.3) 55%, transparent 100%); }
+  .wwd__panel-content { position: absolute; inset-x: 0; bottom: 0; padding: 1.25rem; }
+  .wwd__panel-content h3 { font-family: Georgia, serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin: 0 0 0.3rem; }
+  .wwd__panel-desc { display: block; font-size: 0.8rem; color: rgba(255,255,255,0.7); line-height: 1.5; margin: 0 0 0.5rem; opacity: 0; transform: translateY(10px); transition: opacity 0.3s, transform 0.3s; }
+  .wwd__panel:hover .wwd__panel-desc { opacity: 1; transform: translateY(0); }
+  .wwd__panel-arrow { display: inline-block; font-size: 0.82rem; font-weight: 600; color: var(--dc-green); opacity: 0; transform: translate(-8px); transition: opacity 0.3s, transform 0.3s; }
+  .wwd__panel:hover .wwd__panel-arrow { opacity: 1; transform: translate(0); }
+  .wwd__panel-line { display: block; width: 0; height: 2px; background: var(--dc-green); transition: width 0.4s; margin-top: 0.5rem; }
+  .wwd__panel:hover .wwd__panel-line { width: 100%; }
+  @media (prefers-reduced-motion: reduce) {
+    .wwd__panel-img { transition: none; }
+    .wwd__panel-desc, .wwd__panel-arrow { opacity: 1; transform: none; }
+    .wwd__panel-line { width: 100%; }
+  }
+
+  /* ══ GALLERY BANNER ══ */
+  .gallery-banner { overflow: hidden; padding: 4.5rem 0; }
+  .gallery-banner--light { background: #ECE9E4; color: #111; }
+  .gallery-banner__inner { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center; max-width: 72rem; margin: 0 auto; padding-right: 1.5rem; }
+  @media (min-width: 900px) { .gallery-banner__inner { grid-template-columns: 1.1fr 1fr; } }
+  .gallery-banner__eyebrow { margin-left: 1.5rem; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; opacity: 0.5; margin-bottom: 0.75rem; }
+  .gallery-banner__title { font-family: Georgia, 'Times New Roman', serif; font-weight: 800; line-height: 0.86; letter-spacing: 0; font-size: clamp(2.5rem, 5vw, 4rem); text-transform: uppercase; margin-left: -0.2em; user-select: none; }
+  .gallery-banner__title-line { display: block; }
+  .gallery-banner__desc { margin-left: 1.5rem; margin-top: 1.25rem; max-width: 24rem; font-size: 0.9rem; line-height: 1.6; opacity: 0.55; }
+  .gallery-banner__gallery { display: flex; flex-direction: column; align-items: center; gap: 1.25rem; }
+  .gallery-banner__strips { display: flex; align-items: center; height: 300px; filter: drop-shadow(0 24px 40px rgba(0,0,0,0.25)); }
+  .gallery-banner__strip { position: relative; width: 72px; height: 260px; margin-left: -10px; border: none; padding: 0; border-radius: 14px; overflow: hidden; cursor: pointer; background: #111; transform: rotate(calc((var(--i) - (var(--n) - 1) / 2) * 2.5deg)) translateY(calc((var(--i) - (var(--n) - 1) / 2) * (var(--i) - (var(--n) - 1) / 2) * 4px)); transition: width 0.5s cubic-bezier(0.34,1.4,0.64,1), transform 0.5s cubic-bezier(0.34,1.4,0.64,1), margin 0.5s cubic-bezier(0.34,1.4,0.64,1); z-index: calc(10 + var(--i)); }
+  .gallery-banner__strip:first-child { margin-left: 0; }
+  .gallery-banner__strip img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+  .gallery-banner__strips:hover .gallery-banner__strip { margin-left: 6px; transform: rotate(calc((var(--i) - (var(--n) - 1) / 2) * 4deg)) translateY(calc((var(--i) - (var(--n) - 1) / 2) * (var(--i) - (var(--n) - 1) / 2) * 6px)); }
+  .gallery-banner__strips:hover .gallery-banner__strip:first-child { margin-left: 0; }
+  .gallery-banner__strip:hover { width: 190px; z-index: 99; transform: rotate(0deg) translateY(-12px) !important; }
+  .gallery-banner__strip.is-active { width: 190px; z-index: 90; transform: rotate(0deg) translateY(-8px) !important; }
+  .gallery-banner__hint { padding: 0.55rem 1.2rem; border-radius: 9999px; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.45; border: 1px solid; }
+  @media (max-width: 899px) { .gallery-banner__title { margin-left: -0.3em; } .gallery-banner__strips { height: 240px; } .gallery-banner__strip { height: 200px; width: 56px; } .gallery-banner__strip:hover, .gallery-banner__strip.is-active { width: 150px; } }
+  @media (prefers-reduced-motion: reduce) { .gallery-banner__strip { transition: none; } }
+
+  /* ══ TESTIMONIAL STACK WRAP ══ */
+  .dc-tstack-wrap { padding: 6rem 2rem; background: #fff; }
+  .dc-tstack-wrap__header { text-align: center; margin-bottom: 3rem; }
+  .dc-tstack-wrap__eyebrow { display: block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dc-green); margin-bottom: 0.75rem; }
+  .dc-tstack-wrap__title { font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; color: #1a1a1a; margin: 0; }
+  .tstack { display: flex; flex-direction: column; align-items: center; padding: 2rem 1rem; }
+  .tstack__deck { position: relative; width: min(540px, 90vw); height: 360px; }
+  .tstack__card { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 2rem; border-radius: 1.25rem; background: linear-gradient(160deg, #2a2a2a, #111111); border: 1px solid rgba(124,179,66,0.25); box-shadow: 0 30px 60px rgba(0,0,0,0.45); cursor: grab; transform-origin: center bottom; transform: translateY(calc(var(--i) * -12px)) scale(calc(1 - var(--i) * .04)) rotate(calc((var(--i) - 1) * 1.5deg)); z-index: calc(100 - var(--i)); transition: transform 0.55s cubic-bezier(0.34,1.4,0.64,1), opacity 0.5s; user-select: none; }
+  .tstack__card.is-leaving { opacity: 0; cursor: grabbing; transform: translate(-140%) rotate(-16deg) !important; }
+  .tstack__stars { color: var(--dc-green); letter-spacing: 2px; font-size: 0.9rem; }
+  .tstack__quote { font-family: Georgia, serif; font-size: 1.1rem; line-height: 1.5; color: #fff; margin: 0; }
+  .tstack__person { display: flex; align-items: center; gap: 0.85rem; }
+  .tstack__avatar { width: 52px; height: 52px; border-radius: 9999px; object-fit: cover; border: 2px solid var(--dc-green); pointer-events: none; }
+  .tstack__name { color: #fff; font-weight: 700; font-size: 0.95rem; }
+  .tstack__detail { color: rgba(255,255,255,0.5); font-size: 0.8rem; }
+  .tstack__hint { margin-top: 1.5rem; color: rgba(0,0,0,0.35); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+  @media (prefers-reduced-motion: reduce) { .tstack__card { transition: opacity 0.3s; } }
+
+  /* ══ PROCESS ROADMAP (shared from library) ══ */
+  .prm { background: var(--dc-ink); padding: 4rem 1.5rem; }
+  .prm__head { max-width: 42rem; margin: 0 auto 2rem; text-align: center; }
+  .prm__title { color: #fff; font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; margin: 0 0 0.5rem; }
+  .prm__sub { color: rgba(255,255,255,0.5); margin: 0; }
+  .prm__map { position: relative; max-width: 60rem; margin: 0 auto; border-radius: 1rem; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); aspect-ratio: 1390/780; box-shadow: 0 24px 60px rgba(0,0,0,0.4); }
+  .prm__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .prm__overlay { position: absolute; inset: 0; background: rgba(17,17,17,0.65); }
+  .prm__svg { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; }
+  .prm__progress { stroke-dasharray: var(--len, 250); stroke-dashoffset: var(--len, 250); transition: stroke-dashoffset 1.6s; }
+  .prm.is-visible .prm__progress { stroke-dashoffset: 0; }
+  .prm__milestone { position: absolute; transform: translate(-50%,-50%); z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; width: 150px; }
+  .prm__dot { width: 36px; height: 36px; border-radius: 9999px; background: var(--dc-green); color: var(--dc-ink); display: flex; align-items: center; justify-content: center; font-weight: 800; border: 3px solid #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.5); opacity: 0; transform: scale(0.4); transition: opacity 0.4s, transform 0.4s cubic-bezier(0.34,1.56,0.64,1); transition-delay: calc(var(--i) * .4s + .5s); }
+  .prm__num { font-size: 0.85rem; }
+  .prm.is-visible .prm__dot { opacity: 1; transform: scale(1); }
+  .prm__card { background: rgba(17,17,17,0.9); backdrop-filter: blur(4px); border: 1px solid rgba(124,179,66,0.3); border-radius: 0.6rem; padding: 0.6rem 0.8rem; text-align: center; opacity: 0; transform: translateY(8px); transition: opacity 0.4s, transform 0.4s; transition-delay: calc(var(--i) * .4s + .65s); }
+  .prm.is-visible .prm__card { opacity: 1; transform: translateY(0); }
+  .prm__card h3 { color: #fff; font-family: Georgia, serif; font-size: 0.9rem; margin: 0 0 0.2rem; }
+  .prm__card p { color: rgba(255,255,255,0.6); font-size: 0.7rem; line-height: 1.4; margin: 0; }
+  @media (max-width: 720px) { .prm__map { aspect-ratio: auto; height: auto; display: flex; flex-direction: column; gap: 0.75rem; padding: 1rem; } .prm__bg, .prm__svg, .prm__overlay { display: none; } .prm__milestone { position: static; transform: none; width: 100%; flex-direction: row; align-items: center; text-align: left; } .prm__card { text-align: left; flex: 1; } .prm__dot, .prm__card { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .prm__progress { stroke-dashoffset: 0; transition: none; } .prm__dot, .prm__card { opacity: 1; transform: none; } }
+
+  /* ── Resources Section ── */
+  .res-section { background: #F5F3EE; padding: 80px 0; }
+  .res-section__inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .res-section__image-col { border-radius: 16px; overflow: hidden; }
+  .res-section__img { width: 100%; height: 480px; object-fit: cover; display: block; border-radius: 16px; }
+  .res-section__eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 0.22em; color: #7CB342; margin: 0 0 0.75rem; }
+  .res-section__title { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 2.5vw, 2.25rem); font-weight: 700; color: #14201A; line-height: 1.2; margin: 0 0 1rem; }
+  .res-section__body { font-size: 1rem; color: #4A5C48; line-height: 1.75; margin: 0 0 1.5rem; }
+  .res-section__list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; }
+  .res-section__item { display: flex; align-items: flex-start; gap: 12px; font-size: 0.9rem; line-height: 1.5; }
+  .res-section__item a { color: #14201A; text-decoration: none; border-bottom: 1px solid #7CB342; transition: color 0.2s; }
+  .res-section__item a:hover { color: #7CB342; }
+  .res-section__item svg { flex-shrink: 0; margin-top: 2px; }
+  @media (max-width: 768px) { .res-section__inner { grid-template-columns: 1fr; gap: 2rem; } .res-section__image-col { display: none; } }
+
+  /* ══ FAQ (shared from library) ══ */
+  .dc-faq { background: var(--dc-slate); padding: 4rem 1.5rem; }
+  .faq__head { max-width: 42rem; margin: 0 auto 2.5rem; text-align: center; }
+  .faq__title { color: #fff; font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; margin: 0 0 0.5rem; }
+  .faq__sub { color: rgba(255,255,255,0.5); margin: 0; }
+  .faq__list { max-width: 44rem; margin: 0 auto; display: flex; flex-direction: column; gap: 0.75rem; }
+  .faq__item { background: #111111; border: 1px solid rgba(255,255,255,0.08); border-radius: 0.85rem; overflow: hidden; transition: border-color 0.3s; }
+  .faq__item.is-open { border-color: rgba(124,179,66,0.5); }
+  .faq__q { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem; background: none; border: none; cursor: pointer; text-align: left; padding: 1.15rem 1.35rem; color: #fff; font-size: 1rem; font-weight: 600; font-family: inherit; }
+  .faq__icon { position: relative; flex-shrink: 0; width: 20px; height: 20px; }
+  .faq__icon span { position: absolute; top: 50%; left: 50%; width: 14px; height: 2px; border-radius: 2px; background: var(--dc-green); transform: translate(-50%,-50%); transition: transform 0.3s; }
+  .faq__icon span:last-child { transform: translate(-50%,-50%) rotate(90deg); }
+  .faq__item.is-open .faq__icon span:last-child { transform: translate(-50%,-50%) rotate(0deg); }
+  .faq__a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.35s; }
+  .faq__item.is-open .faq__a { grid-template-rows: 1fr; }
+  .faq__a-inner { overflow: hidden; }
+  .faq__a-inner p { margin: 0; padding: 0 1.35rem 1.25rem; color: rgba(255,255,255,0.6); font-size: 0.92rem; line-height: 1.65; }
+  @media (prefers-reduced-motion: reduce) { .faq__a, .faq__icon span { transition: none; } }
+
+  /* ══ CTA AVATARS (shared from library) ══ */
+  .ctav { background: var(--dc-ink); padding: 4.5rem 1.5rem; }
+  .dc-ctav { border-top: 1px solid rgba(124,179,66,0.2); }
+  .ctav__inner { max-width: 68rem; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 2.5rem; flex-wrap: wrap; }
+  .ctav__left { flex: 1; min-width: 280px; }
+  .ctav__title { color: #fff; font-size: clamp(1.7rem, 3.5vw, 2.5rem); font-weight: 700; margin: 0 0 0.6rem; }
+  .ctav__sub { color: rgba(255,255,255,0.55); max-width: 34rem; margin: 0 0 1.5rem; line-height: 1.6; }
+  .ctav__proof { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+  .ctav__stack { display: flex; }
+  .ctav__avatar { position: relative; display: block; width: 52px; height: 52px; margin-left: -14px; border-radius: 9999px; border: 2.5px solid var(--dc-ink); transform: rotate(var(--r, 0deg)) scale(0); transition: transform 0.45s cubic-bezier(0.34,1.56,0.64,1) calc(var(--i) * 70ms); cursor: pointer; z-index: calc(10 + var(--i)); }
+  .ctav.is-visible .ctav__avatar { transform: rotate(var(--r, 0deg)) scale(1); }
+  .ctav__avatar:first-child { margin-left: 0; }
+  .ctav__avatar img { width: 100%; height: 100%; border-radius: 9999px; object-fit: cover; }
+  .ctav__avatar:hover { z-index: 99; transition-delay: 0ms; transform: rotate(0deg) scale(1.15) !important; }
+  .ctav__tip { position: absolute; bottom: calc(100% + 10px); left: 50%; transform: translate(-50%) translateY(6px); background: var(--dc-green); color: var(--dc-ink); padding: 0.4rem 0.75rem; border-radius: 0.5rem; white-space: nowrap; text-align: center; opacity: 0; pointer-events: none; transition: opacity 0.25s, transform 0.25s cubic-bezier(0.34,1.56,0.64,1); box-shadow: 0 8px 20px rgba(0,0,0,0.35); }
+  .ctav__avatar:hover .ctav__tip { opacity: 1; transform: translate(-50%) translateY(0); }
+  .ctav__tip b { display: block; font-size: 0.78rem; }
+  .ctav__tip small { display: block; font-size: 0.68rem; opacity: 0.75; }
+  .ctav__meta { display: flex; flex-direction: column; gap: 0.15rem; }
+  .ctav__stars { color: var(--dc-green); letter-spacing: 2px; font-size: 0.9rem; }
+  .ctav__trust { color: rgba(255,255,255,0.5); font-size: 0.82rem; }
+  .ctav__btn { display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(120deg, var(--dc-green), #8BC34A); color: var(--dc-ink); font-weight: 700; font-size: 1rem; padding: 0.9rem 1.75rem; border-radius: 9999px; text-decoration: none; box-shadow: 0 12px 30px rgba(124,179,66,0.35); transition: transform 0.25s, box-shadow 0.25s; white-space: nowrap; flex-shrink: 0; }
+  .ctav__btn:hover { transform: translateY(-2px); box-shadow: 0 16px 38px rgba(124,179,66,0.45); }
+  .ctav__arrow { transition: transform 0.25s; }
+  .ctav__btn:hover .ctav__arrow { transform: translate(4px); }
+  @media (prefers-reduced-motion: reduce) { .ctav__avatar { transform: rotate(var(--r, 0deg)) scale(1); transition: none; } .ctav__btn, .ctav__arrow, .ctav__tip { transition: none; } }
+
+  /* ══ SPLIT TEXT REVEAL ══ */
+  .split-reveal { display: inline; }
+  .split-reveal__unit { display: inline-block; overflow: hidden; vertical-align: top; }
+  .split-reveal__inner { display: inline-block; transform: translateY(110%); transition: transform 0.7s cubic-bezier(0.22,1,0.36,1) calc(var(--i) * var(--split-stagger, 65ms)); will-change: transform; }
+  .split-reveal.is-visible .split-reveal__inner { transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) { .split-reveal__inner { transform: none; transition: none; } }
+
+  /* ══ GEO ══ */
+
+</style>

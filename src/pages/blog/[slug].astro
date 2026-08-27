@@ -1,0 +1,658 @@
+﻿---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BrandLogos from '../../components/BrandLogos.astro';
+import InnerPageHero from '../../components/InnerPageHero.astro';
+import { benefitCategories } from '../../data/categories';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content, headings } = await post.render();
+const { title, description, pubDate, author, image, imageAlt, tags, updatedDate } = post.data;
+const tocHeadings = headings.filter((h) => h.depth === 2);
+// Estimate reading time from raw body length (200 wpm)
+const rawBody: string = post.body ?? '';
+const wordCount = rawBody.split(/\s+/).filter(Boolean).length;
+const readingTime = Math.max(1, Math.round(wordCount / 200));
+
+// Author info — Mike Kinsey is the author of all WFP blog posts
+const authorInfo = {
+  name: 'Mike Kinsey',
+  title: 'President, Window Film Salt Lake City',
+  bio: 'Mike Kinsey has consulted on window film projects across the United States for over 15 years. As President of Window Film Salt Lake City — the Wasatch Front office of Scottish Window Tinting — Mike oversees every project from specification through installation. He has personally sold and installed over 250,000 square feet of window film and holds certifications from 3M, EnerLogic, and the American Institute of Architects (AIA) for continuing education. His background in project management and construction gives him unique insight into how window film performs on Salt Lake City\'s building stock, from single-pane rowhome glass to Downtown Salt Lake City curtain wall systems.',
+  image: '/images/team/team-mike-kinsey.jpg',
+  url: 'https://windowfilmsaltlakecity.com/about/',
+};
+
+// Use updatedDate if provided in frontmatter, otherwise fall back to pubDate
+const modifiedDate = updatedDate || pubDate;
+
+// Recent posts for sidebar (exclude current)
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const recentPosts = allPosts
+  .filter((p) => p.slug !== post.slug)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+function formatDate(date: Date): string {
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
+
+const canonical = `https://windowfilmsaltlakecity.com/blog/${post.slug}/`;
+const markdownUrl = `/blog/${post.slug}.md`;
+
+const categories = benefitCategories.map((c) => ({ label: c.label, href: c.href }));
+
+// Article schema for blog posts
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": title,
+  "description": description,
+  "image": image ? `https://windowfilmsaltlakecity.com${image}` : undefined,
+  "datePublished": pubDate.toISOString().slice(0, 10),
+  "dateModified": modifiedDate.toISOString().slice(0, 10),
+  "author": {
+    "@type": "Person",
+    "name": authorInfo.name,
+    "url": authorInfo.url,
+    "image": `https://windowfilmsaltlakecity.com${authorInfo.image}`,
+    "jobTitle": authorInfo.title,
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Window Film Salt Lake City",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://windowfilmsaltlakecity.com/images/window-film-salt-lake-city-logo-white.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": canonical
+  }
+};
+
+// BreadcrumbList schema for blog posts
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://windowfilmsaltlakecity.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://windowfilmsaltlakecity.com/blog/" },
+    { "@type": "ListItem", "position": 3, "name": title, "item": canonical }
+  ]
+};
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemas={[articleSchema, breadcrumbSchema]} markdownUrl={markdownUrl}>
+
+<InnerPageHero
+  title={title}
+  bgImage={image || '/images/wfp-premium-films-v2.jpg'}
+  desc={formatDate(pubDate)}
+/>
+
+<div class="ip-page-body">
+
+  <!-- ══════════════════════════════════════
+       META BAR — full width
+       ══════════════════════════════════════ -->
+  <div class="post-meta-bar">
+    <a href="/blog/" class="post-back">&#8592; Back to Blog</a>
+    <div class="post-meta-right">
+      <div class="post-meta-info">
+        <span class="post-author">By <a href="/about/" class="post-author-link">{authorInfo.name}</a></span>
+        <span class="post-sep">&#183;</span>
+        <span class="post-date">{formatDate(pubDate)}</span>
+        <span class="post-sep">&#183;</span>
+        <span class="post-reading-time">{readingTime} min read</span>
+        {modifiedDate.toISOString().slice(0, 10) !== pubDate.toISOString().slice(0, 10) && (
+          <>
+            <span class="post-sep">&#183;</span>
+            <span class="post-updated">Updated {formatDate(modifiedDate)}</span>
+          </>
+        )}
+      </div>
+      {tags && tags.length > 0 && (
+        <div class="post-tags">
+          {tags.map((tag) => (
+            <span class="post-tag">{tag}</span>
+          ))}
+        </div>
+      )}
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       2-COL LAYOUT: article + sidebar
+       ══════════════════════════════════════ -->
+  <div class="post-layout">
+
+    <!-- ── MAIN ARTICLE ── -->
+    <main class="post-main">
+
+      {image && (
+        <div class="post-featured-img">
+          <img src={image} alt={imageAlt || title} title={imageAlt || title} width="860" height="500" loading="eager" />
+        </div>
+      )}
+
+      {tocHeadings.length > 2 && (
+        <div class="post-toc">
+          <p class="post-toc__label">IN THIS ARTICLE</p>
+          <ol class="post-toc__list">
+            {tocHeadings.map((h) => (
+              <li class="post-toc__item">
+                <a href={`#${h.slug}`} class="post-toc__link">{h.text}</a>
+              </li>
+            ))}
+          </ol>
+        </div>
+      )}
+
+      <article class="post-prose">
+        <Content />
+      </article>
+
+      <!-- Author Bio -->
+      <div class="post-author-bio">
+        <img src={authorInfo.image} alt={authorInfo.name} title={authorInfo.name} width="120" height="120" loading="lazy" class="post-author-bio__img" />
+        <div class="post-author-bio__content">
+          <h3 class="post-author-bio__name">About {authorInfo.name}</h3>
+          <p class="post-author-bio__title">{authorInfo.title}</p>
+          <p class="post-author-bio__text">{authorInfo.bio}</p>
+          <a href={authorInfo.url} class="post-author-bio__link">Learn more about {authorInfo.name} &rarr;</a>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- ── SIDEBAR ── -->
+    <aside class="post-sidebar">
+
+      <!-- CTA image card -->
+      <div class="ip-sidebar-cta-card">
+        <div class="ip-sidebar-cta-card__bg" style="background-image: url('/images/2021-09-hotel-window-film-salt-lake-city.webp')">
+          <div class="ip-sidebar-cta-card__overlay"></div>
+          <div class="ip-sidebar-cta-card__content">
+            <p class="ip-sidebar-cta-card__label">Any Questions? Let's talk</p>
+            <a href="tel:+18018954681" class="ip-sidebar-cta-card__phone">(801) 895-4681</a>
+            <a href="/contact/" class="ip-sidebar-cta-card__btn">Get a Free Quote &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Browse by Topic (benefit categories) -->
+      <div class="ip-sidebar-cats">
+        <h4 class="ip-sidebar-cats__title">Browse by Topic</h4>
+        <ul class="ip-sidebar-cats__list">
+          {categories.map((cat) => (
+            <li>
+              <a href={cat.href} class="ip-sidebar-cat-link">{cat.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Recent Posts -->
+      {recentPosts.length > 0 && (
+        <div class="ip-sidebar-recent">
+          <h4 class="ip-sidebar-recent__title">Recent Posts</h4>
+          <ul class="ip-sidebar-recent__list">
+            {recentPosts.map((rp) => (
+              <li class="ip-sidebar-recent__item">
+                {rp.data.image && (
+                  <a href={`/blog/${rp.slug}/`} class="ip-sidebar-recent__thumb">
+                    <img src={rp.data.image} alt={rp.data.imageAlt || rp.data.title} title={rp.data.imageAlt || rp.data.title} loading="lazy" />
+                  </a>
+                )}
+                <div class="ip-sidebar-recent__body">
+                  <span class="ip-sidebar-recent__date">{formatDate(rp.data.pubDate)}</span>
+                  <a href={`/blog/${rp.slug}/`} class="ip-sidebar-recent__link">{rp.data.title}</a>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+    </aside>
+  </div><!-- end post-layout -->
+
+  <!-- ══════════════════════════════════════
+       BRAND LOGOS + CTA
+       ══════════════════════════════════════ -->
+  <BrandLogos />
+
+  <div class="ip-cta">
+    <h2>Ready to transform your <em>windows?</em></h2>
+    <div class="ip-cta__btns">
+      <a href="/contact/" class="ip-btn ip-btn--white">Get a Free Quote</a>
+      <a href="tel:+18018954681" class="ip-btn ip-btn--green">Call (801) 895-4681</a>
+    </div>
+  </div>
+
+</div><!-- end ip-page-body -->
+
+</BaseLayout>
+
+<style>
+/* ── PAGE BODY WRAPPER ── */
+.ip-page-body {
+  position: relative;
+  background: #ffffff;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  margin-top: -40px;
+  z-index: 10;
+  overflow: visible;
+  padding-bottom: 80px;
+}
+
+/* ── META BAR ── */
+.post-meta-bar {
+  padding: 36px 5% 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--light-gray, #EFEFED);
+}
+.post-back {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 14px; font-weight: 600;
+  color: var(--green, #81AB4C);
+  text-decoration: none;
+}
+.post-back:hover { text-decoration: underline; }
+.post-meta-right {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+}
+.post-meta-info {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 14px; color: var(--text-light, #888);
+}
+.post-author { font-weight: 600; color: var(--text-mid, #4a4a4a); }
+.post-author-link { color: inherit; text-decoration: none; transition: color 0.2s; }
+.post-author-link:hover { color: #7CB342; }
+.post-sep { color: var(--light-gray, #ccc); }
+
+/* ── AUTHOR BIO BOX ── */
+.post-author-bio {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  background: #f7f6f3;
+  border: 1px solid #e5e5e3;
+  border-radius: 16px;
+  padding: 32px;
+  margin-top: 48px;
+}
+.post-author-bio__img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.post-author-bio__content { flex: 1; }
+.post-author-bio__name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #14201A;
+  margin: 0 0 4px;
+}
+.post-author-bio__title {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #7CB342;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 12px;
+}
+.post-author-bio__text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #4a5c48;
+  margin: 0 0 12px;
+}
+.post-author-bio__link {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #7CB342;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.post-author-bio__link:hover { color: #5D8C32; }
+
+@media (max-width: 768px) {
+  .post-author-bio {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 24px;
+  }
+  .post-author-bio__img { margin-bottom: 0; }
+}
+.post-reading-time {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 14px; color: var(--text-light, #888);
+}
+.post-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.post-tag {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px;
+  color: var(--green, #81AB4C);
+  background: var(--green-light, #eef4e4);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill, 100px);
+}
+
+/* ── 2-COL LAYOUT ── */
+.post-layout {
+  padding: 0 5%;
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 60px;
+  align-items: start;
+}
+.post-main { padding: 56px 0; }
+.post-sidebar {
+  padding: 56px 0;
+  position: sticky;
+  top: 100px;
+  align-self: start;
+}
+
+/* ── FEATURED IMAGE ── */
+.post-featured-img {
+  width: 100%;
+  border-radius: var(--radius-xl, 40px);
+  overflow: hidden;
+  margin-bottom: 48px;
+  aspect-ratio: 16 / 9;
+}
+.post-featured-img img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+
+/* ── TABLE OF CONTENTS ── */
+.post-toc {
+  background: var(--off-white, #F7F6F3);
+  border-left: 4px solid var(--green, #81AB4C);
+  border-radius: 0 16px 16px 0;
+  padding: 24px 28px;
+  margin-bottom: 44px;
+}
+.post-toc__label {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1.5px;
+  color: var(--green, #81AB4C);
+  margin: 0 0 14px;
+}
+.post-toc__list {
+  list-style: none;
+  padding: 0; margin: 0;
+  counter-reset: toc-counter;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.post-toc__item {
+  display: flex; align-items: baseline; gap: 10px;
+  counter-increment: toc-counter;
+}
+.post-toc__item::before {
+  content: counter(toc-counter, decimal-leading-zero);
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 11px; font-weight: 700;
+  color: var(--green, #81AB4C);
+  flex-shrink: 0; min-width: 22px;
+}
+.post-toc__link {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 14px; font-weight: 500; line-height: 1.4;
+  color: var(--text-dark, #1a1a1a);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.post-toc__link:hover { color: var(--green, #81AB4C); text-decoration: underline; }
+
+/* ── PROSE CONTENT ── */
+.post-prose { font-family: var(--font-body, 'DM Sans', sans-serif); }
+
+.post-prose :global(h2) {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(22px, 2.5vw, 32px);
+  font-weight: 700; letter-spacing: -0.3px; line-height: 1.2;
+  color: var(--text-dark, #1a1a1a); margin: 44px 0 14px;
+}
+.post-prose :global(h2:first-child) { margin-top: 0; }
+.post-prose :global(h3) {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(18px, 2vw, 26px);
+  font-weight: 700; line-height: 1.25;
+  color: var(--text-dark, #1a1a1a); margin: 32px 0 10px;
+}
+.post-prose :global(p) {
+  font-size: 17px; line-height: 1.85;
+  color: var(--text-mid, #4a4a4a); margin-bottom: 20px;
+}
+.post-prose :global(a) {
+  color: var(--green, #81AB4C);
+  text-decoration: underline; text-underline-offset: 3px; transition: color 0.2s;
+}
+.post-prose :global(a:hover) { color: #6e9640; }
+.post-prose :global(ul), .post-prose :global(ol) {
+  padding-left: 0; margin-bottom: 20px; list-style: none;
+}
+.post-prose :global(ul li) {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 16px; color: var(--text-mid, #4a4a4a);
+  line-height: 1.7; padding: 4px 0;
+}
+.post-prose :global(ul li::before) {
+  content: ''; display: inline-block;
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--green, #81AB4C); margin-top: 9px; flex-shrink: 0;
+}
+.post-prose :global(blockquote) {
+  border-left: 4px solid var(--green, #81AB4C);
+  background: var(--green-light, #eef4e4);
+  border-radius: 0 var(--radius-md, 16px) var(--radius-md, 16px) 0;
+  padding: 20px 24px; margin: 28px 0;
+}
+.post-prose :global(blockquote p) { font-size: 16px; color: #3a5a1f; margin: 0; }
+.post-prose :global(hr) {
+  border: none; border-top: 1px solid var(--light-gray, #EFEFED); margin: 36px 0;
+}
+
+/* FAQ section — auto-styled when writer includes the h2 */
+.post-prose :global(h2:has(+ h3)),
+.post-prose :global(h2[id*='frequently'], h2[id*='faq'], h2[id*='questions']) {
+  border-top: 1px solid var(--light-gray, #EFEFED);
+  padding-top: 36px;
+  margin-top: 56px;
+}
+.post-prose :global(h3[id*='']) {
+  font-size: clamp(16px, 1.8vw, 22px);
+  color: var(--text-dark, #1a1a1a);
+}
+.post-prose :global(strong) { font-weight: 700; color: var(--text-dark, #1a1a1a); }
+.post-prose :global(em) { font-style: italic; }
+
+/* ── SIDEBAR CTA CARD ── */
+.ip-sidebar-cta-card {
+  border-radius: 20px; overflow: hidden; margin-bottom: 20px;
+}
+.ip-sidebar-cta-card__bg {
+  position: relative; background-size: cover; background-position: center;
+  padding: 40px 28px; min-height: 260px;
+  display: flex; align-items: flex-end;
+}
+.ip-sidebar-cta-card__overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.72) 100%);
+  border-radius: 20px;
+}
+.ip-sidebar-cta-card__content {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.ip-sidebar-cta-card__label {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 13px; color: rgba(255,255,255,0.75); margin: 0;
+}
+.ip-sidebar-cta-card__phone {
+  font-family: var(--font-serif);
+  font-size: 24px; font-weight: 700; color: #fff;
+  text-decoration: none; line-height: 1.1;
+}
+.ip-sidebar-cta-card__btn {
+  display: inline-block; margin-top: 8px;
+  background: var(--green, #81AB4C); color: #fff;
+  padding: 10px 20px; border-radius: 100px;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 13px; font-weight: 600; text-decoration: none; width: fit-content;
+}
+
+/* ── SIDEBAR CATEGORIES ── */
+.ip-sidebar-cats {
+  background: transparent;
+  border: 1px solid var(--light-gray, #EFEFED);
+  border-radius: 20px; padding: 24px; margin-bottom: 20px;
+}
+.ip-sidebar-cats__title {
+  font-family: var(--font-serif);
+  font-size: clamp(17px, 2vw, 20px);
+  font-weight: 700; color: #111; margin-bottom: 12px;
+}
+.ip-sidebar-cats__list { list-style: none; padding: 0; margin: 0; }
+.ip-sidebar-cats__list li { border-bottom: 1px solid var(--light-gray, #EFEFED); }
+.ip-sidebar-cats__list li:last-child { border-bottom: none; }
+.ip-sidebar-cat-link {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 9px 12px; border-radius: 8px;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 14px; font-weight: 500;
+  color: var(--text-dark, #1a1a1a);
+  text-decoration: none; transition: all 0.2s;
+}
+.ip-sidebar-cat-link::after {
+  content: '→'; font-size: 12px; color: var(--text-light, #888); transition: color 0.2s;
+}
+.ip-sidebar-cat-link:hover {
+  background: var(--green, #81AB4C); color: #fff;
+}
+.ip-sidebar-cat-link:hover::after { color: rgba(255,255,255,0.75); }
+
+/* ── SIDEBAR RECENT POSTS ── */
+.ip-sidebar-recent {
+  background: var(--off-white, #F7F6F3);
+  border-radius: 20px; padding: 24px;
+}
+.ip-sidebar-recent__title {
+  font-family: var(--font-serif);
+  font-size: clamp(17px, 2vw, 20px);
+  font-weight: 700; color: #111; margin-bottom: 16px;
+}
+.ip-sidebar-recent__list { list-style: none; padding: 0; margin: 0; }
+.ip-sidebar-recent__item {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 12px 0; border-bottom: 1px solid var(--light-gray, #EFEFED);
+}
+.ip-sidebar-recent__item:last-child { border-bottom: none; padding-bottom: 0; }
+.ip-sidebar-recent__thumb {
+  width: 64px; height: 64px; border-radius: 10px;
+  overflow: hidden; flex-shrink: 0; display: block;
+}
+.ip-sidebar-recent__thumb img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.ip-sidebar-recent__body {
+  display: flex; flex-direction: column; gap: 4px; min-width: 0;
+}
+.ip-sidebar-recent__date {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 11px; color: var(--text-light, #888); font-weight: 500;
+}
+.ip-sidebar-recent__link {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 13px; font-weight: 600; color: var(--text-dark, #1a1a1a);
+  text-decoration: none; line-height: 1.4;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  transition: color 0.2s;
+}
+.ip-sidebar-recent__link:hover { color: var(--green, #81AB4C); }
+
+/* ── Buttons ── */
+.ip-btn {
+  display: inline-block; padding: 14px 28px;
+  border-radius: var(--radius-pill, 100px);
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 15px; font-weight: 500;
+  text-decoration: none; transition: all 0.2s;
+  border: 2px solid transparent; white-space: nowrap;
+}
+.ip-btn--white {
+  background: #fff; color: var(--brand, #272E32);
+  border-color: #fff; font-weight: 600;
+}
+.ip-btn--white:hover {
+  background: var(--off-white, #F7F6F3); transform: translateY(-2px);
+  color: var(--brand, #272E32);
+}
+.ip-btn--green {
+  background: var(--green, #81AB4C); color: #fff; border-color: var(--green, #81AB4C);
+}
+.ip-btn--green:hover { background: #6e9640; transform: translateY(-2px); color: #fff; }
+
+/* ── CTA BANNER ── */
+.ip-cta {
+  background: var(--brand, #272E32); border-radius: var(--radius-xl, 40px);
+  padding: 64px 60px; display: flex; align-items: center;
+  justify-content: space-between; gap: 40px; margin: 0 5%;
+}
+.ip-cta h2 {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: 32px; font-weight: 600; color: #fff;
+  line-height: 1.2; max-width: 460px; margin: 0;
+}
+.ip-cta h2 em { font-style: italic; color: var(--green, #81AB4C); }
+.ip-cta__btns { display: flex; gap: 14px; flex-shrink: 0; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .post-layout { grid-template-columns: 1fr; }
+  .post-sidebar { position: static; padding-top: 0; }
+}
+@media (max-width: 768px) {
+  .post-meta-bar { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .post-meta-right { flex-direction: column; align-items: flex-start; }
+  .post-featured-img { border-radius: var(--radius-lg, 24px); }
+  .ip-cta { flex-direction: column; padding: 40px 28px; text-align: center; }
+  .ip-cta h2 { font-size: 26px; max-width: 100%; }
+  .ip-cta__btns { flex-direction: column; width: 100%; }
+}
+</style>

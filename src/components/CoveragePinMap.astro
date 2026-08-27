@@ -1,0 +1,204 @@
+---
+/**
+ * CoveragePinMap — photo map with drop-in SVG pins and hover tooltips.
+ * Matches windowfilm-ui2.vercel.app Map — Coverage Pins design exactly.
+ *
+ * Props:
+ *   title    — heading text
+ *   subtitle — supporting paragraph
+ *   cities   — array of { name, stat, left, top } where left/top are % strings
+ */
+interface City {
+  name: string;
+  stat: string;
+  left: string;  // CSS % e.g. "50%"
+  top: string;   // CSS % e.g. "46%"
+}
+interface Props {
+  title?: string;
+  subtitle?: string;
+  cities?: City[];
+}
+const {
+  title = "Cities we serve",
+  subtitle = "Certified installers across the Greater Salt Lake City region.",
+  cities = [
+    { name: "Salt Lake City",    stat: "Residential & Commercial",  left: "50%", top: "46%" },
+    { name: "Ogden",             stat: "Residential & Commercial",  left: "46%", top: "18%" },
+    { name: "Bountiful",         stat: "Residential & Commercial",  left: "52%", top: "36%" },
+    { name: "West Valley City",  stat: "Residential & Commercial",  left: "42%", top: "50%" },
+    { name: "Murray",            stat: "Residential & Commercial",  left: "50%", top: "56%" },
+    { name: "West Jordan",       stat: "Residential & Commercial",  left: "42%", top: "60%" },
+    { name: "Sandy",             stat: "Residential & Commercial",  left: "52%", top: "64%" },
+    { name: "Draper",            stat: "Residential & Commercial",  left: "50%", top: "72%" },
+    { name: "Park City",         stat: "Residential & Commercial",  left: "68%", top: "52%" },
+    { name: "Provo",             stat: "Residential & Commercial",  left: "56%", top: "86%" },
+  ],
+} = Astro.props;
+---
+
+<section class="cpm">
+  <div class="cpm__head">
+    <h2 class="cpm__title">
+      {title}
+    </h2>
+    <p class="cpm__sub">{subtitle}</p>
+  </div>
+  <div class="cpm__map">
+    <img class="cpm__bg" src="/images/map-salt-lake-green.jpg"
+         alt="Map of the Greater Salt Lake City service region" title="Map of the Greater Salt Lake City service region" loading="lazy" />
+    <div class="cpm__overlay" aria-hidden="true"></div>
+
+    {cities.map((city, i) => (
+      <div class="cpm__pin"
+           style={`--i:${i}; left:${city.left}; top:${city.top};`}
+           tabindex="0"
+           role="button"
+           aria-label={`${city.name} — ${city.stat}`}>
+        <span class="cpm__tip">{city.stat}</span>
+        <svg class="cpm__marker" width="30" height="38" viewBox="0 0 30 38" fill="none" aria-hidden="true">
+          <path d="M15 37 C15 37 28 22 28 14 A13 13 0 1 0 2 14 C2 22 15 37 15 37 Z"
+                fill="#81AB4C" stroke="#fff" stroke-width="2" />
+          <circle cx="15" cy="14" r="5" fill="#fff" />
+        </svg>
+        <span class="cpm__city">{city.name}</span>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+.cpm {
+  background: #F7F6F3;
+  padding: 4rem 1.5rem;
+}
+.cpm__head {
+  max-width: 42rem;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+.cpm__title {
+  color: #1a1a1a;
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+.cpm__sub {
+  color: #4a4a4a;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 1rem;
+  margin: 0;
+  line-height: 1.65;
+}
+.cpm__map {
+  position: relative;
+  max-width: 60rem;
+  margin: 0 auto;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+  aspect-ratio: 1376 / 768;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+}
+.cpm__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cpm__overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(transparent 40%, rgba(13,27,42,0.55));
+}
+
+/* Pin */
+.cpm__pin {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+  z-index: 2;
+}
+
+/* SVG marker — drops in on load */
+.cpm__marker {
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: cpm-drop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: calc(var(--i) * 0.14s + 0.2s);
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+  transition: transform 0.2s;
+}
+.cpm__pin:hover .cpm__marker,
+.cpm__pin:focus .cpm__marker {
+  transform: scale(1.12);
+}
+@keyframes cpm-drop {
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* City label */
+.cpm__city {
+  margin-top: 2px;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  white-space: nowrap;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.9), 0 0 3px rgba(0,0,0,0.9);
+  opacity: 0;
+  animation: cpm-fade 0.4s ease forwards;
+  animation-delay: calc(var(--i) * 0.14s + 0.7s);
+}
+@keyframes cpm-fade {
+  100% { opacity: 1; }
+}
+
+/* Tooltip */
+.cpm__tip {
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 50%;
+  transform: translate(-50%) translateY(4px);
+  background: #81AB4C;
+  color: #0d1b2a;
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  white-space: nowrap;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.4rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+}
+.cpm__tip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #81AB4C;
+}
+.cpm__pin:hover .cpm__tip,
+.cpm__pin:focus .cpm__tip {
+  opacity: 1;
+  transform: translate(-50%) translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cpm__marker, .cpm__city { opacity: 1; transform: none; animation: none; }
+}
+@media (max-width: 640px) {
+  .cpm { padding: 3rem 1rem; }
+  .cpm__city { font-size: 0.65rem; }
+}
+</style>

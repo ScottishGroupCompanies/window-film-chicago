@@ -1,0 +1,25 @@
+# Build output
+dist/
+.astro/
+
+# Node
+node_modules/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Logs
+npm-debug.log*
+
+# OS
+Thumbs.db
+.vercel
+.env*

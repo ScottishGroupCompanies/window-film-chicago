@@ -1,0 +1,1974 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BrandLogos from '../../components/BrandLogos.astro';
+import HeroSubpage from '../../components/HeroSubpage.astro';
+import AccordionBenefits from '../../components/AccordionBenefits.astro';
+import HowItWorksSlideshow from '../../components/HowItWorksSlideshow.astro';
+import CategoryBlogFeed from '../../components/CategoryBlogFeed.astro';
+
+const homeBenefits = [
+  {
+    number: '01',
+    title: 'Stop Fading Before It Starts',
+    image: '/images/hc-uv.jpg',
+    imageAlt: 'Salt Lake City living room with hardwood floor and rug showing UV protection from window film',
+    detail: `
+      <p>UV radiation causes up to 40% of visible fading in carpets, hardwood floors, upholstered furniture, drapery, and artwork. In Salt Lake City rowhouses and condos, west-facing rooms take the hardest afternoon hit — and the damage is cumulative and irreversible. A $15,000 Oriental rug fades the same way a $300 one does once UV exposure is left unchecked.</p>
+      <p>Our <a href="/benefits/uv-protection-film/">UV protection window film</a> blocks 99.9% of UV-A and UV-B radiation. Floors, furniture, and artwork in treated rooms age at the same rate as rooms that face north — regardless of exposure.</p>
+      <ul>
+        <li>99.9% UV-A and UV-B rejection</li>
+        <li>Protects hardwood floors, rugs, upholstery, artwork</li>
+        <li>Virtually invisible — no change to window appearance</li>
+      </ul>
+    `,
+  },
+  {
+    number: '02',
+    title: 'Cut What Your Windows Cost You',
+    image: '/images/hc-energy.jpg',
+    imageAlt: 'Salt Lake City home kitchen with comfortable morning sunlight, energy-efficient feel',
+    detail: `
+      <p>According to the <a href="https://www.energy.gov/eere/buildings/windows" target="_blank" rel="noopener noreferrer">U.S. Department of Energy</a>, windows are responsible for roughly 10% of energy use in buildings and influence end uses that comprise 40% of building energy use. Solar control and Low-E film addresses the problem at the glass: blocking solar heat gain in summer and retaining interior warmth in winter.</p>
+      <p>Our <a href="/benefits/energy-savings/">energy-efficient window film</a> reduces Solar Heat Gain Coefficient — delivering real reductions in cooling load without sacrificing natural light or views. For older rowhouses with single-pane glass, Low-E film (3M Thinsulate CC75) delivers the largest year-round performance gain.</p>
+      <ul>
+        <li>Reduces solar heat gain in summer</li>
+        <li>Retains interior warmth in winter (Low-E)</li>
+        <li>No glass replacement — fraction of window upgrade cost</li>
+      </ul>
+    `,
+  },
+  {
+    number: '03',
+    title: 'Live in Every Room, Every Hour',
+    image: '/images/hc-glare.jpg',
+    imageAlt: 'Salt Lake City home office, person comfortable at desk, afternoon sun diffused through treated window',
+    detail: `
+      <p>Afternoon glare in Salt Lake City rowhouses and condos forces a familiar choice: close the blinds and lose the view, or keep them open and overheat the room. Solar control film eliminates that trade-off. Spectrally selective films block heat and glare frequencies while passing most visible light — so rooms stay bright without becoming uncomfortable.</p>
+      <p>Rooms that were unusable from 2pm to 6pm in summer become comfortable with curtains open. See our full guide to <a href="/benefits/glare-reduction/">glare reduction window film</a> for Salt Lake City homes.</p>
+      <ul>
+        <li>Cuts glare without darkening the room</li>
+        <li>Works for home offices, media rooms, living areas</li>
+        <li>No visual change to window appearance from outside</li>
+      </ul>
+    `,
+  },
+  {
+    number: '04',
+    title: 'Privacy Without Curtains. Safety Without Bars.',
+    image: '/images/hc-privacy.jpg',
+    imageAlt: 'Ground-floor Salt Lake City rowhouse window with daytime privacy film visible from street',
+    detail: `
+      <p>Ground-floor rowhouses and street-level condo units trade natural light for privacy — or vice versa. One-way mirror film provides daytime street-level privacy while maintaining full outward views from inside. No curtains, no blinds, no compromising on light.</p>
+      <p>Our <a href="/benefits/privacy-window-film-salt-lake-city/">privacy window film</a> options range from subtle one-way reflective films to frosted and patterned films for bathrooms and entry glass. Safety film holds glass together on impact — reducing glass-shard injury risk and slowing forced-entry attempts.</p>
+      <ul>
+        <li>One-way mirror film: privacy by day, clear view out</li>
+        <li>Frosted / decorative: bathrooms, entry doors, sidelights</li>
+        <li>Safety film: holds glass together on impact</li>
+      </ul>
+    `,
+  },
+];
+
+const title = 'Home Window Film Salt Lake City | UV, Privacy & Energy';
+const description = 'Window film for Salt Lake City homes, rowhouses, and condos. UV protection, heat reduction, privacy, and safety film. Free residential estimate.';
+
+const faqItems = [
+  {
+    question: "Will window film make my home look dark or tinted from outside?",
+    answer: "Modern spectrally selective films — 3M Prestige 70, Vista SpectraSelect, LLumar ClimatePro — are virtually invisible from outside. They don't darken your windows, change the exterior appearance of your home, or affect your views from inside. The films work by blocking infrared heat and UV radiation while passing most visible light. Neighbors and passersby won't be able to tell the film is there."
+  },
+  {
+    question: "What window film works best for Salt Lake City rowhouses?",
+    answer: "It depends on the window type and the problem you're solving. For rowhouses with original single-pane windows (common in Capitol Hill, Holladay, and older South Salt Lake stock), 3M Thinsulate CC75 Low-E film delivers the best year-round performance — blocking summer heat and retaining winter warmth. For newer double-pane windows, 3M Prestige 70 or Vista SpectraSelect addresses summer heat gain while preserving VLT. We assess the window type, exposure, and your priorities at the free site visit and recommend accordingly."
+  },
+  {
+    question: "Can window film protect my hardwood floors from fading?",
+    answer: "Yes — and this is one of the most common reasons Salt Lake City homeowners install it. UV radiation causes 40% of visible fading in hardwood floors, Oriental rugs, upholstered furniture, drapery, and artwork. Our films block 99.9% of UV-A and UV-B radiation. Treated rooms age their furnishings and floors at the same rate as north-facing rooms — regardless of sun exposure. The protection is especially valuable in south- and west-facing rooms in rowhouses and brownstones."
+  },
+  {
+    question: "How much can residential window film reduce my energy bills?",
+    answer: "The U.S. Department of Energy notes that windows are responsible for roughly 10% of building energy use and influence end uses that comprise 40% of the total. Solar control film directly addresses summer cooling load by reducing solar heat gain at the glass. Low-E film addresses both seasons — blocking summer heat and retaining winter warmth. The actual impact on your bill depends on your home's exposure, window type, HVAC system, and usage patterns. We provide performance data for every film we recommend so you have realistic expectations."
+  },
+  {
+    question: "Can I have privacy without curtains using window film?",
+    answer: "Yes. One-way mirror film provides daytime exterior privacy while maintaining full interior views — so you can see out clearly while passersby can't see in during daylight hours. At night, when interior light exceeds exterior light, the effect reverses — like any reflective surface. For full 24/7 privacy, frosted or opaque films are the right choice. Both options are available in a range of densities and patterns."
+  },
+  {
+    question: "Does window film work on old single-pane windows in historic Salt Lake City homes?",
+    answer: "Yes — and it's often the best option available for historic properties where window replacement isn't permitted or would destroy the character of the home. 3M Thinsulate CC75 is essentially clear and provides meaningful thermal improvement to single-pane glass without altering the window's appearance. For homes in historic districts or under HOA restrictions, we can provide documentation confirming the film meets visual appearance standards."
+  },
+  {
+    question: "Will window film affect my home's appearance or resale value?",
+    answer: "High-quality residential films are optically clear and don't change the exterior appearance of your home. Most buyers will never know they're there — and if they find out, it's a selling point: lower energy bills, UV-protected floors, and comfortable rooms are genuinely valuable. Decorative films (frosted, patterned) do change the visual character of specific windows, which is why we discuss aesthetics in the site visit before recommending any film type."
+  },
+  {
+    question: "Does window film work for bathroom windows and skylights?",
+    answer: "Yes — both are excellent candidates. Frosted and pattern films provide privacy for bathroom windows while maintaining natural light. UV protection film on skylights prevents the significant UV load that comes through overhead glass — skylights transmit UV directly downward onto flooring, furniture, and countertops. Solar control film on skylights also reduces summer heat gain, which can be substantial. We install on all glass types including curved and tempered glass."
+  },
+  {
+    question: "Can I install window film in a rental property or condo with HOA restrictions?",
+    answer: "Often yes, with the right film choice. For rental properties, film is removable and doesn't constitute a permanent structural change — though we recommend confirming with your landlord. For condos with HOA restrictions on exterior appearance, we select films that meet the HOA's VLT and reflectivity requirements — or provide documentation for HOA approval. We've installed in Downtown Salt Lake City condo buildings with strict appearance standards. The site assessment includes reviewing any relevant restrictions before recommending a film."
+  },
+  {
+    question: "What warranty comes with residential window film?",
+    answer: "3M, LLumar, and Vista carry manufacturer warranties on residential films covering delamination, bubbling, cracking, and significant color shift. Warranty duration varies by product line. We provide our own labor warranty on every installation and document each project with film type, specification sheet, installation date, and window inventory — so your records are complete for the full warranty period."
+  }
+];
+
+const pageSchemas = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": "https://windowfilmsaltlakecity.com/applications/homes-condos/#breadcrumb",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://windowfilmsaltlakecity.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Applications", "item": "https://windowfilmsaltlakecity.com/applications/" },
+      { "@type": "ListItem", "position": 3, "name": "Home Window Film Salt Lake City", "item": "https://windowfilmsaltlakecity.com/applications/homes-condos/" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://windowfilmsaltlakecity.com/applications/homes-condos/#webpage",
+    "url": "https://windowfilmsaltlakecity.com/applications/homes-condos/",
+    "name": "Home Window Film Salt Lake City | UV, Privacy & Energy",
+    "description": "Window film for Salt Lake City homes, rowhouses, and condos. UV protection, heat reduction, privacy, and safety film. Free residential estimate.",
+    "dateModified": new Date().toISOString().slice(0,10),
+    "inLanguage": "en-US",
+    "isPartOf": { "@type": "WebSite", "@id": "https://windowfilmsaltlakecity.com/#website", "url": "https://windowfilmsaltlakecity.com/", "name": "Window Film Salt Lake City" },
+    "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".hs-hero__subtitle", ".hc-whatis__body", ".swt-faq__a"] },
+    "breadcrumb": { "@id": "https://windowfilmsaltlakecity.com/applications/homes-condos/#breadcrumb" },
+    "primaryImageOfPage": { "@type": "ImageObject", "url": "https://windowfilmsaltlakecity.com/images/hc-hero.jpg", "name": "Home window film installation in Salt Lake City rowhouse" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Residential Window Film Types — Salt Lake City",
+    "description": "Professional home window film options for Salt Lake City rowhouses, condos, brownstones, and new construction.",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Solar Control Window Film", "description": "Blocks up to 38% of solar heat while maintaining 70%+ visible light. Eliminates afternoon overheating in west-facing rowhouse rooms and condo units. 3M Prestige 70, Vista SpectraSelect VS70." },
+      { "@type": "ListItem", "position": 2, "name": "UV Protection Window Film", "description": "Blocks 99.9% of UV-A and UV-B radiation. Protects hardwood floors, Oriental rugs, furniture, drapery, and artwork from UV fading. Essentially clear with no visual change." },
+      { "@type": "ListItem", "position": 3, "name": "Low-E Window Film", "description": "3M Thinsulate CC75 for Salt Lake City rowhouses with original single-pane windows. Rejects summer heat and retains interior warmth in winter — addressing both seasons in one film." },
+      { "@type": "ListItem", "position": 4, "name": "Privacy Window Film", "description": "One-way mirror film for ground-floor and street-facing rooms. Daytime exterior privacy with full interior views maintained. Frosted and patterned options for bathrooms and entry glass." },
+      { "@type": "ListItem", "position": 5, "name": "Safety Film", "description": "Holds glass together on impact, reducing glass-shard injury risk and slowing forced-entry. Ideal for ground-floor windows, sliding glass doors, and entry sidelights." },
+      { "@type": "ListItem", "position": 6, "name": "Decorative Film", "description": "3M FASARA and custom-cut frosted films for bathrooms, dining rooms, entry doors, and sidelights. Etched glass look without permanent modification. Removable for rentals." }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Residential Window Film Installation — Salt Lake City",
+    "description": "Professional home window film installation in Salt Lake City for rowhouses, condos, townhomes, and new construction.",
+    "brand": { "@type": "Brand", "name": "Window Film Salt Lake City" },
+  }
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical="https://windowfilmsaltlakecity.com/applications/homes-condos/"
+  serviceName="Residential Window Film for Salt Lake City Homes and Condos"
+  serviceDesc="Professional residential window film installation for Salt Lake City homes, rowhouses, condos, and townhomes — UV protection, heat reduction, privacy, and safety film."
+  serviceUrl="https://windowfilmsaltlakecity.com/applications/homes-condos/"
+  faqItems={faqItems}
+  schemas={pageSchemas}
+>
+
+  <!-- ══ HERO ══ -->
+  <HeroSubpage
+    eyebrow="RESIDENTIAL WINDOW FILM · SALT LAKE CITY, UT"
+    title={"Home Window Film\nfor Salt Lake City"}
+    subtitle="Better comfort. Lower energy bills. Furniture that lasts. UV protection, heat reduction, and privacy — installed around your schedule."
+    bg="/images/hc-hero.jpg"
+    cta1={{ label: 'Get a Free Residential Estimate', href: '/contact/' }}
+    cta2={{ label: 'Call (801) 895-4681', href: 'tel:8018954681' }}
+  />
+
+  <div class="swt-body">
+
+    <!-- ══ TRUST BAR ══ -->
+    <section class="swt-trust">
+      <div class="container">
+        <p class="swt-trust__label">Trusted by Salt Lake City homeowners, condo owners, and property managers throughout the city and suburbs</p>
+        <BrandLogos />
+      </div>
+    </section>
+
+    <!-- ══ WHAT IS ══ -->
+    <section class="hc-whatis">
+      <div class="hc-whatis__container">
+        <div class="hc-whatis__image-wrap">
+          <div class="before-after" style="--pos:50%">
+            <div class="before-after__frame">
+              <img src="/images/hc-ba-before.jpg" alt="Salt Lake City rowhouse living room without window film — harsh afternoon glare and hot sun on floors" title="Salt Lake City rowhouse living room without window film — harsh afternoon glare and hot sun on floors" class="before-after__img before-after__img--before" draggable="false" loading="lazy" />
+              <div class="before-after__after-wrap">
+                <img src="/images/hc-ba-after.jpg" alt="Same Salt Lake City rowhouse living room with window film — soft, even, comfortable natural light" title="Same Salt Lake City rowhouse living room with window film — soft, even, comfortable natural light" class="before-after__img before-after__img--after" draggable="false" loading="lazy" />
+              </div>
+              <span class="before-after__tag before-after__tag--before">Without film</span>
+              <span class="before-after__tag before-after__tag--after">With film</span>
+              <div class="before-after__handle" role="slider" tabindex="0" aria-label="Drag to compare before and after" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+                <span class="before-after__handle-grip">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M8 7L3 12L8 17M16 7L21 12L16 17" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hc-whatis__content">
+          <span class="hc-whatis__eyebrow">RESIDENTIAL WINDOW FILM</span>
+          <h2 class="hc-whatis__title split-reveal" data-stagger="65" aria-label="Are your windows making your home uncomfortable?">
+            <span class="split-reveal__unit" aria-hidden="true"><span class="split-reveal__inner" style="--i:0">Your&nbsp;</span></span><span class="split-reveal__unit" aria-hidden="true"><span class="split-reveal__inner" style="--i:1">Windows&nbsp;</span></span><span class="split-reveal__unit" aria-hidden="true"><span class="split-reveal__inner" style="--i:2">Are&nbsp;</span></span><span class="split-reveal__unit" aria-hidden="true"><span class="split-reveal__inner" style="--i:3">Working&nbsp;</span></span><span class="split-reveal__unit" aria-hidden="true"><span class="split-reveal__inner" style="--i:4">Against&nbsp;</span></span><span class="split-reveal__unit" aria-hidden="true"><span class="split-reveal__inner" style="--i:5">You</span></span>
+          </h2>
+          <p class="hc-whatis__body">Salt Lake City summers push west- and south-facing rooms to the edge. Afternoon sun floods through untreated glass — raising room temperatures, bleaching hardwood floors, fading Oriental rugs and upholstered furniture, and forcing your AC to fight a battle it can't win. In winter, that same glass is hemorrhaging heat back out into the cold.</p>
+          <p class="hc-whatis__body">Residential window film solves it at the source. A spectrally selective film — applied directly to your existing glass — blocks up to 99.9% of UV radiation and rejects significant solar heat before it enters the room, without changing how your windows look or blocking your views. One installation. No replacement glass. No contractor mess.</p>
+          <div class="hc-whatis__stats countup">
+            <div class="hc-whatis__stat">
+              <strong><span data-count-end="99" data-count-suffix=".9%">99.9%</span></strong>
+              <span>UV rejected</span>
+            </div>
+            <div class="hc-whatis__stat-div"></div>
+            <div class="hc-whatis__stat">
+              <strong><span data-count-end="38" data-count-suffix="%">38%</span></strong>
+              <span>solar heat reduction</span>
+            </div>
+            <div class="hc-whatis__stat-div"></div>
+            <div class="hc-whatis__stat">
+              <strong><span data-count-end="10" data-count-suffix="yr+">10yr+</span></strong>
+              <span>manufacturer warranty</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ WHY / PROBLEM ══ -->
+    <section class="hc-why" id="problem">
+      <div class="hc-why__container">
+        <div class="hc-why__content">
+          <div class="hc-why__eyebrow">THE SALT LAKE CITY HOME PROBLEM</div>
+          <h2 class="hc-why__headline">Row Homes Were Built for Another Era</h2>
+          <p class="hc-why__intro">Salt Lake City rowhouses were designed long before modern HVAC — and many predate insulated glass entirely. South- and west-facing rooms become uninhabitable in August. Ground-floor windows on narrow streets trade light for privacy. Historic single-pane windows in Capitol Hill, Holladay, and Federal Heights leak heat in January and act as solar collectors in July.</p>
+          <p class="hc-why__intro">Modern condos have the opposite problem: too much glass. Floor-to-ceiling windows in Sugar House, Marmalade District, and Downtown Salt Lake City high-rises look stunning but act as greenhouses. According to <a href="https://www.madico.com/residential" target="_blank" rel="noopener noreferrer" style="color:#2E7D32;font-weight:700;text-decoration:underline;text-decoration-color:#4CAF50;text-underline-offset:3px;">Madico</a>, architectural window film absorbs and reflects up to 86% of the sun's heat — significantly lowering air conditioning costs for glass-heavy condo interiors without replacing a single pane.</p>
+          <div class="hc-why__climate-facts">
+            <div class="hc-why__climate-item">
+              <span class="hc-why__climate-icon">🌡️</span>
+              <span class="hc-why__climate-label">Salt Lake City Zone 5B: 150+ days above 70°F</span>
+            </div>
+            <div class="hc-why__climate-item">
+              <span class="hc-why__climate-icon">☀️</span>
+              <span class="hc-why__climate-label">UV causes 40% of furniture fading</span>
+            </div>
+            <div class="hc-why__climate-item">
+              <span class="hc-why__climate-icon">❄️</span>
+              <span class="hc-why__climate-label">Single-pane glass: U-factor 1.1 vs 0.3 for Low-E</span>
+            </div>
+            <div class="hc-why__climate-item">
+              <span class="hc-why__climate-icon">💨</span>
+              <span class="hc-why__climate-label">25–35% of HVAC energy lost through windows (DOE)</span>
+            </div>
+          </div>
+        </div>
+        <div class="hc-why__image-wrap">
+          <img
+            src="/images/hc-why.jpg"
+            alt="Sun-bleached hardwood floor near a bright window in a Salt Lake City home showing UV fading damage" title="Sun-bleached hardwood floor near a bright window in a Salt Lake City home showing UV fading damage"
+            class="hc-why__image"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ BENEFITS BENTO — ILLUSTRATED ══ -->
+    <section class="hc-bgi">
+      <div class="hc-bgi__head">
+        <span class="hc-bgi__eyebrow">WHAT WINDOW FILM DOES FOR YOUR HOME</span>
+        <h2 class="hc-bgi__title">UV. Heat. Glare. Privacy. One Installation.</h2>
+        <p class="hc-bgi__sub">Window film addresses your home's biggest glass-related problems in a single visit — no replacement, no renovation.</p>
+      </div>
+      <div class="hc-bgi__grid">
+
+        <!-- Card 1: UV Protection -->
+        <div class="hc-bgi__card hc-bgi__card--uv">
+          <div class="hc-bgi__art" aria-hidden="true">
+            <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="hc-bgi__svg">
+              <!-- Sun circle -->
+              <circle cx="60" cy="48" r="16" fill="#FCD34D" opacity="0.9" class="hc-bgi__sun"/>
+              <!-- Sun rays -->
+              <g class="hc-bgi__rays" stroke="#FCD34D" stroke-width="2.5" stroke-linecap="round">
+                <line x1="60" y1="24" x2="60" y2="18"/>
+                <line x1="60" y1="72" x2="60" y2="78"/>
+                <line x1="36" y1="48" x2="30" y2="48"/>
+                <line x1="84" y1="48" x2="90" y2="48"/>
+                <line x1="43.5" y1="31.5" x2="39" y2="27"/>
+                <line x1="76.5" y1="64.5" x2="81" y2="69"/>
+                <line x1="76.5" y1="31.5" x2="81" y2="27"/>
+                <line x1="43.5" y1="64.5" x2="39" y2="69"/>
+              </g>
+              <!-- Film bar blocking UV -->
+              <rect x="20" y="74" width="80" height="8" rx="3" fill="#7CB342" opacity="0.95"/>
+              <!-- Blocked rays (faded below film) -->
+              <g stroke="#FCD34D" stroke-width="1.5" stroke-linecap="round" opacity="0.18">
+                <line x1="40" y1="82" x2="35" y2="96"/>
+                <line x1="55" y1="82" x2="53" y2="96"/>
+                <line x1="70" y1="82" x2="72" y2="96"/>
+                <line x1="85" y1="82" x2="88" y2="96"/>
+              </g>
+              <!-- Label: FILM -->
+              <text x="60" y="80" text-anchor="middle" font-family="monospace" font-size="5.5" fill="#fff" font-weight="700" letter-spacing="1">FILM</text>
+              <!-- Floor line -->
+              <line x1="20" y1="104" x2="100" y2="104" stroke="#D1C4A8" stroke-width="1.5" stroke-linecap="round"/>
+              <!-- Protected items (floor texture) -->
+              <rect x="28" y="96" width="20" height="8" rx="1.5" fill="#D1C4A8" opacity="0.5"/>
+              <rect x="52" y="98" width="16" height="6" rx="1.5" fill="#D1C4A8" opacity="0.4"/>
+              <rect x="72" y="95" width="24" height="9" rx="1.5" fill="#D1C4A8" opacity="0.45"/>
+            </svg>
+          </div>
+          <div class="hc-bgi__text">
+            <h3 class="hc-bgi__card-title">UV Protection</h3>
+            <p class="hc-bgi__card-desc">Blocks 99.9% of UV radiation before it reaches your floors, rugs, furniture, and artwork. The leading cause of fading, stopped at the glass.</p>
+          </div>
+        </div>
+
+        <!-- Card 2: Energy & Comfort -->
+        <div class="hc-bgi__card hc-bgi__card--energy">
+          <div class="hc-bgi__art" aria-hidden="true">
+            <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="hc-bgi__svg">
+              <!-- Thermometer body -->
+              <rect x="54" y="20" width="12" height="58" rx="6" fill="#E5E7EB"/>
+              <rect x="54" y="20" width="12" height="58" rx="6" stroke="#9CA3AF" stroke-width="1.5"/>
+              <!-- Mercury (animated down) -->
+              <rect x="56.5" y="52" width="7" height="26" rx="3.5" fill="#7CB342" class="hc-bgi__mercury"/>
+              <!-- Bulb -->
+              <circle cx="60" cy="84" r="10" fill="#7CB342"/>
+              <circle cx="60" cy="84" r="7" fill="#86EFAC"/>
+              <!-- Tick marks -->
+              <g stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round">
+                <line x1="66" y1="30" x2="70" y2="30"/>
+                <line x1="66" y1="40" x2="72" y2="40"/>
+                <line x1="66" y1="50" x2="70" y2="50"/>
+                <line x1="66" y1="60" x2="72" y2="60"/>
+                <line x1="66" y1="70" x2="70" y2="70"/>
+              </g>
+              <!-- Heat waves leaving (fading) -->
+              <g class="hc-bgi__heat" stroke="#F97316" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.6">
+                <path d="M82 32 Q86 28 82 24"/>
+                <path d="M90 36 Q94 30 90 24"/>
+                <path d="M82 46 Q86 42 82 38"/>
+              </g>
+              <!-- Cool sparkle -->
+              <g fill="#7CB342" opacity="0.7" class="hc-bgi__cool">
+                <circle cx="88" cy="56" r="2"/>
+                <circle cx="94" cy="48" r="1.5"/>
+                <circle cx="91" cy="64" r="1.5"/>
+              </g>
+            </svg>
+          </div>
+          <div class="hc-bgi__text">
+            <h3 class="hc-bgi__card-title">Energy &amp; Comfort</h3>
+            <p class="hc-bgi__card-desc">Solar control and Low-E film reduces heat gain in summer and retains warmth in winter. Rooms stay comfortable without the AC working overtime.</p>
+          </div>
+        </div>
+
+        <!-- Card 3: Privacy & Views -->
+        <div class="hc-bgi__card hc-bgi__card--privacy">
+          <div class="hc-bgi__art" aria-hidden="true">
+            <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="hc-bgi__svg">
+              <!-- Window frame -->
+              <rect x="20" y="24" width="80" height="72" rx="4" stroke="#9CA3AF" stroke-width="2" fill="#F0F9FF"/>
+              <!-- Frosted overlay (animated) -->
+              <rect x="20" y="24" width="80" height="72" rx="4" fill="url(#frost)" class="hc-bgi__frost" opacity="0.55"/>
+              <defs>
+                <linearGradient id="frost" x1="20" y1="24" x2="100" y2="96" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#7CB342" stop-opacity="0.35"/>
+                  <stop offset="100%" stop-color="#7CB342" stop-opacity="0.1"/>
+                </linearGradient>
+              </defs>
+              <!-- Eye icon inside window (what's inside the home) -->
+              <g transform="translate(60,60)" class="hc-bgi__eye">
+                <path d="M-18 0 C-12 -10 12 -10 18 0 C12 10 -12 10 -18 0 Z" fill="none" stroke="#14201A" stroke-width="2"/>
+                <circle cx="0" cy="0" r="6" fill="#14201A"/>
+                <circle cx="2" cy="-2" r="2" fill="#fff"/>
+              </g>
+              <!-- Street-side figure (blurred out) -->
+              <g opacity="0.2">
+                <circle cx="60" cy="108" r="5" fill="#6B7280"/>
+                <rect x="55" y="113" width="10" height="7" rx="2" fill="#6B7280"/>
+              </g>
+              <!-- Privacy label -->
+              <text x="60" y="18" text-anchor="middle" font-family="monospace" font-size="6" fill="#7CB342" font-weight="700" letter-spacing="1">PRIVATE</text>
+            </svg>
+          </div>
+          <div class="hc-bgi__text">
+            <h3 class="hc-bgi__card-title">Privacy &amp; Views</h3>
+            <p class="hc-bgi__card-desc">One-way mirror film gives ground-floor rooms full daytime privacy while maintaining your outward views. No curtains. No compromises on light.</p>
+          </div>
+        </div>
+
+        <!-- Card 4: Safety -->
+        <div class="hc-bgi__card hc-bgi__card--safety">
+          <div class="hc-bgi__art" aria-hidden="true">
+            <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="hc-bgi__svg">
+              <!-- Shield -->
+              <path d="M60 16 L88 28 L88 58 C88 76 74 90 60 96 C46 90 32 76 32 58 L32 28 Z" fill="#7CB342" opacity="0.15" stroke="#7CB342" stroke-width="2.5"/>
+              <!-- Glass crack pattern (held together by film) -->
+              <g stroke="#9CA3AF" stroke-width="1.2" stroke-linecap="round" opacity="0.6">
+                <line x1="60" y1="36" x2="52" y2="52"/>
+                <line x1="52" y1="52" x2="44" y2="62"/>
+                <line x1="52" y1="52" x2="58" y2="68"/>
+                <line x1="60" y1="36" x2="68" y2="50"/>
+                <line x1="68" y1="50" x2="76" y2="58"/>
+                <line x1="68" y1="50" x2="62" y2="66"/>
+              </g>
+              <!-- Shield checkmark -->
+              <path d="M50 58 L57 65 L72 48" stroke="#7CB342" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <!-- Pulsing ring -->
+              <circle cx="60" cy="56" r="28" stroke="#7CB342" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.4" class="hc-bgi__pulse"/>
+            </svg>
+          </div>
+          <div class="hc-bgi__text">
+            <h3 class="hc-bgi__card-title">Safety &amp; Security</h3>
+            <p class="hc-bgi__card-desc">Safety film holds broken glass together on impact, reducing laceration risk and slowing forced entry. Invisible protection on every pane.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══ HOME TYPES — BENTO GRID ══ -->
+    <section class="bgp">
+      <div class="bgp__head">
+        <div class="bgp__eyebrow">EVERY SALT LAKE CITY HOME TYPE</div>
+        <h2 class="bgp__title">Built for Every Home in the City</h2>
+        <p class="bgp__sub">From Capitol Hill brownstones to Sugar House new-builds — window film works for every Salt Lake City home type.</p>
+      </div>
+      <div class="bgp__grid">
+        <div class="bgp__card bgp__card--lg">
+          <img src="/images/hc-type-rowhouse.jpg" alt="South Salt Lake City red brick rowhouse" title="South Salt Lake City red brick rowhouse" loading="lazy" />
+          <div class="bgp__overlay"></div>
+          <div class="bgp__body">
+            <h3>Rowhouses</h3>
+            <p>South Salt Lake, Sugar House, 9th and 9th. Narrow frontages, south- or west-facing rooms, street-level privacy, and original single-pane glass in older stock.</p>
+          </div>
+        </div>
+        <div class="bgp__card bgp__card--sm">
+          <img src="/images/hc-type-condo.jpg" alt="Downtown Salt Lake City high-rise condo with floor-to-ceiling windows" title="Downtown Salt Lake City high-rise condo with floor-to-ceiling windows" loading="lazy" />
+          <div class="bgp__overlay"></div>
+          <div class="bgp__body">
+            <h3>Condos &amp; High-rises</h3>
+            <p>Downtown Salt Lake City, The Avenues, Silicon Slopes. Floor-to-ceiling glass, glare on screens, afternoon heat gain, LEED energy credits.</p>
+          </div>
+        </div>
+        <div class="bgp__card bgp__card--sm">
+          <img src="/images/hc-type-brownstone.jpg" alt="Federal Heights brownstone with bay windows" title="Federal Heights brownstone with bay windows" loading="lazy" />
+          <div class="bgp__overlay"></div>
+          <div class="bgp__body">
+            <h3>Brownstones &amp; Townhomes</h3>
+            <p>Federal Heights, Capitol Hill, Spruce Hill. Bay windows, historic glass, UV damage to original woodwork and period furnishings.</p>
+          </div>
+        </div>
+        <div class="bgp__card bgp__card--md">
+          <img src="/images/hc-type-new.jpg" alt="Modern new-construction Sugar House home with full-glass facade" title="Modern new-construction Sugar House home with full-glass facade" loading="lazy" />
+          <div class="bgp__overlay"></div>
+          <div class="bgp__body">
+            <h3>New Construction</h3>
+            <p>Marmalade District, 9th and 9th, Brewerytown. Modern full-glass facades that look great but overheat. Builders rarely spec Low-E film.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ BENEFITS ACCORDION ══ -->
+    <AccordionBenefits
+      eyebrow="THE BENEFITS"
+      title="Every Improvement. One Professional Installation."
+      subtitle="UV protection, energy savings, comfort, and privacy — addressed in a single professional installation. No window replacement, no renovation, no mess."
+      benefits={homeBenefits}
+    />
+
+
+    <!-- ══ FILM TYPES SLIDER ══ -->
+    <section class="of-ftype" id="hcFilmTypes">
+      <div class="of-ftype__track" id="hcFtypeTrack">
+
+        <!-- SLIDE 01: Solar Control -->
+        <div class="of-ftype__slide of-ftype-active" data-slide="0">
+          <img src="/images/hc-slider-solar.jpg" alt="Salt Lake City rowhouse interior with comfortable afternoon light through solar control window film" title="Salt Lake City rowhouse interior with comfortable afternoon light through solar control window film" class="of-ftype__bg" />
+          <div class="of-ftype__overlay"></div>
+          <div class="of-ftype__content">
+            <div class="of-ftype__step">01</div>
+            <h2 class="of-ftype__title">Solar Control Film</h2>
+            <p class="of-ftype__desc">Spectrally selective film blocks up to 38% of solar heat while preserving 70%+ visible light. Eliminates afternoon overheating in west-facing rowhouse rooms and condo units without tinting your windows or changing your view. 3M Prestige 70, Vista SpectraSelect VS70.</p>
+            <a href="/contact/" class="of-ftype__cta">Get a solar control estimate →</a>
+          </div>
+        </div>
+
+        <!-- SLIDE 02: UV Protection -->
+        <div class="of-ftype__slide" data-slide="1">
+          <img src="/images/hc-slider-uv.jpg" alt="Salt Lake City home with vibrant hardwood floors protected from UV fading by window film" title="Salt Lake City home with vibrant hardwood floors protected from UV fading by window film" class="of-ftype__bg" />
+          <div class="of-ftype__overlay"></div>
+          <div class="of-ftype__content">
+            <div class="of-ftype__step">02</div>
+            <h2 class="of-ftype__title">UV Protection Film</h2>
+            <p class="of-ftype__desc">Blocks 99.9% of UV-A and UV-B radiation — the primary cause of fading in hardwood floors, Oriental rugs, upholstered furniture, drapery, and artwork. Essentially clear. No visual change. 3M Prestige Series, LLumar ClimatePro.</p>
+            <a href="/contact/" class="of-ftype__cta">Protect your floors and furniture →</a>
+          </div>
+        </div>
+
+        <!-- SLIDE 03: Low-E -->
+        <div class="of-ftype__slide" data-slide="2">
+          <img src="/images/hc-slider-lowe.jpg" alt="Salt Lake City rowhouse in winter, warm cozy interior with Low-E window film, frost visible outside" title="Salt Lake City rowhouse in winter, warm cozy interior with Low-E window film, frost visible outside" class="of-ftype__bg" />
+          <div class="of-ftype__overlay"></div>
+          <div class="of-ftype__content">
+            <div class="of-ftype__step">03</div>
+            <h2 class="of-ftype__title">Low-E Window Film</h2>
+            <p class="of-ftype__desc">3M Thinsulate CC75 for Salt Lake City rowhouses with original single-pane windows. Rejects summer heat and retains interior warmth in winter — addressing both seasons in one film. The right choice for historic and older Salt Lake homes.</p>
+            <a href="/contact/" class="of-ftype__cta">Get a Low-E estimate →</a>
+          </div>
+        </div>
+
+        <!-- SLIDE 04: Privacy -->
+        <div class="of-ftype__slide" data-slide="3">
+          <img src="/images/hc-slider-privacy.jpg" alt="Ground-floor Salt Lake City rowhouse living room with privacy film, comfortable natural light" title="Ground-floor Salt Lake City rowhouse living room with privacy film, comfortable natural light" class="of-ftype__bg" />
+          <div class="of-ftype__overlay"></div>
+          <div class="of-ftype__content">
+            <div class="of-ftype__step">04</div>
+            <h2 class="of-ftype__title">Privacy Window Film</h2>
+            <p class="of-ftype__desc">One-way mirror film for ground-floor and street-facing rooms. Daytime exterior privacy with full interior views maintained. Also includes frosted and patterned films for bathrooms, entry sidelights, and decorative applications.</p>
+            <a href="/contact/" class="of-ftype__cta">Explore privacy options →</a>
+          </div>
+        </div>
+
+        <!-- SLIDE 05: Safety -->
+        <div class="of-ftype__slide" data-slide="4">
+          <img src="/images/hc-slider-safety.jpg" alt="Salt Lake City home entry door with safety film on glass sidelights" title="Salt Lake City home entry door with safety film on glass sidelights" class="of-ftype__bg" />
+          <div class="of-ftype__overlay"></div>
+          <div class="of-ftype__content">
+            <div class="of-ftype__step">05</div>
+            <h2 class="of-ftype__title">Safety &amp; Security Film</h2>
+            <p class="of-ftype__desc">Holds glass together on impact — reducing glass-shard injury risk and slowing forced-entry. Ideal for ground-floor windows, sliding glass doors, and entry sidelights. Clear or lightly tinted options. Learn more about <a href="/benefits/safety-and-security/" style="color:#AED581;font-weight:700;text-decoration:underline;text-decoration-color:#AED581;text-underline-offset:3px;">safety and security window film</a> for Salt Lake City homes.</p>
+            <a href="/contact/" class="of-ftype__cta">Get a safety film estimate →</a>
+          </div>
+        </div>
+
+        <!-- SLIDE 06: Decorative -->
+        <div class="of-ftype__slide" data-slide="5">
+          <img src="/images/hc-slider-decorative.jpg" alt="Salt Lake City home bathroom with elegant frosted decorative window film, diffused natural light" title="Salt Lake City home bathroom with elegant frosted decorative window film, diffused natural light" class="of-ftype__bg" />
+          <div class="of-ftype__overlay"></div>
+          <div class="of-ftype__content">
+            <div class="of-ftype__step">06</div>
+            <h2 class="of-ftype__title">Decorative Film</h2>
+            <p class="of-ftype__desc">3M FASARA and custom-cut frosted films for bathrooms, dining rooms, entry doors, and sidelights. Etched glass look without the cost. Fully removable. Great for rental properties and condos where permanent glass modification isn't allowed. Explore our <a href="/benefits/decorative-promotional/" style="color:#AED581;font-weight:700;text-decoration:underline;text-decoration-color:#AED581;text-underline-offset:3px;">decorative window film options</a> for Salt Lake City homes.</p>
+            <a href="/contact/" class="of-ftype__cta">Explore decorative options →</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right nav -->
+      <nav class="of-ftype__nav" aria-label="Film type navigation">
+        <button class="of-ftype__nav-item of-ftype__nav-item--active" data-hcnav="0">
+          <span class="of-ftype__nav-line"></span>
+          <span class="of-ftype__nav-label">Solar Control</span>
+        </button>
+        <button class="of-ftype__nav-item" data-hcnav="1">
+          <span class="of-ftype__nav-line"></span>
+          <span class="of-ftype__nav-label">UV Protection</span>
+        </button>
+        <button class="of-ftype__nav-item" data-hcnav="2">
+          <span class="of-ftype__nav-line"></span>
+          <span class="of-ftype__nav-label">Low-E / Winter</span>
+        </button>
+        <button class="of-ftype__nav-item" data-hcnav="3">
+          <span class="of-ftype__nav-line"></span>
+          <span class="of-ftype__nav-label">Privacy</span>
+        </button>
+        <button class="of-ftype__nav-item" data-hcnav="4">
+          <span class="of-ftype__nav-line"></span>
+          <span class="of-ftype__nav-label">Safety</span>
+        </button>
+        <button class="of-ftype__nav-item" data-hcnav="5">
+          <span class="of-ftype__nav-line"></span>
+          <span class="of-ftype__nav-label">Decorative</span>
+        </button>
+      </nav>
+
+      <!-- Arrows -->
+      <button class="of-ftype__arrow of-ftype__arrow--prev" id="hcFtypePrev" aria-label="Previous film type">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <button class="of-ftype__arrow of-ftype__arrow--next" id="hcFtypeNext" aria-label="Next film type">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+
+      <!-- Progress bar -->
+      <div class="of-ftype__progress"><div class="of-ftype__progress-bar" id="hcFtypeProgressBar"></div></div>
+
+    </section>
+
+
+    <!-- ══ FEATURED PROJECT ══ -->
+    <section class="of-project" id="featuredProject">
+      <div class="of-project__inner">
+
+        <div class="of-project__image-col">
+          <img
+            src="/images/hc-case-study.jpg"
+            alt="Federal Heights brownstone with south-facing bay windows and professional window film installation" title="Federal Heights brownstone with south-facing bay windows and professional window film installation"
+            class="of-project__img"
+            width="1264" height="848" loading="lazy" decoding="async"
+          />
+          <div class="of-project__stats-strip">
+            <div class="of-project__stat">
+              <span class="of-project__stat-num">99.9%</span>
+              <span class="of-project__stat-label">UV Blocked</span>
+            </div>
+            <div class="of-project__stat-div"></div>
+            <div class="of-project__stat">
+              <span class="of-project__stat-num">38%</span>
+              <span class="of-project__stat-label">Heat Gain Reduction</span>
+            </div>
+            <div class="of-project__stat-div"></div>
+            <div class="of-project__stat">
+              <span class="of-project__stat-num">3 Films</span>
+              <span class="of-project__stat-label">Different Film Types</span>
+            </div>
+            <div class="of-project__stat-div"></div>
+            <div class="of-project__stat">
+              <span class="of-project__stat-num">$0</span>
+              <span class="of-project__stat-label">Window Replacement</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="of-project__text-col">
+          <div class="of-project__eyebrow">FEATURED PROJECT</div>
+          <h2 class="of-project__title">Federal Heights Brownstone.<br/>Three Film Types, One Visit.</h2>
+
+          <div class="of-project__detail">
+            <span class="of-project__detail-label">Property</span>
+            <span class="of-project__detail-val">Federal Heights brownstone, Salt Lake City — three-story historic townhome with south-facing bay windows</span>
+          </div>
+          <div class="of-project__detail">
+            <span class="of-project__detail-label">Challenge</span>
+            <span class="of-project__detail-val">South-facing bay windows causing afternoon heat gain, UV damage to original hardwood floors and period furnishings, lack of privacy from street level on ground floor.</span>
+          </div>
+          <div class="of-project__detail">
+            <span class="of-project__detail-label">Solution</span>
+            <span class="of-project__detail-val">3M Prestige 70 solar control film on south-facing rooms; LLumar ClimatePro Low-E on single-pane windows in secondary rooms; one-way mirror privacy film on ground-floor bay.</span>
+          </div>
+          <div class="of-project__detail">
+            <span class="of-project__detail-label">Result</span>
+            <span class="of-project__detail-val">Comfortable south-facing living room throughout summer; floors and furnishings protected from UV; ground-floor privacy maintained with full interior views preserved.</span>
+          </div>
+
+          <a href="/contact/" class="of-project__cta">Get a Free Residential Estimate</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══ GALLERY BANNER ══ -->
+    <section class="gallery-banner gallery-banner--light">
+      <div class="gallery-banner__inner">
+        <div class="gallery-banner__text">
+          <p class="gallery-banner__eyebrow">RESIDENTIAL WINDOW FILM</p>
+          <h2 class="gallery-banner__title" aria-label="OUR WORK.">
+            <span class="gallery-banner__title-line">OUR</span><span class="gallery-banner__title-line">WORK.</span>
+          </h2>
+          <p class="gallery-banner__desc">Real installations from Downtown Salt Lake City condos to South Salt Lake rowhomes — measured, applied, and finished by our own certified team.</p>
+        </div>
+        <div class="gallery-banner__gallery">
+          <div class="gallery-banner__strips">
+            <button class="gallery-banner__strip" style="--i:0; --n:5;" aria-label="View photo 1">
+              <img src="/images/hc-gallery-condo.jpg" alt="Downtown Salt Lake City condo — solar control film" title="Downtown Salt Lake City condo — solar control film" loading="lazy" draggable="false" />
+            </button>
+            <button class="gallery-banner__strip" style="--i:1; --n:5;" aria-label="View photo 2">
+              <img src="/images/hc-gallery-living.jpg" alt="South Salt Lake rowhouse — UV protection film" title="South Salt Lake rowhouse — UV protection film" loading="lazy" draggable="false" />
+            </button>
+            <button class="gallery-banner__strip" style="--i:2; --n:5;" aria-label="View photo 3">
+              <img src="/images/hc-gallery-install.jpg" alt="Residential installation — Downtown Salt Lake City" title="Residential installation — Downtown Salt Lake City" loading="lazy" draggable="false" />
+            </button>
+            <button class="gallery-banner__strip" style="--i:3; --n:5;" aria-label="View photo 4">
+              <img src="/images/hc-gallery-bathroom.jpg" alt="Federal Heights brownstone — decorative privacy film" title="Federal Heights brownstone — decorative privacy film" loading="lazy" draggable="false" />
+            </button>
+            <button class="gallery-banner__strip" style="--i:4; --n:5;" aria-label="View photo 5">
+              <img src="/images/hc-gallery-rowhouse.jpg" alt="South Salt Lake City rowhouse — solar control film" title="South Salt Lake City rowhouse — solar control film" loading="lazy" draggable="false" />
+            </button>
+          </div>
+          <p class="gallery-banner__hint">Hover the photos · click to bring forward</p>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Split Text Reveal
+      var splitObs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (!entry.isIntersecting) return;
+          var el = entry.target;
+          var stagger = el.dataset.stagger || '65';
+          el.style.setProperty('--split-stagger', stagger + 'ms');
+          el.classList.add('is-visible');
+          splitObs.unobserve(el);
+        });
+      }, { threshold: 0.35 });
+      document.querySelectorAll('.split-reveal').forEach(function(el) { splitObs.observe(el); });
+
+      // Hand Drawn Title
+      var handObs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          handObs.unobserve(entry.target);
+        });
+      }, { threshold: 0.5 });
+      document.querySelectorAll('.hand-drawn').forEach(function(el) { handObs.observe(el); });
+
+      // Testimonial Stack
+      document.querySelectorAll('.tstack').forEach(function(el) {
+        var deck = el.querySelector('.tstack__deck');
+        var cards = Array.from(deck.querySelectorAll('.tstack__card'));
+        var order = cards.map(function(_,i){return i;});
+        function restack() { order.forEach(function(ci,i){ cards[ci].style.setProperty('--i',String(i)); cards[ci].classList.remove('is-leaving'); }); }
+        function advance() { var top = order[0]; cards[top].classList.add('is-leaving'); setTimeout(function(){ order.push(order.shift()); restack(); }, 450); }
+        deck.addEventListener('click', advance);
+        var dragging=false, startX=0;
+        deck.addEventListener('mousedown', function(e){dragging=true;startX=e.clientX;});
+        window.addEventListener('mouseup', function(e){if(dragging){dragging=false;if(Math.abs(startX-e.clientX)>60)advance();}});
+        deck.addEventListener('touchstart',function(e){dragging=true;startX=e.touches[0].clientX;},{passive:true});
+        window.addEventListener('touchend',function(e){if(dragging){dragging=false;if(Math.abs(startX-e.changedTouches[0].clientX)>60)advance();}});
+      });
+
+      // CTA Tint Slider
+      document.querySelectorAll('.ctat').forEach(function(el) {
+        var range = el.querySelector('.ctat__range');
+        var tint = el.querySelector('.ctat__tint');
+        var vltNum = el.querySelector('.ctat__vlt-num');
+        if (!range) return;
+        function update() { var v=Number(range.value); tint.style.setProperty('--tint',String(v/100)); vltNum.textContent=String(100-v); }
+        range.addEventListener('input', update);
+        update();
+      });
+
+      // Count Up
+      var countUpObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.querySelectorAll('[data-count-end]').forEach(function(el) {
+            var end = parseInt(el.dataset.countEnd||'0',10);
+            var suffix = el.dataset.countSuffix||'';
+            var n = 0, step = end/60;
+            var timer = setInterval(function(){
+              n = Math.min(n+step, end);
+              el.textContent = Math.round(n)+suffix;
+              if(n>=end) clearInterval(timer);
+            }, 30);
+          });
+          countUpObserver.unobserve(entry.target);
+        });
+      }, {threshold: 0.3});
+      document.querySelectorAll('.countup').forEach(function(el){ countUpObserver.observe(el); });
+
+      // Before/After Slider
+      document.querySelectorAll('.before-after').forEach(function(el) {
+        var frame = el.querySelector('.before-after__frame');
+        var afterImg = el.querySelector('.before-after__img--after');
+        var handle = el.querySelector('.before-after__handle');
+        function setFrameWidth() {
+          afterImg.style.setProperty('--frame-width', frame.offsetWidth + 'px');
+        }
+        function setPos(clientX) {
+          var rect = frame.getBoundingClientRect();
+          var pct = Math.max(0, Math.min(100, (clientX - rect.left) / rect.width * 100));
+          el.style.setProperty('--pos', pct + '%');
+          handle.setAttribute('aria-valuenow', String(Math.round(pct)));
+        }
+        var dragging = false;
+        frame.addEventListener('mousedown', function(e) { dragging = true; setPos(e.clientX); });
+        window.addEventListener('mouseup', function() { dragging = false; });
+        window.addEventListener('mousemove', function(e) { if (dragging) setPos(e.clientX); });
+        frame.addEventListener('touchstart', function(e) { dragging = true; setPos(e.touches[0].clientX); }, { passive: true });
+        window.addEventListener('touchend', function() { dragging = false; });
+        window.addEventListener('touchmove', function(e) { if (dragging) setPos(e.touches[0].clientX); }, { passive: true });
+        handle.addEventListener('keydown', function(e) {
+          var rect = frame.getBoundingClientRect();
+          var cur = parseFloat(getComputedStyle(el).getPropertyValue('--pos')) || 50;
+          if (e.key === 'ArrowLeft') setPos(rect.left + rect.width * (cur - 5) / 100);
+          if (e.key === 'ArrowRight') setPos(rect.left + rect.width * (cur + 5) / 100);
+        });
+        window.addEventListener('resize', setFrameWidth);
+        setFrameWidth();
+      });
+
+      // Gallery Banner
+      document.querySelectorAll('.gallery-banner').forEach(function(el) {
+        var strips = Array.from(el.querySelectorAll('.gallery-banner__strip'));
+        strips.forEach(function(strip) {
+          strip.addEventListener('click', function() {
+            var wasActive = strip.classList.contains('is-active');
+            strips.forEach(function(s) { s.classList.remove('is-active'); });
+            if (!wasActive) strip.classList.add('is-active');
+          });
+        });
+      });
+    </script>
+
+    <!-- ══ HOW IT WORKS ══ -->
+    <HowItWorksSlideshow
+      id="hcHiw"
+      eyebrow="THE PROCESS"
+      title="How Residential Window Film Installation Works"
+      subtitle="From free assessment to lifetime warranty — a simple, proven process for every Salt Lake City home."
+      slides={[
+        {
+          step: '01',
+          title: 'We come to you.\nFree, no obligation.',
+          desc: 'A certified window film specialist visits your home, assesses your windows, and recommends the right solution for your goals and budget.',
+          img: '/images/hc-hiw-assessment.jpg',
+          imgAlt: 'Window film specialist meeting with Salt Lake City homeowner',
+          navLabel: 'Assessment',
+          cta: 'Book your free assessment →',
+          ctaHref: '/contact/',
+          faq: [
+            { q: 'How long does the assessment take?', a: 'Most residential assessments take about 30 minutes. We walk through your home, look at each room\'s exposure and goals, and answer every question — no rush, no sales pressure.' },
+            { q: 'Is it really free?', a: 'Yes — completely free, no obligation. We give you an honest recommendation whether you move forward with us or not.' },
+            { q: 'Do you serve my neighborhood?', a: 'We cover all of Salt Lake City — Downtown Salt Lake City, South Salt Lake, Sugar House, Federal Heights, Capitol Hill, Federal Heights — and the Park City and Salt Lake Valley suburbs.' },
+          ],
+        },
+        {
+          step: '02',
+          title: 'We match the film\nto your home.',
+          desc: 'You receive a written quote with 2–3 film options tailored to your goals. We explain the differences clearly. No pressure to decide on the spot.',
+          img: '/images/hc-hiw-film-selection.jpg',
+          imgAlt: 'Window film product samples and spec sheets laid out for a Salt Lake City homeowner',
+          navLabel: 'Film Selection',
+          cta: 'Get your written quote →',
+          ctaHref: '/contact/',
+          faq: [
+            { q: 'How quickly do I get a quote?', a: 'Most quotes are delivered within 24 hours of the assessment. We send a clear PDF with product options and pricing.' },
+            { q: 'What if I have different needs in different rooms?', a: 'Very common. We often recommend different films for different exposures — solar control for south-facing rooms, Low-E for single-pane windows, privacy film for street-facing rooms.' },
+            { q: 'Can I choose a specific brand?', a: 'Absolutely. We install 3M, LLumar, Vista, Solar Gard, and others. We recommend based on your specific needs but defer to your preference.' },
+          ],
+        },
+        {
+          step: '03',
+          title: 'Installed right,\ndone in a day.',
+          desc: 'Our certified installers arrive on time, protect your space, and work cleanly from room to room. Most Salt Lake City homes are completed in a single day.',
+          img: '/images/hc-hiw-installation.jpg',
+          imgAlt: 'Professional window film installer working on a Salt Lake City rowhouse',
+          navLabel: 'Installation',
+          cta: 'Schedule your installation →',
+          ctaHref: '/contact/',
+          faq: [
+            { q: 'Do I need to do anything to prepare?', a: 'Very little — clear window sills of personal items and make sure windows are accessible. We bring all tools and materials and clean up completely when we\'re done.' },
+            { q: 'Will there be a curing period?', a: 'Film requires 30 days to fully cure. During that time you may see small water bubbles or haziness — this is normal and resolves completely. Don\'t clean the windows for 30 days after install.' },
+            { q: 'What if I\'m not home during installation?', a: 'We work with your schedule and can coordinate access with a family member or building manager.' },
+          ],
+        },
+        {
+          step: '04',
+          title: 'Comfort, protection,\nlower bills.',
+          desc: 'Your home is cooler in summer, warmer in winter. Floors stop fading. Rooms you avoided are comfortable again. Backed by a manufacturer warranty.',
+          img: '/images/hc-hiw-results.jpg',
+          imgAlt: 'Salt Lake City home interior comfortable and bright after window film installation',
+          navLabel: 'Enjoy Results',
+          cta: 'Start your project →',
+          ctaHref: '/contact/',
+          faq: [
+            { q: 'What warranty do I get?', a: '3M, LLumar, and Vista carry manufacturer warranties on residential films covering delamination, bubbling, cracking, and significant color shift. We document each project with film type, spec sheet, and installation date.' },
+            { q: 'How long will the results last?', a: 'Premium residential films are rated 10+ years. Most clients see consistent performance well beyond the rated lifespan with normal care.' },
+            { q: 'What if I\'m not satisfied?', a: 'We stand behind every installation with our own labor warranty. If anything isn\'t right, we come back and make it right — no questions.' },
+          ],
+        },
+      ]}
+    />
+
+    <!-- ══ RESOURCES ══ -->
+    <section class="res-section">
+      <div class="res-section__inner">
+        <div class="res-section__image-col">
+          <img
+            src="/images/hc-resources.jpg"
+            alt="Open technical spec sheet on table with Salt Lake City rowhouse interior in background" title="Open technical spec sheet on table with Salt Lake City rowhouse interior in background"
+            class="res-section__img"
+            loading="lazy"
+          />
+        </div>
+        <div class="res-section__content">
+          <div class="res-section__eyebrow">SPEC SHEETS &amp; GUIDES</div>
+          <h2 class="res-section__title">What Our Residential Clients Download</h2>
+          <p class="res-section__body">Our most-requested homeowner documents — product specifications, performance data, and real-world case studies from comparable residential projects.</p>
+          <ul class="res-section__list">
+              <li class="res-section__item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="#7CB342" stroke-width="2"/><path d="M14 2v6h6" stroke="#7CB342" stroke-width="2"/></svg>
+                <a href="/resources/residential-window-film-3m-prestige-70-solar-control-spec-salt-lake-city.pdf" target="_blank" rel="noopener">3M Prestige 70 Solar Control Film — Product Card</a>
+              </li>
+              <li class="res-section__item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="#7CB342" stroke-width="2"/><path d="M14 2v6h6" stroke="#7CB342" stroke-width="2"/></svg>
+                <a href="/resources/home-window-film-3m-thinsulate-cc75-energy-saving-low-e-bulletin-salt-lake-city.pdf" target="_blank" rel="noopener">3M Thinsulate CC75 Low-E Film — Technical Bulletin</a>
+              </li>
+              <li class="res-section__item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="#7CB342" stroke-width="2"/><path d="M14 2v6h6" stroke="#7CB342" stroke-width="2"/></svg>
+                <a href="/resources/residential-window-film-llumar-low-e-energy-saving-spec-salt-lake-city.pdf" target="_blank" rel="noopener">LLumar Low-E Energy Saving Film — Performance Specs</a>
+              </li>
+              <li class="res-section__item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="#7CB342" stroke-width="2"/><path d="M14 2v6h6" stroke="#7CB342" stroke-width="2"/></svg>
+                <a href="/resources/home-window-film-llumar-reflective-privacy-spec-salt-lake-city.pdf" target="_blank" rel="noopener">LLumar Reflective Privacy Film — Performance Specs</a>
+              </li>
+              <li class="res-section__item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="#7CB342" stroke-width="2"/><path d="M14 2v6h6" stroke="#7CB342" stroke-width="2"/></svg>
+                <a href="/resources/residential-window-film-vista-low-e-energy-saving-spec-salt-lake-city.pdf" target="_blank" rel="noopener">Vista Low-E Energy Saving Film — Spec Sheet</a>
+              </li>
+              <li class="res-section__item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="#7CB342" stroke-width="2"/><path d="M14 2v6h6" stroke="#7CB342" stroke-width="2"/></svg>
+                <a href="/resources/3m-window-film-building-energy-performance-white-paper-2022.pdf" target="_blank" rel="noopener">3M Window Film Energy Performance White Paper 2022</a>
+              </li>
+            </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ TESTIMONIALS — MARQUEE ══ -->
+    <section class="hc-tmarq">
+      <div class="hc-tmarq__header">
+        <span class="hc-tmarq__eyebrow">What Homeowners Say</span>
+        <h2 class="hc-tmarq__title">From Salt Lake City Homeowners</h2>
+      </div>
+
+      <!-- Row 1 — scrolls left -->
+      <div class="hc-tmarq__row hc-tmarq__row--fwd">
+        <div class="hc-tmarq__track" aria-hidden="true">
+          <figure class="hc-tmarq__card"><div class="hc-tmarq__stars">★★★★★</div><blockquote class="hc-tmarq__quote">"Our south-facing living room was unusable every afternoon in summer. After the window film, we can sit there with the curtains open at 4pm in August. Wish we'd done it ten years ago."</blockquote><figcaption class="hc-tmarq__person"><img src="/images/hc-testimonial-1.jpg" alt="Sarah M." title="Sarah M." class="hc-tmarq__avatar" loading="lazy" /><div><p class="hc-tmarq__name">Sarah M.</p><p class="hc-tmarq__detail">Homeowner — Federal Heights</p></div></figcaption></figure>
+          <figure class="hc-tmarq__card"><div class="hc-tmarq__stars">★★★★★</div><blockquote class="hc-tmarq__quote">"Floor-to-ceiling windows — great in theory, brutal in practice. The solar control film fixed the heat and glare without changing how the place looks from outside. We went from closing blinds every afternoon to never closing them."</blockquote><figcaption class="hc-tmarq__person"><img src="/images/hc-testimonial-2.jpg" alt="David &amp; Rachel K." title="David &amp; Rachel K." class="hc-tmarq__avatar" loading="lazy" /><div><p class="hc-tmarq__name">David &amp; Rachel K.</p><p class="hc-tmarq__detail">Homeowners — Sugar House</p></div></figcaption></figure>
+          <figure class="hc-tmarq__card"><div class="hc-tmarq__stars">★★★★★</div><blockquote class="hc-tmarq__quote">"Historic rowhouse, original windows. The Low-E film made a real difference in our heating bills and our floors have stopped fading near the front windows. The crew was in and out with no disruption whatsoever."</blockquote><figcaption class="hc-tmarq__person"><img src="/images/hc-testimonial-3.jpg" alt="Margaret O." title="Margaret O." class="hc-tmarq__avatar" loading="lazy" /><div><p class="hc-tmarq__name">Margaret O.</p><p class="hc-tmarq__detail">Homeowner — Capitol Hill</p></div></figcaption></figure>
+          <figure class="hc-tmarq__card"><div class="hc-tmarq__stars">★★★★★</div><blockquote class="hc-tmarq__quote">"We had glare in our home office every afternoon for years. Closing the blinds meant losing all the natural light. The window film solved it completely — still bright, no glare, comfortable all day."</blockquote><figcaption class="hc-tmarq__person"><img src="/images/hc-testimonial-4.jpg" alt="Jennifer L." title="Jennifer L." class="hc-tmarq__avatar" loading="lazy" /><div><p class="hc-tmarq__name">Jennifer L.</p><p class="hc-tmarq__detail">Homeowner — Federal Heights</p></div></figcaption></figure>
+          <figure class="hc-tmarq__card"><div class="hc-tmarq__stars">★★★★★</div><blockquote class="hc-tmarq__quote">"I was skeptical it would make a real difference on our older single-pane windows. It absolutely did. The rooms feel noticeably cooler, our energy bills dropped, and the installation was professional from start to finish."</blockquote><figcaption class="hc-tmarq__person"><img src="/images/hc-testimonial-5.jpg" alt="Mark S." title="Mark S." class="hc-tmarq__avatar" loading="lazy" /><div><p class="hc-tmarq__name">Mark S.</p><p class="hc-tmarq__detail">Homeowner — Salt Lake City's west side</p></div></figcaption></figure>
+          <figure class="hc-tmarq__card"><div class="hc-tmarq__stars">★★★★★</div><blockquote class="hc-tmarq__quote">"Ground-floor rowhouse — we had zero privacy or we had to keep the blinds closed all day. The one-way film is perfect. Natural light all day, full privacy, and you can't even tell it's there from outside."</blockquote><figcaption class="hc-tmarq__person"><img src="/images/hc-testimonial-6.jpg" alt="Patricia H." title="Patricia H." class="hc-tmarq__avatar" loading="lazy" /><div><p class="hc-tmarq__name">Patricia H.</p><p class="hc-tmarq__detail">Homeowner — South Salt Lake City</p></div></figcaption></figure>
+          <!-- duplicate for seamless loop -->
+          <figure class="hc-tmarq__card"><div class="hc-tmarq__stars">★★★★★</div><blockquote class="hc-tmarq__quote">"Our south-facing living room was unusable every afternoon in summer. After the window film, we can sit there with the curtains open at 4pm in August. Wish we'd done it ten years ago."</blockquote><figcaption class="hc-tmarq__person"><img src="/images/hc-testimonial-1.jpg" alt="Sarah M." title="Sarah M." class="hc-tmarq__avatar" loading="lazy" /><div><p class="hc-tmarq__name">Sarah M.</p><p class="hc-tmarq__detail">Homeowner — Federal Heights</p></div></figcaption></figure>
+          <figure class="hc-tmarq__card"><div class="hc-tmarq__stars">★★★★★</div><blockquote class="hc-tmarq__quote">"Floor-to-ceiling windows — great in theory, brutal in practice. The solar control film fixed the heat and glare without changing how the place looks from outside. We went from closing blinds every afternoon to never closing them."</blockquote><figcaption class="hc-tmarq__person"><img src="/images/hc-testimonial-2.jpg" alt="David &amp; Rachel K." title="David &amp; Rachel K." class="hc-tmarq__avatar" loading="lazy" /><div><p class="hc-tmarq__name">David &amp; Rachel K.</p><p class="hc-tmarq__detail">Homeowners — Sugar House</p></div></figcaption></figure>
+          <figure class="hc-tmarq__card"><div class="hc-tmarq__stars">★★★★★</div><blockquote class="hc-tmarq__quote">"Historic rowhouse, original windows. The Low-E film made a real difference in our heating bills and our floors have stopped fading near the front windows. The crew was in and out with no disruption whatsoever."</blockquote><figcaption class="hc-tmarq__person"><img src="/images/hc-testimonial-3.jpg" alt="Margaret O." title="Margaret O." class="hc-tmarq__avatar" loading="lazy" /><div><p class="hc-tmarq__name">Margaret O.</p><p class="hc-tmarq__detail">Homeowner — Capitol Hill</p></div></figcaption></figure>
+          <figure class="hc-tmarq__card"><div class="hc-tmarq__stars">★★★★★</div><blockquote class="hc-tmarq__quote">"We had glare in our home office every afternoon for years. Closing the blinds meant losing all the natural light. The window film solved it completely — still bright, no glare, comfortable all day."</blockquote><figcaption class="hc-tmarq__person"><img src="/images/hc-testimonial-4.jpg" alt="Jennifer L." title="Jennifer L." class="hc-tmarq__avatar" loading="lazy" /><div><p class="hc-tmarq__name">Jennifer L.</p><p class="hc-tmarq__detail">Homeowner — Federal Heights</p></div></figcaption></figure>
+          <figure class="hc-tmarq__card"><div class="hc-tmarq__stars">★★★★★</div><blockquote class="hc-tmarq__quote">"I was skeptical it would make a real difference on our older single-pane windows. It absolutely did. The rooms feel noticeably cooler, our energy bills dropped, and the installation was professional from start to finish."</blockquote><figcaption class="hc-tmarq__person"><img src="/images/hc-testimonial-5.jpg" alt="Mark S." title="Mark S." class="hc-tmarq__avatar" loading="lazy" /><div><p class="hc-tmarq__name">Mark S.</p><p class="hc-tmarq__detail">Homeowner — Salt Lake City's west side</p></div></figcaption></figure>
+          <figure class="hc-tmarq__card"><div class="hc-tmarq__stars">★★★★★</div><blockquote class="hc-tmarq__quote">"Ground-floor rowhouse — we had zero privacy or we had to keep the blinds closed all day. The one-way film is perfect. Natural light all day, full privacy, and you can't even tell it's there from outside."</blockquote><figcaption class="hc-tmarq__person"><img src="/images/hc-testimonial-6.jpg" alt="Patricia H." title="Patricia H." class="hc-tmarq__avatar" loading="lazy" /><div><p class="hc-tmarq__name">Patricia H.</p><p class="hc-tmarq__detail">Homeowner — South Salt Lake City</p></div></figcaption></figure>
+        </div>
+      </div>
+
+
+    <!-- ══ NEIGHBORHOODS ══ -->
+    <section class="ip-local">
+      <div class="ip-local__grid">
+        <div class="ip-local__map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96343.0!2d-111.891!3d40.7608!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6b7d8d4b54beb%3A0x89f514d88784e099!2sSalt Lake City%2C%20UT!5e0!3m2!1sen!2sus!4v1720000000000"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+            title="Window Film Salt Lake City residential service area map"
+          ></iframe>
+        </div>
+        <div class="ip-local__content">
+          <h2>Every Salt Lake City Neighborhood, Every Home Type</h2>
+          <p>From Capitol Hill brownstones to Sugar House new-builds, we install residential window film throughout Salt Lake City and the surrounding suburbs.</p>
+          <div class="cam-neighborhoods">
+            <div class="cam-nh">
+              <span class="cam-nh__name">Downtown Salt Lake City / Federal Heights</span>
+              <span class="cam-nh__desc">We install solar control and Low-E film in the high-rise condos, brownstones, and luxury townhomes throughout Downtown Salt Lake City and Federal Heights, addressing everything from full-glass facades to historic bay windows.</span>
+            </div>
+            <div class="cam-nh">
+              <span class="cam-nh__name">South Salt Lake City</span>
+              <span class="cam-nh__desc">South Salt Lake’s rowhouses along 9th and 9th, Morris, and Snyder face serious heat, glare, and UV exposure on south- and west-facing walls — we install solar control and UV protection film that addresses all three without altering your windows.</span>
+            </div>
+            <div class="cam-nh">
+              <span class="cam-nh__name">Sugar House / Marmalade District</span>
+              <span class="cam-nh__desc">The new-construction all-glass homes and converted warehouses in Sugar House and Marmalade District look striking from the outside but overheat badly in summer. We install solar control film that tames the heat without changing the modern look.</span>
+            </div>
+            <div class="cam-nh">
+              <span class="cam-nh__name">Capitol Hill / The Avenues</span>
+              <span class="cam-nh__desc">Many of the historic homes in Capitol Hill and The Avenues still have their original single-pane windows. We install Low-E film that preserves the character of the glass while delivering meaningful thermal improvement in both summer and winter.</span>
+            </div>
+            <div class="cam-nh">
+              <span class="cam-nh__name">Holladay / Millcreek</span>
+              <span class="cam-nh__desc">The Victorian and Craftsman homes in Holladay and Millcreek have beautiful period windows that are also significant sources of UV damage. We protect original woodwork, period furnishings, and any stained glass areas without altering the windows’ appearance.</span>
+            </div>
+            <div class="cam-nh">
+              <span class="cam-nh__name">Salt Lake City's west side / University District</span>
+              <span class="cam-nh__desc">West Salt Lake’s Victorian twin homes and older rental stock near the University of Utah and Utah Valley University tend to have aging windows that leak heat in winter and let it in during summer. Low-E and solar control film deliver the most cost-effective thermal improvement available without replacing the glass.</span>
+            </div>
+            <div class="cam-nh">
+              <span class="cam-nh__name">Park City (Old Town, Deer Valley, Kimball Junction)</span>
+              <span class="cam-nh__desc">Park City homes are typically larger, with south- and west-facing great rooms holding significant investments in hardwood floors, area rugs, and custom drapery. UV protection is the primary concern here, and our film blocks 99.9% of the radiation that causes fading before it ever enters the glass.</span>
+            </div>
+            <div class="cam-nh">
+              <span class="cam-nh__name">Utah Suburbs (West Valley City, Murray, Bountiful)</span>
+              <span class="cam-nh__desc">Our residential service area extends across the Great Salt Lake into Salt Lake Valley. Homeowners in West Valley City, Murray, Bountiful, and Lehi deal with the same Salt Lake City-area summer heat load and UV exposure — and we serve them with the same films, the same certified installation team, and the same manufacturer warranties.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FAQ ══ -->
+    <section class="swt-faq" id="faq">
+      <div class="container">
+        <div class="swt-faq__layout">
+          <div class="swt-faq__header fade-in">
+            <span class="swt-eyebrow">Questions</span>
+            <h2 class="swt-h2">Residential Window Film FAQ</h2>
+            <p>Honest answers about home window film for Salt Lake City rowhouses, condos, and brownstones from specialists with over 15 years of residential experience.</p>
+            <a href="/contact/" class="swt-btn swt-btn--primary">Talk to a Specialist</a>
+          </div>
+          <div class="swt-faq__list">
+
+          {faqItems.map((item, i) => (
+            <div class="swt-faq__item">
+              <button
+                class="swt-faq__q"
+                aria-expanded="false"
+                aria-controls={`hc-faq-${i}`}
+                id={`hc-faq-btn-${i}`}
+              >
+                {item.question}
+                <span class="swt-faq__icon" aria-hidden="true">+</span>
+              </button>
+              <div
+                class="swt-faq__a"
+                id={`hc-faq-${i}`}
+                role="region"
+                aria-labelledby={`hc-faq-btn-${i}`}
+                hidden
+              >
+                <p>{item.answer}</p>
+              </div>
+            </div>
+          ))}
+
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ GEO BLOCK (hidden — SEO only) ══ -->
+
+<!-- ══ CTA — TINT SLIDER ══ -->
+    <section class="ctat">
+      <img class="ctat__bg" src="/images/hc-cta-room.jpg" alt="" aria-hidden="true" />
+      <div class="ctat__tint" aria-hidden="true" style="--tint:0.35"></div>
+      <div class="ctat__inner">
+        <h2 class="ctat__title">Find Your Perfect Tint.</h2>
+        <p class="ctat__sub">Drag the slider to preview how window film tames Salt Lake City&rsquo;s afternoon sun — then get it installed for real.</p>
+        <div class="ctat__control">
+          <span class="ctat__label">Clear</span>
+          <input type="range" min="0" max="80" value="35" class="ctat__range" aria-label="Tint level preview" />
+          <span class="ctat__label">Limo</span>
+        </div>
+        <p class="ctat__vlt">VLT <b class="ctat__vlt-num">65</b>% &middot; visible light transmission</p>
+        <a href="/contact/" class="ctat__btn">Get Your Free Estimate &rarr;</a>
+      </div>
+    </section>
+
+  </div><!-- /.swt-body -->
+
+<CategoryBlogFeed categorySlug="homes-condos" feedTitle="Latest Homes & Condos Articles" />
+</BaseLayout>
+
+<style>
+  /* ══ WHAT IS ══ */
+  .hc-whatis {
+    padding: 6rem 2rem;
+    background: #fff;
+  }
+  .hc-whatis__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .hc-whatis__image-wrap { border-radius: 12px; overflow: hidden; }
+  .hc-whatis__image { width: 100%; height: auto; display: block; }
+  /* ── Split Text Reveal ── */
+  .split-reveal { display: inline; }
+  .split-reveal__unit { display: inline-block; overflow: hidden; vertical-align: top; }
+  .split-reveal__inner { display: inline-block; transform: translateY(110%); transition: transform 0.7s cubic-bezier(0.22,1,0.36,1) calc(var(--i) * var(--split-stagger, 65ms)); will-change: transform; }
+  .split-reveal.is-visible .split-reveal__inner { transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) { .split-reveal__inner { transform: none; transition: none; } }
+
+  /* ── Hand Drawn Title ── */
+  .ctat__title-wrap { position: relative; }
+  .hand-drawn__mark { position: relative; display: inline-block; white-space: nowrap; }
+  .hand-drawn__svg { position: absolute; left: -8%; top: -18%; width: 116%; height: 150%; pointer-events: none; overflow: visible; }
+  .hand-drawn__path { stroke-dasharray: 1000; stroke-dashoffset: 1000; }
+  .hand-drawn.is-visible .hand-drawn__path { animation: 1.6s cubic-bezier(0.43,0.13,0.23,0.96) 0.3s 1 forwards hand-draw; }
+  @keyframes hand-draw { 100% { stroke-dashoffset: 0; } }
+  @media (prefers-reduced-motion: reduce) { .hand-drawn__path { stroke-dashoffset: 0; animation: none; } }
+
+  /* Before/After Slider */
+  .before-after__frame { position: relative; width: 100%; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 12px; cursor: ew-resize; user-select: none; background: #000; }
+  .before-after__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+  .before-after__after-wrap { position: absolute; inset: 0; width: var(--pos, 50%); overflow: hidden; }
+  .before-after__after-wrap .before-after__img { width: var(--frame-width, 100%); }
+  .before-after__handle { position: absolute; top: 0; bottom: 0; left: var(--pos, 50%); width: 3px; background: #fff; transform: translate(-50%); cursor: ew-resize; }
+  .before-after__handle-grip { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; border-radius: 9999px; background: #fff; color: #0d1b2a; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,0.35); transition: transform 0.15s; }
+  .before-after:active .before-after__handle-grip { transform: translate(-50%, -50%) scale(1.08); }
+  .before-after__tag { position: absolute; bottom: 14px; padding: 5px 12px; border-radius: 9999px; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; background: rgba(13,27,42,0.75); color: #fff; backdrop-filter: blur(4px); pointer-events: none; z-index: 2; }
+  .before-after__tag--before { left: 14px; }
+  .before-after__tag--after { right: 14px; }
+  @media (prefers-reduced-motion: reduce) { .before-after__handle-grip { transition: none; } }
+  .hc-whatis__eyebrow {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #7CB342;
+    margin-bottom: 1rem;
+  }
+  .hc-whatis__title {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.15;
+    color: #1a1a1a;
+    margin-bottom: 1.25rem;
+  }
+  .hc-whatis__body {
+    color: #444;
+    line-height: 1.75;
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+  }
+  .hc-whatis__stats {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+    flex-wrap: wrap;
+  }
+  .hc-whatis__stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .hc-whatis__stat strong {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #2E7D32;
+    line-height: 1;
+  }
+  .hc-whatis__stat span {
+    font-size: 0.75rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+  .hc-whatis__stat-div {
+    width: 1px;
+    height: 36px;
+    background: #ddd;
+  }
+
+  /* ══ WHY ══ */
+  .hc-why {
+    padding: 6rem 2rem;
+    background: #f8f9f4;
+  }
+  .hc-why__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .hc-why__eyebrow {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #7CB342;
+    margin-bottom: 1rem;
+  }
+  .hc-why__headline {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.15;
+    color: #1a1a1a;
+    margin-bottom: 1.25rem;
+  }
+  .hc-why__intro {
+    color: #444;
+    line-height: 1.75;
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+  }
+  .hc-why__climate-facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .hc-why__climate-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    background: #fff;
+    border: 1px solid #e8f5e9;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+  .hc-why__climate-icon { font-size: 1.25rem; flex-shrink: 0; }
+  .hc-why__climate-label {
+    font-size: 0.875rem;
+    color: #333;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+  .hc-why__image-wrap { border-radius: 12px; overflow: hidden; }
+  .hc-why__image { width: 100%; height: auto; display: block; }
+
+  /* ══ HOME TYPES ══ */
+  /* ── Home Types — Bento Photo Grid ── */
+  .bgp { background: #F5F3EE; padding: 4rem 1.5rem; }
+  .bgp__head { max-width: 40rem; margin: 0 auto 2.5rem; text-align: center; }
+  .bgp__eyebrow { display: block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #7CB342; margin-bottom: 0.75rem; }
+  .bgp__title { color: #14201A; font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; margin: 0 0 0.5rem; }
+  .bgp__sub { color: #666; margin: 0; }
+  .bgp__grid { max-width: 72rem; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 220px; gap: 1rem; }
+  .bgp__card--lg { grid-area: span 2 / span 2; }
+  .bgp__card--md { grid-area: span 1 / span 2; }
+  .bgp__card--sm { grid-area: span 1 / span 1; }
+  .bgp__card { position: relative; overflow: hidden; border-radius: 1rem; border: 1px solid rgba(255,255,255,0.08); }
+  .bgp__card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.22,1,0.36,1); }
+  .bgp__card:hover img { transform: scale(1.06); }
+  .bgp__overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,27,42,0.9), rgba(13,27,42,0.15) 55%); transition: background 0.3s; }
+  .bgp__card:hover .bgp__overlay { background: linear-gradient(to top, rgba(13,27,42,0.95), rgba(124,179,66,0.12) 60%); }
+  .bgp__body { position: absolute; left: 0; right: 0; bottom: 0; padding: 1.25rem; }
+  .bgp__body h3 { color: #fff; font-family: Georgia, serif; font-size: 1.15rem; margin: 0 0 0.2rem; }
+  .bgp__body p { color: rgba(255,255,255,0.65); font-size: 0.82rem; margin: 0; opacity: 0; transform: translateY(6px); transition: opacity 0.3s, transform 0.3s; }
+  .bgp__card:hover .bgp__body p { opacity: 1; transform: translateY(0); }
+  @media (max-width: 860px) { .bgp__grid { grid-template-columns: repeat(2,1fr); } .bgp__card--lg, .bgp__card--md { grid-column: span 2; } }
+  @media (max-width: 480px) { .bgp__grid { grid-template-columns: 1fr; grid-auto-rows: 200px; } .bgp__card--lg, .bgp__card--md, .bgp__card--sm { grid-column: span 1; } }
+  @media (prefers-reduced-motion: reduce) { .bgp__card img, .bgp__body p { transition: none; } .bgp__body p { opacity: 1; transform: none; } }
+
+  /* ── Testimonial Stack ── */
+  .hc-tstack-wrap { padding: 6rem 2rem; background: #fff; }
+  .hc-tstack-wrap__header { text-align: center; margin-bottom: 3rem; }
+  .hc-tstack-wrap__eyebrow { display: block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #7CB342; margin-bottom: 0.75rem; }
+  .hc-tstack-wrap__title { font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; color: #14201A; }
+  .tstack { display: flex; flex-direction: column; align-items: center; padding: 2rem 1rem; }
+  .tstack__deck { position: relative; width: min(540px, 90vw); height: 360px; }
+  .tstack__card { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 2rem; border-radius: 1.25rem; background: linear-gradient(160deg, #12293f, #0d1b2a); border: 1px solid rgba(124,179,66,0.25); box-shadow: 0 30px 60px rgba(0,0,0,0.45); cursor: grab; transform-origin: center bottom; transform: translateY(calc(var(--i) * -12px)) scale(calc(1 - var(--i) * .04)) rotate(calc((var(--i) - 1) * 1.5deg)); z-index: calc(100 - var(--i)); transition: transform 0.55s cubic-bezier(0.34,1.4,0.64,1), opacity 0.5s; user-select: none; }
+  .tstack__card.is-leaving { opacity: 0; cursor: grabbing; transform: translate(-140%) rotate(-16deg) !important; }
+  .tstack__stars { color: #7CB342; letter-spacing: 2px; font-size: 0.9rem; }
+  .tstack__quote { font-family: Georgia, serif; font-size: 1.15rem; line-height: 1.5; color: #fff; margin: 0; }
+  .tstack__person { display: flex; align-items: center; gap: 0.85rem; }
+  .tstack__avatar { width: 52px; height: 52px; border-radius: 9999px; object-fit: cover; border: 2px solid #7CB342; pointer-events: none; }
+  .tstack__name { color: #fff; font-weight: 700; }
+  .tstack__detail { color: rgba(255,255,255,0.5); font-size: 0.8rem; }
+  .tstack__hint { margin-top: 1.5rem; color: rgba(0,0,0,0.35); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+  @media (prefers-reduced-motion: reduce) { .tstack__card { transition: opacity 0.3s; } }
+
+  /* ══ RESPONSIVE ══ */
+  @media (max-width: 1024px) {
+    .hc-types__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .hc-whatis__container,
+    .hc-why__container { grid-template-columns: 1fr; gap: 2rem; }
+    .hc-why__container > .hc-why__image-wrap { order: -1; }
+    .hc-types__grid { grid-template-columns: 1fr 1fr; }
+    .hc-testimonials__grid { grid-template-columns: 1fr; }
+    .hc-why__climate-facts { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .hc-types__grid { grid-template-columns: 1fr; }
+  }
+
+
+  /* ══════════════════════════════════════
+     BENEFIT ROWS
+  ══════════════════════════════════════ */
+  .of-benefits {
+    background: #F3F6F1;
+    padding: 100px 24px;
+  }
+  .of-benefits__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .of-benefits__header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 72px;
+  }
+  .of-benefits__eyebrow {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #7CB342;
+    margin-bottom: 8px;
+  }
+  .of-benefits__headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    color: #14201A;
+    margin: 12px 0 20px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  /* ══════════════════════════════════════
+     GALLERY
+  ══════════════════════════════════════ */
+  /* ── Gallery Banner ── */
+  .gallery-banner { overflow: hidden; padding: 4.5rem 0; }
+  .gallery-banner--light { background: #ECE9E4; color: #111; }
+  .gallery-banner--dark { background: #0d1b2a; color: #fff; }
+  .gallery-banner__inner { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center; max-width: 72rem; margin: 0 auto; padding-right: 1.5rem; }
+  @media (min-width: 900px) { .gallery-banner__inner { grid-template-columns: 1.1fr 1fr; } }
+  .gallery-banner__eyebrow { margin-left: 1.5rem; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; opacity: 0.5; margin-bottom: 0.75rem; }
+  .gallery-banner__title { font-family: Georgia, 'Times New Roman', serif; font-weight: 800; line-height: 0.86; letter-spacing: -0.03em; font-size: clamp(4rem, 11vw, 9rem); text-transform: uppercase; margin-left: -0.45em; user-select: none; }
+  .gallery-banner__title-line { display: block; }
+  .gallery-banner__desc { margin-left: 1.5rem; margin-top: 1.25rem; max-width: 24rem; font-size: 0.9rem; line-height: 1.6; opacity: 0.55; }
+  .gallery-banner__gallery { display: flex; flex-direction: column; align-items: center; gap: 1.25rem; }
+  .gallery-banner__strips { display: flex; align-items: center; height: 300px; filter: drop-shadow(0 24px 40px rgba(0,0,0,0.25)); }
+  .gallery-banner__strip { position: relative; width: 72px; height: 260px; margin-left: -10px; border: none; padding: 0; border-radius: 14px; overflow: hidden; cursor: pointer; background: #111; transform: rotate(calc((var(--i) - (var(--n) - 1) / 2) * 2.5deg)) translateY(calc((var(--i) - (var(--n) - 1) / 2) * (var(--i) - (var(--n) - 1) / 2) * 4px)); transition: width 0.5s cubic-bezier(0.34,1.4,0.64,1), transform 0.5s cubic-bezier(0.34,1.4,0.64,1), margin 0.5s cubic-bezier(0.34,1.4,0.64,1); z-index: calc(10 + var(--i)); }
+  .gallery-banner__strip:first-child { margin-left: 0; }
+  .gallery-banner__strip img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+  .gallery-banner__strips:hover .gallery-banner__strip { margin-left: 6px; transform: rotate(calc((var(--i) - (var(--n) - 1) / 2) * 4deg)) translateY(calc((var(--i) - (var(--n) - 1) / 2) * (var(--i) - (var(--n) - 1) / 2) * 6px)); }
+  .gallery-banner__strips:hover .gallery-banner__strip:first-child { margin-left: 0; }
+  .gallery-banner__strip:hover { width: 190px; z-index: 99; transform: rotate(0deg) translateY(-12px) !important; }
+  .gallery-banner__strip.is-active { width: 190px; z-index: 90; transform: rotate(0deg) translateY(-8px) !important; }
+  .gallery-banner__hint { padding: 0.55rem 1.2rem; border-radius: 9999px; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.45; border: 1px solid; }
+  @media (max-width: 899px) {
+    .gallery-banner__title { margin-left: -0.3em; }
+    .gallery-banner__strips { height: 240px; }
+    .gallery-banner__strip { height: 200px; width: 56px; }
+    .gallery-banner__strip:hover, .gallery-banner__strip.is-active { width: 150px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .gallery-banner__strip { transition: none; } }
+
+
+  /* ══════════════════════════════════════
+     RES-SECTION
+  ══════════════════════════════════════ */
+  .res-section { background: #F5F3EE; padding: 80px 0; }
+  .res-section__inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .res-section__image-col { position: relative; border-radius: 16px; overflow: hidden; }
+  .res-section__img { width: 100%; height: 520px; object-fit: cover; object-position: center; display: block; border-radius: 16px; }
+  .res-section__content-col { display: flex; flex-direction: column; gap: 20px; }
+  .res-section__eyebrow { font-family: 'Space Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.22em; color: #7CB342; margin: 0; }
+  .res-section__title { font-family: 'Playfair Display', serif; font-size: clamp(1.75rem, 2.5vw, 2.5rem); font-weight: 700; color: #14201A; line-height: 1.15; letter-spacing: -0.02em; margin: 0; }
+  .res-section__body { font-family: 'Inter', sans-serif; font-size: 1rem; color: #4A5C48; line-height: 1.75; margin: 0; }
+  .res-section__list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; }
+  .res-section__item { display: flex; align-items: flex-start; gap: 12px; font-family: 'Inter', sans-serif; font-size: 0.9rem; line-height: 1.5; }
+  .res-section__item svg { flex-shrink: 0; margin-top: 2px; }
+  .res-section__item a { color: #14201A; text-decoration: underline; text-decoration-color: #7CB342; text-underline-offset: 3px; transition: color 0.2s ease; font-weight: 500; }
+  .res-section__item a:hover { color: #7CB342; }
+  .res-section__cta { align-self: flex-start; font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600; color: #7CB342; text-decoration: none; display: flex; align-items: center; gap: 4px; transition: gap 0.2s ease; }
+  .res-section__cta:hover { gap: 8px; }
+  @media (max-width: 900px) { .res-section__inner { grid-template-columns: 1fr; gap: 40px; } .res-section__img { height: 360px; } }
+  @media (max-width: 600px) { .res-section__inner { padding: 0 20px; } .res-section { padding: 60px 0; } }
+
+  /* ══════════════════════════════════════
+     SWT-FAQ
+  ══════════════════════════════════════ */
+  .swt-faq { background: var(--swt-white); padding: 96px 0; }
+  .swt-faq__layout { display: grid; grid-template-columns: 300px 1fr; gap: 80px; align-items: start; }
+  .swt-faq__header p { font-family: 'Hanken Grotesk', sans-serif; font-size: 15px; line-height: 1.75; color: var(--swt-text-sec); margin: 14px 0 24px; }
+  .swt-faq__header { display: flex; flex-direction: column; }
+  .swt-faq__list { display: flex; flex-direction: column; }
+  .swt-faq__item { border-bottom: 1px solid var(--swt-border); padding: 18px 0; }
+  .swt-faq__item:first-of-type { border-top: 1px solid var(--swt-border); }
+  .swt-faq__q { font-family: 'Hanken Grotesk', sans-serif; font-size: 15px; font-weight: 600; color: var(--swt-dark); display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; cursor: pointer; padding: 3px 0; }
+  .swt-faq__toggle { color: var(--swt-green); font-size: 22px; flex-shrink: 0; font-weight: 400; transition: transform 0.2s; line-height: 1; }
+  .swt-faq__a { font-family: 'Hanken Grotesk', sans-serif; font-size: 14px; color: var(--swt-text-sec); line-height: 1.8; margin-top: 10px; display: none; }
+  .swt-faq__a a { color: #7CB342; text-decoration: underline; text-underline-offset: 3px; font-weight: 500; }
+  .swt-faq__a a:hover { color: #2E6B30; }
+  .swt-faq__item--open .swt-faq__a { display: block; }
+  .swt-faq__item--open .swt-faq__toggle { transform: rotate(45deg); }
+  @media (max-width: 768px) { .swt-faq__layout { grid-template-columns: 1fr; gap: 40px; } }
+
+  /* ══════════════════════════════════════
+     CTA (priv-cinematic-cta pattern)
+  ══════════════════════════════════════ */
+  /* ── CTA — Tint Slider ── */
+  .ctat { position: relative; overflow: hidden; padding: 5rem 1.5rem; text-align: center; min-height: 480px; display: flex; align-items: center; }
+  .ctat__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .ctat__tint { position: absolute; inset: 0; background: #0d1b2a; opacity: var(--tint, .35); transition: opacity 0.15s linear; }
+  .ctat__inner { position: relative; max-width: 40rem; margin: 0 auto; width: 100%; }
+  .ctat__title { color: #fff; font-family: Georgia, serif; font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 800; margin: 0 0 0.6rem; text-shadow: 0 2px 24px rgba(0,0,0,0.5); }
+  .ctat__sub { color: rgba(255,255,255,0.85); margin: 0 0 2rem; text-shadow: 0 1px 12px rgba(0,0,0,0.5); }
+  .ctat__control { display: flex; align-items: center; gap: 1rem; background: rgba(13,27,42,0.55); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); border-radius: 9999px; padding: 0.9rem 1.5rem; max-width: 26rem; margin: 0 auto 0.75rem; }
+  .ctat__label { color: rgba(255,255,255,0.7); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; white-space: nowrap; }
+  .ctat__range { flex: 1; appearance: none; height: 6px; border-radius: 9999px; background: linear-gradient(to right, rgba(255,255,255,0.9), rgba(13,27,42,0.9)); outline: none; cursor: ew-resize; }
+  .ctat__range::-webkit-slider-thumb { appearance: none; width: 26px; height: 26px; border-radius: 9999px; background: #7CB342; border: 3px solid #fff; box-shadow: 0 4px 14px rgba(0,0,0,0.4); cursor: grab; }
+  .ctat__vlt { color: rgba(255,255,255,0.75); font-size: 0.82rem; margin: 0 0 2rem; text-shadow: 0 1px 8px rgba(0,0,0,0.6); }
+  .ctat__vlt b { color: #AED581; font-size: 1rem; }
+  .ctat__btn { display: inline-block; background: #7CB342; color: #0d1b2a; font-weight: 700; font-size: 1rem; padding: 0.95rem 2rem; border-radius: 9999px; text-decoration: none; box-shadow: 0 12px 32px rgba(0,0,0,0.4); transition: transform 0.25s, background 0.25s; }
+  .ctat__btn:hover { transform: translateY(-2px); background: #8BC34A; }
+  @media (prefers-reduced-motion: reduce) { .ctat__tint { transition: none; } }
+
+  /* ══════════════════════════════════════
+     IP-LOCAL + CAM-NEIGHBORHOODS
+  ══════════════════════════════════════ */
+  .ip-local { padding: 64px 5%; }
+  .ip-local__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: stretch; }
+  .ip-local__map { border-radius: 20px; overflow: hidden; min-height: 400px; position: sticky; top: 80px; align-self: start; height: calc(100vh - 120px); max-height: 700px; }
+  .ip-local__map iframe { width: 100%; height: 100%; display: block; }
+  .ip-local__content h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 700; color: #14201A; margin: 0 0 12px; }
+  .ip-local__content p { font-size: 1rem; color: #4a4a4a; line-height: 1.8; margin-bottom: 20px; }
+  .cam-neighborhoods { display: flex; flex-direction: column; }
+  .cam-nh { display: grid; grid-template-columns: 160px 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px solid #EFEFED; }
+  .cam-nh:last-child { border-bottom: none; }
+  .cam-nh__name { font-size: 0.8rem; font-weight: 700; color: #7CB342; line-height: 1.5; }
+  .cam-nh__desc { font-size: 0.85rem; color: #4a4a4a; line-height: 1.65; }
+  @media (max-width: 768px) { .ip-local__grid { grid-template-columns: 1fr; } .ip-local__map { height: 280px; position: static; } .cam-nh { grid-template-columns: 1fr; gap: 4px; } }
+
+  /* ══════════════════════════════════════
+     CAM-TESTIMONIALS + CAM-TCARD
+  ══════════════════════════════════════ */
+
+
+
+  /* ══════════════════════════════════════
+     FILM TYPES SLIDER
+  ══════════════════════════════════════ */
+  .of-ftype { position: relative; width: 100%; min-height: 90vh; overflow: hidden; background: #14201A; }
+  .of-ftype__track { display: flex; width: 100%; height: 100%; transition: transform 0.6s cubic-bezier(0.4,0,0.2,1); will-change: transform; }
+  .of-ftype__slide { position: relative; min-width: 100%; min-height: 90vh; flex-shrink: 0; display: flex; align-items: center; }
+  .of-ftype__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: 0; }
+  .of-ftype__overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.25) 60%, transparent 100%); z-index: 1; }
+  .of-ftype__content { position: relative; z-index: 2; max-width: 560px; padding-left: 80px; color: #fff; opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s; }
+  .of-ftype-active .of-ftype__content { opacity: 1; transform: translateY(0); }
+  .of-ftype__step { font-family: 'Space Mono', monospace; font-size: 13px; color: #7CB342; letter-spacing: 0.2em; margin-bottom: 1rem; }
+  .of-ftype__title { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 4vw, 3.25rem); font-weight: 700; color: #fff; line-height: 1.1; margin: 0 0 1.5rem; white-space: pre-line; }
+  .of-ftype__desc { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.85); max-width: 460px; margin-bottom: 2rem; }
+  .of-ftype__faq { display: flex; flex-direction: column; gap: 8px; margin-bottom: 2rem; }
+  .of-ftype__faq-item { border-radius: 8px; overflow: hidden; }
+  .of-ftype__faq-q { width: 100%; background: rgba(255,255,255,0.12); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; color: rgba(255,255,255,0.88); font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 500; padding: 12px 16px; text-align: left; display: flex; justify-content: space-between; align-items: center; gap: 12px; cursor: pointer; transition: background 0.2s ease; }
+  .of-ftype__faq-q:hover { background: rgba(255,255,255,0.18); }
+  .of-ftype__faq-icon { font-size: 1.2rem; color: #7CB342; flex-shrink: 0; transition: transform 0.3s ease; }
+  .of-ftype__faq-a { background: rgba(255,255,255,0.08); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.10); border-top: none; border-radius: 0 0 8px 8px; color: rgba(255,255,255,0.70); font-family: 'Inter', sans-serif; font-size: 0.875rem; line-height: 1.6; padding: 12px 16px; margin-top: -4px; }
+  .of-ftype__cta { display: inline-block; background: #7CB342; color: #fff; font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600; padding: 14px 32px; border-radius: 9999px; text-decoration: none; transition: background 0.25s ease, transform 0.2s ease; }
+  .of-ftype__cta:hover { background: #2E6B30; transform: translateY(-2px); }
+  .of-ftype__nav { position: absolute; top: 50%; right: 48px; transform: translateY(-50%); z-index: 10; display: flex; flex-direction: column; gap: 20px; }
+  .of-ftype__nav-item { display: flex; align-items: center; gap: 12px; background: transparent; border: none; cursor: pointer; padding: 0; opacity: 0.35; transition: opacity 0.3s ease; }
+  .of-ftype__nav-item:hover { opacity: 0.65; }
+  .of-ftype__nav-item--active { opacity: 1; }
+  .of-ftype__nav-line { display: block; width: 3px; height: 28px; background: rgba(255,255,255,0.4); border-radius: 2px; transition: background 0.3s ease, height 0.3s ease; }
+  .of-ftype__nav-item--active .of-ftype__nav-line { background: #7CB342; height: 44px; }
+  .of-ftype__nav-label { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 500; color: #fff; text-transform: uppercase; letter-spacing: 0.15em; white-space: nowrap; }
+  .of-ftype__arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 10; width: 48px; height: 48px; background: rgba(0,0,0,0.4); backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #fff; transition: background 0.3s ease, color 0.3s ease; }
+  .of-ftype__arrow:hover { background: rgba(0,0,0,0.6); color: #7CB342; }
+  .of-ftype__arrow--prev { left: 32px; }
+  .of-ftype__arrow--next { right: 32px; }
+  .of-ftype__progress { position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: rgba(255,255,255,0.15); z-index: 10; }
+  .of-ftype__progress-bar { height: 100%; background: #7CB342; width: 0; transition: width 0.05s linear; }
+  @media (max-width: 768px) {
+    .of-ftype__nav { display: none; }
+    .of-ftype__content { padding-left: 32px; padding-right: 32px; max-width: calc(100% - 64px); }
+    .of-ftype__arrow--prev { left: 16px; }
+    .of-ftype__arrow--next { right: 16px; }
+  }
+
+  /* ══════════════════════════════════════
+     FEATURED PROJECT
+  ══════════════════════════════════════ */
+  .of-project { background: #14201A; padding: 96px 5%; }
+  .of-project__inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+  .of-project__image-col { display: flex; flex-direction: column; gap: 0; }
+  .of-project__img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 12px 12px 0 0; display: block; }
+  .of-project__stats-strip { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); background: #7CB342; border-radius: 0 0 12px 12px; padding: 20px 16px; gap: 16px 0; }
+  .of-project__stat { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 8px; }
+  .of-project__stat-num { font-family: 'Space Mono', monospace; font-size: clamp(1.1rem, 2vw, 1.5rem); font-weight: 700; color: #fff; line-height: 1.1; }
+  .of-project__stat-label { font-family: 'Inter', sans-serif; font-size: 0.65rem; color: rgba(255,255,255,0.85); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px; line-height: 1.3; }
+  .of-project__stat-div { display: none; }
+  .of-project__eyebrow { font-family: 'Space Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.22em; color: #7CB342; margin-bottom: 1.25rem; }
+  .of-project__title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700; color: #fff; line-height: 1.1; margin: 0 0 2rem; }
+  .of-project__detail { border-top: 1px solid rgba(255,255,255,0.1); padding: 16px 0; display: grid; grid-template-columns: 120px 1fr; gap: 16px; align-items: start; }
+  .of-project__detail:last-of-type { border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 2rem; }
+  .of-project__detail-label { font-family: 'Space Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; color: #7CB342; padding-top: 2px; }
+  .of-project__detail-val { font-family: 'Inter', sans-serif; font-size: 0.9rem; color: rgba(255,255,255,0.82); line-height: 1.7; }
+  .of-project__cta { display: inline-block; background: #7CB342; color: #fff; font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600; padding: 14px 32px; border-radius: 9999px; text-decoration: none; transition: background 0.25s ease; }
+  .of-project__cta:hover { background: #2E6B30; }
+  @media (max-width: 900px) {
+    .of-project__inner { grid-template-columns: 1fr; gap: 40px; }
+    .of-project__stats-strip { grid-template-columns: repeat(2, 1fr); row-gap: 16px; border-radius: 0 0 12px 12px; }
+    .of-project__stat-div { display: none; }
+  }
+
+  /* ══════════════════════════════════════
+     BENTO BAND
+  ══════════════════════════════════════ */
+  .of-bento {
+    background: var(--of-dark);
+    padding: 80px 5%;
+  }
+  .of-bento__header {
+    max-width: 800px;
+    margin: 0 auto 48px;
+    text-align: center;
+  }
+  .of-bento__title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+    font-weight: 700;
+    color: #F3F6F1;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .of-bento__sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: rgba(243,246,241,0.5);
+    line-height: 1.7;
+  }
+  .of-bento__compact {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+  }
+  .of-bento-item {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: background 0.2s;
+  }
+  .of-bento-item:hover { background: rgba(255,255,255,0.07); }
+  .of-bento-item__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #F3F6F1;
+    line-height: 1.2;
+    margin: 0;
+  }
+  .of-bento-item__text {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: rgba(243,246,241,0.52);
+    line-height: 1.75;
+    margin: 0;
+  }
+
+  /* ══════════════════════════════════════
+     FEATURED PROJECT
+  ══════════════════════════════════════ */
+  .of-project { background: #14201A; padding: 96px 5%; }
+  .of-project__inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+  .of-project__image-col { display: flex; flex-direction: column; gap: 0; }
+  .of-project__img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 12px 12px 0 0; display: block; }
+  .of-project__stats-strip { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); background: #7CB342; border-radius: 0 0 12px 12px; padding: 20px 16px; gap: 16px 0; }
+  .of-project__stat { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 8px; }
+  .of-project__stat-num { font-family: 'Space Mono', monospace; font-size: clamp(1.1rem, 2vw, 1.5rem); font-weight: 700; color: #fff; line-height: 1.1; }
+  .of-project__stat-label { font-family: 'Inter', sans-serif; font-size: 0.65rem; color: rgba(255,255,255,0.85); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px; line-height: 1.3; }
+  .of-project__stat-div { display: none; }
+  .of-project__eyebrow { font-family: 'Space Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.22em; color: #7CB342; margin-bottom: 1.25rem; }
+  .of-project__title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700; color: #fff; line-height: 1.1; margin: 0 0 2rem; }
+  .of-project__detail { border-top: 1px solid rgba(255,255,255,0.1); padding: 16px 0; display: grid; grid-template-columns: 120px 1fr; gap: 16px; align-items: start; }
+  .of-project__detail:last-of-type { border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 2rem; }
+  .of-project__detail-label { font-family: 'Space Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; color: #7CB342; padding-top: 2px; }
+  .of-project__detail-val { font-family: 'Inter', sans-serif; font-size: 0.9rem; color: rgba(255,255,255,0.82); line-height: 1.7; }
+  .of-project__cta { display: inline-block; background: #7CB342; color: #fff; font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600; padding: 14px 32px; border-radius: 9999px; text-decoration: none; transition: background 0.25s ease; }
+  .of-project__cta:hover { background: #2E6B30; }
+  @media (max-width: 900px) {
+    .of-project__inner { grid-template-columns: 1fr; gap: 40px; }
+    .of-project__stats-strip { grid-template-columns: repeat(2, 1fr); row-gap: 16px; border-radius: 0 0 12px 12px; }
+    .of-project__stat-div { display: none; }
+  }
+
+  /* ══════════════════════════════════════
+     RESPONSIVE — WHATIS / WHY / BENTO
+  ══════════════════════════════════════ */
+  @media (max-width: 1024px) {
+    .of-whatis__container,
+    .of-why__container { gap: 48px; }
+    .of-bento__compact { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .of-whatis { padding: 64px 5%; }
+    .of-whatis__container { grid-template-columns: 1fr; gap: 36px; }
+    .of-whatis__image { height: 280px; }
+    .of-why { padding: 64px 5%; }
+    .of-why__container { grid-template-columns: 1fr; gap: 36px; }
+    .of-why__image { height: 320px; }
+    .of-why__stat-card { position: static; margin-top: 16px; min-width: unset; }
+    .of-why__climate-facts { grid-template-columns: 1fr 1fr; }
+    .of-bento__compact { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .of-hero__stats-panel { padding: 20px 16px; }
+    .of-hero__stat { flex: 0 0 100%; }
+    .of-whatis__stats { flex-direction: column; gap: 16px; }
+    .of-whatis__stat-div { display: none; }
+    .of-why__climate-facts { grid-template-columns: 1fr; }
+  }
+
+  /* ══════════════════════════════════════
+     WHY / PROBLEM
+  ══════════════════════════════════════ */
+  .of-why {
+    background: var(--of-alt);
+    padding: 96px 5%;
+  }
+  .of-why__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: center;
+  }
+  .of-why__image-wrap {
+    position: relative;
+  }
+  .of-why__image {
+    width: 100%;
+    height: 560px;
+    object-fit: cover;
+    border-radius: var(--of-radius);
+    display: block;
+    box-shadow: 0 24px 60px rgba(13,26,15,0.12);
+  }
+  .of-why__stat-card {
+    position: absolute;
+    bottom: -16px;
+    right: -16px;
+    background: var(--of-dark);
+    border-radius: var(--of-radius);
+    padding: 18px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 12px 32px rgba(13,26,15,0.25);
+    min-width: 240px;
+  }
+  .of-why__stat-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.4;
+  }
+  .of-why__stat-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+  }
+  .of-why__eyebrow {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--of-green);
+    margin-bottom: 14px;
+  }
+  .of-why__headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.7rem, 2.8vw, 2.5rem);
+    font-weight: 700;
+    color: var(--of-dark);
+    line-height: 1.15;
+    margin-bottom: 18px;
+  }
+  .of-why__intro {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--of-text-sec);
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  .of-why__bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .of-why__bullets li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: var(--of-text-sec);
+    line-height: 1.65;
+  }
+  .of-why__bullets li svg {
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .of-why__climate-facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 28px;
+    padding: 20px;
+    background: rgba(255,255,255,0.6);
+    border: 1px solid var(--of-border);
+    border-radius: var(--of-radius);
+  }
+  .of-why__climate-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+  }
+  .of-why__climate-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--of-green);
+    line-height: 1;
+  }
+  .of-why__climate-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    color: var(--of-text-sec);
+    line-height: 1.4;
+    font-weight: 500;
+  }
+  .of-why__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--of-green);
+    text-decoration: none;
+    border-bottom: 2px solid var(--of-green);
+    padding-bottom: 2px;
+    transition: gap 0.2s;
+  }
+  .of-why__cta:hover { gap: 12px; }
+
+  /* ══════════════════════════════════════
+     TRUST BAR (shared swt- class)
+  ══════════════════════════════════════ */
+  .swt-trust {
+    background: #ffffff;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--of-border);
+  }
+  .swt-trust__label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--of-text-sec);
+    text-align: center;
+    margin: 0 0 20px;
+    opacity: 0.7;
+  }
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 5%;
+  }
+  .swt-body {
+    background: var(--of-white);
+  }
+
+
+  /* ══ HC-TESTIMONIALS ══ */
+  .hc-testimonials { background: #F5F3EE; padding: 80px 0; }
+  .hc-testimonials__inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+  .hc-testimonials__header { text-align: center; margin-bottom: 48px; }
+  .hc-testimonials__eyebrow { font-family: 'Space Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.22em; color: #7CB342; display: block; margin-bottom: 12px; }
+  .hc-testimonials__title { font-family: 'Playfair Display', serif; font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 700; color: #14201A; line-height: 1.15; letter-spacing: -0.02em; margin: 0; }
+  .hc-testimonials__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  @media (max-width: 900px) { .hc-testimonials__grid { grid-template-columns: 1fr; } }
+  @media (max-width: 600px) { .hc-testimonials__inner { padding: 0 20px; } .hc-testimonials { padding: 60px 0; } }
+
+
+  /* ══════════════════════════════════════
+     SHARED TOKENS
+  ══════════════════════════════════════ */
+  :root {
+    --of-green:        #4E6B2A;
+    --of-green-light:  #7CB342;
+    --of-dark:         #0D1A0F;
+    --of-cream:        #F4EFE6;
+    --of-alt:          #ECE4D4;
+    --of-border:       #E1D6C1;
+    --of-text-sec:     #5a6650;
+    --of-white:        #ffffff;
+    --of-radius:       6px;
+  }
+
+  /* ══════════════════════════════════════
+     SWT SHARED (swt-btn, swt-eyebrow, swt-h2)
+  ══════════════════════════════════════ */
+  .swt-btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 28px; border-radius: var(--swt-radius); font-family: 'Hanken Grotesk', sans-serif; font-size: 15px; font-weight: 600; text-decoration: none; cursor: pointer; border: 2px solid transparent; transition: all 0.2s ease; white-space: nowrap; }
+  .swt-btn--primary { background: var(--swt-green); color: var(--swt-white); border-color: var(--swt-green); }
+  .swt-btn--primary:hover { background: #3D5620; border-color: #3D5620; transform: translateY(-2px); }
+  .swt-eyebrow { display: inline-block; font-family: 'Hanken Grotesk', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--swt-green); margin-bottom: 12px; }
+  .swt-h2 { font-family: 'Fraunces', Georgia, serif; font-size: clamp(26px, 3vw, 40px); font-weight: 400; color: var(--swt-dark); line-height: 1.15; margin: 0 0 18px; }
+  .swt-h2--light { color: var(--swt-white); }
+  .swt-h2--center { text-align: center; }
+
+  /* ══ TESTIMONIAL MARQUEE ══ */
+  .hc-tmarq { padding: 5rem 0 4rem; background: #fff; overflow: hidden; }
+  .hc-tmarq__header { text-align: center; padding: 0 2rem; margin-bottom: 3rem; }
+  .hc-tmarq__eyebrow { display: block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #7CB342; margin-bottom: 0.75rem; }
+  .hc-tmarq__title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; color: #14201A; }
+  .hc-tmarq__row { width: 100%; overflow: hidden; margin-bottom: 1.25rem; }
+  .hc-tmarq__track { display: flex; gap: 1.25rem; width: max-content; will-change: transform; }
+  .hc-tmarq__row--fwd .hc-tmarq__track { animation: hc-marq-fwd 40s linear infinite; }
+  .hc-tmarq__row--rev .hc-tmarq__track { animation: hc-marq-rev 40s linear infinite; }
+  .hc-tmarq__row:hover .hc-tmarq__track { animation-play-state: paused; }
+  @keyframes hc-marq-fwd { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes hc-marq-rev { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+  .hc-tmarq__card { flex-shrink: 0; width: 360px; background: #F5F3EE; border: 1px solid #E5E0D8; border-radius: 16px; padding: 1.75rem; display: flex; flex-direction: column; gap: 1rem; }
+  .hc-tmarq__stars { color: #F59E0B; font-size: 0.9rem; letter-spacing: 2px; }
+  .hc-tmarq__quote { font-family: Georgia, serif; font-size: 0.95rem; line-height: 1.65; color: #333; font-style: italic; margin: 0; flex: 1; }
+  .hc-tmarq__person { display: flex; align-items: center; gap: 0.875rem; margin: 0; }
+  .hc-tmarq__avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+  .hc-tmarq__initials { width: 44px; height: 44px; border-radius: 50%; background: #7CB342; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; color: #fff; flex-shrink: 0; }
+  .hc-tmarq__name { font-size: 0.875rem; font-weight: 700; color: #14201A; margin: 0; }
+  .hc-tmarq__detail { font-size: 0.75rem; color: #6B7280; margin: 0; }
+
+  /* ══ BENTO ILLUSTRATED ══ */
+  .hc-bgi { padding: 5rem 2rem; background: #14201A; }
+  .hc-bgi__head { text-align: center; max-width: 640px; margin: 0 auto 3.5rem; }
+  .hc-bgi__eyebrow { display: block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #7CB342; margin-bottom: 0.75rem; }
+  .hc-bgi__title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.6rem, 3.5vw, 2.5rem); font-weight: 800; color: #fff; line-height: 1.15; margin: 0 0 1rem; }
+  .hc-bgi__sub { font-size: 1rem; color: rgba(255,255,255,0.65); line-height: 1.7; margin: 0; }
+  .hc-bgi__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; max-width: 1200px; margin: 0 auto; }
+  .hc-bgi__card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 2rem 1.5rem 1.75rem; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.5rem; transition: background 0.3s ease, transform 0.3s ease; }
+  .hc-bgi__card:hover { background: rgba(124,179,66,0.08); transform: translateY(-4px); }
+  .hc-bgi__art { width: 120px; height: 120px; flex-shrink: 0; }
+  .hc-bgi__svg { width: 100%; height: 100%; }
+  .hc-bgi__card-title { font-family: 'Playfair Display', Georgia, serif; font-size: 1.15rem; font-weight: 700; color: #fff; margin: 0 0 0.5rem; }
+  .hc-bgi__card-desc { font-size: 0.875rem; color: rgba(255,255,255,0.6); line-height: 1.65; margin: 0; }
+  /* SVG animations */
+  .hc-bgi__sun { transform-origin: 60px 48px; animation: hc-bgi-spin 8s linear infinite; }
+  .hc-bgi__rays { transform-origin: 60px 48px; animation: hc-bgi-spin 8s linear infinite; }
+  @keyframes hc-bgi-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  .hc-bgi__mercury { transform-origin: center bottom; animation: hc-bgi-mercury 3s ease-in-out infinite alternate; }
+  @keyframes hc-bgi-mercury { from { transform: scaleY(1); } to { transform: scaleY(0.55); } }
+  .hc-bgi__heat { animation: hc-bgi-heat-fade 2s ease-in-out infinite alternate; }
+  @keyframes hc-bgi-heat-fade { from { opacity: 0.6; } to { opacity: 0.1; } }
+  .hc-bgi__cool { animation: hc-bgi-cool-pulse 2s ease-in-out infinite alternate; }
+  @keyframes hc-bgi-cool-pulse { from { opacity: 0.3; } to { opacity: 0.9; } }
+  .hc-bgi__frost { animation: hc-bgi-frost 4s ease-in-out infinite alternate; }
+  @keyframes hc-bgi-frost { from { opacity: 0.35; } to { opacity: 0.75; } }
+  .hc-bgi__pulse { animation: hc-bgi-pulse 2.5s ease-in-out infinite; }
+  @keyframes hc-bgi-pulse { 0%, 100% { r: 28; opacity: 0.4; } 50% { r: 34; opacity: 0.15; } }
+  @media (max-width: 900px) { .hc-bgi__grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .hc-bgi__grid { grid-template-columns: 1fr; } }
+
+
+@media (max-width: 768px) {
+  .of-bento__compact { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .of-bento__compact { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .of-why__climate-facts { grid-template-columns: 1fr; }
+}
+</style>
+
+<script>
+
+  // ── FAQ Accordion ──
+  document.querySelectorAll('.swt-faq__item').forEach(item => {
+    item.querySelector('.swt-faq__q')?.addEventListener('click', () => {
+      const isOpen = item.classList.contains('swt-faq__item--open');
+      document.querySelectorAll('.swt-faq__item').forEach(i => i.classList.remove('swt-faq__item--open'));
+      if (!isOpen) item.classList.add('swt-faq__item--open');
+    });
+  });
+
+  // ── Film Types Slider ──
+  (() => {
+    const track = document.getElementById('hcFtypeTrack');
+    if (!track) return;
+    const slides = Array.from(document.querySelectorAll('.of-ftype__slide'));
+    const navItems = Array.from(document.querySelectorAll('[data-hcnav]'));
+    const progressBar = document.getElementById('hcFtypeProgressBar');
+    let current = 0;
+    let timer;
+    let progress = 0;
+    const DURATION = 7000;
+    const TICK = 50;
+
+    function goTo(idx) {
+      slides[current].classList.remove('of-ftype-active');
+      navItems[current] && navItems[current].classList.remove('of-ftype__nav-item--active');
+      current = ((idx % slides.length) + slides.length) % slides.length;
+      slides[current].classList.add('of-ftype-active');
+      navItems[current] && navItems[current].classList.add('of-ftype__nav-item--active');
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      progress = 0;
+      if (progressBar) progressBar.style.width = '0%';
+    }
+
+    function startTimer() {
+      clearInterval(timer);
+      progress = 0;
+      timer = setInterval(() => {
+        progress += (TICK / DURATION) * 100;
+        if (progressBar) progressBar.style.width = Math.min(progress, 100) + '%';
+        if (progress >= 100) goTo(current + 1);
+      }, TICK);
+    }
+
+    const prevBtn = document.getElementById('hcFtypePrev');
+    const nextBtn = document.getElementById('hcFtypeNext');
+    goTo(0);
+    startTimer();
+
+    if (nextBtn) nextBtn.addEventListener('click', () => { goTo(current + 1); startTimer(); });
+    if (prevBtn) prevBtn.addEventListener('click', () => { goTo(current - 1); startTimer(); });
+    navItems.forEach(btn => btn.addEventListener('click', () => { goTo(Number(btn.dataset.hcnav)); startTimer(); }));
+
+    document.querySelectorAll('.of-ftype__faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.of-ftype__faq-item');
+        const answer = item && item.querySelector('.of-ftype__faq-a');
+        const icon = btn.querySelector('.of-ftype__faq-icon');
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        const slide = btn.closest('.of-ftype__slide');
+        if (slide) {
+          slide.querySelectorAll('.of-ftype__faq-q').forEach(b => {
+            b.setAttribute('aria-expanded', 'false');
+            const ic = b.querySelector('.of-ftype__faq-icon');
+            if (ic) ic.style.transform = '';
+            const a = b.closest('.of-ftype__faq-item') && b.closest('.of-ftype__faq-item').querySelector('.of-ftype__faq-a');
+            if (a) a.hidden = true;
+          });
+        }
+        if (!isOpen) {
+          btn.setAttribute('aria-expanded', 'true');
+          if (icon) icon.style.transform = 'rotate(45deg)';
+          if (answer) answer.hidden = false;
+        }
+      });
+    });
+  })();
+
+
+</script>

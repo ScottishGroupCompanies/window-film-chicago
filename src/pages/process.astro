@@ -1,0 +1,285 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroSubpage from '../components/HeroSubpage.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+
+import InstallSteps from '../components/InstallSteps.astro';
+import CbondSection from '../components/CbondSection.astro';
+import AfterInstall from '../components/AfterInstall.astro';
+import BeforeAfterSlider from '../components/BeforeAfterSlider.astro';
+import FaqSection from '../components/FaqSection.astro';
+import CtaLightRays from '../components/CtaLightRays.astro';
+
+const title = 'Window Film Installation Salt Lake City | Free On-Site Quote';
+const description = 'Professional window film installation in Salt Lake City. C-Bond primer, plotter-cut film, certified installers. Free on-site consultation.';
+
+const heroImage = '/images/window-film-installation-salt-lake-city-hero.jpg';
+
+// ── HowTo schema steps (window film installation process) ──────
+const howToName  = 'How Window Film Is Installed in Salt Lake City';
+const howToDesc  = 'The four-stage window film installation process used by Window Film Salt Lake City — from free on-site consultation through C-Bond primer application, precision film installation, and final inspection.';
+const howToSteps = [
+  {
+    name: 'Free On-Site Consultation',
+    text: 'We visit your property, assess every pane, discuss your goals for heat, glare, UV, privacy, or security, take exact measurements, and draft a film specification. We then schedule installation at a time that works for you, including evenings and weekends.',
+    image: 'https://windowfilmsaltlakecity.com/images/window-film-installation-free-consultation-salt-lake-city.jpg',
+  },
+  {
+    name: 'Plotter Pre-Cut and C-Bond Preparation',
+    text: 'Film is precision-cut to your exact pane dimensions by plotter before installation day — no hand-trimming on site. On the day, every pane is cleaned thoroughly, then primed with C-Bond primer, which bonds with the glass at a molecular level to increase strength by at least 100% and prepare a superior adhesion surface.',
+    image: 'https://windowfilmsaltlakecity.com/images/2021-10-window-film-preparation-salt-lake-city.jpg',
+  },
+  {
+    name: 'Professional Window Film Application',
+    text: 'Pre-cut film is applied to C-Bond-primed glass and worked from center outward using professional squeegees. Edges are trimmed to exact clearance, cleaned, and inspected before the crew moves to the next pane.',
+    image: 'https://windowfilmsaltlakecity.com/images/2021-10-window-film-installation-salt-lake-city.jpg',
+  },
+  {
+    name: 'Final Inspection and Client Walkthrough',
+    text: 'Every installed pane is inspected for edge gaps, contamination, or air pockets. The client walks through the finished installation. Care instructions covering the 30-day cure period and long-term cleaning are provided in writing before the crew leaves.',
+    image: 'https://windowfilmsaltlakecity.com/images/window-film-installation-final-inspection-salt-lake-city.jpg',
+  },
+];
+
+// ── FAQ items for FAQPage schema ───────────────────────────────
+const faqItems = [
+  { question: 'Why do you use C-Bond primer instead of soap and water?', answer: 'C-Bond works at the molecular level to bond with the glass surface, increasing glass strength by at least 100%. Soap and water removes visible surface imperfections but does nothing for the glass itself. C-Bond also produces faster cure times, better film adhesion, and improved optical clarity — which is why we use it on every installation.' },
+  { question: 'How long does the film take to fully cure after installation?', answer: 'On C-Bond projects, the adhesive typically reaches full bond strength within 24 to 72 hours. During that window you may notice slight haziness or small water pockets beneath the film — both are normal and resolve on their own. Projects not using C-Bond can take up to four weeks to cure fully.' },
+  { question: 'What should I avoid during the cure period?', answer: 'For the first 30 days, avoid cleaning film-treated glass. No window sprays, no wiping, no squeegeeing. Do not press on the film or try to smooth out bubbles. We leave a care card after every installation with the specific instructions for your film type.' },
+  { question: 'How do I clean my windows once the film has cured?', answer: 'After the 30-day cure window, use a soft non-abrasive cloth and avoid ammonia-based cleaners. Most standard window-cleaning solutions are safe. We confirm the right products for your specific film during the final walkthrough.' },
+  { question: 'Can you schedule installation outside of regular business hours?', answer: 'Yes. We can schedule during evenings, early mornings, or weekends depending on project scope and crew availability. Let us know your constraints during the consultation and we will work around them.' },
+  { question: 'How does pre-cutting the film with a plotter benefit my project?', answer: 'Film pre-cut by plotter is sized to your exact pane dimensions before the crew arrives. This speeds up on-site installation, eliminates material waste from hand-trimming, and produces a cleaner edge finish on every pane.' },
+  { question: 'What is an attachment system and when do I need one?', answer: 'An attachment system bonds security film to the window frame — not just the glass — using Dow 995 silicone or mechanical options around the perimeter. This keeps broken glass connected to the frame during sustained impact. We recommend attachment systems for security film applications where forced-entry resistance is the primary goal.' },
+  { question: 'Will window film make my rooms look dark or change the color of the light?', answer: 'It depends on the film. Spectrally selective films reject heat and UV while remaining nearly clear. Darker reflective or tinted films reduce visible light more noticeably. We match the visible light transmission to your preference during the consultation so you know exactly what to expect before anything goes on your glass.' },
+  { question: 'Can window film be removed if I change my mind?', answer: 'Yes. Our team can safely remove film from any glass surface — peeling the film and cleaning the adhesive residue without damaging the glass. Some clients remove old film and replace it with a new solution; others remove it entirely.' },
+  { question: 'What is the difference between C-Bond I and C-Bond II?', answer: 'C-Bond I is the primer used on all standard window film applications — it strengthens glass, improves adhesion, speeds curing, and enhances clarity. C-Bond II is a specialized system applied when multiple film layers are built up in a single installation to create a high-defense barrier, including applications designed for ballistic resistance.' },
+];
+
+// ── Extra page schemas ─────────────────────────────────────────
+const pageSchemas: Record<string, unknown>[] = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      { '@type': 'ListItem', 'position': 1, 'name': 'Home',        'item': 'https://windowfilmsaltlakecity.com/' },
+      { '@type': 'ListItem', 'position': 2, 'name': 'Our Process', 'item': 'https://windowfilmsaltlakecity.com/process/' },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': 'https://windowfilmsaltlakecity.com/process/',
+    'url': 'https://windowfilmsaltlakecity.com/process/',
+    'name': 'Window Film Installation Salt Lake City | Free On-Site Quote',
+    'description': 'Professional window film installation in Salt Lake City. C-Bond primer, plotter-cut film, certified installers. Free on-site consultation for homes and businesses.',
+    'dateModified': new Date().toISOString().slice(0, 10),
+    'inLanguage': 'en-US',
+    'isPartOf': { '@id': 'https://windowfilmsaltlakecity.com/#website' },
+    'speakable': {
+      '@type': 'SpeakableSpecification',
+      'cssSelector': ['.hs-hero__title', '.prm__title', '.is-section__title', '.faq__title'],
+    },
+  },
+];
+
+
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical='https://windowfilmsaltlakecity.com/process/'
+  serviceName="Window Film Installation Salt Lake City"
+  serviceDesc="Professional window film installation in Salt Lake City for residential and commercial properties. C-Bond primer, precision plotter cutting, certified installers."
+  serviceUrl="https://windowfilmsaltlakecity.com/process/"
+  howToName={howToName}
+  howToDesc={howToDesc}
+  howToSteps={howToSteps}
+  faqItems={faqItems}
+  schemas={pageSchemas}
+>
+  <HeroSubpage
+    eyebrow="OUR PROCESS"
+    title="Window film installation in Salt Lake City, done right."
+    subtitle="From free consultation to final walkthrough — a simple, proven process trusted by Salt Lake City homeowners and businesses."
+    bg={heroImage}
+    cta1={{ label: 'Schedule Free Consultation', href: '/contact/' }}
+    cta2={{ label: 'See our services', href: '/services/' }}
+  />
+
+  <TrustStrip />
+
+  <div class="ip-page-body">
+
+    <InstallSteps />
+    <CbondSection />
+    <AfterInstall />
+    <BeforeAfterSlider />
+
+    <FaqSection />
+    <CtaLightRays />
+
+    <!-- GEO block: optimizes for AI answer engines per arxiv:2311.09735 -->
+
+</div>
+</BaseLayout>
+
+<style>
+
+/* ── ip-page-body wrapper ── */
+  .ip-page-body {
+    position: relative;
+    background: #ffffff;
+    margin-top: 0;
+    z-index: 10;
+    overflow: hidden;
+    padding-bottom: 0;
+  }
+
+
+
+
+
+  /* ── FAQ Section ── */
+  .faq-section {
+    padding: 5rem 5%;
+    background: #ffffff;
+  }
+
+  .faq-section .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .faq-section__title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 700;
+    color: var(--brand);
+    text-align: center;
+    margin: 0 0 3rem;
+    line-height: 1.2;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .faq-item {
+    border: 1px solid var(--light-gray, #EFEFED);
+    border-radius: var(--radius-md, 16px);
+    overflow: hidden;
+    transition: box-shadow 300ms ease;
+    background: #ffffff;
+  }
+
+  .faq-item:hover {
+    box-shadow: 0 4px 16px rgba(39, 46, 50, 0.06);
+  }
+
+  .faq-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background 200ms ease;
+    background: #ffffff;
+  }
+
+  .faq-trigger:hover {
+    background: var(--off-white);
+  }
+
+  .faq-q {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--brand);
+    line-height: 1.4;
+    flex: 1;
+  }
+
+  .faq-icon {
+    flex-shrink: 0;
+    color: var(--green);
+    transition: transform 300ms ease;
+    display: flex;
+    align-items: center;
+  }
+
+  .faq-item[data-open] .faq-icon {
+    transform: rotate(45deg);
+  }
+
+  .faq-item[data-open] .faq-trigger {
+    border-bottom: 1px solid var(--light-gray);
+  }
+
+  .faq-body {
+    padding: 1.25rem 1.5rem;
+    background: #ffffff;
+  }
+
+  .faq-body p {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    color: var(--text-mid, #4a4a4a);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    .trust-banner__inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .trust-banner__actions {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .btn {
+      width: 100%;
+    }
+  }
+</style>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('[data-faq]').forEach((item) => {
+    const trigger = item.querySelector('.faq-trigger') as HTMLButtonElement;
+    const body = item.querySelector('.faq-body') as HTMLElement;
+
+    if (!trigger || !body) return;
+
+    trigger.addEventListener('click', () => {
+      const isOpen = item.getAttribute('data-open') === 'true';
+
+      // Close all
+      document.querySelectorAll('[data-faq]').forEach((el) => {
+        el.setAttribute('data-open', 'false');
+        const elBody = el.querySelector('.faq-body') as HTMLElement;
+        const elTrigger = el.querySelector('.faq-trigger') as HTMLButtonElement;
+        if (elBody) elBody.hidden = true;
+        if (elTrigger) elTrigger.setAttribute('aria-expanded', 'false');
+      });
+
+      // Toggle current
+      if (!isOpen) {
+        item.setAttribute('data-open', 'true');
+        body.hidden = false;
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>

@@ -1,0 +1,692 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BrandLogos from '../../components/BrandLogos.astro';
+import FlipWords from '../../components/FlipWords.astro';
+import CategoryBlogFeed from '../../components/CategoryBlogFeed.astro';
+
+const title = 'Bomb Blast Window Film Salt Lake City | Blast Mitigation';
+const description = 'Bomb blast window film in Salt Lake City. GSA and ASTM-rated blast mitigation film for commercial, government, and high-occupancy buildings. Free assessment.';
+const heroImage = '/images/bomb-blast-window-film-salt-lake-city-hero.jpg';
+
+const faqItems = [
+  { question: 'What is blast mitigation window film and how does it work?', answer: 'Blast mitigation window film is a heavy-duty security film applied to glass that holds shattered glass fragments in place after a blast event. In an explosion, the primary cause of injury from glass is not the blast wave itself but the glass fragments propelled outward at high velocity. Blast mitigation film bonds to the glass and retains fragments in the film matrix when the glass breaks — dramatically reducing the projectile fragment hazard to occupants inside the building.' },
+  { question: 'What is the GSA TS01-2003 standard?', answer: 'GSA TS01-2003 is the U.S. General Services Administration\'s standard test method for measuring the resistance of window systems to blast loading. The standard defines test conditions, measurement criteria, and performance classifications (No Break, No Hazard, Minimal Hazard, Very Low Hazard) for glazing systems subjected to blast pressure. Films tested to GSA TS01-2003 have demonstrated documented blast fragment retention performance under standardized blast loading conditions.' },
+  { question: 'Does blast film work on existing glass?', answer: 'Yes. Blast mitigation film is a retrofit solution applied to existing glass without glass replacement. This makes it significantly more cost-effective than replacing standard glass with laminated safety glass or blast-resistant glazing systems. The film is applied to the interior glass surface and adheres with pressure-sensitive adhesive. An edge attachment system bonds the film at the perimeter of the frame — critical for maximizing blast resistance performance.' },
+  { question: 'What is the difference between blast film and standard security film?', answer: 'Standard security or safety film (2–4 mil) is designed for fragment retention after physical impact — forced entry, vandalism, accidents. Blast mitigation film (8–14 mil) is engineered for the specific load profile of a blast event — a high-pressure wave followed by a negative pressure phase that pulls glass outward. The heavier mil weight and pressure-sensitive adhesive system of blast film are calibrated for this dynamic loading pattern, not just static or impact resistance.' },
+  { question: 'Is blast mitigation film required in Salt Lake City?', answer: 'Blast mitigation film requirements for Salt Lake City buildings depend on the building type, occupancy, tenant profile, and applicable federal guidelines. Buildings housing federal tenants, high-value financial institutions, embassies or consulates, and certain government facilities may have explicit blast protection requirements under GSA or Department of Defense standards. Insurance carriers for high-occupancy buildings increasingly recommend blast mitigation as part of comprehensive security hardening. Our team can advise on requirements applicable to your specific building and tenant profile.' },
+  { question: 'What buildings in Salt Lake City most need bomb blast window film?', answer: 'The highest-priority Salt Lake City applications for blast mitigation include federal and government buildings, financial institutions and Class A office towers with high-profile tenants, hotels and convention centers with large public lobbies, hospitals and medical centers with emergency department exposure, transit hubs and transportation infrastructure, and high-density retail and hospitality venues in high-foot-traffic corridors.' },
+  { question: 'Does blast mitigation film also provide security against forced entry?', answer: 'Yes. At 8–14 mil thickness, blast mitigation films provide significant forced entry resistance in addition to blast fragment retention. The same properties that hold glass together under blast loading — film weight, adhesive bond strength, and edge attachment — also dramatically slow forced entry attempts through treated glass. For facilities with both blast and forced entry concerns, blast mitigation film addresses both with a single installation.' },
+  { question: 'What is the attachment system and why does it matter?', answer: 'The attachment system bonds the film to the window frame at the glass perimeter, preventing the glass-film unit from pulling away from the frame under blast negative pressure. Without an attachment system, the film may hold the glass fragments together but the entire glass unit can be expelled from the frame. With the attachment system properly specified and installed, the glass-film unit remains in the frame opening — maintaining the building envelope integrity after a blast event.' },
+  { question: 'How long does blast mitigation film installation take?', answer: 'We do not provide installation time estimates as they depend on the number and size of glass panels, access requirements, building height, whether an attachment system is required, and the film specification. We provide a realistic project timeline in your written proposal after the site assessment. Most commercial installations are completed with minimal disruption to building operations.' },
+  { question: 'How do I get blast mitigation window film installed in Salt Lake City?', answer: 'Contact us for a free site assessment. We evaluate your building\'s glass exposure, identify priority glazing zones (lobby, ground floor, blast-facing facades), and recommend the appropriate film specification and attachment system. We provide GSA TS01-2003 and ASTM F1642 compliance documentation for permit and insurance purposes. Our team has experience with government facility requirements and can support your approval process.' }
+];
+
+const pageSchemas = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://windowfilmsaltlakecity.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Benefits", "item": "https://windowfilmsaltlakecity.com/benefits/" },
+      { "@type": "ListItem", "position": 3, "name": "Blast Mitigation Window Film", "item": "https://windowfilmsaltlakecity.com/benefits/blast-mitigation/" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://windowfilmsaltlakecity.com/benefits/blast-mitigation/",
+    "name": title,
+    "description": description,
+    "dateModified": new Date().toISOString().slice(0, 10),
+    "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".bm-hero__title", ".bm-why__headline", ".swt-faq__a"] }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Blast Mitigation Window Film Types — Salt Lake City",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "3M Scotchshield Ultra S800", "description": "8 mil security film tested to GSA TS01-2003 blast standard. Holds glass fragments after detonation." },
+      { "@type": "ListItem", "position": 2, "name": "Solar Gard Armorcoat with Attachment", "description": "Heavy-duty blast mitigation film with edge attachment system. Tested to ASTM F1642 glazing standard." },
+      { "@type": "ListItem", "position": 3, "name": "Madico Clearshield Safety", "description": "Multi-layer blast mitigation film for government and high-security facilities. DOD and GSA compliant applications." }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Blast Mitigation Window Film Salt Lake City",
+    "description": "GSA and ASTM-rated bomb blast window film for Salt Lake City commercial, government, hotel, and high-occupancy buildings. Holds glass in place after blast events — reducing fragment injuries.",
+    "brand": { "@type": "Brand", "name": "Window Film Salt Lake City" },
+    "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "areaServed": "Salt Lake City, UT" },
+  }
+];
+
+const checkIcon = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#7CB342" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="#7CB342" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  ogImage={heroImage}
+  serviceName="Blast Mitigation Window Film"
+  serviceDesc="GSA and ASTM-rated blast mitigation film for Salt Lake City commercial, government, hotel, hospital, and high-occupancy buildings."
+  serviceUrl="https://windowfilmsaltlakecity.com/benefits/blast-mitigation/"
+  faqItems={faqItems}
+  schemas={pageSchemas}
+>
+  <section class="bm-hero">
+    <div class="bm-hero__bg" style={`background-image: url('${heroImage}')`} role="img" aria-label="Bomb blast window film in Salt Lake City installed on a commercial office tower"></div>
+    <div class="bm-hero__overlay"></div>
+    <div class="bm-hero__content">
+      <div class="bm-hero__eyebrow">
+        <span>Salt Lake City Blast Protection</span>
+      </div>
+      <h1 class="bm-hero__title">Bomb Blast Window Film in Salt Lake City</h1>
+      <p class="bm-hero__animated-line">
+        <FlipWords
+          words={["for Office Towers", "for Government Facilities", "for Hotels and Convention Centers", "for Hospitals and Medical Centers"]}
+          staticText=""
+          class="bm-hero__flip"
+        />
+      </p>
+      <p class="bm-hero__subtitle">GSA and ASTM-rated blast mitigation film that holds glass in place after a blast event — protecting Salt Lake City building occupants from fragment injury without replacing your glass.</p>
+      <div class="bm-hero__cta">
+        <a href="/contact/" class="bm-hero__btn-primary">Get a Free Assessment</a>
+        <a href="tel:8018954681" class="bm-hero__btn-secondary">Call (801) 895-4681</a>
+      </div>
+      <div class="bm-hero__stats-panel" aria-label="Blast mitigation film statistics">
+        <div class="bm-hero__stats-inner">
+          <div class="bm-hero__stat"><span class="bm-hero__stat-number">8–14 mil</span><span class="bm-hero__stat-label">Blast Film Thickness</span></div>
+          <div class="bm-hero__stat-divider" aria-hidden="true"></div>
+          <div class="bm-hero__stat"><span class="bm-hero__stat-number">GSA TS01-2003</span><span class="bm-hero__stat-label">Blast Standard</span></div>
+          <div class="bm-hero__stat-divider" aria-hidden="true"></div>
+          <div class="bm-hero__stat"><span class="bm-hero__stat-number">ASTM F1642</span><span class="bm-hero__stat-label">Glazing Standard</span></div>
+          <div class="bm-hero__stat-divider" aria-hidden="true"></div>
+          <div class="bm-hero__stat"><span class="bm-hero__stat-number">No Glass</span><span class="bm-hero__stat-label">Replacement Required</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="swt-body">
+    <section class="swt-trust">
+      <div class="container">
+        <p class="swt-trust__label">Trusted by Salt Lake City office towers, government facilities, hotels, hospitals, and high-occupancy commercial buildings.</p>
+        <BrandLogos />
+      </div>
+    </section>
+
+    <section class="bm-why" id="problem">
+      <div class="bm-why__container">
+        <div class="bm-why__image-wrap">
+          <img src="/images/bomb-blast-window-film-salt-lake-city-threat.jpg" alt="Downtown Salt Lake City commercial tower protected with bomb blast window film in Salt Lake City" title="Bomb blast window film in Salt Lake City for Downtown Salt Lake City commercial glass" class="bm-why__image" loading="lazy" />
+          <div class="bm-why__stat-card">
+            <p>Glass fragment injuries account for up to 90% of casualties from blast events in buildings — Whole Building Design Guide</p>
+          </div>
+        </div>
+        <div class="bm-why__content">
+          <div class="bm-why__eyebrow">The Risk</div>
+          <h2 class="bm-why__headline">Unprotected Glass Is the Primary Blast Hazard in Any Building</h2>
+          <ul class="bm-why__bullets">
+            <li set:html={`${checkIcon}<span>In a blast event, standard glass shatters and propels fragments at high velocity — the primary cause of occupant injury is not the blast wave but the glass.</span>`}></li>
+            <li set:html={`${checkIcon}<span>Blast mitigation film in Salt Lake City is applied to existing glass and holds shattered fragments in the film matrix — preventing the glass from becoming a projectile hazard.</span>`}></li>
+            <li set:html={`${checkIcon}<span>Salt Lake City's dense urban environment, federal building presence, high-profile hospitality, and international business profile create meaningful blast risk across the Class A office and government facility portfolio.</span>`}></li>
+            <li set:html={`${checkIcon}<span>GSA and Department of Defense guidelines increasingly require blast mitigation for any building housing federal tenants or high-value occupancies.</span>`}></li>
+          </ul>
+          <p class="bm-why__closing">"Laminated glass and window film are among the most cost-effective methods to reduce glass-fragment hazards from explosions in existing buildings," according to the <a href="https://www.wbdg.org/resources/windowsecurity" target="_blank" rel="noopener">Whole Building Design Guide — Window Security</a>. GSA TS01-2003 classifies blast glazing performance on a scale from "No Hazard" to "High Hazard," and Window Film Salt Lake City specifies 8–14 mil film with perimeter attachment to achieve a "Minimal Hazard" or "Low Hazard" rating on existing commercial glass. For broader forced-entry concerns, see our <a href="/benefits/safety-and-security/">commercial safety and security window film</a> page. Buildings with high solar load may also benefit from reviewing our <a href="/products/3m-window-film/">3M window film products</a>, some of which combine solar control with security performance.</p>
+          <a href="/contact/" class="bm-why__cta">Schedule a blast risk assessment</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bm-slider" id="bmSlider" aria-label="Blast mitigation film products">
+      <div class="bm-slider__track" id="bmTrack">
+        <div class="bm-slider__slide" data-slide="0">
+          <img src="/images/blast-mitigation-film-salt-lake-city-scotchshield.jpg" alt="3M Scotchshield Ultra S800 blast mitigation film on Salt Lake City office glass" title="Scotchshield Ultra S800 blast mitigation film Salt Lake City" class="bm-slider__bg" />
+          <div class="bm-slider__overlay"></div>
+          <div class="bm-slider__content">
+            <div class="bm-slider__step">01</div>
+            <h2 class="bm-slider__title">Scotchshield Ultra S800. GSA TS01-2003 Rated.</h2>
+            <p class="bm-slider__desc">3M Scotchshield Ultra S800 is an 8 mil optically clear blast mitigation film tested to GSA TS01-2003 — the U.S. General Services Administration's standard for blast-resistant window systems. It achieves a "Minimal Hazard" rating under GSA TS01-2003 when properly installed with an attachment system. The film holds glass fragments in place after a blast event, preventing them from becoming projectile hazards for occupants inside the building. 3M Scotchshield Ultra S800 — 8 mil, tested GSA TS01-2003 Minimal Hazard rating with proper attachment system installation.</p>
+            <div class="bm-slider__faq">
+              <div class="bm-slider__faq-item"><button class="bm-slider__faq-q" aria-expanded="false">What does "Minimal Hazard" mean in GSA testing?<span class="bm-slider__faq-icon" aria-hidden="true">+</span></button><div class="bm-slider__faq-a" hidden>Minimal Hazard is a GSA TS01-2003 performance classification showing that fragments are retained near the window opening rather than projected deep into the occupied area.</div></div>
+              <div class="bm-slider__faq-item"><button class="bm-slider__faq-q" aria-expanded="false">Does S800 require an attachment system?<span class="bm-slider__faq-icon" aria-hidden="true">+</span></button><div class="bm-slider__faq-a" hidden>For documented blast performance, yes. The attachment system bonds the film-glass unit to the frame so the system can resist both overpressure and the negative pressure phase.</div></div>
+              <div class="bm-slider__faq-item"><button class="bm-slider__faq-q" aria-expanded="false">Can S800 be applied to retrofit existing glass?<span class="bm-slider__faq-icon" aria-hidden="true">+</span></button><div class="bm-slider__faq-a" hidden>Yes. S800 is designed for retrofit installation on existing commercial glazing — no glass replacement required. It is the most widely specified blast film for Salt Lake City commercial projects.</div></div>
+            </div>
+            <a href="/contact/" class="bm-slider__cta">Get a Free Assessment</a>
+          </div>
+        </div>
+
+        <div class="bm-slider__slide" data-slide="1">
+          <img src="/images/bomb-blast-film-salt-lake-city-armorcoat.jpg" alt="Solar Gard Armorcoat blast film with attachment system on Salt Lake City commercial glass" title="Solar Gard Armorcoat ASTM F1642 bomb blast film Salt Lake City" class="bm-slider__bg" />
+          <div class="bm-slider__overlay"></div>
+          <div class="bm-slider__content">
+            <div class="bm-slider__step">02</div>
+            <h2 class="bm-slider__title">Armorcoat. Heavy Mil. ASTM F1642 Tested.</h2>
+            <p class="bm-slider__desc">Solar Gard Armorcoat blast mitigation film is available in 8 and 14 mil weights, tested to ASTM F1642, the standard specification for glazing and glazing systems subjected to airblast loadings. The Armorcoat installation includes a perimeter attachment system that bonds the film-glass unit to the window frame — critical for preventing glass expulsion from the frame opening during the negative pressure phase of a blast event. For Salt Lake City buildings where maximum fragment retention and frame integrity are required, Armorcoat with attachment is the specification of choice.</p>
+            <div class="bm-slider__faq">
+              <div class="bm-slider__faq-item"><button class="bm-slider__faq-q" aria-expanded="false">What is ASTM F1642?<span class="bm-slider__faq-icon" aria-hidden="true">+</span></button><div class="bm-slider__faq-a" hidden>ASTM F1642 is a glazing performance standard for systems subjected to airblast loadings. It is used to evaluate how glass, film, and attachment systems retain fragments under blast pressure.</div></div>
+              <div class="bm-slider__faq-item"><button class="bm-slider__faq-q" aria-expanded="false">What does the attachment system do?<span class="bm-slider__faq-icon" aria-hidden="true">+</span></button><div class="bm-slider__faq-a" hidden>The attachment system secures the treated glass to the frame so the glass-film unit is less likely to pull out of the opening when the blast wave reverses.</div></div>
+              <div class="bm-slider__faq-item"><button class="bm-slider__faq-q" aria-expanded="false">What is the difference between 8 and 14 mil Armorcoat?<span class="bm-slider__faq-icon" aria-hidden="true">+</span></button><div class="bm-slider__faq-a" hidden>Both are heavy security films, but the 14 mil specification adds mass and tear resistance for higher-risk exposures. We specify the weight after evaluating glass size, frame type, and risk profile.</div></div>
+            </div>
+            <a href="/contact/" class="bm-slider__cta">Get a Free Assessment</a>
+          </div>
+        </div>
+
+        <div class="bm-slider__slide" data-slide="2">
+          <img src="/images/blast-mitigation-window-film-salt-lake-city-government.jpg" alt="Madico Clearshield blast mitigation film for Salt Lake City government building" title="Madico Clearshield government blast mitigation film Salt Lake City" class="bm-slider__bg" />
+          <div class="bm-slider__overlay"></div>
+          <div class="bm-slider__content">
+            <div class="bm-slider__step">03</div>
+            <h2 class="bm-slider__title">Madico Clearshield. Government Proven.</h2>
+            <p class="bm-slider__desc">Madico Clearshield is a multi-layer blast mitigation film with documented installations across DOD and GSA facilities. Its multi-layer construction is designed specifically for the dynamic loading profile of a blast event — the combination of overpressure and negative pressure that standard single-layer films are not optimized for. For Salt Lake City government facilities, federal tenant buildings, and high-value commercial properties requiring maximum documented blast performance, Madico Clearshield provides a proven government-grade specification.</p>
+            <div class="bm-slider__faq">
+              <div class="bm-slider__faq-item"><button class="bm-slider__faq-q" aria-expanded="false">What is the difference between single-layer and multi-layer blast film?<span class="bm-slider__faq-icon" aria-hidden="true">+</span></button><div class="bm-slider__faq-a" hidden>Multi-layer systems are built to distribute force through several layers of polyester and adhesive, improving fragment retention under dynamic blast loading.</div></div>
+              <div class="bm-slider__faq-item"><button class="bm-slider__faq-q" aria-expanded="false">Does Madico comply with GSA requirements?<span class="bm-slider__faq-icon" aria-hidden="true">+</span></button><div class="bm-slider__faq-a" hidden>Madico Clearshield has documented government facility use and can be specified with the required performance documentation for GSA-oriented projects.</div></div>
+              <div class="bm-slider__faq-item"><button class="bm-slider__faq-q" aria-expanded="false">What documentation is provided?<span class="bm-slider__faq-icon" aria-hidden="true">+</span></button><div class="bm-slider__faq-a" hidden>We provide manufacturer specification sheets, installation records, product warranty terms, and compliance documentation applicable to the selected film and attachment system.</div></div>
+            </div>
+            <a href="/contact/" class="bm-slider__cta">Get a Free Assessment</a>
+          </div>
+        </div>
+      </div>
+      <nav class="bm-slider__nav" aria-label="Slide navigation">
+        <button class="bm-slider__nav-item bm-slider__nav-item--active" data-bmnav="0"><span class="bm-slider__nav-line"></span><span class="bm-slider__nav-label">S800</span></button>
+        <button class="bm-slider__nav-item" data-bmnav="1"><span class="bm-slider__nav-line"></span><span class="bm-slider__nav-label">Armorcoat</span></button>
+        <button class="bm-slider__nav-item" data-bmnav="2"><span class="bm-slider__nav-line"></span><span class="bm-slider__nav-label">Clearshield</span></button>
+      </nav>
+      <button class="bm-slider__arrow bm-slider__arrow--prev" id="bmPrev" aria-label="Previous slide">‹</button>
+      <button class="bm-slider__arrow bm-slider__arrow--next" id="bmNext" aria-label="Next slide">›</button>
+      <div class="bm-slider__progress"><div class="bm-slider__progress-bar" id="bmProgressBar"></div></div>
+    </section>
+
+    <section class="bm-bento" id="protection">
+      <div class="bm-bento__container">
+        <div class="bm-bento__header">
+          <div class="bm-bento__eyebrow">Fragment Retention</div>
+          <h2 class="bm-bento__headline">How does blast film change the failure pattern?</h2>
+          <p class="bm-bento__sub">Blast mitigation film is selected around the physics of glass failure: fragment velocity, frame pullout, and the negative pressure phase that follows the initial blast wave.</p>
+        </div>
+        <div class="bm-bento__grid">
+          <div class="bm-bento-card bm-bento-card--hero">
+            <div class="bm-bento-card__hero-icon" aria-hidden="true">
+              <svg width="58" height="58" viewBox="0 0 58 58" fill="none"><path d="M29 5l17 7v13c0 12-7 22-17 28-10-6-17-16-17-28V12l17-7z" stroke="#7CB342" stroke-width="2"/><path d="M17 31h24M20 21l18 18M38 21L20 39" stroke="#7CB342" stroke-width="1.7" stroke-linecap="round"/></svg>
+            </div>
+            <h3 class="bm-bento-card__hero-title">The Physics of Blast Hazard — and How Film Stops It</h3>
+            <p class="bm-bento-card__hero-text">Glass fragments propelled by blast events travel at velocities exceeding 100 mph — blast mitigation film holds them in the film matrix, preventing occupant injury. The film and attachment system turn uncontrolled fragments into a retained glass-film unit.</p>
+            <div class="bm-bento-card__pill">Fragment Retention Technology</div>
+          </div>
+          <div class="bm-bento-card bm-bento-card--photo">
+            <img src="/images/bomb-blast-window-film-salt-lake-city-commercial.jpg" alt="Commercial high-rise protected with bomb blast window film in Salt Lake City" title="Commercial high-rise bomb blast window film in Salt Lake City" loading="lazy" class="bm-bento-card__img" />
+            <div class="bm-bento-card__photo-overlay"></div>
+            <div class="bm-bento-card__photo-content"><h3>Commercial High-Rise Glass</h3><p>Lobby, podium, and ground-floor zones get priority treatment.</p></div>
+          </div>
+          <div class="bm-bento-card bm-bento-card--photo">
+            <img src="/images/blast-mitigation-film-salt-lake-city-office-glass.jpg" alt="Office glass treated for blast mitigation in a Salt Lake City commercial building" title="Salt Lake City office glass blast mitigation film" loading="lazy" class="bm-bento-card__img" />
+            <div class="bm-bento-card__photo-overlay"></div>
+            <div class="bm-bento-card__photo-content"><h3>Priority Glazing Zones</h3><p>Blast-facing facades, entries, and public-facing glass are evaluated first.</p></div>
+          </div>
+          <div class="bm-bento-card bm-bento-card--dark-accent">
+            <h3>GSA TS01-2003 &amp; ASTM F1642 Rated</h3>
+            <p>Specifications are selected from products tested to government and glazing blast standards, with the correct attachment method documented for the building record.</p>
+            <span class="bm-bento-card__micro-pill">Compliance Documentation</span>
+          </div>
+          <div class="bm-bento-card bm-bento-card--dark-pattern">
+            <h3>No Glass Replacement Required</h3>
+            <p>Blast mitigation film installs on existing glass — no removal or replacement required. The retrofit path controls cost while improving fragment retention, and most Salt Lake City installations require no additional glass work.</p>
+            <span class="bm-bento-card__micro-pill">Retrofit Protection</span>
+          </div>
+          <div class="bm-bento-card bm-bento-card--retail">
+            <img src="/images/bomb-blast-film-for-salt-lake-city-buildings.jpg" alt="Technical badge for cost-effective blast hazard mitigation in Salt Lake City buildings" title="WBDG-cited cost-effective blast mitigation film Salt Lake City" loading="lazy" class="bm-bento-card__img" />
+            <div class="bm-bento-card__retail-overlay"></div>
+            <div class="bm-bento-card__retail-content">
+              <div class="bm-bento-card__retail-badge">WBDG Cited</div>
+              <h3>Cost-Effective Hazard Mitigation</h3>
+              <p>Existing buildings can improve blast hazard performance without rebuilding the glazing system.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bm-masonry">
+      <div class="bm-masonry__header">
+        <span class="bm-masonry__eyebrow">Our Work</span>
+        <h2 class="bm-masonry__title">Blast Film Installed Where Glass Risk Is Highest</h2>
+        <p class="bm-masonry__sub">Commercial, civic, medical, transit, and hospitality applications across Salt Lake City.</p>
+      </div>
+      <div class="bm-masonry__grid">
+        <div class="bm-masonry__item"><img src="/images/bomb-blast-window-film-installation-salt-lake-city.jpg" alt="Blast film installation on office tower glass in Downtown Salt Lake City Salt Lake City" title="Bomb blast window film installation Salt Lake City office tower" loading="lazy" /><div class="bm-masonry__caption">Blast film installation — Office Tower, Downtown Salt Lake City Salt Lake City</div></div>
+        <div class="bm-masonry__item"><img src="/images/blast-mitigation-film-salt-lake-city-government.jpg" alt="Government building blast protection in Downtown Salt Lake City Salt Lake City" title="Government building blast mitigation film Salt Lake City" loading="lazy" /><div class="bm-masonry__caption">Government building blast protection — Downtown Salt Lake City Salt Lake City</div></div>
+        <div class="bm-masonry__item"><img src="/images/bomb-blast-window-film-salt-lake-city-high-rise.jpg" alt="Salt Lake City high-rise commercial building with bomb blast window film in Salt Lake City" title="Bomb blast window film in Salt Lake City high-rise building" loading="lazy" /><div class="bm-masonry__caption">Salt Lake City high-rise commercial building — blast mitigation film</div></div>
+        <div class="bm-masonry__item"><img src="/images/blast-mitigation-film-salt-lake-city-hospital.jpg" alt="Hospital building blast mitigation film in University District Salt Lake City" title="Hospital blast mitigation film Salt Lake City" loading="lazy" /><div class="bm-masonry__caption">Hospital building blast film — University District Salt Lake City</div></div>
+        <div class="bm-masonry__item"><img src="/images/bomb-blast-film-salt-lake-city-transit.jpg" alt="Transit hub security film protecting Salt Lake City public glass" title="Transit hub bomb blast film Salt Lake City" loading="lazy" /><div class="bm-masonry__caption">Transit hub security film — Salt Lake City</div></div>
+        <div class="bm-masonry__item"><img src="/images/blast-mitigation-window-film-salt-lake-city-hotel.jpg" alt="Hotel lobby blast film in Downtown Salt Lake City Salt Lake City" title="Hotel lobby blast mitigation window film Salt Lake City" loading="lazy" /><div class="bm-masonry__caption">Hotel lobby blast film — Downtown Salt Lake City Salt Lake City</div></div>
+      </div>
+    </section>
+
+    <section class="bm-panels">
+      <div class="bm-panels__heading">
+        <p class="bm-panels__eyebrow">Where We Install</p>
+        <h2 class="bm-panels__title">Blast-Protected Buildings Across Salt Lake City</h2>
+      </div>
+      <div class="bm-panels__grid">
+        <div class="bm-panels__panel"><img src="/images/bomb-blast-window-film-salt-lake-city-office-tower.jpg" alt="Office tower bomb blast window film in Salt Lake City" title="Bomb blast window film in Salt Lake City office tower" class="bm-panels__img" loading="lazy" /><div class="bm-panels__overlay"></div><div class="bm-panels__content"><h3>Office Towers &amp; Class A Commercial</h3><p class="bm-panels__sub-sm">Downtown Salt Lake City and University District office towers</p><p>Federal tenants and high-profile financial occupancies often require documented blast film specifications — including attachment system selection, GSA or ASTM compliance records, and installation completion reports. We prioritize lobby glass, ground floors, podium levels, and blast-facing facades.</p></div></div>
+        <div class="bm-panels__panel"><img src="/images/blast-mitigation-film-salt-lake-city-government-building.jpg" alt="Government facility blast mitigation film in Salt Lake City" title="Salt Lake City government building blast mitigation film" class="bm-panels__img" loading="lazy" /><div class="bm-panels__overlay"></div><div class="bm-panels__content"><h3>Government &amp; Civic Facilities</h3><p class="bm-panels__sub-sm">Federal buildings, municipal offices, court buildings, civic centers</p><p>Government facilities require blast film installations that match specific approval pathways — GSA TS01-2003 and ASTM F1642 documentation, product specification sheets, and installation completion records provided as standard.</p></div></div>
+        <div class="bm-panels__panel"><img src="/images/blast-mitigation-window-film-salt-lake-city-hotel.jpg" alt="Hotel lobby blast protection window film in Salt Lake City" title="Hotel lobby blast mitigation film Salt Lake City" class="bm-panels__img" loading="lazy" /><div class="bm-panels__overlay"></div><div class="bm-panels__content"><h3>Hotels &amp; Convention Centers</h3><p class="bm-panels__sub-sm">Large hotel lobbies and high-occupancy hospitality venues</p><p>Public-facing glass in hospitality environments can be upgraded while the building stays open. Bomb blast film for Salt Lake City hotels and convention centers retains glass fragments in lobby and event-space glass — protecting guests in high-occupancy settings.</p></div></div>
+        <div class="bm-panels__panel"><img src="/images/bomb-blast-film-salt-lake-city-hospital.jpg" alt="Hospital building blast protection window film in Salt Lake City" title="Hospital blast mitigation film Salt Lake City" class="bm-panels__img" loading="lazy" /><div class="bm-panels__overlay"></div><div class="bm-panels__content"><h3>Hospitals &amp; Healthcare</h3><p class="bm-panels__sub-sm">Intermountain Health, University of Utah Health, Primary Children's Hospital</p><p>High-occupancy health facilities require carefully phased access and documented product selection. Emergency department, lobby, corridor, and public-facing glass can be prioritized by risk.</p></div></div>
+      </div>
+    </section>
+
+    <section class="swt-stats">
+      <div class="container">
+        <div class="swt-stats__row">
+          <div class="swt-stats__item"><span class="swt-stats__num">90%</span><span class="swt-stats__label">of blast casualties caused by glass fragments (WBDG)</span></div>
+          <div class="swt-stats__div"></div>
+          <div class="swt-stats__item"><span class="swt-stats__num">GSA TS01-2003</span><span class="swt-stats__label">U.S. Government Blast Standard</span></div>
+          <div class="swt-stats__div"></div>
+          <div class="swt-stats__item"><span class="swt-stats__num">ASTM F1642</span><span class="swt-stats__label">Glazing Blast Performance Standard</span></div>
+          <div class="swt-stats__div"></div>
+          <div class="swt-stats__item"><span class="swt-stats__num">8–14 mil</span><span class="swt-stats__label">Blast Mitigation Film Thickness</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bm-process-split">
+      <div class="bm-process-split__container">
+        <div class="bm-process-split__content">
+          <div class="bm-process-split__eyebrow">Assessment to Documentation</div>
+          <h2 class="bm-process-split__title">A Compliance-Ready Blast Film Process</h2>
+      <p style="color:#555;font-size:1rem;line-height:1.7;margin:0 0 1.5rem;">A blast mitigation installation in Salt Lake City requires documented specification, proper attachment system selection, and compliance records — not just film application. Our process covers all three.</p>
+          <div class="bm-accordion">
+            <details class="bm-accordion__item" open><summary><span>01</span>Blast Risk Assessment<i>+</i></summary><p>We evaluate your building's glazing exposure zones, proximity to high-risk areas, tenant profile, and applicable GSA/insurance requirements. We identify priority glass (lobby, ground floor, blast-facing facades).</p></details>
+            <details class="bm-accordion__item"><summary><span>02</span>Specification &amp; Compliance Documentation<i>+</i></summary><p>We recommend the appropriate film and attachment system for your building's risk profile and provide GSA TS01-2003 and ASTM F1642 compliance documentation for your records, permits, and insurance carrier.</p></details>
+            <details class="bm-accordion__item"><summary><span>03</span>Professional Installation<i>+</i></summary><p>Our certified installers apply the film and attachment system to your specified glazing zones. We provide a completion report with film specification, warranty terms, and compliance documentation.</p></details>
+          </div>
+        </div>
+        <div class="bm-process-split__image-wrapper">
+          <img src="/images/blast-mitigation-film-installation-process-salt-lake-city.jpg" alt="Professional blast mitigation film installation process in Salt Lake City commercial building" title="Blast mitigation film installation process Salt Lake City" class="bm-process-split__image" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <section class="bm-reviews">
+      <div class="bm-reviews__header">
+        <p class="bm-reviews__badge-text">4.9 out of 5 ★★★★★ Google Reviews</p>
+        <h2 class="bm-reviews__title">Documented Protection for High-Risk Glass</h2>
+        <p class="bm-reviews__subtitle">Salt Lake City property leaders on bomb blast window film in Salt Lake City — documentation, compliance, and security upgrades.</p>
+      </div>
+      <div class="bm-reviews__carousel-outer">
+        <div class="bm-reviews__carousel" id="bmReviewsTrack">
+          <div class="bm-reviews__card"><img src="/images/bomb-blast-window-film-salt-lake-city-client-review-1.jpg" alt="Richard C. property manager review for bomb blast window film in Salt Lake City" title="Richard C. bomb blast window film Salt Lake City review" class="bm-reviews__card-photo" loading="lazy" /><div class="bm-reviews__card-body"><div class="bm-reviews__card-stars">★★★★★</div><p class="bm-reviews__card-name">Richard C.</p><p class="bm-reviews__card-quote">"We manage a Class A office building in Downtown Salt Lake City with federal tenants who require blast film on all ground-floor and lobby glass. The team understood GSA compliance requirements and provided full documentation. Installation was professionally managed."</p><p class="bm-reviews__card-sub">Property Manager — Class A Office Tower, Downtown Salt Lake City</p></div></div>
+          <div class="bm-reviews__card"><img src="/images/blast-mitigation-film-salt-lake-city-client-review-2.jpg" alt="Patricia H. security director review for Salt Lake City hotel blast mitigation film" title="Patricia H. blast mitigation film Salt Lake City hotel review" class="bm-reviews__card-photo" loading="lazy" /><div class="bm-reviews__card-body"><div class="bm-reviews__card-stars">★★★★★</div><p class="bm-reviews__card-name">Patricia H.</p><p class="bm-reviews__card-quote">"Our Salt Lake City hotel was updating its security posture following recommendations from our insurance carrier. Blast mitigation film on the lobby and ground floor glass was one of the recommendations. The cost was far less than we anticipated and the documentation was thorough."</p><p class="bm-reviews__card-sub">Security Director — Salt Lake City Hotel</p></div></div>
+          <div class="bm-reviews__card"><img src="/images/bomb-blast-film-salt-lake-city-client-review-3.jpg" alt="James O. facilities manager review for government facility bomb blast film Salt Lake City" title="James O. bomb blast film Salt Lake City government facility review" class="bm-reviews__card-photo" loading="lazy" /><div class="bm-reviews__card-body"><div class="bm-reviews__card-stars">★★★★★</div><p class="bm-reviews__card-name">James O.</p><p class="bm-reviews__card-quote">"Government facilities work requires precise documentation and compliance. The team knew the GSA TS01-2003 standard, provided the right product, and understood how to document the installation for our records. Excellent professional work."</p><p class="bm-reviews__card-sub">Facilities Manager — Government Facility, Salt Lake City</p></div></div>
+        </div>
+      </div>
+      <div class="bm-reviews__footer"><div class="bm-reviews__dots" id="bmReviewsDots"></div></div>
+    </section>
+
+    <section class="film-table" id="compare">
+      <div class="film-table__inner">
+        <div class="film-table__header">
+          <p class="film-table__eyebrow">Product Data</p>
+          <h2 class="film-table__title">Blast Mitigation Window Film — Product Comparison</h2>
+          <p class="film-table__sub">Manufacturer and standards data for products commonly specified for blast-focused Salt Lake City glazing projects.</p>
+        </div>
+        <div class="film-table__scroll">
+          <table class="film-table__tbl" aria-label="Blast mitigation window film product comparison">
+            <thead><tr><th>Product</th><th>Manufacturer</th><th>Thickness</th><th>GSA Standard</th><th>ASTM Standard</th><th>Attachment Required</th><th>UV Blocked</th></tr></thead>
+            <tbody>
+              <tr><td>Scotchshield Ultra S800</td><td>3M</td><td>8 mil</td><td>GSA TS01-2003</td><td>—</td><td>Recommended</td><td>99%</td></tr>
+              <tr><td>Armorcoat Safety Series</td><td>Solar Gard</td><td>8–14 mil</td><td>—</td><td>ASTM F1642</td><td>Required</td><td>99%</td></tr>
+              <tr><td>Clearshield Blast</td><td>Madico</td><td>14 mil</td><td>GSA compliant</td><td>ASTM F1642</td><td>Required</td><td>99%</td></tr>
+              <tr><td>Safety Series Ultra</td><td>LLumar</td><td>8 mil</td><td>—</td><td>ASTM F1642</td><td>Recommended</td><td>99%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="film-table__source">Source: 3M Scotchshield Ultra S800 TDS; Solar Gard Armorcoat product bulletin; Madico product specification; GSA TS01-2003 standard (2003); ASTM F1642-15.</p>
+      </div>
+    </section>
+
+    <section class="res-section">
+      <div class="res-section__inner">
+        <div class="res-section__image-col">
+          <img src="/images/bomb-blast-window-film-specs-resources-salt-lake-city.jpg" alt="Blast mitigation film specification resources for Salt Lake City commercial buildings" title="Bomb blast window film specs resources Salt Lake City" class="res-section__img" loading="lazy" />
+        </div>
+        <div class="res-section__content-col">
+          <p class="res-section__eyebrow">Technical Resources</p>
+          <h2 class="res-section__title">GSA &amp; ASTM Documentation for Compliance Review</h2>
+          <p class="res-section__body">GSA TS01-2003 compliance documentation, ASTM F1642 product specs, and government facility case studies for the blast mitigation films we install in Salt Lake City.</p>
+          <ul class="res-section__list">
+            <li><a href="/resources/security-window-film-3m-scotchshield-blast-mitigation-spec-salt-lake-city.pdf" target="_blank" rel="noopener noreferrer">3M Scotchshield — Blast Mitigation Security Film Specification</a></li>
+            <li><a href="/resources/3m-scotchshield-ultra-s800-product-bulletin-salt-lake-city.pdf" target="_blank" rel="noopener noreferrer">3M Scotchshield Ultra S800 — Product Bulletin</a></li>
+            <li><a href="/resources/government-window-film-solar-gard-armorcoat-safety-security-spec-salt-lake-city.pdf" target="_blank" rel="noopener noreferrer">Solar Gard Armorcoat — Safety &amp; Security Specification</a></li>
+            <li><a href="/resources/government-window-film-3m-scotchshield-armed-forces-service-center-case-study-salt-lake-city.pdf" target="_blank" rel="noopener noreferrer">3M Scotchshield — Armed Forces Service Center Case Study</a></li>
+            <li><a href="/resources/government-window-film-madico-clear-safety-security-case-study-salt-lake-city.pdf" target="_blank" rel="noopener noreferrer">Madico Clear Safety — Government Facility Case Study</a></li>
+          </ul>
+          <a href="/contact/" class="res-section__cta">Request documentation support</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="swt-faq" id="faq">
+      <div class="container">
+        <div class="swt-faq__layout">
+          <div class="swt-faq__header">
+            <span class="swt-eyebrow">Questions</span>
+            <h2 class="swt-h2">Frequently Asked Questions</h2>
+            <p>Technical answers about blast standards, attachment systems, retrofit glass, and specification support.</p>
+            <a href="/contact/" class="swt-btn swt-btn--primary">Talk to a Specialist</a>
+          </div>
+          <div class="swt-faq__list">
+            {faqItems.map((item) => (
+              <div class="swt-faq__item">
+                <div class="swt-faq__q"><span>{item.question}</span><span class="swt-faq__toggle">+</span></div>
+                <div class="swt-faq__a"><p set:html={item.answer}></p></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+<section class="bm-cinematic-cta">
+      <div class="bm-cinematic-cta__media" aria-hidden="true"></div>
+      <div class="bm-cinematic-cta__overlay" aria-hidden="true"></div>
+      <div class="bm-cinematic-cta__content">
+        <h2 class="bm-cinematic-cta__title">Ready to Assess Your Blast Exposure?</h2>
+        <p class="bm-cinematic-cta__text">Get a free blast film assessment for your Salt Lake City building — priority glazing zones, product specification, and compliance documentation included.</p>
+        <div class="bm-cinematic-cta__actions">
+          <a href="/contact/" class="bm-cinematic-cta__btn-primary">Get a Free Assessment</a>
+          <a href="tel:8018954681" class="bm-cinematic-cta__btn-secondary">Call (801) 895-4681</a>
+        </div>
+      </div>
+    </section>
+  </div>
+<CategoryBlogFeed categorySlug="bomb-blast" feedTitle="Latest Bomb Blast Protection Articles" />
+</BaseLayout>
+
+<style>
+  :root { --swt-green: #4E6B2A; --swt-green-accent: #83A94A; --swt-dark: #2A241E; --swt-cream: #F5F3EE; --swt-border: #E1D6C1; --swt-text-sec: #5d6658; --swt-white: #fff; }
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 5%; }
+  .swt-body { background: #fff; }
+  .bm-hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; text-align: center; }
+  .bm-hero__bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+  .bm-hero__overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(13,26,15,0.62), rgba(13,26,15,0.95)); }
+  .bm-hero__content { position: relative; z-index: 1; max-width: 900px; padding: 120px 24px 80px; color: #fff; }
+  .bm-hero__eyebrow, .bm-bento__eyebrow, .bm-masonry__eyebrow, .bm-panels__eyebrow, .film-table__eyebrow, .res-section__eyebrow, .swt-eyebrow, .bm-process-split__eyebrow { font-family: 'Space Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: .16em; color: #7CB342; font-weight: 700; }
+  .bm-hero__eyebrow { display: inline-flex; padding: 8px 18px; border: 1px solid rgba(124,179,66,.28); border-radius: 999px; background: rgba(124,179,66,.1); margin-bottom: 28px; }
+  .bm-hero__title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.35rem, 5.5vw, 4.2rem); line-height: 1.05; margin: 0 0 18px; color: #F3F6F1; }
+  .bm-hero__animated-line { min-height: 2em; margin: 0 0 18px; display: flex; justify-content: center; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.35rem, 3vw, 2.2rem); font-style: italic; }
+  .bm-hero__flip.flipwords-wrap, .bm-hero__flip .fw-word-col { display: block; width: 100%; text-align: center; }
+  .bm-hero__flip .fw-word { white-space: nowrap; color: #fff; }
+  .bm-hero__subtitle { max-width: 720px; margin: 0 auto 34px; font-family: 'Inter', sans-serif; font-size: 1.05rem; line-height: 1.75; color: rgba(243,246,241,.78); }
+  .bm-hero__cta, .bm-cinematic-cta__actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .bm-hero__btn-primary, .bm-hero__btn-secondary, .bm-slider__cta, .swt-btn, .bm-cinematic-cta__btn-primary, .bm-cinematic-cta__btn-secondary, .bm-why__cta, .res-section__cta { display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; padding: 14px 28px; font-family: 'Inter', sans-serif; font-weight: 700; text-decoration: none; transition: transform .2s, background .2s; }
+  .bm-hero__btn-primary, .bm-slider__cta, .swt-btn--primary, .bm-cinematic-cta__btn-primary { background: #7CB342; color: #fff; }
+  .bm-hero__btn-secondary, .bm-cinematic-cta__btn-secondary { color: #fff; border: 2px solid rgba(255,255,255,.35); }
+  .bm-hero__btn-primary:hover, .bm-hero__btn-secondary:hover, .bm-slider__cta:hover, .swt-btn:hover, .bm-cinematic-cta__btn-primary:hover, .bm-cinematic-cta__btn-secondary:hover { transform: translateY(-2px); }
+
+@media (max-width: 768px) {
+  .bm-slider { min-height: auto; }
+  .bm-slider__slide { min-height: auto; display: block; padding: 0; }
+  .bm-slider__bg { position: relative; width: 100%; height: 280px; object-fit: cover; }
+  .bm-slider__overlay { position: absolute; top: 0; left: 0; right: 0; height: 280px; background: linear-gradient(to bottom, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.50) 100%); }
+  .bm-slider__content { position: relative; padding: 32px 24px 48px; max-width: 100%; background: #0e1a14; }
+  .bm-slider__nav { display: none; }
+  .bm-slider__title { font-size: 1.75rem; }
+  .bm-slider__desc { font-size: 0.9rem; }
+  .bm-slider__arrow--prev { left: 20px; }
+  .bm-slider__arrow--next { right: 20px; }
+}
+@media (max-width: 768px) {
+  .bm-slider { min-height: auto; }
+
+  .bm-slider__overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.85) 100%); }
+  .bm-slider__content { padding-left: 5%; padding-right: 5%; max-width: 100%; }
+  .bm-slider__title { font-size: 1.75rem; }
+  .bm-slider__desc { font-size: 0.9rem; }
+  .bm-slider__arrow--prev { left: 20px; }
+  .bm-slider__arrow--next { right: 20px; }
+}
+  .bm-hero__stats-panel { max-width: 820px; margin: 50px auto 0; background: rgba(20,32,26,.66); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,.12); border-radius: 20px; padding: 4px; }
+  .bm-hero__stats-inner, .swt-stats__row { display: flex; align-items: stretch; justify-content: space-around; }
+  .bm-hero__stat, .swt-stats__item { flex: 1; text-align: center; padding: 20px 12px; }
+  .bm-hero__stat-number, .swt-stats__num { display: block; font-family: 'Space Mono', monospace; color: #7CB342; font-weight: 800; font-size: clamp(1rem, 2vw, 1.6rem); line-height: 1.1; }
+  .bm-hero__stat-label, .swt-stats__label { display: block; margin-top: 8px; font-family: 'Inter', sans-serif; font-size: .68rem; text-transform: uppercase; letter-spacing: .06em; color: rgba(243,246,241,.68); }
+  .bm-hero__stat-divider, .swt-stats__div { width: 1px; background: rgba(255,255,255,.14); margin: 16px 0; }
+  .swt-trust { padding: 34px 0; border-bottom: 1px solid var(--swt-border); background: #fff; }
+  .swt-trust__label { text-align: center; margin: 0 0 18px; font-family: 'Inter', sans-serif; font-size: .78rem; text-transform: uppercase; letter-spacing: .1em; color: var(--swt-text-sec); }
+  .bm-why, .bm-process-split, .film-table, .res-section { background: #F5F3EE; padding: 96px 24px; }
+  .bm-why__container, .bm-process-split__container, .res-section__inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+  .bm-why__image-wrap { position: relative; }
+  .bm-why__image, .bm-process-split__image, .res-section__img { width: 100%; border-radius: 16px; object-fit: cover; display: block; box-shadow: 0 18px 48px rgba(20,32,26,.12); }
+  .bm-why__image { aspect-ratio: 4/5; }
+  .bm-why__stat-card { position: absolute; left: -18px; bottom: 28px; max-width: 330px; padding: 22px; border-radius: 14px; background: rgba(14,26,20,.9); color: #F3F6F1; font-family: 'Inter', sans-serif; line-height: 1.6; box-shadow: 0 14px 38px rgba(0,0,0,.22); }
+  .bm-why__headline, .bm-bento__headline, .bm-masonry__title, .bm-panels__title, .film-table__title, .res-section__title, .swt-h2, .bm-process-split__title, .bm-reviews__title, .bm-cinematic-cta__title { font-family: 'Playfair Display', Georgia, serif; color: #14201A; line-height: 1.15; font-size: clamp(2rem, 4vw, 3rem); margin: 12px 0 24px; }
+  .bm-why__bullets { list-style: none; padding: 0; margin: 0 0 24px; display: grid; gap: 15px; }
+  .bm-why__bullets li { display: flex; gap: 12px; align-items: flex-start; font-family: 'Inter', sans-serif; color: #4A5C48; line-height: 1.7; }
+  .bm-why__bullets svg { flex: 0 0 16px; margin-top: 5px; }
+  .bm-why__closing, .bm-bento__sub, .bm-masonry__sub, .film-table__sub, .res-section__body, .swt-faq__header p, .bm-cinematic-cta__text { font-family: 'Inter', sans-serif; color: #4A5C48; line-height: 1.75; }
+  .bm-why__closing a, .swt-faq__a :global(a), .res-section__item a, .film-table__source a { color: #5a7a2e; text-decoration: underline; text-underline-offset: 3px; font-weight: 700; }
+  .bm-why__cta, .res-section__cta { color: #5a7a2e; padding-left: 0; }
+  .bm-slider { position: relative; min-height: 92vh; overflow: hidden; background: #14201A; }
+  .bm-slider__track { display: flex; transition: transform .65s cubic-bezier(.4,0,.2,1); }
+
+  .bm-slider__slide { position: relative; min-width: 100%; min-height: 92vh; display: flex; align-items: center; }
+  .bm-slider__bg, .bm-bento-card__img, .bm-panels__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .bm-slider__overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(0,0,0,.78), rgba(0,0,0,.28), transparent); }
+  .bm-slider__content { position: relative; z-index: 2; max-width: 590px; padding: 80px; color: #fff; }
+  .bm-slider__step { font-family: 'Space Mono', monospace; color: #7CB342; letter-spacing: .2em; margin-bottom: 14px; }
+  .bm-slider__title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.1; margin: 0 0 20px; color: #fff; }
+  .bm-slider__desc, .bm-slider__faq-a { font-family: 'Inter', sans-serif; line-height: 1.7; color: rgba(255,255,255,.82); }
+  .bm-slider__faq { display: grid; gap: 8px; margin: 24px 0; }
+  .bm-slider__faq-q { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 12px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.12); color: #fff; text-align: left; font-family: 'Inter', sans-serif; cursor: pointer; }
+  .bm-slider__faq-a { padding: 12px 14px; background: rgba(255,255,255,.08); border-radius: 0 0 8px 8px; font-size: .9rem; }
+  .bm-slider__nav { position: absolute; right: 44px; top: 50%; transform: translateY(-50%); display: grid; gap: 20px; z-index: 4; }
+  .bm-slider__nav-item { display: flex; gap: 10px; align-items: center; background: transparent; border: 0; color: #fff; opacity: .45; cursor: pointer; }
+  .bm-slider__nav-item--active { opacity: 1; }
+  .bm-slider__nav-line { width: 3px; height: 34px; border-radius: 3px; background: #fff; }
+  .bm-slider__nav-item--active .bm-slider__nav-line { background: #7CB342; height: 48px; }
+  .bm-slider__nav-label { font-family: 'Inter', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: .14em; }
+  .bm-slider__arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 5; width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(255,255,255,.2); background: rgba(0,0,0,.42); color: #fff; font-size: 32px; cursor: pointer; }
+  .bm-slider__arrow--prev { left: 28px; } .bm-slider__arrow--next { right: 28px; }
+  .bm-slider__progress { position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: rgba(255,255,255,.14); }
+  .bm-slider__progress-bar { height: 100%; width: 0; background: #7CB342; }
+  .bm-bento { background: #0d1a0f; padding: 100px 24px; }
+  .bm-bento__container { max-width: 1200px; margin: 0 auto; }
+  .bm-bento__header { text-align: center; max-width: 740px; margin: 0 auto 54px; }
+  .bm-bento__headline { color: #F3F6F1; }
+  .bm-bento__sub { color: rgba(243,246,241,.7); }
+  .bm-bento__grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
+  .bm-bento-card { position: relative; min-height: 280px; border-radius: 18px; overflow: hidden; padding: 32px; background: #14201A; color: #F3F6F1; }
+  .bm-bento-card--hero { grid-column: span 6; min-height: 420px; background: linear-gradient(145deg, #1a3024, #0d1a0f); border: 1px solid rgba(124,179,66,.18); }
+  .bm-bento-card--photo { grid-column: span 3; padding: 0; }
+  .bm-bento-card--dark-accent, .bm-bento-card--dark-pattern, .bm-bento-card--retail { grid-column: span 4; }
+  .bm-bento-card--dark-pattern::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(124,179,66,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(124,179,66,.05) 1px, transparent 1px); background-size: 24px 24px; }
+  .bm-bento-card__photo-overlay, .bm-bento-card__retail-overlay, .bm-panels__overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.85), rgba(0,0,0,.18)); }
+  .bm-bento-card__photo-content, .bm-bento-card__retail-content { position: absolute; left: 0; right: 0; bottom: 0; padding: 26px; z-index: 1; }
+  .bm-bento-card h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.5rem; line-height: 1.2; margin: 0 0 12px; color: #fff; }
+  .bm-bento-card p { font-family: 'Inter', sans-serif; line-height: 1.7; color: rgba(243,246,241,.76); }
+  .bm-bento-card__pill, .bm-bento-card__micro-pill, .bm-bento-card__retail-badge { display: inline-block; border: 1px solid rgba(124,179,66,.28); background: rgba(124,179,66,.12); color: #AED581; border-radius: 999px; padding: 7px 13px; font-family: 'Space Mono', monospace; font-size: .68rem; text-transform: uppercase; letter-spacing: .1em; }
+  .bm-masonry, .bm-panels, .bm-reviews, .swt-faq { padding: 96px 24px; background: #fff; }
+  .bm-masonry__header, .bm-panels__heading, .film-table__header, .bm-reviews__header { text-align: center; max-width: 760px; margin: 0 auto 52px; }
+  .bm-masonry__grid { columns: 3; column-gap: 16px; max-width: 1200px; margin: 0 auto; }
+  .bm-masonry__item { position: relative; margin: 0 0 16px; break-inside: avoid; border-radius: 14px; overflow: hidden; }
+  .bm-masonry__item img { width: 100%; display: block; border-radius: 14px; }
+  .bm-masonry__caption { position: absolute; left: 0; right: 0; bottom: 0; padding: 42px 16px 14px; background: linear-gradient(to top, rgba(0,0,0,.75), transparent); color: #fff; font-family: 'Inter', sans-serif; font-size: 12px; }
+  .bm-panels { padding-left: 0; padding-right: 0; padding-bottom: 0; }
+  .bm-panels__grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .bm-panels__panel { position: relative; min-height: 560px; overflow: hidden; }
+  .bm-panels__content { position: absolute; z-index: 1; left: 0; right: 0; bottom: 0; padding: 32px; color: #fff; }
+  .bm-panels__content h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.7rem; margin: 0 0 8px; }
+  .bm-panels__content p { font-family: 'Inter', sans-serif; line-height: 1.6; color: rgba(255,255,255,.84); }
+  .swt-stats { background: #83A94A; padding: 70px 0; }
+  .swt-stats__num, .swt-stats__label { color: #fff; }
+  .bm-process-split__image { height: 620px; }
+  .bm-accordion { display: grid; gap: 14px; }
+  .bm-accordion__item { background: #fff; border-radius: 14px; overflow: hidden; }
+  .bm-accordion__item summary { display: flex; align-items: center; gap: 16px; padding: 24px 28px; cursor: pointer; list-style: none; font-family: 'Playfair Display', Georgia, serif; color: #14201A; font-size: 1.2rem; font-weight: 700; }
+  .bm-accordion__item summary::-webkit-details-marker { display: none; }
+  .bm-accordion__item summary span { font-family: 'Space Mono', monospace; color: #7CB342; }
+  .bm-accordion__item summary i { margin-left: auto; font-style: normal; color: #7CB342; font-size: 1.6rem; }
+  .bm-accordion__item p { margin: 0; padding: 0 28px 28px; font-family: 'Inter', sans-serif; color: #4A5C48; line-height: 1.75; }
+  .bm-reviews__carousel { display: flex; gap: 24px; overflow-x: auto; justify-content: center; padding-bottom: 18px; scrollbar-width: none; }
+  .bm-reviews__card { min-width: 350px; max-width: 390px; flex: 1; }
+  @media (max-width: 768px) {
+    .bm-reviews__card { min-width: 280px; max-width: 280px; }
+    .bm-reviews__card-photo { height: 280px; }
+  }
+  @media (max-width: 480px) {
+    .bm-reviews__card { min-width: 240px; max-width: 240px; }
+    .bm-reviews__card-photo { height: 240px; }
+  }
+  .bm-reviews__card-photo { width: 100%; height: 360px; object-fit: cover; object-position: top center; border-radius: 14px; }
+  .bm-reviews__card-stars { color: #7CB342; letter-spacing: 3px; margin: 14px 0 8px; }
+  .bm-reviews__card-name { font-family: 'Inter', sans-serif; font-weight: 800; color: #14201A; margin: 0 0 8px; }
+  .bm-reviews__card-quote { font-family: 'Playfair Display', Georgia, serif; font-style: italic; line-height: 1.6; color: #14201A; }
+  .bm-reviews__card-sub { font-family: 'Inter', sans-serif; color: #4A5C48; font-size: .9rem; }
+  .bm-reviews__dots { display: flex; justify-content: center; gap: 8px; }
+  .bm-reviews__dot { width: 9px; height: 9px; border-radius: 50%; border: 0; background: #ccc; }
+  .bm-reviews__dot.active { width: 24px; border-radius: 999px; background: #7CB342; }
+  .film-table__inner { max-width: 1250px; margin: 0 auto; }
+  .film-table__scroll { overflow-x: auto; border-radius: 14px; box-shadow: 0 12px 35px rgba(0,0,0,.08); }
+  .film-table__tbl { width: 100%; border-collapse: collapse; background: #fff; font-family: 'Inter', sans-serif; font-size: .9rem; }
+  .film-table__tbl th { background: #14201A; color: #fff; text-align: left; padding: 15px 14px; font-size: .76rem; text-transform: uppercase; letter-spacing: .06em; }
+  .film-table__tbl td { padding: 15px 14px; border-bottom: 1px solid #eee; color: #14201A; }
+  .film-table__tbl tr:nth-child(even) td { background: #fafaf8; }
+  .film-table__source { font-family: 'Inter', sans-serif; color: #5d6658; line-height: 1.7; font-size: .83rem; margin-top: 18px; }
+  .res-section__img { height: 520px; }
+  .res-section__list { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+  .res-section__item a, .res-section__list a { font-family: 'Inter', sans-serif; color: #14201A; text-decoration: underline; text-decoration-color: #7CB342; text-underline-offset: 3px; font-weight: 700; }
+  .swt-faq__layout { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 310px 1fr; gap: 70px; }
+  .swt-faq__item { border-bottom: 1px solid var(--swt-border); padding: 18px 0; }
+  .swt-faq__q { display: flex; justify-content: space-between; gap: 18px; cursor: pointer; font-family: 'Inter', sans-serif; font-weight: 800; color: #14201A; }
+  .swt-faq__toggle { color: #7CB342; font-size: 22px; }
+  .swt-faq__a { display: none; font-family: 'Inter', sans-serif; color: #4A5C48; line-height: 1.75; }
+  .swt-faq__item--open .swt-faq__a { display: block; }
+  .swt-faq__item--open .swt-faq__toggle { transform: rotate(45deg); }
+  .bm-cinematic-cta { position: relative; min-height: 520px; display: grid; place-items: center; text-align: center; overflow: hidden; }
+  .bm-cinematic-cta__media { position: absolute; inset: 0; background-image: url('/images/bomb-blast-window-film-specs-resources-salt-lake-city.jpg'); background-size: cover; background-position: center; }
+  .bm-cinematic-cta__overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(13,26,15,.9), rgba(46,107,48,.72), rgba(13,26,15,.9)); }
+  .bm-cinematic-cta__content { position: relative; z-index: 1; max-width: 780px; padding: 80px 24px; }
+  .bm-cinematic-cta__title { color: #F3F6F1; }
+  .bm-cinematic-cta__text { color: rgba(243,246,241,.82); }
+  @media (max-width: 1024px) {
+    .bm-bento-card--hero, .bm-bento-card--dark-accent, .bm-bento-card--dark-pattern, .bm-bento-card--retail { grid-column: span 12; }
+    .bm-bento-card--photo { grid-column: span 6; }
+    .bm-panels__grid { grid-template-columns: repeat(2, 1fr); }
+    .swt-stats__row, .bm-hero__stats-inner { flex-wrap: wrap; }
+    .swt-stats__div, .bm-hero__stat-divider { display: none; }
+  }
+  @media (max-width: 800px) {
+    .bm-why__container, .bm-process-split__container, .res-section__inner, .swt-faq__layout { grid-template-columns: 1fr; gap: 40px; }
+    .bm-slider__content { padding: 74px 46px; }
+    .bm-slider__nav { display: none; }
+    .bm-masonry__grid { columns: 1; }
+    .bm-panels__grid { grid-template-columns: 1fr; }
+    .bm-bento-card--photo { grid-column: span 12; }
+    .bm-reviews__carousel { justify-content: flex-start; }
+    .bm-why__stat-card { position: static; margin-top: -28px; }
+  }
+
+@media (max-width: 768px) {
+  .bm-bento__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .bm-bento__grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .bm-panels__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .bm-panels__grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<script>
+  document.querySelectorAll('.swt-faq__item').forEach(item => {
+    item.querySelector('.swt-faq__q')?.addEventListener('click', () => {
+      const isOpen = item.classList.contains('swt-faq__item--open');
+      document.querySelectorAll('.swt-faq__item').forEach(i => i.classList.remove('swt-faq__item--open'));
+      if (!isOpen) item.classList.add('swt-faq__item--open');
+    });
+  });
+
+  document.querySelectorAll('.bm-accordion__item').forEach(item => {
+    item.addEventListener('toggle', () => {
+      if (item.open) {
+        document.querySelectorAll('.bm-accordion__item').forEach(other => {
+          if (other !== item) other.removeAttribute('open');
+        });
+      }
+    });
+  });
+
+  (function initReviews() {
+    const track = document.getElementById('bmReviewsTrack');
+    const dotsEl = document.getElementById('bmReviewsDots');
+    if (!track || !dotsEl) return;
+    const cards = track.querySelectorAll('.bm-reviews__card');
+    cards.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'bm-reviews__dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', `Go to review ${i + 1}`);
+      dot.addEventListener('click', () => track.scrollTo({ left: i * 414, behavior: 'smooth' }));
+      dotsEl.appendChild(dot);
+    });
+    track.addEventListener('scroll', () => {
+      const idx = Math.round(track.scrollLeft / 414);
+      dotsEl.querySelectorAll('.bm-reviews__dot').forEach((dot, i) => dot.classList.toggle('active', i === idx));
+    }, { passive: true });
+  })();
+
+  (function initSlider() {
+    const track = document.getElementById('bmTrack');
+    const slides = document.querySelectorAll('.bm-slider__slide');
+    const navItems = document.querySelectorAll('[data-bmnav]');
+    const prevBtn = document.getElementById('bmPrev');
+    const nextBtn = document.getElementById('bmNext');
+    const progressBar = document.getElementById('bmProgressBar');
+    if (!track || !slides.length) return;
+    let current = 0;
+    const total = slides.length;
+
+    function goTo(i) {
+      current = (i + total) % total;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      navItems.forEach((n, idx) => n.classList.toggle('bm-slider__nav-item--active', idx === current));
+      if (progressBar) {
+        progressBar.style.transition = 'none';
+        progressBar.style.width = '0';
+        setTimeout(() => { progressBar.style.transition = 'width 6s linear'; progressBar.style.width = '100%'; }, 50);
+      }
+    }
+
+    prevBtn?.addEventListener('click', () => goTo(current - 1));
+    nextBtn?.addEventListener('click', () => goTo(current + 1));
+    navItems.forEach((n, i) => n.addEventListener('click', () => goTo(i)));
+
+    document.querySelectorAll('.bm-slider__faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        const slide = btn.closest('.bm-slider__slide');
+        slide?.querySelectorAll('.bm-slider__faq-q').forEach(b => {
+          b.setAttribute('aria-expanded', 'false');
+          const a = b.nextElementSibling;
+          if (a) a.hidden = true;
+        });
+        if (!expanded) {
+          btn.setAttribute('aria-expanded', 'true');
+          const a = btn.nextElementSibling;
+          if (a) a.hidden = false;
+        }
+      });
+    });
+
+    let timer = setInterval(() => goTo(current + 1), 6000);
+    document.getElementById('bmSlider')?.addEventListener('mouseenter', () => clearInterval(timer));
+    document.getElementById('bmSlider')?.addEventListener('mouseleave', () => { timer = setInterval(() => goTo(current + 1), 6000); });
+    goTo(0);
+  })();
+</script>

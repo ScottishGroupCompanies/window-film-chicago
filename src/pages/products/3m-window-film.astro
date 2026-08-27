@@ -1,0 +1,3041 @@
+---
+/* Hallmark · redesign · macrostructure: numbered-alternating-rows · tone: professional-editorial
+ * template: benefits.astro · anchor hue: green (#81AB4C) */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FlipWords from '../../components/FlipWords.astro';
+import BrandLogos from '../../components/BrandLogos.astro';
+import CountUp from '../../components/animations/CountUp.astro';
+import TestimonialMarquee from '../../components/TestimonialMarquee.astro';
+import { Icon } from 'astro-icon/components';
+import threeMProducts from '../../data/3m-products.json';
+
+const title = '3M Window Film in Salt Lake City | Authorized 3M Installer';
+const description = '3M window film in Salt Lake City — Sun Control, Thinsulate, Scotchshield & Fasara. Authorized 3M installer, manufacturer warranty. Free estimate.';
+
+const featuredSections = [
+  {
+    number: '01',
+    heading: '3M Sun Control Window Film',
+    body: '3M Sun Control Window Film is one of the most effective energy-saving upgrades available for Salt Lake City residential and commercial properties. It reduces solar heat buildup by up to 79%, blocks 99.9% of UV radiation, and cuts glare - all while maintaining clear, natural views. Most properties achieve a full return on investment within three years through HVAC savings alone. Available in a range of visible light transmission levels, Sun Control film is ideal for offices, homes, retail storefronts, and any building with significant glass exposure.',
+    img: '/images/3m-commercial-glare-energy-savings-dallas-scaled-1.webp',
+    alt: '3M sun control window film Salt Lake City',
+    href: '/benefits/energy-savings/',
+    cta: 'Explore Energy Savings',
+  },
+  {
+    number: '02',
+    heading: '3M Scotchshield Safety & Security Window Film',
+    body: "3M Scotchshield Safety and Security Window Film is a premium polyester film engineered to hold shattered glass together on impact - protecting building occupants from injury during break-ins, severe weather, and accidents. The tear-resistant film deters smash-and-grab theft by dramatically increasing forced-entry time, provides invisible 24/7 protection, and is trusted by government facilities, schools, and commercial properties throughout Salt Lake City. It's available in a range of thickness levels to match your threat profile and budget.",
+    img: '/images/safety-window-film-salt-lake-city-1.webp',
+    alt: '3M Scotchshield safety security window film Salt Lake City',
+    href: '/benefits/safety-and-security/',
+    cta: 'Explore Safety & Security',
+  },
+  {
+    number: '03',
+    heading: '3M Fasara Decorative Window Film',
+    body: '3M Fasara Decorative Window Film transforms ordinary glass into a design element - delivering frosted, etched, geometric, and custom-printed glass aesthetics without the cost or permanence of replacement glass. Fasara films are ideal for conference rooms, office partitions, retail windows, lobbies, and healthcare facilities where privacy, branding, and design all matter. Films are available in over 100 patterns and can be combined with custom digital printing for fully bespoke signage and branding applications.',
+    img: '/images/custom-decorative-window-film-salt-lake-city-scaled-2.webp',
+    alt: '3M Fasara decorative window film Salt Lake City',
+    href: '/benefits/decorative-promotional/',
+    cta: 'Explore Decorative Film',
+  },
+];
+
+const benefitItems = [
+  { icon: 'lucide:thermometer',   title: '3M Sun Control',         sub: 'Cuts solar heat gain by up to 79%' },
+  { icon: 'lucide:shield-check',  title: '3M Scotchshield',        sub: 'Tear-resistant safety & security film' },
+  { icon: 'lucide:palette',       title: '3M Fasara Decorative',   sub: '100+ patterns, custom printing available' },
+  { icon: 'lucide:wind',          title: '3M Thinsulate',          sub: 'Year-round climate control & insulation' },
+  { icon: 'lucide:sun',           title: 'Daylight Redirecting',   sub: 'Channels natural light deeper indoors' },
+  { icon: 'lucide:leaf',          title: 'LEED Eligible',          sub: 'Qualifies for green building credits' },
+  { icon: 'lucide:trending-down', title: 'Fast ROI',               sub: 'Most properties recoup in 3 years or less' },
+  { icon: 'lucide:award',         title: '3M Certified Install',   sub: 'Manufacturer-backed warranty on all work' },
+];
+
+const threeMCatalogSeries = Object.values(
+  threeMProducts.reduce((groups, product) => {
+    if (!groups[product.series]) {
+      groups[product.series] = {
+        name: product.series,
+        color: product.seriesColor,
+        products: [],
+      };
+    }
+    groups[product.series].products.push(product);
+    return groups;
+  }, {})
+);
+
+const truncateCatalogDescription = (text) => text.length > 80 ? `${text.slice(0, 77)}...` : text;
+---
+
+<BaseLayout title={title} description={description} canonical="https://windowfilmsaltlakecity.com/products/3m-window-film/">
+
+<!-- ═══════════════════════════════════════════
+     STRUCTURED DATA
+═══════════════════════════════════════════ -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "https://windowfilmsaltlakecity.com/products/3m-window-film/#breadcrumb",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://windowfilmsaltlakecity.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://windowfilmsaltlakecity.com/products/" },
+    { "@type": "ListItem", "position": 3, "name": "3M Window Film in Salt Lake City", "item": "https://windowfilmsaltlakecity.com/products/3m-window-film/" }
+  ]
+})}></script>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://windowfilmsaltlakecity.com/products/3m-window-film/#webpage",
+  "url": "https://windowfilmsaltlakecity.com/products/3m-window-film/",
+  "name": "3M Window Film in Salt Lake City | Authorized 3M Installer",
+  "description": "3M window film in Salt Lake City — Sun Control, Thinsulate, Scotchshield, Fasara & Daylight Redirecting film. Authorized 3M installer, manufacturer warranty. Free estimate.",
+  "dateModified": new Date().toISOString().slice(0, 10),
+  "isPartOf": { "@type": "WebSite", "@id": "https://windowfilmsaltlakecity.com/#website", "url": "https://windowfilmsaltlakecity.com/", "name": "Window Film Salt Lake City" },
+  "breadcrumb": { "@id": "https://windowfilmsaltlakecity.com/products/3m-window-film/#breadcrumb" },
+  "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".m3-hero__subtitle", ".m3-why__intro", ".m3-faq__a"] }
+})}></script>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "3M Window Film Products Available in Salt Lake City",
+  "description": "Full 3M architectural window film lineup installed in Salt Lake City by an authorized dealer with manufacturer-backed warranty.",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "3M Sun Control Prestige Series", "description": "Rejects up to 79% solar heat and 99.9% of UV radiation. NFRC-rated. Ideal for Salt Lake City offices, rowhomes, and retail properties with south or west glass exposure." },
+    { "@type": "ListItem", "position": 2, "name": "3M Thinsulate Climate Control", "description": "Year-round insulating film that retains indoor heat in winter and rejects solar gain in summer. Engineered for Salt Lake City's four-season IECC Zone 5B climate." },
+    { "@type": "ListItem", "position": 3, "name": "3M Scotchshield Safety & Security Film", "description": "Tear-resistant polyester film that holds shattered glass together on impact. Trusted by government, schools, and commercial properties throughout Salt Lake City for smash-and-grab deterrence and blast mitigation." },
+    { "@type": "ListItem", "position": 4, "name": "3M Fasara Decorative Film", "description": "Over 100 frosted, etched, and geometric patterns for Salt Lake City offices, lobbies, conference rooms, and retail storefronts. Removable and LEED-eligible." },
+    { "@type": "ListItem", "position": 5, "name": "3M Daylight Redirecting Film", "description": "Microstructured prismatic film that bounces natural light up to 40 feet deep into a space. Reduces artificial lighting loads in Salt Lake City offices, classrooms, and healthcare facilities." },
+    { "@type": "ListItem", "position": 6, "name": "3M Night Vision Series", "description": "Reflective film that provides daytime privacy from the outside while preserving outward visibility from inside. Available in multiple reflectance levels for Salt Lake City residential and commercial properties." }
+  ]
+})}></script>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What 3M window film products does Window Film Salt Lake City install?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Window Film Salt Lake City installs the full 3M architectural window film lineup, including Sun Control (solar/energy), Thinsulate Climate Control (insulation), Scotchshield Safety & Security, Fasara Decorative, Daylight Redirecting, and Night Vision films. Both residential-grade and commercial-grade products are available for every application and budget." }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does 3M window film last, and does it come with a warranty?",
+      "acceptedAnswer": { "@type": "Answer", "text": "3M window films are designed to last 10 to 20+ years depending on the product, glass type, and sun exposure. All 3M films installed by Window Film Salt Lake City include a manufacturer-backed warranty covering film performance, adhesion, and color stability. Residential installations typically carry a lifetime warranty; commercial installations vary by product series." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between 3M Sun Control and 3M Thinsulate?",
+      "acceptedAnswer": { "@type": "Answer", "text": "3M Sun Control film is primarily a summer product that rejects solar heat to reduce cooling costs and glare. 3M Thinsulate Climate Control film is engineered for year-round performance, adding an insulating layer that retains interior heat in winter while still rejecting solar heat in summer. For Salt Lake City\'s four-season climate, Thinsulate often delivers a better year-round ROI." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can 3M window film be applied to double-pane insulated glass?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. 3M makes specific film series designed for insulated glass units (IGUs). Selecting the wrong film for double-pane glass can cause thermal stress and seal failure. Window Film Salt Lake City evaluates your glass type, orientation, and goals before recommending a film, ensuring compatibility with 3M\'s approved specifications." }
+    },
+    {
+      "@type": "Question",
+      "name": "How does 3M Daylight Redirecting Film work, and where is it most useful?",
+      "acceptedAnswer": { "@type": "Answer", "text": "3M Daylight Redirecting Film uses a microstructured prismatic surface to redirect incoming sunlight upward toward the ceiling, distributing natural light up to 40 feet deep into a room. This reduces the need for artificial lighting and improves daylighting in Salt Lake City offices, classrooms, and healthcare facilities." }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly will I see a return on investment from 3M window film?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Commercial properties with large glazing areas typically see full ROI within 2 to 3 years through energy savings alone. Residential properties typically see ROI within 3 to 5 years. For security films like Scotchshield, the ROI calculation also includes avoided theft losses, reduced insurance premiums, and deferred glass replacement costs." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is 3M window film worth it for Salt Lake City winters?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, particularly for Salt Lake City\'s large stock of aging single-pane rowhome glass. 3M Thinsulate Climate Control film reduces winter heat loss by adding an insulating layer without replacing the window. In IECC Climate Zone 5B, Thinsulate-installed windows can improve winter U-value by up to 35%." }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does 3M window film cost in Salt Lake City?",
+      "acceptedAnswer": { "@type": "Answer", "text": "3M window film pricing in Salt Lake City depends on the series, glass area, and installation complexity. Solar control films (Prestige Series) typically range from $8 to $14 per square foot installed. Thinsulate Climate Control runs $10 to $16 per square foot. Scotchshield Safety and Security film ranges from $9 to $18 per square foot. Decorative Fasara films start around $6 per square foot." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can 3M window film qualify for LEED or energy efficiency credits?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Several 3M window film products are eligible for LEED v4 credits under the Daylight and Views category and the Energy and Atmosphere category. 3M Daylight Redirecting Film can contribute to LEED daylighting credits. Window Film Salt Lake City can provide NFRC-certified product specifications and installation documentation for credit submissions." }
+    },
+    {
+      "@type": "Question",
+      "name": "Will 3M window film work on historic or older Salt Lake City windows?",
+      "acceptedAnswer": { "@type": "Answer", "text": "3M window film can be applied to most single-pane historic glass, including wavy antique glass common in Salt Lake City rowhomes. For double-pane IGUs common in mid-century renovations, 3M makes specific film series rated for IGU application. Window Film Salt Lake City always performs a glass type and orientation assessment before recommending a film." }
+    }
+  ]
+})}></script>
+
+<!-- ═══════════════════════════════════════════
+     GEO — visually hidden, speakable-targeted direct answer
+═══════════════════════════════════════════ -->
+
+<!-- ══ HERO ══ -->
+<section class="m3-hero">
+  <div
+    class="m3-hero__bg"
+    style="background-image: url('/images/3m-window-film-salt-lake-city-hero.jpg')"
+    role="img"
+    aria-label="3M certified installer applying window film to floor-to-ceiling glass in a Salt Lake City office building with City Hall visible in the background"
+  ></div>
+  <div class="m3-hero__overlay"></div>
+
+  <div class="m3-hero__content">
+
+    <div class="m3-hero__eyebrow">
+      <span>3M Window Film</span>
+      <span class="m3-hero__eyebrow-dot" aria-hidden="true"></span>
+      <span>Salt Lake City, UT</span>
+      <span class="m3-hero__eyebrow-dot" aria-hidden="true"></span>
+      <span>Authorized Installer</span>
+    </div>
+
+    <h1 class="m3-hero__title">3M Window Film<br class="m3-hero__br"/> for Salt Lake City</h1>
+
+    <p class="m3-hero__animated-line">
+      Advanced film solutions for
+      <FlipWords
+        words={["offices", "rowhomes", "retail spaces", "hospitals", "schools"]}
+        staticText=""
+        class="m3-hero__flip"
+      />.
+    </p>
+
+    <p class="m3-hero__subtitle">
+      Window Film Salt Lake City is an authorized 3M installer serving Salt Lake City, Park City, Salt Lake Valley, and surrounding suburbs. Sun Control, Thinsulate, Scotchshield, Fasara - the full 3M lineup, professionally installed with a manufacturer-backed warranty.
+    </p>
+
+    <div class="m3-hero__cta">
+      <a href="/contact/" class="m3-hero__btn-primary">Get Your Free Estimate</a>
+      <a href="tel:8018954681" class="m3-hero__btn-secondary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" fill="currentColor"/></svg>
+        Call (801) 895-4681
+      </a>
+    </div>
+
+    <div class="m3-hero__stats-panel" aria-label="Key 3M window film statistics">
+      <div class="m3-hero__stats-inner">
+        <CountUp end={79} suffix="%" label="Max Heat Rejection" />
+        <div class="m3-hero__stat-divider" aria-hidden="true"></div>
+        <CountUp end={99} suffix=".9%" label="UV Blocked" />
+        <div class="m3-hero__stat-divider" aria-hidden="true"></div>
+        <CountUp end={3} suffix="yr" label="Avg Commercial ROI" />
+        <div class="m3-hero__stat-divider" aria-hidden="true"></div>
+        <CountUp end={20} suffix="yr" label="Film Lifespan" />
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="ip-page-body">
+
+<!-- ══════════════════════════════════════
+     SECTION 2 - INTRO + TRUST BAR
+     ══════════════════════════════════════ -->
+<section class="m3-intro">
+  <div class="m3-intro__inner">
+
+    <div class="m3-intro__image-col">
+      <div class="m3-intro__image-wrap">
+        <img
+          src="/images/3m-window-film-salt-lake-city-intro.jpg"
+          alt="3M certified installer applying window film to a Salt Lake City row home window"
+          title="3M window film installation Salt Lake City — authorized installer"
+          width="600"
+          height="720"
+          loading="lazy"
+          class="m3-intro__img"
+        />
+        <div class="m3-intro__badge">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.09 6.26H21l-5.47 3.97 2.09 6.27L12 14.54l-5.62 3.96 2.09-6.27L3 8.26h6.91L12 2z" fill="#81AB4C"/></svg>
+          <span>3M Authorized Installer</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="m3-intro__content">
+      <span class="m3-intro__eyebrow">Why 3M &amp; Window Film Salt Lake City</span>
+      <h2 class="m3-intro__title">Why choose 3M window film for your property?</h2>
+      <p class="m3-intro__lead">3M invented the category. Their window film engineers have spent decades refining solar control, safety, insulation, and decorative film technology - backed by the same R&amp;D infrastructure behind 3M Post-its, Scotch tape, and aerospace adhesives. That matters when you're choosing a film that will perform on your glass for 15-20 years.</p>
+      <p class="m3-intro__body">Window Film Salt Lake City is an authorized 3M dealer and installer for 3M window film in Salt Lake City. That means we carry the full lineup — not just a subset — and every installation is backed by a manufacturer-issued warranty, not just a contractor's word. From a single rowhome window to a Downtown Salt Lake City high-rise, we spec, install, and warrant every product the way 3M requires.</p>
+      <div class="m3-intro__creds">
+        <div class="m3-intro__cred">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#81AB4C" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="#81AB4C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          3M Authorized Installer
+        </div>
+        <div class="m3-intro__cred">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#81AB4C" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="#81AB4C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Licensed &amp; Insured
+        </div>
+        <div class="m3-intro__cred">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#81AB4C" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="#81AB4C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Serving Salt Lake City Since 2008
+        </div>
+      </div>
+      <div class="m3-intro__ctas">
+        <a href="/contact/" class="pp-btn pp-btn--primary">Get a Free Quote</a>
+        <a href="tel:8018954681" class="pp-btn pp-btn--ghost">Call (801) 895-4681</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ TRUST BAR ══ -->
+<section class="m3-trust">
+  <div class="m3-trust__inner">
+    <p class="m3-trust__label">Salt Lake City's authorized 3M installer &mdash; stocking the full product lineup</p>
+    <div class="m3-trust__badges">
+      <div class="m3-trust__badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.09 6.26H21l-5.47 3.97 2.09 6.27L12 14.54l-5.62 3.96 2.09-6.27L3 8.26h6.91L12 2z" fill="#81AB4C"/></svg>
+        3M Authorized Installer
+      </div>
+      <div class="m3-trust__sep" aria-hidden="true"></div>
+      <div class="m3-trust__badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.09 6.26H21l-5.47 3.97 2.09 6.27L12 14.54l-5.62 3.96 2.09-6.27L3 8.26h6.91L12 2z" fill="#81AB4C"/></svg>
+        Licensed &amp; Insured
+      </div>
+      <div class="m3-trust__sep" aria-hidden="true"></div>
+      <div class="m3-trust__badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.09 6.26H21l-5.47 3.97 2.09 6.27L12 14.54l-5.62 3.96 2.09-6.27L3 8.26h6.91L12 2z" fill="#81AB4C"/></svg>
+        Manufacturer-Backed Warranty
+      </div>
+      <div class="m3-trust__sep" aria-hidden="true"></div>
+      <div class="m3-trust__badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.09 6.26H21l-5.47 3.97 2.09 6.27L12 14.54l-5.62 3.96 2.09-6.27L3 8.26h6.91L12 2z" fill="#81AB4C"/></svg>
+        Serving Salt Lake Since 2008
+      </div>
+    </div>
+  </div>
+</section>
+<BrandLogos />
+
+<!-- ══════════════════════════════════════
+     SECTION 3 - WHY 3M FOR SALT LAKE CITY
+     ══════════════════════════════════════ -->
+<section class="m3-why">
+  <div class="m3-why__container">
+
+    <div class="m3-why__image-wrap">
+      <img
+        src="/images/3m-window-film-salt-lake-city-why.jpg"
+        alt="Salt Lake City red brick rowhome with large bay windows on a bright sunny summer day - the city's heat and single-pane glass make the right window film critical"
+          title="Salt Lake City rowhome single-pane glass — why 3M window film matters"
+        width="768"
+        height="960"
+        loading="lazy"
+        class="m3-why__image"
+      />
+      <div class="m3-why__stat-card">
+        <div class="m3-why__stat-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7CB342" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span>IECC Climate Zone 5B &mdash; 4 full seasons</span>
+        </div>
+        <div class="m3-why__stat-divider"></div>
+        <div class="m3-why__stat-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7CB342" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span>~2,500 sunshine hours per year</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="m3-why__content">
+      <span class="m3-why__eyebrow">Why 3M for Salt Lake City</span>
+      <h2 class="m3-why__headline">Salt Lake City's Climate Makes the Right Film Non-Negotiable</h2>
+      <p class="m3-why__intro">
+        Salt Lake City sits in IECC Climate Zone 5B — a cold semi-arid zone with hot, dry summers and genuine snowy winters. That means a window film that only handles summer heat is only doing half the job. 3M is one of the few manufacturers with a product line engineered specifically for four-season performance: <a href="/benefits/energy-savings/" class="m3-body-link">Sun Control for summer solar load</a>, Thinsulate for winter insulation, and everything in between. Add Salt Lake City's large stock of aging single-pane rowhome glass and Downtown Salt Lake City high-rises with floor-to-ceiling glazing, and the range and precision of 3M's lineup becomes a real advantage.
+      </p>
+      <ul class="m3-why__bullets">
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#7CB342" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="#7CB342" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Old rowhome single-pane glass loses heat fast in winter - 3M Thinsulate adds an insulating layer without replacing the window
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#7CB342" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="#7CB342" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Downtown Salt Lake City offices with large glass walls face severe solar heat gain from south and west exposures - 3M Sun Control rejects up to 79%
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#7CB342" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="#7CB342" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Retail and commercial properties on busy corridors benefit from <a href="/benefits/safety-and-security/" class="m3-body-link">3M Scotchshield's smash-and-grab deterrence</a></span>
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#7CB342" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="#7CB342" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>All 3M architectural films are <a href="https://www.nibs.org/" target="_blank" rel="noopener noreferrer" class="m3-body-link">NFRC-certified</a> — independently rated for VLT, SHGC, and U-value so you know exactly what you're getting</span>
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#7CB342" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="#7CB342" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          3M's manufacturer warranty travels with the product - if a film fails within spec, 3M backs the replacement, not just the installer
+        </li>
+      </ul>
+      <div class="m3-why__climate-facts">
+        <div class="m3-why__climate-item">
+          <span class="m3-why__climate-num">2,500</span>
+          <span class="m3-why__climate-label">Sunshine hours per year</span>
+        </div>
+        <div class="m3-why__climate-item">
+          <span class="m3-why__climate-num">87°F</span>
+          <span class="m3-why__climate-label">Average July high</span>
+        </div>
+        <div class="m3-why__climate-item">
+          <span class="m3-why__climate-num">Zone 5B</span>
+          <span class="m3-why__climate-label">High-desert, 4 seasons</span>
+        </div>
+      </div>
+      <p style="font-family:var(--font-body,'DM Sans',sans-serif);font-size:15px;color:var(--text-mid,#4a4a4a);line-height:1.7;margin:0 0 18px;">3M window film in Salt Lake City is specified from the same <a href="https://www.3m.com/3M/en_US/architectural-window-films-us/" target="_blank" rel="noopener" class="m3-body-link">3M architectural window film lineup</a> used in commercial and government buildings worldwide. For decorative applications, see our <a href="/benefits/decorative-promotional/" class="m3-body-link">decorative window film</a> options.</p>
+      <a href="/contact/" class="m3-why__cta">
+        Get a free film assessment &rarr;
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SECTION 4 - RESIDENTIAL / COMMERCIAL SLIDER
+     ══════════════════════════════════════ -->
+<section class="m3-slider" id="m3Slider">
+  <div class="m3-slider__track" id="m3Track">
+
+    <!-- SLIDE 01: Residential -->
+    <div class="m3-slider__slide" data-slide="0">
+      <img src="/images/3m-window-film-salt-lake-city-residential.jpg" alt="Bright Salt Lake City rowhouse living room with 3M window film on bay windows"
+          title="3M residential window film for Salt Lake City rowhomes" class="m3-slider__bg" loading="lazy" />
+      <div class="m3-slider__overlay"></div>
+      <div class="m3-slider__content">
+        <div class="m3-slider__step">01</div>
+        <h2 class="m3-slider__title">Salt Lake City homes deserve 3M precision</h2>
+        <p class="m3-slider__desc">Salt Lake City's housing stock runs on single-pane glass - beautiful to look through, terrible for heat retention in winter and solar gain in summer. 3M Thinsulate and Sun Control films are engineered specifically for this: one insulates, one rejects heat, and both protect without replacing your windows.</p>
+        <div class="m3-slider__faq">
+          <div class="m3-slider__faq-item">
+            <button class="m3-slider__faq-q" aria-expanded="false">Which 3M film is best for Salt Lake rowhomes?<span class="m3-slider__faq-icon" aria-hidden="true">+</span></button>
+            <div class="m3-slider__faq-a" hidden>It depends on your primary concern. For summer heat and glare, 3M Sun Control is the standard recommendation - it rejects up to 79% of solar heat. For year-round performance including winter insulation on older single-pane windows, 3M Thinsulate is often a better fit. We assess your glass and orientation during a free consultation before recommending.</div>
+          </div>
+          <div class="m3-slider__faq-item">
+            <button class="m3-slider__faq-q" aria-expanded="false">Will film change how my home looks from the street?<span class="m3-slider__faq-icon" aria-hidden="true">+</span></button>
+            <div class="m3-slider__faq-a" hidden>Most residential 3M films are optically clear or very lightly tinted - virtually undetectable from street level. High-clarity spectrally selective options maintain a natural glass appearance while still rejecting significant heat. We'll show you samples before any installation.</div>
+          </div>
+          <div class="m3-slider__faq-item">
+            <button class="m3-slider__faq-q" aria-expanded="false">Can film go on my bay windows or historic glass?<span class="m3-slider__faq-icon" aria-hidden="true">+</span></button>
+            <div class="m3-slider__faq-a" hidden>Yes - bay windows and older single-pane glass are among the most common residential applications we handle in Salt Lake City. 3M makes specific film series approved for single-pane glass. We assess your glass type and condition before installation to ensure compatibility and long-term performance.</div>
+          </div>
+        </div>
+        <a href="/contact/" class="m3-slider__cta">Get a residential estimate &rarr;</a>
+      </div>
+    </div>
+
+    <!-- SLIDE 02: Commercial -->
+    <div class="m3-slider__slide" data-slide="1">
+      <img src="/images/3m-window-film-salt-lake-city-commercial.jpg" alt="Modern Salt Lake City Downtown Salt Lake City office with 3M Sun Control window film on floor-to-ceiling glass"
+          title="3M Sun Control window film for Salt Lake City commercial buildings" class="m3-slider__bg" loading="lazy" />
+      <div class="m3-slider__overlay"></div>
+      <div class="m3-slider__content">
+        <div class="m3-slider__step">02</div>
+        <h2 class="m3-slider__title">Salt Lake City businesses run on 3M performance</h2>
+        <p class="m3-slider__desc">Downtown Salt Lake City high-rises, The Avenues storefronts, healthcare facilities, and University District campuses all share one problem: too much glass, too much solar heat, and HVAC systems working overtime. 3M Sun Control window film reduces cooling load by up to 30% - with payback periods averaging 2-4 years on commercial installations.</p>
+        <div class="m3-slider__faq">
+          <div class="m3-slider__faq-item">
+            <button class="m3-slider__faq-q" aria-expanded="false">How quickly does 3M film pay back on commercial buildings?<span class="m3-slider__faq-icon" aria-hidden="true">+</span></button>
+            <div class="m3-slider__faq-a" hidden>Most commercial installations with significant south- or west-facing glass see full payback within 2-4 years through HVAC savings alone. Larger glass footprints and high utility costs accelerate that timeline. 3M's energy consultants can provide a building-specific projection - ask us about it during your estimate.</div>
+          </div>
+          <div class="m3-slider__faq-item">
+            <button class="m3-slider__faq-q" aria-expanded="false">Will installation disrupt our operations?<span class="m3-slider__faq-icon" aria-hidden="true">+</span></button>
+            <div class="m3-slider__faq-a" hidden>Minimal disruption. Our crews work floor by floor and can schedule evenings or weekends for occupied commercial spaces. We coordinate with building management on a project-by-project basis to minimize impact on tenants and daily operations.</div>
+          </div>
+          <div class="m3-slider__faq-item">
+            <button class="m3-slider__faq-q" aria-expanded="false">Does 3M film work on curtain wall and floor-to-ceiling glass?<span class="m3-slider__faq-icon" aria-hidden="true">+</span></button>
+            <div class="m3-slider__faq-a" hidden>Yes - large commercial glass is where 3M film delivers its biggest results. Film is applied in panels with nearly invisible seams and performs consistently across curtain wall systems, storefront glass, and insulated glass units. We assess your glass type and building spec before recommending a product series.</div>
+          </div>
+        </div>
+        <a href="/contact/" class="m3-slider__cta">Get a commercial estimate &rarr;</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Right nav -->
+  <nav class="m3-slider__nav" aria-label="Slide navigation">
+    <button class="m3-slider__nav-item m3-slider__nav-item--active" data-m3nav="0">
+      <span class="m3-slider__nav-line"></span>
+      <span class="m3-slider__nav-label">Residential</span>
+    </button>
+    <button class="m3-slider__nav-item" data-m3nav="1">
+      <span class="m3-slider__nav-line"></span>
+      <span class="m3-slider__nav-label">Commercial</span>
+    </button>
+  </nav>
+
+  <!-- Arrows -->
+  <button class="m3-slider__arrow m3-slider__arrow--prev" id="m3Prev" aria-label="Previous slide">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+  </button>
+  <button class="m3-slider__arrow m3-slider__arrow--next" id="m3Next" aria-label="Next slide">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+  </button>
+
+  <!-- Progress bar -->
+  <div class="m3-slider__progress"><div class="m3-slider__progress-bar" id="m3ProgressBar"></div></div>
+
+</section>
+
+<!-- ══════════════════════════════════════
+     FEATURED SECTIONS - 3 numbered alternating rows
+     ══════════════════════════════════════ -->
+<!-- ══════════════════════════════════════
+     PRODUCT LINES - alternating rows
+     ══════════════════════════════════════ -->
+<section class="m3-products">
+  <div class="m3-products__hd">
+    <span class="pp-eyebrow">Product Lines</span>
+    <h2 class="m3-products__title">The 3M window film lineup for Salt Lake City</h2>
+    <p class="m3-products__sub">3M window film in Salt Lake City is available through Window Film Salt Lake City across the complete 3M architectural lineup — from solar control and insulation to safety, decorative, and daylighting. Every installation is backed by 3M's manufacturer warranty and performed by our certified team.</p>
+  </div>
+
+  <!-- ROW 01 - Sun Control Prestige (image LEFT) -->
+  <div class="m3-pl-row fade-in">
+    <div class="m3-pl-row__img-wrap">
+      <img
+        src="/images/3m-sun-control-window-film-salt-lake-city.jpg"
+        alt="Salt Lake City Downtown Salt Lake City office with 3M Sun Control Prestige Series window film on floor-to-ceiling glass"
+          title="3M Sun Control Prestige Series window film Salt Lake City"
+        width="768" height="960"
+        loading="lazy"
+        class="m3-pl-row__img"
+      />
+      <span class="m3-pl-row__pill">Sun Control</span>
+    </div>
+    <div class="m3-pl-row__content">
+      <span class="m3-pl-row__num">01</span>
+      <span class="m3-pl-row__eyebrow">3M Sun Control Window Film</span>
+      <h3 class="m3-pl-row__heading">Prestige Series — Maximum heat rejection, neutral aesthetics</h3>
+      <p class="m3-pl-row__body">The Prestige Series is 3M's flagship solar control film - a non-metallized, multi-layer optical stack built from roughly 200 nano-layers of polyester. Because there's no metal in the film, it won't interfere with Wi-Fi, cellular, or building access signals - a practical advantage in Salt Lake City's dense commercial core. The near-neutral exterior appearance (5-9% visible reflectance) means it reads as clear glass from the street, a requirement for many Downtown Salt Lake City building management agreements and historic district guidelines.</p>
+      <p class="m3-pl-row__body">For Salt Lake City's south- and west-facing windows - the ones that drive cooling loads from May through September - Prestige blocks up to 97% of infrared radiation in the 900-1,000 nm band and 99.9% of UV. Available in VLT options from PR20 (21% light) to PR70 (69% light), the series scales from privacy-forward to nearly invisible. A 3M-commissioned lifecycle analysis found the film becomes carbon-negative within approximately six months of installation on a typical commercial building.</p>
+
+      <!-- Specs strip -->
+      <div class="m3-pl-row__specs">
+        <div class="m3-pl-row__spec">
+          <span class="m3-pl-row__spec-val">97%</span>
+          <span class="m3-pl-row__spec-label">IR Rejection</span>
+        </div>
+        <div class="m3-pl-row__spec">
+          <span class="m3-pl-row__spec-val">99.9%</span>
+          <span class="m3-pl-row__spec-label">UV Block</span>
+        </div>
+        <div class="m3-pl-row__spec">
+          <span class="m3-pl-row__spec-val">~66%</span>
+          <span class="m3-pl-row__spec-label">TSER (PR70)</span>
+        </div>
+        <div class="m3-pl-row__spec">
+          <span class="m3-pl-row__spec-val">Lifetime*</span>
+          <span class="m3-pl-row__spec-label">Res. Warranty</span>
+        </div>
+      </div>
+
+      <!-- PDF links -->
+      <div class="m3-pl-row__pdfs">
+        <span class="m3-pl-row__pdfs-label">3M Technical Documents</span>
+        <ul class="m3-pl-row__pdf-list">
+          <li>
+            <a href="/resources/3m-prestige-series-window-film-salt-lake-city.pdf" target="_blank" rel="noopener" class="m3-pl-row__pdf-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Prestige Series Technical Data Sheet
+            </a>
+          </li>
+          <li>
+            <a href="/resources/3m-prestige-70-solar-control-window-film-salt-lake-city.pdf" target="_blank" rel="noopener" class="m3-pl-row__pdf-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Prestige 70 Product Bulletin
+            </a>
+          </li>
+          <li>
+            <a href="/resources/3m-prestige-series-commercial-office-window-film-salt-lake-city-tech-data.pdf" target="_blank" rel="noopener" class="m3-pl-row__pdf-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Prestige Series Technical Data Sheet
+            </a>
+          </li>
+        </ul>
+        <p class="m3-pl-row__warranty-note">*Residential limited lifetime warranty. Commercial: 15 years. Source: 3M.com</p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- ROW 02 - Thinsulate Climate Control Series (image RIGHT) -->
+  <div class="m3-pl-row m3-pl-row--rev fade-in">
+    <div class="m3-pl-row__img-wrap">
+      <img
+        src="/images/3m-thinsulate-window-film-salt-lake-city.jpg"
+        alt="Cozy Salt Lake City rowhome living room with brick fireplace and 3M Thinsulate climate control window film on single-pane windows in winter"
+          title="3M Thinsulate Climate Control window film Salt Lake City"
+        width="768" height="960"
+        loading="lazy"
+        class="m3-pl-row__img"
+      />
+      <span class="m3-pl-row__pill">ThinsulateTM</span>
+    </div>
+    <div class="m3-pl-row__content">
+      <span class="m3-pl-row__num">02</span>
+      <span class="m3-pl-row__eyebrow">3M ThinsulateTM Climate Control Window Film</span>
+      <h3 class="m3-pl-row__heading">Thinsulate™ Climate Control Series — Year-round comfort for Salt Lake City's four seasons</h3>
+      <p class="m3-pl-row__body">Most solar control films are summer products. 3M Thinsulate Climate Control Series is different - it's a dual-season low-emissivity film line engineered to work in both directions. In summer, the series rejects solar heat gain. In winter, it reflects interior warmth back into the room rather than letting it escape through the glass. The result is a window that performs closer to double-pane insulated glass without the cost or disruption of replacement. The series flagship, CC75, improves a single-pane window's U-value from 1.03 to 0.62 - a roughly 40% improvement that's meaningful in Salt Lake City's IECC Zone 5B winters where January averages dip to 25-35°F.</p>
+      <p class="m3-pl-row__body">Thinsulate films maintain high visible light transmission - the CC75 comes in at 74% VLT and reads as clear glass from inside and out. Unlike reflective metallized films, Thinsulate won't give your home a mirrored exterior appearance. That matters in Salt Lake City's historic neighborhoods: Holladay, Federal Heights, Capitol Hill, and Fairmount all have HOA or historic commission guidelines that restrict high-reflectance coatings. With just 15% exterior reflectance, Thinsulate stays well within those limits while delivering meaningful energy performance in every season.</p>
+
+      <!-- Specs strip -->
+      <div class="m3-pl-row__specs">
+        <div class="m3-pl-row__spec">
+          <span class="m3-pl-row__spec-val">74%</span>
+          <span class="m3-pl-row__spec-label">VLT (near-clear)</span>
+        </div>
+        <div class="m3-pl-row__spec">
+          <span class="m3-pl-row__spec-val">40%</span>
+          <span class="m3-pl-row__spec-label">U-value Improvement*</span>
+        </div>
+        <div class="m3-pl-row__spec">
+          <span class="m3-pl-row__spec-val">35%</span>
+          <span class="m3-pl-row__spec-label">SHGC Improvement*</span>
+        </div>
+        <div class="m3-pl-row__spec">
+          <span class="m3-pl-row__spec-val">Lifetime*</span>
+          <span class="m3-pl-row__spec-label">Res. Warranty</span>
+        </div>
+      </div>
+
+      <!-- PDF links -->
+      <div class="m3-pl-row__pdfs">
+        <span class="m3-pl-row__pdfs-label">3M Technical Documents</span>
+        <ul class="m3-pl-row__pdf-list">
+          <li>
+            <a href="/resources/3m-thinsulate-climate-control-window-film-salt-lake-city.pdf" target="_blank" rel="noopener" class="m3-pl-row__pdf-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Thinsulate Series Technical Data Sheet
+            </a>
+          </li>
+          <li>
+            <a href="/resources/3m-thinsulate-cc75-technical-bulletin-salt-lake-city.pdf" target="_blank" rel="noopener" class="m3-pl-row__pdf-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              CC75 Technical Bulletin
+            </a>
+          </li>
+        </ul>
+        <p class="m3-pl-row__warranty-note">*Single-pane clear glass (1/4"). U-value: 1.03 → 0.62. SHGC: 0.82 → 0.53. Residential limited lifetime warranty. Commercial: 15 years. Source: 3M TDS.</p>
+      </div>
+    </div>
+  </div>
+  <!-- ROW 03 - Scotchshield Ultra S800 (image LEFT) -->
+  <div class="m3-pl-row fade-in">
+    <div class="m3-pl-row__img-wrap">
+      <img
+        src="/images/3m-scotchshield-safety-window-film-salt-lake-city.jpg"
+        alt="Salt Lake City retail storefront with 3M Scotchshield Ultra safety security window film on plate glass windows"
+          title="3M Scotchshield safety and security window film Salt Lake City"
+        width="768" height="960"
+        loading="lazy"
+        class="m3-pl-row__img"
+      />
+      <span class="m3-pl-row__pill">ScotchshieldTM</span>
+    </div>
+    <div class="m3-pl-row__content">
+      <span class="m3-pl-row__num">03</span>
+      <span class="m3-pl-row__eyebrow">3M ScotchshieldTM Safety &amp; Security Window Film</span>
+      <h3 class="m3-pl-row__heading">Scotchshield™ Safety &amp; Security Series — Glass retention when it matters most</h3>
+      <p class="m3-pl-row__body">Glass is the weakest point in most buildings. When it breaks - from a smash-and-grab, a windstorm, spontaneous thermal stress, or forced entry - the shards are the hazard. 3M Scotchshield Safety &amp; Security Series films are applied to the interior glass surface where, on impact, they hold a broken pane together rather than letting it scatter. That single function changes the outcome of nearly every glass-failure event: it turns a shattered window into a cracked one, keeps occupants safe from flying fragments, and dramatically slows a forced-entry attempt. The series ranges from 4-mil films for standard safety glazing applications up to the heavy-duty 8-mil Ultra S800 for high-security facilities - all near-invisible at 87% or higher visible light transmission.</p>
+      <p class="m3-pl-row__body">In Salt Lake City, Scotchshield is most commonly installed on The Avenues and Downtown Salt Lake City retail storefronts (smash-and-grab deterrence), K-12 schools and university campuses (safety glazing upgrades without window replacement), and healthcare facilities with high public foot traffic. On commercial properties where blast or windstorm mitigation is a priority, the Scotchshield Ultra series can be paired with an Impact Protection Adhesive (IPA) sealant system for a fully bonded glass retention assembly. Important: Scotchshield holds glass together - it does not make glass unbreakable or guarantee protection from all injury or property damage.</p>
+
+      <!-- Specs strip -->
+      <div class="m3-pl-row__specs">
+        <div class="m3-pl-row__spec">
+          <span class="m3-pl-row__spec-val">4-8 mil</span>
+          <span class="m3-pl-row__spec-label">Series Range</span>
+        </div>
+        <div class="m3-pl-row__spec">
+          <span class="m3-pl-row__spec-val">87%+</span>
+          <span class="m3-pl-row__spec-label">VLT (near-clear)</span>
+        </div>
+        <div class="m3-pl-row__spec">
+          <span class="m3-pl-row__spec-val">99.9%</span>
+          <span class="m3-pl-row__spec-label">UV Block</span>
+        </div>
+        <div class="m3-pl-row__spec">
+          <span class="m3-pl-row__spec-val">12 yr</span>
+          <span class="m3-pl-row__spec-label">Commercial Warranty</span>
+        </div>
+      </div>
+
+      <!-- PDF links -->
+      <div class="m3-pl-row__pdfs">
+        <span class="m3-pl-row__pdfs-label">3M Technical Documents</span>
+        <ul class="m3-pl-row__pdf-list">
+          <li>
+            <a href="/resources/3m-scotchshield-ultra-series-safety-window-film-salt-lake-city.pdf" target="_blank" rel="noopener" class="m3-pl-row__pdf-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Scotchshield Ultra Series Family Card
+            </a>
+          </li>
+          <li>
+            <a href="/resources/3m-scotchshield-ultra-s800-technical-data-sheet-salt-lake-city.pdf" target="_blank" rel="noopener" class="m3-pl-row__pdf-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Ultra S800 Technical Data Sheet
+            </a>
+          </li>
+          <li>
+            <a href="/resources/3m-scotchshield-ultra-s800-product-bulletin-salt-lake-city.pdf" target="_blank" rel="noopener" class="m3-pl-row__pdf-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Ultra S800 Product Bulletin
+            </a>
+          </li>
+        </ul>
+        <p class="m3-pl-row__warranty-note">Residential: limited lifetime warranty. Commercial: 12 years. IPA sealant required for blast/windstorm mitigation systems. Film holds glass together; does not prevent breakage or guarantee protection from injury or property damage. Source: 3M.com</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 04 - Fasara Decorative (image RIGHT) -->
+  <div class="m3-pl-row m3-pl-row--rev fade-in">
+    <div class="m3-pl-row__img-wrap">
+      <img
+        src="/images/3m-fasara-decorative-window-film-salt-lake-city.jpg"
+        alt="Modern Salt Lake City conference room with 3M Fasara frosted decorative window film on glass partition walls"
+          title="3M Fasara decorative window film Salt Lake City"
+        width="768" height="960"
+        loading="lazy"
+        class="m3-pl-row__img"
+      />
+      <span class="m3-pl-row__pill">FASARATM</span>
+    </div>
+    <div class="m3-pl-row__content">
+      <span class="m3-pl-row__num">04</span>
+      <span class="m3-pl-row__eyebrow">3M FASARATM Decorative Glass Finishes</span>
+      <h3 class="m3-pl-row__heading">FASARA™ — Frosted, etched, and branded glass aesthetics without the replacement cost</h3>
+      <p class="m3-pl-row__body">Sandblasted or etched glass looks sharp - but it's permanent, expensive, and impossible to update when your branding changes. 3M FASARATM Glass Finishes are decorative window and glass films available in over 100 patterns: frosted, matte, geometric, translucent, and custom-printed. Applied to the interior glass surface, they deliver the same visual effect at a fraction of the cost and can be removed or updated at any time. Because FASARATM transmits diffused light rather than blocking it entirely, spaces stay bright while gaining full visual privacy.</p>
+      <p class="m3-pl-row__body">In Salt Lake City, FASARATM is most commonly used in conference rooms and office partitions (frosted privacy without total visual block), retail storefronts and lobbies (branded graphics and signage applied to glass), healthcare waiting areas (soothing translucent patterns that maintain natural light), and university and K-12 classroom partitions throughout University District and Downtown Salt Lake City. For full branding applications, FASARATM can be combined with 3M custom digital printing on a clear polyester base - creating fully bespoke glass graphics at commercial scale.</p>
+
+      <!-- Specs strip -->
+      <div class="m3-pl-row__specs">
+        <div class="m3-pl-row__spec">
+          <span class="m3-pl-row__spec-val">100+</span>
+          <span class="m3-pl-row__spec-label">Available Patterns</span>
+        </div>
+        <div class="m3-pl-row__spec">
+          <span class="m3-pl-row__spec-val">Interior</span>
+          <span class="m3-pl-row__spec-label">Application Side</span>
+        </div>
+        <div class="m3-pl-row__spec">
+          <span class="m3-pl-row__spec-val">Varies</span>
+          <span class="m3-pl-row__spec-label">VLT by Pattern</span>
+        </div>
+        <div class="m3-pl-row__spec">
+          <span class="m3-pl-row__spec-val">5 yr</span>
+          <span class="m3-pl-row__spec-label">Commercial Warranty</span>
+        </div>
+      </div>
+
+      <!-- PDF links -->
+      <div class="m3-pl-row__pdfs">
+        <span class="m3-pl-row__pdfs-label">3M Technical Documents</span>
+        <ul class="m3-pl-row__pdf-list">
+          <li>
+            <a href="/resources/3m-fasara-decorative-privacy-window-film-salt-lake-city-tech-data-sheet.pdf" target="_blank" rel="noopener" class="m3-pl-row__pdf-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              FASARATM Technical Data Sheet
+            </a>
+          </li>
+          <li>
+            <a href="/resources/3m-fasara-glass-finishes-family-card-salt-lake-city.pdf" target="_blank" rel="noopener" class="m3-pl-row__pdf-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              FASARATM Glass Finishes Family Card
+            </a>
+          </li>
+          <li>
+            <a href="/resources/3m-fasara-decorative-film-product-bulletin-salt-lake-city.pdf" target="_blank" rel="noopener" class="m3-pl-row__pdf-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              FASARATM Product Bulletin
+            </a>
+          </li>
+        </ul>
+        <p class="m3-pl-row__warranty-note">Interior application only. VLT varies by pattern series (approximately 10-80% across the full lineup). 5-year commercial warranty. FASARATM films are removable and repositionable - no permanent glass modification. Custom digital printing available on FASARATM Clear Polyester base. Source: 3M.com</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 05 - Daylight Redirecting Film (image LEFT) -->
+  <div class="m3-pl-row fade-in">
+    <div class="m3-pl-row__img-wrap">
+      <img
+        src="/images/3m-daylight-redirecting-film-salt-lake-city.jpg"
+        alt="Salt Lake City open-plan office with 3M Daylight Redirecting Film spreading natural light deep into the workspace"
+          title="3M Daylight Redirecting Film Salt Lake City"
+        width="768" height="960"
+        loading="lazy"
+        class="m3-pl-row__img"
+      />
+      <span class="m3-pl-row__pill">Daylight Redirecting</span>
+    </div>
+    <div class="m3-pl-row__content">
+      <span class="m3-pl-row__num">05</span>
+      <span class="m3-pl-row__eyebrow">3MTM Daylight Redirecting Film</span>
+      <h3 class="m3-pl-row__heading">Daylight Redirecting Film — Natural light, deeper into every room</h3>
+      <p class="m3-pl-row__body">Most window films control what comes in. Daylight Redirecting Film (DRF) does something different - it redirects incoming sunlight upward toward the ceiling, distributing natural daylight up to approximately 40 feet from the window. The film's microstructured prismatic surface bends light using total internal reflection, routing it along the ceiling plane where it diffuses evenly into the room. The result is dramatically better daylighting across the entire floor plate - not just the perimeter seats - without glare and without heat gain.</p>
+      <p class="m3-pl-row__body">For Salt Lake City's Downtown Salt Lake City office buildings - many of which have deep floor plates where interior workstations receive almost no natural light - DRF meaningfully reduces dependence on artificial lighting during daylight hours. The film qualifies for LEED daylighting credits and pairs well with automated lighting controls: as DRF brings more daylight deeper into the space, occupancy and daylight sensors can dim overhead fixtures in response, compounding the energy savings. Best results on south- and east-facing glass with clear or lightly tinted existing glazing. DRF is installed on the interior surface and maintains approximately 80% visible light transmission.</p>
+
+      <!-- Specs strip -->
+      <div class="m3-pl-row__specs">
+        <div class="m3-pl-row__spec">
+          <span class="m3-pl-row__spec-val">~80%</span>
+          <span class="m3-pl-row__spec-label">VLT (near-clear)</span>
+        </div>
+        <div class="m3-pl-row__spec">
+          <span class="m3-pl-row__spec-val">~40 ft</span>
+          <span class="m3-pl-row__spec-label">Daylight Depth</span>
+        </div>
+        <div class="m3-pl-row__spec">
+          <span class="m3-pl-row__spec-val">LEED</span>
+          <span class="m3-pl-row__spec-label">Credit Eligible</span>
+        </div>
+        <div class="m3-pl-row__spec">
+          <span class="m3-pl-row__spec-val">10 yr</span>
+          <span class="m3-pl-row__spec-label">Commercial Warranty</span>
+        </div>
+      </div>
+
+      <!-- PDF links -->
+      <div class="m3-pl-row__pdfs">
+        <span class="m3-pl-row__pdfs-label">3M Technical Documents</span>
+        <ul class="m3-pl-row__pdf-list">
+          <li>
+            <a href="/resources/3m-daylight-redirecting-film-product-bulletin-salt-lake-city.pdf" target="_blank" rel="noopener" class="m3-pl-row__pdf-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Daylight Redirecting Film Product Bulletin
+            </a>
+          </li>
+        </ul>
+        <p class="m3-pl-row__warranty-note">Interior application. ~80% VLT. Best results on south- and east-facing clear or lightly tinted glazing. Qualifies for LEED EQ daylighting credits. 10-year commercial warranty. Film redirects - does not block - solar heat; combine with a solar control film on high-heat exposures for maximum benefit. Source: 3M.com</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 06 - Night Vision Series (image RIGHT) -->
+  <div class="m3-pl-row m3-pl-row--rev fade-in">
+    <div class="m3-pl-row__img-wrap">
+      <img
+        src="/images/3m-night-vision-window-film-salt-lake-city.jpg"
+        alt="Salt Lake City office building exterior at dusk with 3M Night Vision reflective privacy window film on glass facade"
+          title="3M Night Vision privacy window film Salt Lake City"
+        width="768" height="960"
+        loading="lazy"
+        class="m3-pl-row__img"
+      />
+      <span class="m3-pl-row__pill">Night VisionTM</span>
+    </div>
+    <div class="m3-pl-row__content">
+      <span class="m3-pl-row__num">06</span>
+      <span class="m3-pl-row__eyebrow">3M Sun Control Window Film</span>
+      <h3 class="m3-pl-row__heading">Night Vision Series — Daytime privacy, clear views after dark</h3>
+      <p class="m3-pl-row__body">Most privacy films work against you at night - the same reflective coating that keeps people from seeing in during the day turns into a mirror from the inside once it gets dark. 3M Night Vision Series solves this with a metallized nano-coating engineered for asymmetric performance: high exterior reflectance during daylight hours creates a mirror effect that blocks inward views, while low interior reflectance preserves clear outward views after dark when interior lighting reverses the visual dynamic. Genuine daytime privacy, without the after-dark fishbowl effect.</p>
+      <p class="m3-pl-row__body">The series spans three VLT levels - NV15 (15%), NV25 (24%), and NV35 (36%) - letting you dial in the privacy level and light transmission that matches your space. Salt Lake City applications include restaurant dining rooms and bars on 9th and 9th and Federal Heights, west-facing conference rooms in Downtown Salt Lake City towers, and retail storefronts on Walnut and Chestnut where display visibility from the street matters. One note: Night Vision uses a metallized coating, which can attenuate Wi-Fi and cellular signals on glass-heavy facades - worth factoring in on antenna-sensitive installations.</p>
+
+      <!-- Specs strip -->
+      <div class="m3-pl-row__specs">
+        <div class="m3-pl-row__spec">
+          <span class="m3-pl-row__spec-val">15-36%</span>
+          <span class="m3-pl-row__spec-label">VLT Range</span>
+        </div>
+        <div class="m3-pl-row__spec">
+          <span class="m3-pl-row__spec-val">71%</span>
+          <span class="m3-pl-row__spec-label">Max Heat Rejection</span>
+        </div>
+        <div class="m3-pl-row__spec">
+          <span class="m3-pl-row__spec-val">99%</span>
+          <span class="m3-pl-row__spec-label">UV Block</span>
+        </div>
+        <div class="m3-pl-row__spec">
+          <span class="m3-pl-row__spec-val">12 yr</span>
+          <span class="m3-pl-row__spec-label">Commercial Warranty</span>
+        </div>
+      </div>
+
+      <!-- PDF links -->
+      <div class="m3-pl-row__pdfs">
+        <span class="m3-pl-row__pdfs-label">3M Technical Documents</span>
+        <ul class="m3-pl-row__pdf-list">
+          <li>
+            <a href="/resources/3m-night-vision-series-technical-data-sheet-salt-lake-city.pdf" target="_blank" rel="noopener" class="m3-pl-row__pdf-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Night Vision Series Technical Data Sheet
+            </a>
+          </li>
+        </ul>
+        <p class="m3-pl-row__warranty-note">Residential: limited lifetime warranty. Commercial: 12 years. Metallized coating - may attenuate Wi-Fi and cellular signals on glass-heavy facades. Available in NV15, NV25, and NV35. Source: 3M.com</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 07 - DI-NOC Architectural Finishes (image LEFT) -->
+  <div class="m3-pl-row fade-in">
+    <div class="m3-pl-row__img-wrap">
+      <img
+        src="/images/3m-products/di-noc.jpg"
+        alt="3M DI-NOC architectural surface film on Salt Lake City office wall with wood grain finish — surface renovation without demolition"
+        title="3M DI-NOC Architectural Finishes Salt Lake City"
+        width="768" height="960"
+        loading="lazy"
+        class="m3-pl-row__img"
+      />
+      <span class="m3-pl-row__pill">DI-NOC&trade;</span>
+    </div>
+    <div class="m3-pl-row__content">
+      <span class="m3-pl-row__num">07</span>
+      <span class="m3-pl-row__eyebrow">3M&trade; DI-NOC&trade; Architectural Finishes</span>
+      <h3 class="m3-pl-row__heading">DI-NOC&trade; &mdash; 900+ Surface Finishes for Salt Lake City Walls, Doors, and Furniture</h3>
+      <p class="m3-pl-row__body">DI-NOC is 3M&rsquo;s architectural surface film &mdash; not a glass film, but a surface film. Applied directly over existing walls, columns, doors, elevator interiors, cabinetry, and furniture, DI-NOC transforms the material appearance of any flat or curved interior surface without demolition, construction waste, or extended downtime. With over 900 patterns across 23+ categories &mdash; fine wood, stone, metallic, leather, textile, carbon fiber, high gloss, and more &mdash; DI-NOC covers nearly any interior design direction from a single 3M product line.</p>
+      <p class="m3-pl-row__body">For Salt Lake City commercial renovation projects, DI-NOC addresses the most common friction point in interior updates: the cost and disruption of replacing material surfaces that are structural or difficult to remove. A Downtown Salt Lake City law firm can update a wood-panel reception wall in a day. A hospitality property can re-skin elevator cab panels without taking the unit out of service. A healthcare facility can refresh corridor walls without generating construction debris or disrupting patient areas. DI-NOC uses 3M&rsquo;s Comply Adhesive technology with micro-channels that eliminate air during installation, making large-format applications significantly more consistent than conventional surface films.</p>
+
+      <div class="m3-pl-row__specs">
+        <div class="m3-pl-row__spec">
+          <span class="m3-pl-row__spec-val">900+</span>
+          <span class="m3-pl-row__spec-label">Patterns</span>
+        </div>
+        <div class="m3-pl-row__spec">
+          <span class="m3-pl-row__spec-val">23+</span>
+          <span class="m3-pl-row__spec-label">Categories</span>
+        </div>
+        <div class="m3-pl-row__spec">
+          <span class="m3-pl-row__spec-val">3D</span>
+          <span class="m3-pl-row__spec-label">Surface Compatible</span>
+        </div>
+        <div class="m3-pl-row__spec">
+          <span class="m3-pl-row__spec-val">Comply&trade;</span>
+          <span class="m3-pl-row__spec-label">Adhesive Tech</span>
+        </div>
+      </div>
+
+      <div class="m3-pl-row__pdfs">
+        <span class="m3-pl-row__pdfs-label">3M DI-NOC Resources</span>
+        <ul class="m3-pl-row__pdf-list">
+          <li>
+            <a href="https://www.3m.com/3M/en_US/p/d/b5005444006/" target="_blank" rel="noopener noreferrer" class="m3-pl-row__pdf-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              3M DI-NOC Product Page &amp; Full Catalog
+            </a>
+          </li>
+          <li>
+            <a href="/products/3m/di-noc/" class="m3-pl-row__pdf-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              View DI-NOC in Salt Lake City &rarr;
+            </a>
+          </li>
+        </ul>
+        <p class="m3-pl-row__warranty-note">DI-NOC is a surface film applied to walls, doors, columns, and furniture &mdash; not a glass film. Warranty varies by series and application type. Comply&trade; Adhesive included. 900+ patterns available across 23 categories. Source: 3M.com</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════
+     3M PRODUCT CATALOG
+     ══════════════════════════════════════ -->
+<section class="m3-catalog">
+  <div class="m3-catalog__inner">
+    <div class="m3-catalog__hd">
+      <span class="pp-eyebrow">3M Product Catalog</span>
+      <h2 class="m3-catalog__title">152 3M Products Available in Salt Lake City</h2>
+      <p class="m3-catalog__sub">Click any product to view full specifications, applications, and Salt Lake City installation details.</p>
+    </div>
+
+    {threeMCatalogSeries.map((series) => (
+      <div class="m3-catalog__series">
+        <h3 class="m3-catalog__series-name">
+          <span class="m3-catalog__series-dot" style={`background:${series.color}`}></span>
+          {series.name} ({series.products.length} products)
+        </h3>
+        <div class="m3-catalog__grid">
+          {series.products.map((product) => (
+            <a href={`/products/3m/${product.slug}/`} class="m3-catalog__card">
+              <img src={product.image} alt={product.name} title={product.name} class="m3-catalog__card-img" width="280" height="180" loading="lazy" />
+              <div class="m3-catalog__card-body">
+                <span class="m3-catalog__card-badge" style={`background:${product.seriesColor}`}>{product.series}</span>
+                <h4 class="m3-catalog__card-name">{product.name}</h4>
+                <p class="m3-catalog__card-desc">{truncateCatalogDescription(product.shortDescription)}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     APPLICATIONS GRID
+     ══════════════════════════════════════ -->
+<!-- ══════════════════════════════════════
+     PRODUCT COMPARISON TABLE
+     ══════════════════════════════════════ -->
+<section class="m3-compare">
+  <div class="m3-compare__inner">
+    <div class="m3-compare__hd">
+      <span class="pp-eyebrow" style="color:#81AB4C">Compare Series</span>
+      <h2 class="m3-compare__title">Which 3M film is right for your property?</h2>
+      <p class="m3-compare__sub">Six 3M window film series for Salt Lake City properties — six different jobs. Here's how they stack up, with specs from 3M technical data sheets.</p>
+    </div>
+    <div class="m3-compare__wrap">
+      <table class="m3-compare__table" aria-label="3M window film series comparison">
+        <thead>
+          <tr>
+            <th class="m3-compare__th m3-compare__th--series">Series</th>
+            <th class="m3-compare__th">Best For</th>
+            <th class="m3-compare__th">VLT</th>
+            <th class="m3-compare__th">Key Performance</th>
+            <th class="m3-compare__th">UV Block</th>
+            <th class="m3-compare__th">Warranty<br/><span class="m3-compare__th-sub">Res / Comm</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="m3-compare__row">
+            <td class="m3-compare__td m3-compare__td--name">
+              <span class="m3-compare__pill" style="background:#81AB4C">Sun Control</span>
+              <span class="m3-compare__series-name">Prestige Series</span>
+            </td>
+            <td class="m3-compare__td">Energy savings, heat &amp; glare reduction</td>
+            <td class="m3-compare__td m3-compare__td--stat">21-69%</td>
+            <td class="m3-compare__td">Up to 97% IR rejection</td>
+            <td class="m3-compare__td m3-compare__td--stat">99.9%</td>
+            <td class="m3-compare__td m3-compare__td--stat">Lifetime / 15 yr</td>
+          </tr>
+          <tr class="m3-compare__row">
+            <td class="m3-compare__td m3-compare__td--name">
+              <span class="m3-compare__pill" style="background:#5B8DB8">Privacy</span>
+              <span class="m3-compare__series-name">Night Vision Series</span>
+            </td>
+            <td class="m3-compare__td">Daytime privacy with clear night views</td>
+            <td class="m3-compare__td m3-compare__td--stat">15-36%</td>
+            <td class="m3-compare__td">Up to 71% heat rejection</td>
+            <td class="m3-compare__td m3-compare__td--stat">99%</td>
+            <td class="m3-compare__td m3-compare__td--stat">Lifetime / 12 yr</td>
+          </tr>
+          <tr class="m3-compare__row">
+            <td class="m3-compare__td m3-compare__td--name">
+              <span class="m3-compare__pill" style="background:#4A90A4">Insulation</span>
+              <span class="m3-compare__series-name">ThinsulateTM Series</span>
+            </td>
+            <td class="m3-compare__td">Year-round insulation, winter heat retention</td>
+            <td class="m3-compare__td m3-compare__td--stat">74%</td>
+            <td class="m3-compare__td">40% U-value improvement*</td>
+            <td class="m3-compare__td m3-compare__td--stat">-</td>
+            <td class="m3-compare__td m3-compare__td--stat">Lifetime / 15 yr</td>
+          </tr>
+          <tr class="m3-compare__row">
+            <td class="m3-compare__td m3-compare__td--name">
+              <span class="m3-compare__pill" style="background:#8B6914">Safety</span>
+              <span class="m3-compare__series-name">ScotchshieldTM Ultra</span>
+            </td>
+            <td class="m3-compare__td">Glass retention, break-in deterrence, safety glazing</td>
+            <td class="m3-compare__td m3-compare__td--stat">87%+</td>
+            <td class="m3-compare__td">4-8 mil tear-resistant film</td>
+            <td class="m3-compare__td m3-compare__td--stat">99.9%</td>
+            <td class="m3-compare__td m3-compare__td--stat">Lifetime / 12 yr</td>
+          </tr>
+          <tr class="m3-compare__row">
+            <td class="m3-compare__td m3-compare__td--name">
+              <span class="m3-compare__pill" style="background:#9B59B6">Decorative</span>
+              <span class="m3-compare__series-name">FASARATM Glass Finishes</span>
+            </td>
+            <td class="m3-compare__td">Privacy, branding, design - frosted &amp; etched effects</td>
+            <td class="m3-compare__td m3-compare__td--stat">Varies</td>
+            <td class="m3-compare__td">100+ patterns, custom printing</td>
+            <td class="m3-compare__td m3-compare__td--stat">-</td>
+            <td class="m3-compare__td m3-compare__td--stat">- / 5 yr</td>
+          </tr>
+          <tr class="m3-compare__row">
+            <td class="m3-compare__td m3-compare__td--name">
+              <span class="m3-compare__pill" style="background:#E67E22">Daylighting</span>
+              <span class="m3-compare__series-name">Daylight Redirecting Film</span>
+            </td>
+            <td class="m3-compare__td">Deep-floor-plate daylighting, LEED credits</td>
+            <td class="m3-compare__td m3-compare__td--stat">~80%</td>
+            <td class="m3-compare__td">Redirects light up to 40 ft from window</td>
+            <td class="m3-compare__td m3-compare__td--stat">-</td>
+            <td class="m3-compare__td m3-compare__td--stat">- / 10 yr</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="m3-compare__note">*Single-pane 1/4′′ clear glass baseline. Specs from 3M technical data sheets. Warranty terms may vary by installation type - confirm with our team.</p>
+    <div class="m3-compare__cta">
+      <a href="/contact/" class="pp-btn pp-btn--primary" style="background:#81AB4C;border-color:#81AB4C;color:#fff">Talk to our team about which series fits your project</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     CASE STUDY
+     ══════════════════════════════════════ -->
+<section class="m3-casestudy">
+  <div class="m3-casestudy__inner">
+
+    <div class="m3-casestudy__img-col">
+      <div class="m3-casestudy__img-wrap">
+        <img
+          src="/images/3m-window-film-casestudy-walgreens-daylight.jpg"
+          alt="Bright modern retail store interior with 3M Daylight Redirecting Film bouncing natural light deep off white ceilings"
+          title="3M Daylight Redirecting Film case study — Salt Lake City retail"
+          width="1264" height="848"
+          loading="lazy"
+          class="m3-casestudy__img"
+        />
+        <div class="m3-casestudy__badge">
+          <span class="m3-casestudy__badge-label">3M Case Study</span>
+        </div>
+      </div>
+      <div class="m3-casestudy__stat-row">
+        <div class="m3-casestudy__stat">
+          <span class="m3-casestudy__stat-val">80%</span>
+          <span class="m3-casestudy__stat-label">of light redirected to ceiling</span>
+        </div>
+        <div class="m3-casestudy__stat-div"></div>
+        <div class="m3-casestudy__stat">
+          <span class="m3-casestudy__stat-val">40 ft</span>
+          <span class="m3-casestudy__stat-label">daylight depth from window</span>
+        </div>
+        <div class="m3-casestudy__stat-div"></div>
+        <div class="m3-casestudy__stat">
+          <span class="m3-casestudy__stat-val">4,000</span>
+          <span class="m3-casestudy__stat-label">sq ft of curtain wall treated</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="m3-casestudy__content">
+      <span class="pp-eyebrow">Case Study</span>
+      <h2 class="m3-casestudy__title">How 3M Daylight Redirecting Film helped power a net-zero retail store</h2>
+      <p class="m3-casestudy__lead">When Walgreens opened its first net-zero energy store in Evanston, Illinois, one of its key challenges was lighting - specifically, how to reduce dependence on electric lighting when natural light only penetrates a few feet past the window line.</p>
+      <p class="m3-casestudy__body">The solution was 3M Daylight Redirecting Film installed across 4,000 square feet of west-facing curtain wall. The film's microstructured surface redirects incoming sunlight upward toward the ceiling rather than letting it fall to the floor near the windows, spreading natural daylight up to 40 feet into the store interior. By bouncing up to 80% of that light off the ceiling, the store significantly reduced its need for artificial lighting during daylight hours - a critical factor in hitting net-zero energy targets, since lighting accounts for roughly 40% of electricity use in commercial buildings.</p>
+      <p class="m3-casestudy__body">The same physics apply to any Salt Lake City commercial property with a deep floor plate and significant glazing. Downtown Salt Lake City office buildings, Main Street retailers, and The Avenues restaurants and hospitality spaces all share the same problem: great glass on the perimeter, but dark interior workspaces that run on overhead lighting all day. 3M Daylight Redirecting Film is one of the few interventions that actually solves that problem at the glass - without construction, without replacing windows, and while qualifying for LEED daylighting credits.</p>
+      <blockquote class="m3-casestudy__quote">
+        <p>&ldquo;3M Daylight Redirecting Film was the perfect fit for our 4,000 sq ft west-facing curtain wall - a cost-effective, low-maintenance solution to reduce visible glare and extend our daylight zone.&rdquo;</p>
+        <footer>Jason Robbins &mdash; Manager of Mechanical Engineering, Walgreens</footer>
+      </blockquote>
+      <a
+        href="https://multimedia.3m.com/mws/media/1167197O/3m-tm-daylight-redirecting-film-retail-case-study.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="m3-casestudy__link"
+        aria-label="Read the full Walgreens 3M Daylight Redirecting Film case study (opens in new tab)"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Read the full case study on 3M.com
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     TESTIMONIALS
+     ══════════════════════════════════════ -->
+<div class="m3-testimonials__hd">
+  <span class="pp-eyebrow">Client Reviews</span>
+  <h2 class="m3-testimonials__title">What Salt Lake City clients say about 3M window film</h2>
+  <p class="m3-testimonials__sub">Residential and commercial property owners across Salt Lake City and the surrounding area.</p>
+</div>
+<TestimonialMarquee />
+
+<!-- ══════════════════════════════════════
+     FAQ ACCORDION
+     ══════════════════════════════════════ -->
+<!-- ══════════════════════════════════════
+     FAQ - two-column split
+     ══════════════════════════════════════ -->
+<section class="m3-faq" id="faq">
+  <div class="m3-faq__inner">
+    <div class="m3-faq__header fade-in">
+      <span class="m3-eyebrow">Questions</span>
+      <h2 class="m3-faq__title">Frequently Asked Questions</h2>
+      <p>Honest answers about 3M window film in Salt Lake City from specialists with over 16 years of installation experience.</p>
+      <a href="/contact/" class="m3-faq__cta-btn">Talk to a Specialist</a>
+    </div>
+    <div class="m3-faq__list fade-in">
+      <div class="m3-faq__item m3-faq__item--open">
+        <div class="m3-faq__q"><span>What 3M window film products does Window Film Salt Lake City install?</span><span class="m3-faq__toggle">+</span></div>
+        <div class="m3-faq__a"><p>We install the full 3M architectural window film lineup, including Sun Control (solar/energy), Thinsulate Climate Control (insulation), Scotchshield Safety &amp; Security, Fasara Decorative, Daylight Redirecting, and Night Vision films. We carry both residential-grade and commercial-grade products for every application and budget.</p></div>
+      </div>
+      <div class="m3-faq__item">
+        <div class="m3-faq__q"><span>How long does 3M window film last, and does it come with a warranty?</span><span class="m3-faq__toggle">+</span></div>
+        <div class="m3-faq__a"><p>3M window films are designed to last 10-20+ years depending on the product, glass type, and sun exposure. All 3M films installed by Window Film Salt Lake City include a manufacturer-backed warranty covering film performance, adhesion, and color stability. Residential installations typically carry a lifetime warranty; commercial installations vary by product series.</p></div>
+      </div>
+      <div class="m3-faq__item">
+        <div class="m3-faq__q"><span>What is the difference between 3M Sun Control and 3M Thinsulate?</span><span class="m3-faq__toggle">+</span></div>
+        <div class="m3-faq__a"><p>3M Sun Control film is primarily a summer product - it rejects solar heat to reduce cooling costs and glare. 3M Thinsulate Climate Control film is engineered for year-round performance, adding an insulating layer that retains interior heat in winter while still rejecting solar heat in summer. For Salt Lake City's four-season climate, Thinsulate often delivers a better year-round ROI, while Sun Control is ideal for high-sun southern and western exposures.</p></div>
+      </div>
+      <div class="m3-faq__item">
+        <div class="m3-faq__q"><span>Can 3M window film be applied to double-pane insulated glass?</span><span class="m3-faq__toggle">+</span></div>
+        <div class="m3-faq__a"><p>Yes - 3M makes specific film series designed for insulated glass units (IGUs). Selecting the wrong film for double-pane glass can cause thermal stress and seal failure, which is why professional assessment matters. Our team evaluates your glass type, orientation, and goals before recommending a film, ensuring you stay within 3M's approved specifications and don't void your window manufacturer's warranty.</p></div>
+      </div>
+      <div class="m3-faq__item">
+        <div class="m3-faq__q"><span>How does 3M Daylight Redirecting film work, and where is it most useful?</span><span class="m3-faq__toggle">+</span></div>
+        <div class="m3-faq__a"><p>3M Daylight Redirecting film uses a microstructured prismatic surface to redirect incoming sunlight upward toward the ceiling, distributing natural light deep into a room - up to 40 feet from the window. This reduces the need for artificial lighting near window walls and dramatically improves daylighting in spaces like open-plan offices, classrooms, and healthcare facilities. It's particularly effective on south- and west-facing facades.</p></div>
+      </div>
+      <div class="m3-faq__item">
+        <div class="m3-faq__q"><span>How quickly will I see a return on investment from 3M window film?</span><span class="m3-faq__toggle">+</span></div>
+        <div class="m3-faq__a"><p>Commercial properties with large glazing areas typically see full ROI within 2–3 years through energy savings alone. Residential properties typically see ROI within 3–5 years. For security films like Scotchshield, the ROI calculation also includes avoided theft losses, reduced insurance premiums (in some cases), and deferred glass replacement costs. Our team can provide a customized projection during your free consultation.</p></div>
+      </div>
+      <div class="m3-faq__item">
+        <div class="m3-faq__q"><span>Is 3M window film worth it for Salt Lake City winters?</span><span class="m3-faq__toggle">+</span></div>
+        <div class="m3-faq__a"><p>Yes — particularly for Salt Lake City's large stock of aging single-pane rowhome glass and older commercial buildings with minimal glazing insulation. 3M Thinsulate Climate Control film reduces winter heat loss by adding an insulating layer without replacing the window. In IECC Climate Zone 5B, where heating loads are significant from November through March, Thinsulate-installed windows can improve winter U-value by up to 35%. This makes it one of the few window film products that genuinely pays for itself in both heating and cooling seasons.</p></div>
+      </div>
+      <div class="m3-faq__item">
+        <div class="m3-faq__q"><span>How much does 3M window film cost in Salt Lake City?</span><span class="m3-faq__toggle">+</span></div>
+        <div class="m3-faq__a"><p>3M window film pricing in Salt Lake City depends on the series, glass area, and installation complexity. Solar control films (Prestige Series) typically range from $8–$14 per square foot installed. Thinsulate Climate Control runs $10–$16 per square foot due to the precision application required. Scotchshield Safety &amp; Security film ranges from $9–$18 per square foot depending on thickness and any attachment systems required. Decorative Fasara films start around $6 per square foot for standard patterns. All pricing includes site assessment, professional installation, and the manufacturer warranty. Contact us for a free, no-obligation estimate specific to your property.</p></div>
+      </div>
+      <div class="m3-faq__item">
+        <div class="m3-faq__q"><span>Can 3M window film qualify for LEED or energy efficiency credits?</span><span class="m3-faq__toggle">+</span></div>
+        <div class="m3-faq__a"><p>Yes. Several 3M window film products are eligible for LEED v4 credits under the Daylight and Views category (for daylight-redirecting and glare-control films) and the Energy &amp; Atmosphere category (for solar control and insulating films). 3M Daylight Redirecting Film specifically can contribute to LEED daylighting credits. For commercial projects in Salt Lake City pursuing LEED certification, we can provide NFRC-certified product specifications and installation documentation required for the credit submission. Ask about this during your free consultation.</p></div>
+      </div>
+      <div class="m3-faq__item">
+        <div class="m3-faq__q"><span>Will 3M window film work on historic or older Salt Lake City windows?</span><span class="m3-faq__toggle">+</span></div>
+        <div class="m3-faq__a"><p>3M window film can be applied to most single-pane historic glass, including wavy antique glass common in Salt Lake City rowhomes and historic commercial buildings. For double-pane insulated glass units (IGUs) — common in mid-century and modern renovations — 3M makes specific film series rated for IGU application. The key issue is thermal stress: applying the wrong film to certain glass types can void window warranties or cause seal failure in IGUs. Our team always performs a glass type and orientation assessment before recommending a film, ensuring compatibility with your specific windows, whether they're 1890 rowhouse glass or modern curtain wall panels.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     CTA - TINT SLIDER
+     ══════════════════════════════════════ -->
+<section class="m3-tint-cta">
+  <div class="m3-tint-cta__bg" id="tintBg" style="background-image:url('/images/3m-tint-slider-salt-lake-city-room.jpg')" role="img" aria-label="Salt Lake City rowhome living room — drag slider to preview 3M window film tint" aria-hidden="true"></div>
+  <div class="m3-tint-cta__darken" id="tintOverlay" aria-hidden="true"></div>
+  <div class="m3-tint-cta__content">
+    <h2 class="m3-tint-cta__title">Find your perfect tint.</h2>
+    <p class="m3-tint-cta__subtitle">Slide to preview how 3M window film tames glare and heat — then get it installed for real.</p>
+    <div class="m3-tint-cta__controls">
+      <span class="m3-tint-cta__label">CLEAR</span>
+      <input type="range" min="0" max="100" value="35" class="m3-tint-cta__range" id="tintRange" aria-label="Adjust tint level" />
+      <span class="m3-tint-cta__label">LIMO</span>
+    </div>
+    <p class="m3-tint-cta__vlt">VLT <strong id="tintVlt">65%</strong> · <span id="tintFilm">3M Sun Control PR70</span> · visible light transmission</p>
+    <a href="/contact/" class="m3-tint-cta__btn">Get a Free Quote →</a>
+  </div>
+</section>
+
+</div><!-- end ip-page-body -->
+</BaseLayout>
+
+<style>
+/* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+/* ── GEO ── */
+
+/* ── Body link style (visible in both light and dark sections) ── */
+.m3-body-link {
+  color: var(--green, #81AB4C);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(129,171,76,0.55);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+  transition: color 0.2s, text-decoration-color 0.2s;
+  border-radius: 2px;
+}
+.m3-body-link:hover {
+  color: #a8d468;
+  text-decoration-color: rgba(168,212,104,0.8);
+}
+
+/* ── Product lineup H3 ── */
+h3.m3-pl-row__heading { font-size: inherit; font-weight: inherit; font-family: inherit; margin: 0; }
+
+.m3-hero {
+  position: relative;
+  width: 100%;
+  min-height: 92vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  padding-bottom: 80px;
+}
+.m3-hero__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  transform: scale(1.03);
+  transition: transform 8s ease;
+}
+.m3-hero:hover .m3-hero__bg { transform: scale(1.0); }
+.m3-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(18, 26, 20, 0.25) 0%,
+    rgba(18, 26, 20, 0.55) 50%,
+    rgba(18, 26, 20, 0.82) 100%
+  );
+}
+.m3-hero__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 6%;
+}
+.m3-hero__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 24px;
+}
+.m3-hero__eyebrow-dot {
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--green, #81AB4C);
+  display: inline-block;
+}
+.m3-hero__title {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(44px, 6vw, 80px);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  margin: 0 0 20px;
+  max-width: 800px;
+}
+.m3-hero__animated-line {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: clamp(18px, 2vw, 22px);
+  color: rgba(255,255,255,0.85);
+  margin: 0 0 20px;
+  font-style: italic;
+}
+.m3-hero__flip {
+  color: var(--green, #81AB4C);
+  font-style: italic;
+  font-weight: 600;
+}
+.m3-hero__subtitle {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 16px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.7;
+  max-width: 620px;
+  margin: 0 0 36px;
+}
+.m3-hero__cta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 60px;
+}
+.m3-hero__btn-primary {
+  display: inline-block;
+  background: var(--green, #81AB4C);
+  color: #fff;
+  padding: 15px 32px;
+  border-radius: 100px;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+  white-space: nowrap;
+}
+.m3-hero__btn-primary:hover { background: #6e9640; transform: translateY(-2px); }
+.m3-hero__btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  padding: 15px 28px;
+  border-radius: 100px;
+  border: 1.5px solid rgba(255,255,255,0.4);
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+  white-space: nowrap;
+  backdrop-filter: blur(4px);
+  background: rgba(255,255,255,0.05);
+}
+.m3-hero__btn-secondary:hover { border-color: rgba(255,255,255,0.8); background: rgba(255,255,255,0.12); transform: translateY(-2px); }
+/* Stats panel */
+.m3-hero__stats-panel {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 20px;
+  padding: 28px 36px;
+  display: inline-flex;
+  align-items: stretch;
+  gap: 0;
+  max-width: 100%;
+}
+.m3-hero__stats-inner {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+.m3-hero__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 36px;
+  text-align: center;
+}
+.m3-hero__stat:first-child { padding-left: 0; }
+.m3-hero__stat:last-child { padding-right: 0; }
+.m3-hero__stat-number {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.m3-hero__stat-label {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  white-space: nowrap;
+}
+.m3-hero__stat-divider {
+  width: 1px;
+  height: 48px;
+  background: rgba(255,255,255,0.2);
+  flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  .m3-hero { min-height: 100svh; padding-bottom: 48px; }
+  .m3-hero__stats-panel { padding: 20px 20px; border-radius: 16px; }
+  .m3-hero__stat { padding: 0 16px; }
+  .m3-hero__cta { flex-direction: column; align-items: flex-start; }
+  .m3-hero__stats-inner { gap: 8px; }
+  .m3-hero__stat-divider { display: none; }
+}
+
+/* ── PAGE BODY WRAPPER ── */
+.ip-page-body {
+  position: relative;
+  background: #ffffff;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  margin-top: -40px;
+  z-index: 10;
+  overflow: visible;
+  padding-bottom: 80px;
+}
+
+/* ── EYEBROW ── */
+.pp-eyebrow {
+  display: inline-block;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--green, #81AB4C);
+  margin-bottom: 16px;
+}
+
+/* ── BUTTONS ── */
+.pp-btn {
+  display: inline-block; padding: 14px 28px;
+  border-radius: var(--radius-pill, 100px);
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 15px; font-weight: 500;
+  text-decoration: none; transition: all 0.2s;
+  border: 2px solid transparent; white-space: nowrap;
+}
+.pp-btn--primary { background: var(--green, #81AB4C); color: #fff; border-color: var(--green, #81AB4C); }
+.pp-btn--primary:hover { background: #6e9640; border-color: #6e9640; transform: translateY(-2px); color: #fff; }
+.pp-btn--ghost { background: transparent; color: var(--brand, #272E32); border-color: var(--brand, #272E32); }
+.pp-btn--ghost:hover { background: var(--brand, #272E32); color: #fff; transform: translateY(-2px); }
+.pp-btn--white { background: #fff; color: var(--brand, #272E32); border-color: #fff; font-weight: 600; }
+.pp-btn--white:hover { background: var(--off-white, #F7F6F3); transform: translateY(-2px); }
+.pp-btn--green { background: var(--green, #81AB4C); color: #fff; border-color: var(--green, #81AB4C); }
+.pp-btn--green:hover { background: #6e9640; transform: translateY(-2px); color: #fff; }
+
+/* ══════════════════════════════════════
+   PRODUCT COMPARISON TABLE
+══════════════════════════════════════ */
+.m3-compare {
+  background: #14201A;
+  padding: 100px 8%;
+}
+.m3-compare__inner { max-width: 1400px; margin: 0 auto; }
+.m3-compare__hd { text-align: center; margin-bottom: 56px; }
+.m3-compare__title {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(28px, 3.2vw, 46px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  margin: 0 0 16px;
+}
+.m3-compare__sub {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 16px;
+  color: rgba(255,255,255,0.6);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+.m3-compare__wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.m3-compare__table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  min-width: 820px;
+}
+.m3-compare__th {
+  padding: 16px 18px;
+  background: rgba(255,255,255,0.06);
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  white-space: nowrap;
+}
+.m3-compare__th--series { width: 200px; }
+.m3-compare__th-sub {
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: rgba(255,255,255,0.3);
+  margin-top: 2px;
+  text-transform: none;
+}
+.m3-compare__row:not(:last-child) td { border-bottom: 1px solid rgba(255,255,255,0.07); }
+.m3-compare__row:hover td { background: rgba(255,255,255,0.03); }
+.m3-compare__td {
+  padding: 18px 18px;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.5;
+  vertical-align: middle;
+}
+.m3-compare__td--stat { font-weight: 600; color: #fff; white-space: nowrap; }
+.m3-compare__td--name {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 18px;
+}
+.m3-compare__pill {
+  display: inline-block;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 100px;
+  width: fit-content;
+}
+.m3-compare__series-name {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.3;
+}
+.m3-compare__note {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  margin: 20px 0 40px;
+  text-align: center;
+  line-height: 1.6;
+}
+.m3-compare__cta { text-align: center; }
+@media (max-width: 768px) {
+  .m3-compare { padding: 60px 5%; }
+  .m3-compare__th--series { width: 140px; }
+}
+
+/* ══════════════════════════════════════
+   CASE STUDY
+══════════════════════════════════════ */
+.m3-casestudy {
+  background: #ffffff;
+  padding: 100px 8%;
+  border-top: 1px solid #EEECE8;
+}
+.m3-casestudy__inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.m3-casestudy__img-col { display: flex; flex-direction: column; gap: 24px; }
+.m3-casestudy__img-wrap {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+}
+.m3-casestudy__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.m3-casestudy__img-wrap:hover .m3-casestudy__img { transform: scale(1.02); }
+.m3-casestudy__badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #14201A;
+  color: #81AB4C;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 7px 14px;
+  border-radius: 100px;
+}
+.m3-casestudy__stat-row {
+  display: flex;
+  align-items: center;
+  background: #14201A;
+  border-radius: 16px;
+  padding: 22px 28px;
+  gap: 0;
+}
+.m3-casestudy__stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+}
+.m3-casestudy__stat-val {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(22px, 2.5vw, 32px);
+  font-weight: 700;
+  color: #81AB4C;
+  line-height: 1;
+}
+.m3-casestudy__stat-label {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 11px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.4;
+  text-align: center;
+}
+.m3-casestudy__stat-div {
+  width: 1px;
+  height: 40px;
+  background: rgba(255,255,255,0.12);
+  flex-shrink: 0;
+}
+.m3-casestudy__content { display: flex; flex-direction: column; gap: 0; }
+.m3-casestudy__title {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(26px, 3vw, 42px);
+  font-weight: 700;
+  color: var(--text-dark, #1a1a1a);
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  margin: 0 0 24px;
+}
+.m3-casestudy__lead {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 17px;
+  color: var(--text-mid, #4a4a4a);
+  line-height: 1.8;
+  margin: 0 0 16px;
+  font-weight: 500;
+}
+.m3-casestudy__body {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 15px;
+  color: var(--text-mid, #4a4a4a);
+  line-height: 1.8;
+  margin: 0 0 16px;
+}
+.m3-casestudy__quote {
+  margin: 24px 0 28px;
+  padding: 20px 24px;
+  border-left: 3px solid #81AB4C;
+  background: #F7F6F3;
+  border-radius: 0 12px 12px 0;
+}
+.m3-casestudy__quote p {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 15px;
+  font-style: italic;
+  color: var(--text-dark, #1a1a1a);
+  line-height: 1.7;
+  margin: 0 0 8px;
+}
+.m3-casestudy__quote footer {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-mid, #4a4a4a);
+}
+.m3-casestudy__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--green, #81AB4C);
+  text-decoration: none;
+  border: 1.5px solid var(--green, #81AB4C);
+  padding: 12px 20px;
+  border-radius: 100px;
+  transition: background 0.2s, color 0.2s;
+  width: fit-content;
+}
+.m3-casestudy__link:hover { background: var(--green, #81AB4C); color: #fff; }
+@media (max-width: 1024px) {
+  .m3-casestudy__inner { grid-template-columns: 1fr; gap: 48px; }
+}
+@media (max-width: 640px) {
+  .m3-casestudy { padding: 60px 5%; }
+  .m3-casestudy__stat-row { flex-direction: column; gap: 16px; }
+  .m3-casestudy__stat-div { width: 40px; height: 1px; }
+}
+
+/* ══════════════════════════════════════
+   TESTIMONIALS
+══════════════════════════════════════ */
+.m3-testimonials {
+  background: #F5F3EE;
+  padding: 96px 6%;
+}
+.m3-testimonials__hd {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.m3-testimonials__title {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(26px, 3vw, 42px);
+  font-weight: 700;
+  color: var(--text-dark, #1a1a1a);
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  margin: 0 0 14px;
+}
+.m3-testimonials__sub {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 16px;
+  color: var(--text-mid, #4a4a4a);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+.m3-testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.m3-tcard {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.m3-tcard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+.m3-tcard__img-wrap { aspect-ratio: 16/9; overflow: hidden; }
+.m3-tcard__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.m3-tcard:hover .m3-tcard__img { transform: scale(1.03); }
+.m3-tcard__body {
+  padding: 28px 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+.m3-tcard__stars {
+  font-size: 18px;
+  color: #F5A623;
+  letter-spacing: 2px;
+}
+.m3-tcard__quote {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text-mid, #4a4a4a);
+  margin: 0;
+  flex: 1;
+  font-style: italic;
+}
+.m3-tcard__meta { border-top: 1px solid #EEECE8; padding-top: 16px; }
+.m3-tcard__name {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-dark, #1a1a1a);
+  margin: 0 0 3px;
+}
+.m3-tcard__role {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 13px;
+  color: var(--text-mid, #4a4a4a);
+  margin: 0;
+}
+@media (max-width: 1024px) {
+  .m3-testimonials__grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .m3-testimonials { padding: 60px 5%; }
+  .m3-testimonials__grid { grid-template-columns: 1fr; }
+  .m3-tcard__body { padding: 22px 22px 26px; }
+}
+
+/* ══════════════════════════════════════
+   SECTION 2 - INTRO + TRUST BAR
+══════════════════════════════════════ */
+.m3-intro {
+  padding: 100px 8%;
+  background: #ffffff;
+}
+.m3-intro__inner {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 80px;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+/* Image column */
+.m3-intro__image-wrap {
+  position: relative;
+  border-radius: 28px;
+  overflow: visible;
+}
+.m3-intro__img {
+  width: 100%;
+  height: 560px;
+  object-fit: cover;
+  border-radius: 28px;
+  display: block;
+}
+.m3-intro__badge {
+  position: absolute;
+  bottom: -20px;
+  left: 24px;
+  background: var(--brand, #272E32);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 100px;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  white-space: nowrap;
+}
+/* Content column */
+.m3-intro__eyebrow {
+  display: inline-block;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--green, #81AB4C);
+  margin-bottom: 18px;
+}
+.m3-intro__title {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(28px, 3.2vw, 44px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  color: var(--text-dark, #1a1a1a);
+  margin: 0 0 24px;
+}
+.m3-intro__lead {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 17px;
+  color: var(--text-mid, #4a4a4a);
+  line-height: 1.8;
+  margin: 0 0 16px;
+}
+.m3-intro__body {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 15px;
+  color: var(--text-mid, #4a4a4a);
+  line-height: 1.8;
+  margin: 0 0 28px;
+}
+.m3-intro__creds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  margin-bottom: 32px;
+}
+.m3-intro__cred {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-dark, #1a1a1a);
+}
+.m3-intro__ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+/* Trust bar */
+.m3-trust {
+  background: var(--off-white, #F7F6F3);
+  padding: 36px 8%;
+  border-top: 1px solid #E8E7E4;
+  border-bottom: 1px solid #E8E7E4;
+}
+.m3-trust__inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.m3-trust__label {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-mid, #4a4a4a);
+  text-align: center;
+  margin: 0;
+}
+.m3-trust__badges {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 0;
+  justify-content: center;
+}
+.m3-trust__badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dark, #1a1a1a);
+  padding: 0 20px;
+}
+.m3-trust__sep {
+  width: 1px;
+  height: 16px;
+  background: #D0CEC9;
+  flex-shrink: 0;
+}
+@media (max-width: 1024px) {
+  .m3-intro__inner { grid-template-columns: 1fr; gap: 60px; }
+  .m3-intro__image-col { order: 2; }
+  .m3-intro__content { order: 1; }
+  .m3-intro__img { height: 400px; }
+}
+@media (max-width: 640px) {
+  .m3-intro { padding: 60px 5%; }
+  .m3-trust { padding: 28px 5%; }
+  .m3-trust__badges { gap: 12px; flex-direction: column; align-items: flex-start; }
+  .m3-trust__sep { display: none; }
+}
+
+/* ── INTRO ── */
+.pp-intro {
+  padding: 80px 10%;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  overflow: hidden;
+}
+.pp-intro__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.pp-intro__title {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(36px, 4.5vw, 58px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  color: var(--text-dark, #1a1a1a);
+  margin: 0;
+}
+.pp-intro__lead {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 17px;
+  color: var(--text-mid, #4a4a4a);
+  line-height: 1.75;
+  margin-bottom: 32px;
+}
+.pp-intro__ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* ══════════════════════════════════════
+   SECTION 3 - WHY 3M FOR SALT LAKE CITY
+══════════════════════════════════════ */
+.m3-why {
+  background: #14201A;
+  padding: 100px 8%;
+}
+.m3-why__container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 80px;
+  align-items: center;
+}
+.m3-why__image-wrap {
+  position: relative;
+  border-radius: 28px;
+  overflow: visible;
+  flex-shrink: 0;
+}
+.m3-why__image {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 28px;
+  display: block;
+}
+.m3-why__stat-card {
+  position: absolute;
+  bottom: -24px;
+  right: -24px;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  padding: 18px 22px;
+  min-width: 240px;
+}
+.m3-why__stat-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 13px;
+  color: rgba(255,255,255,0.85);
+  font-weight: 500;
+}
+.m3-why__stat-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.12);
+  margin: 10px 0;
+}
+.m3-why__eyebrow {
+  display: inline-block;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--green, #81AB4C);
+  margin-bottom: 18px;
+}
+.m3-why__headline {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(28px, 3vw, 44px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+  margin: 0 0 20px;
+}
+.m3-why__intro {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 16px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.8;
+  margin: 0 0 28px;
+}
+.m3-why__bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.m3-why__bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 15px;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.6;
+}
+.m3-why__bullets li svg { flex-shrink: 0; margin-top: 3px; }
+.m3-why__climate-facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+.m3-why__climate-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 12px;
+  border-right: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+}
+.m3-why__climate-item:last-child { border-right: none; }
+.m3-why__climate-num {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--green, #81AB4C);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.m3-why__climate-label {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.4;
+}
+.m3-why__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--green, #81AB4C);
+  text-decoration: none;
+  transition: gap 0.2s;
+}
+.m3-why__cta:hover { gap: 14px; }
+@media (max-width: 1024px) {
+  .m3-why__container { grid-template-columns: 1fr; gap: 60px; }
+  .m3-why__stat-card { right: 0; bottom: -20px; }
+  .m3-why__image { height: 400px; }
+}
+@media (max-width: 640px) {
+  .m3-why { padding: 60px 5%; }
+  .m3-why__climate-facts { grid-template-columns: 1fr; }
+  .m3-why__climate-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .m3-why__climate-item:last-child { border-bottom: none; }
+}
+
+/* ══════════════════════════════════════
+   SECTION 4 - SLIDER
+══════════════════════════════════════ */
+.m3-slider { position: relative; width: 100%; min-height: 90vh; overflow: hidden; background: #14201A; }
+.m3-slider__track { display: flex; width: 100%; height: 100%; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); will-change: transform; }
+.m3-slider__slide { position: relative; min-width: 100%; min-height: 90vh; flex-shrink: 0; display: flex; align-items: center; }
+.m3-slider__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: 0; }
+.m3-slider__overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.25) 60%, transparent 100%); z-index: 1; }
+.m3-slider__content { position: relative; z-index: 2; max-width: 560px; padding-left: 8%; color: #fff; opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s; }
+.m3-slider__slide[data-slide="0"] .m3-slider__content { opacity: 1; transform: translateY(0); }
+.m3-slider__step { font-family: 'Space Mono', monospace; font-size: 13px; color: #81AB4C; letter-spacing: 0.2em; margin-bottom: 1rem; opacity: 0; animation: m3FadeUp 0.4s ease 0.2s forwards; }
+.m3-slider__title { font-family: var(--font-serif, 'Playfair Display', serif); font-size: clamp(2.2rem, 4vw, 3.25rem); font-weight: 700; color: #fff; line-height: 1.1; margin: 0 0 1.5rem; opacity: 0; animation: m3FadeUp 0.4s ease 0.3s forwards; }
+.m3-slider__desc { font-family: var(--font-body, 'DM Sans', sans-serif); font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.85); max-width: 460px; margin-bottom: 2rem; opacity: 0; animation: m3FadeUp 0.4s ease 0.4s forwards; }
+.m3-slider__faq { display: flex; flex-direction: column; gap: 8px; margin-bottom: 2rem; opacity: 0; animation: m3FadeUp 0.4s ease 0.5s forwards; }
+.m3-slider__faq-item { border-radius: 8px; overflow: hidden; }
+.m3-slider__faq-q { width: 100%; background: rgba(255,255,255,0.12); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; color: rgba(255,255,255,0.88); font-family: var(--font-body, 'DM Sans', sans-serif); font-size: 0.9rem; font-weight: 500; padding: 12px 16px; text-align: left; display: flex; justify-content: space-between; align-items: center; gap: 12px; cursor: pointer; transition: background 0.2s ease; }
+.m3-slider__faq-q:hover { background: rgba(255,255,255,0.18); }
+.m3-slider__faq-icon { font-size: 1.2rem; color: #81AB4C; flex-shrink: 0; font-style: normal; transition: transform 0.3s ease; }
+.m3-slider__faq-q[aria-expanded="true"] .m3-slider__faq-icon { transform: rotate(45deg); }
+.m3-slider__faq-a { background: rgba(255,255,255,0.08); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.10); border-top: none; border-radius: 0 0 8px 8px; color: rgba(255,255,255,0.70); font-family: var(--font-body, 'DM Sans', sans-serif); font-size: 0.875rem; line-height: 1.6; padding: 12px 16px; margin-top: -4px; }
+.m3-slider__cta { display: inline-block; background: var(--green, #81AB4C); color: #fff; font-family: var(--font-body, 'DM Sans', sans-serif); font-size: 0.9rem; font-weight: 600; padding: 14px 32px; border-radius: 9999px; text-decoration: none; transition: background 0.25s ease, transform 0.2s ease; opacity: 0; animation: m3FadeUp 0.4s ease 0.6s forwards; }
+.m3-slider__cta:hover { background: #6e9640; transform: translateY(-2px); }
+.m3-slider__nav { position: absolute; top: 50%; right: 48px; transform: translateY(-50%); z-index: 10; display: flex; flex-direction: column; gap: 24px; }
+.m3-slider__nav-item { display: flex; align-items: center; gap: 12px; background: transparent; border: none; cursor: pointer; padding: 0; opacity: 0.35; transition: opacity 0.3s ease; }
+.m3-slider__nav-item:hover { opacity: 0.65; }
+.m3-slider__nav-item--active { opacity: 1; }
+.m3-slider__nav-line { display: block; width: 3px; height: 32px; background: rgba(255,255,255,0.4); border-radius: 2px; transition: background 0.3s ease, height 0.3s ease; }
+.m3-slider__nav-item--active .m3-slider__nav-line { background: #81AB4C; height: 48px; }
+.m3-slider__nav-label { font-family: var(--font-body, 'DM Sans', sans-serif); font-size: 11px; font-weight: 500; color: #fff; text-transform: uppercase; letter-spacing: 0.15em; white-space: nowrap; }
+.m3-slider__arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 10; width: 48px; height: 48px; background: rgba(0,0,0,0.4); backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #fff; transition: background 0.3s ease, color 0.3s ease; }
+.m3-slider__arrow:hover { background: rgba(0,0,0,0.6); color: #81AB4C; }
+.m3-slider__arrow--prev { left: 32px; }
+.m3-slider__arrow--next { right: 32px; }
+.m3-slider__progress { position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: rgba(255,255,255,0.15); z-index: 10; }
+.m3-slider__progress-bar { height: 100%; background: #81AB4C; width: 0; transition: width 0.05s linear; }
+@keyframes m3FadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.m3-slider__slide.m3-active .m3-slider__content { opacity: 1; transform: translateY(0); }
+.m3-slider__slide.m3-active .m3-slider__step { animation: m3FadeUp 0.4s ease 0.2s forwards; }
+.m3-slider__slide.m3-active .m3-slider__title { animation: m3FadeUp 0.4s ease 0.3s forwards; }
+.m3-slider__slide.m3-active .m3-slider__desc { animation: m3FadeUp 0.4s ease 0.4s forwards; }
+.m3-slider__slide.m3-active .m3-slider__faq { animation: m3FadeUp 0.4s ease 0.5s forwards; }
+.m3-slider__slide.m3-active .m3-slider__cta { animation: m3FadeUp 0.4s ease 0.6s forwards; }
+@media (max-width: 1024px) { .m3-slider__nav { right: 32px; } .m3-slider__content { padding-left: 60px; } }
+@media (max-width: 768px) {
+  .m3-slider { min-height: auto; }
+  .m3-slider__slide { min-height: auto; display: block; padding: 0; }
+  .m3-slider__bg { position: relative; width: 100%; height: 280px; object-fit: cover; }
+  .m3-slider__overlay { position: absolute; top: 0; left: 0; right: 0; height: 280px; background: linear-gradient(to bottom, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.50) 100%); }
+  .m3-slider__content { position: relative; padding: 32px 24px 48px; max-width: 100%; background: #14201A; }
+  .m3-slider__nav { display: none; }
+  .m3-slider__title { font-size: 1.75rem; }
+  .m3-slider__desc { font-size: 0.9rem; }
+  .m3-slider__arrow--prev { left: 20px; }
+  .m3-slider__arrow--next { right: 20px; }
+}
+
+/* ── FEATURED SECTIONS ── */
+/* ── PRODUCT LINES (m3-products) ── */
+.m3-products {
+  padding: 100px 10%;
+  background: var(--off-white, #F7F6F3);
+}
+.m3-products__hd {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 80px;
+}
+.m3-products__title {
+  font-family: var(--font-head, 'DM Serif Display', Georgia, serif);
+  font-size: clamp(28px, 3vw, 42px);
+  color: var(--dark, #1a1a1a);
+  margin: 8px 0 16px;
+  line-height: 1.15;
+}
+.m3-products__sub {
+  font-size: 15px;
+  color: var(--text-mid, #555);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Each alternating row */
+.m3-pl-row {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 64px;
+  align-items: start;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 48px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+}
+.m3-pl-row:last-child { margin-bottom: 0; }
+.m3-pl-row--rev { direction: rtl; }
+.m3-pl-row--rev > * { direction: ltr; }
+
+/* Image side */
+.m3-pl-row__img-wrap {
+  position: relative;
+  height: 100%;
+  min-height: 480px;
+}
+.m3-pl-row__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.m3-pl-row__pill {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: var(--green, #81AB4C);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 100px;
+}
+
+/* Content side */
+.m3-pl-row__content {
+  padding: 52px 52px 52px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.m3-pl-row--rev .m3-pl-row__content {
+  padding: 52px 0 52px 52px;
+}
+.m3-pl-row__num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--green, #81AB4C);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: block;
+}
+.m3-pl-row__eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-mid, #666);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: block;
+}
+.m3-pl-row__heading {
+  font-family: var(--font-head, 'DM Serif Display', Georgia, serif);
+  font-size: clamp(20px, 2vw, 28px);
+  color: var(--dark, #1a1a1a);
+  line-height: 1.2;
+  margin: 0 0 20px;
+}
+.m3-pl-row__body {
+  font-size: 15px;
+  color: var(--text-mid, #444);
+  line-height: 1.7;
+  margin: 0 0 16px;
+}
+
+/* Specs strip */
+.m3-pl-row__specs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--light-gray, #E8E8E4);
+  border: 1px solid var(--light-gray, #E8E8E4);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 8px 0 28px;
+}
+.m3-pl-row__spec {
+  background: var(--off-white, #F7F6F3);
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.m3-pl-row__spec-val {
+  font-family: var(--font-head, 'DM Serif Display', Georgia, serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--green, #81AB4C);
+  line-height: 1;
+}
+.m3-pl-row__spec-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-mid, #666);
+  text-align: center;
+}
+
+/* PDF links */
+.m3-pl-row__pdfs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.m3-pl-row__pdfs-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-mid, #888);
+}
+.m3-pl-row__pdf-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.m3-pl-row__pdf-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--green, #81AB4C);
+  text-decoration: none;
+  transition: color 0.18s;
+}
+.m3-pl-row__pdf-link:hover { color: var(--dark, #1a1a1a); }
+.m3-pl-row__pdf-link svg { flex-shrink: 0; opacity: 0.7; }
+.m3-pl-row__warranty-note {
+  font-size: 11px;
+  color: var(--text-mid, #999);
+  margin: 10px 0 0;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .m3-pl-row {
+    grid-template-columns: 1fr;
+  }
+  .m3-pl-row--rev { direction: ltr; }
+  .m3-pl-row__img-wrap { min-height: 280px; }
+  .m3-pl-row__content { padding: 36px 28px; }
+  .m3-pl-row--rev .m3-pl-row__content { padding: 36px 28px; }
+  .m3-pl-row__specs { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ══════════════════════════════════════
+   3M PRODUCT CATALOG
+══════════════════════════════════════ */
+.m3-catalog {
+  padding: 80px 0;
+  background: #0d0d0d;
+}
+.m3-catalog__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.m3-catalog__hd {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.m3-catalog__title {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  color: #fff;
+  margin: 12px 0 16px;
+  letter-spacing: 0;
+}
+.m3-catalog__sub {
+  color: rgba(255,255,255,0.6);
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.m3-catalog__series {
+  margin-bottom: 48px;
+}
+.m3-catalog__series-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.m3-catalog__series-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.m3-catalog__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+.m3-catalog__card {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.m3-catalog__card:hover {
+  border-color: #81AB4C;
+  transform: translateY(-2px);
+}
+.m3-catalog__card-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+.m3-catalog__card-body {
+  padding: 14px 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+.m3-catalog__card-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  align-self: flex-start;
+}
+.m3-catalog__card-name {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+.m3-catalog__card-desc {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+  margin: 0;
+  line-height: 1.5;
+}
+@media (max-width: 768px) {
+  .m3-catalog { padding: 48px 0; }
+  .m3-catalog__grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+  .m3-catalog__card-img { height: 120px; }
+}
+
+/* Keep old pp-featured CSS for fallback (can remove later) */
+.pp-featured {
+  padding: 100px 10%;
+  background: var(--off-white, #F7F6F3);
+}
+.pp-featured__hd { margin-bottom: 72px; }
+.pp-featured__title {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  color: var(--text-dark, #1a1a1a);
+  margin: 0;
+}
+.pp-feat-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  margin-bottom: 100px;
+}
+.pp-feat-row:last-child { margin-bottom: 0; }
+.pp-feat-row--rev .pp-feat-row__img { order: 2; }
+.pp-feat-row--rev .pp-feat-row__content { order: 1; }
+.pp-feat-row__img {
+  position: relative;
+  height: 480px;
+  border-radius: 32px;
+  overflow: hidden;
+}
+.pp-feat-row__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pp-feat-row__pill {
+  position: absolute; bottom: 24px; left: 24px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(8px);
+  padding: 10px 18px;
+  border-radius: 100px;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 13px; font-weight: 600;
+  color: var(--brand, #272E32);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+.pp-feat-row__num {
+  display: block;
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: 72px; font-weight: 700;
+  color: var(--green, #81AB4C);
+  line-height: 1; opacity: 0.25;
+  margin-bottom: -8px;
+}
+.pp-feat-row__heading {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 700;
+  color: var(--text-dark, #1a1a1a);
+  line-height: 1.2;
+  margin-bottom: 20px;
+  letter-spacing: -0.3px;
+}
+.pp-feat-row__body {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 16px;
+  color: var(--text-mid, #4a4a4a);
+  line-height: 1.8;
+  margin-bottom: 28px;
+}
+.pp-feat-row__cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 15px; font-weight: 600;
+  color: var(--green, #81AB4C);
+  text-decoration: none;
+  transition: gap 0.2s;
+}
+.pp-feat-row__cta:hover { gap: 14px; }
+
+/* ── PRODUCT GRID (dark) ── */
+.pp-why {
+  background: var(--brand, #272E32);
+  padding: 100px 10%;
+}
+.pp-why__hd { margin-bottom: 64px; }
+.pp-why__hd .pp-eyebrow { color: var(--green, #81AB4C); }
+.pp-why__title {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(28px, 3.5vw, 48px);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  margin: 0;
+  max-width: 600px;
+}
+.pp-why__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+.pp-why__item {
+  padding: 32px 28px;
+  border-right: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.pp-why__item:nth-child(4n) { border-right: none; }
+.pp-why__item:nth-child(n+5) { border-bottom: none; }
+.pp-why__icon {
+  color: var(--green, #81AB4C);
+  margin-bottom: 16px;
+  display: flex; align-items: center; line-height: 1;
+}
+.pp-why__icon svg { display: block; }
+.pp-why__divider {
+  width: 32px; height: 2px;
+  background: var(--green, #81AB4C);
+  margin-bottom: 16px;
+}
+.pp-why__item-title {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 15px; font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+.pp-why__item-sub {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  margin: 0; line-height: 1.5;
+}
+
+/* ── FAQ - two-column split ── */
+.m3-faq {
+  background: #ffffff;
+  padding: 96px 0;
+}
+.m3-faq__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 6%;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.m3-eyebrow {
+  display: block;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--green, #81AB4C);
+  margin-bottom: 16px;
+}
+.m3-faq__title {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(24px, 2.5vw, 36px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  color: var(--text-dark, #1a1a1a);
+  margin: 0 0 16px;
+}
+.m3-faq__header p {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--text-mid, #4a4a4a);
+  margin: 0 0 24px;
+}
+.m3-faq__cta-btn {
+  display: inline-flex;
+  align-items: center;
+  background: var(--green, #81AB4C);
+  color: #fff;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 13px 28px;
+  border-radius: 100px;
+  transition: background 0.25s, transform 0.2s;
+}
+.m3-faq__cta-btn:hover { background: #6a9240; transform: translateY(-1px); }
+.m3-faq__item {
+  border-bottom: 1px solid var(--light-gray, #EFEFED);
+  padding: 20px 0;
+}
+.m3-faq__item:first-of-type { border-top: 1px solid var(--light-gray, #EFEFED); }
+.m3-faq__q {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-dark, #1a1a1a);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  padding: 3px 0;
+}
+.m3-faq__toggle {
+  color: var(--green, #81AB4C);
+  font-size: 22px;
+  flex-shrink: 0;
+  font-weight: 400;
+  transition: transform 0.2s;
+  line-height: 1;
+}
+.m3-faq__a {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 14px;
+  color: var(--text-mid, #4a4a4a);
+  line-height: 1.8;
+  margin-top: 10px;
+  display: none;
+}
+.m3-faq__item--open .m3-faq__a { display: block; }
+.m3-faq__item--open .m3-faq__toggle { transform: rotate(45deg); }
+.m3-faq__a p { margin: 0; }
+
+/* ── CTA - cinematic ── */
+.m3-cinematic-cta {
+  position: relative;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.m3-cinematic-cta__media {
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/3m-window-film-salt-lake-city-cta.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.m3-cinematic-cta__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(13,26,15,0.88) 0%, rgba(46,107,48,0.72) 40%, rgba(13,26,15,0.88) 100%);
+}
+.m3-cinematic-cta__vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(13,26,15,0.15) 0%, rgba(13,26,15,0.6) 100%);
+}
+.m3-cinematic-cta__content {
+  position: relative;
+  z-index: 10;
+  max-width: 760px;
+  padding: 80px 24px;
+  text-align: center;
+}
+.m3-cinematic-cta__title {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-weight: 700;
+  color: #F3F6F1;
+  margin-bottom: 20px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.m3-cinematic-cta__title em { font-style: italic; color: #9ecf5a; }
+.m3-cinematic-cta__text {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  color: rgba(243,246,241,0.82);
+  max-width: 620px;
+  margin: 0 auto 40px;
+  line-height: 1.75;
+}
+.m3-cinematic-cta__actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.m3-cinematic-cta__btn-primary {
+  display: inline-flex;
+  align-items: center;
+  background: #7CB342;
+  color: #fff;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 16px 36px;
+  border-radius: 100px;
+  border: 2px solid #7CB342;
+  transition: background 0.25s, border-color 0.25s, transform 0.2s, box-shadow 0.25s;
+}
+.m3-cinematic-cta__btn-primary:hover {
+  background: #6aa032;
+  border-color: #6aa032;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(124,179,66,0.35);
+}
+.m3-cinematic-cta__btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(8px);
+  color: #F3F6F1;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 14px 28px;
+  border-radius: 100px;
+  border: 2px solid rgba(255,255,255,0.3);
+  transition: background 0.25s, border-color 0.25s, transform 0.2s;
+}
+.m3-cinematic-cta__btn-secondary:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(124,179,66,0.6);
+  transform: translateY(-2px);
+}
+
+/* ── FADE IN ── */
+.fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .pp-intro__inner { grid-template-columns: 1fr; gap: 40px; }
+  .pp-feat-row { grid-template-columns: 1fr; gap: 40px; }
+  .pp-feat-row--rev .pp-feat-row__img { order: 0; }
+  .pp-feat-row--rev .pp-feat-row__content { order: 1; }
+  .pp-why__grid { grid-template-columns: repeat(2, 1fr); }
+  .pp-why__item:nth-child(4n) { border-right: 1px solid rgba(255,255,255,0.1); }
+  .pp-why__item:nth-child(2n) { border-right: none; }
+}
+@media (max-width: 768px) {
+  .pp-intro { padding: 60px 5%; }
+  .pp-featured { padding: 60px 5%; }
+  .pp-why { padding: 60px 5%; }
+  .pp-feat-row__img { height: 300px; }
+  .pp-why__grid { grid-template-columns: 1fr; }
+  .m3-faq__inner { grid-template-columns: 1fr; gap: 40px; }
+  .m3-cinematic-cta__actions { flex-direction: column; align-items: center; }
+  .m3-cinematic-cta__btn-primary, .m3-cinematic-cta__btn-secondary { width: 100%; max-width: 320px; justify-content: center; }
+}
+@media (max-width: 480px) {
+  .pp-intro__ctas { flex-direction: column; }
+}
+
+
+
+/* ══ TINT SLIDER CTA ══ */
+.m3-tint-cta { position: relative; overflow: hidden; min-height: 580px; display: flex; align-items: center; justify-content: center; }
+.m3-tint-cta__bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: filter .05s; }
+.m3-tint-cta__darken { position: absolute; inset: 0; background: rgba(10,20,5,0); pointer-events: none; transition: background .05s; }
+.m3-tint-cta__content { position: relative; z-index: 2; text-align: center; padding: 80px 24px; max-width: 680px; width: 100%; }
+.m3-tint-cta__title { font-family: var(--font-serif,'Playfair Display',serif); font-size: clamp(36px,5vw,64px); font-weight: 700; color: #fff; line-height: 1.05; margin: 0 0 16px; text-shadow: 0 2px 24px rgba(0,0,0,.4); }
+.m3-tint-cta__subtitle { font-family: var(--font-body,'DM Sans',sans-serif); font-size: 17px; color: rgba(255,255,255,.88); line-height: 1.65; margin: 0 0 40px; text-shadow: 0 1px 8px rgba(0,0,0,.5); }
+.m3-tint-cta__controls { display: flex; align-items: center; gap: 14px; background: rgba(0,0,0,.38); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,.18); border-radius: 999px; padding: 14px 22px; margin: 0 0 16px; }
+.m3-tint-cta__label { font-family: var(--font-body,'DM Sans',sans-serif); font-size: 12px; font-weight: 800; letter-spacing: .12em; color: rgba(255,255,255,.7); white-space: nowrap; }
+.m3-tint-cta__range { flex: 1; -webkit-appearance: none; appearance: none; height: 4px; border-radius: 2px; background: rgba(255,255,255,.3); outline: none; cursor: pointer; }
+.m3-tint-cta__range::-webkit-slider-thumb { -webkit-appearance: none; width: 26px; height: 26px; border-radius: 50%; background: var(--green,#81AB4C); border: 3px solid #fff; box-shadow: 0 2px 12px rgba(0,0,0,.4); cursor: grab; transition: transform .15s; }
+.m3-tint-cta__range::-webkit-slider-thumb:hover { transform: scale(1.15); }
+.m3-tint-cta__range::-moz-range-thumb { width: 26px; height: 26px; border-radius: 50%; background: var(--green,#81AB4C); border: 3px solid #fff; cursor: grab; }
+.m3-tint-cta__vlt { font-family: var(--font-body,'DM Sans',sans-serif); font-size: 14px; color: rgba(255,255,255,.72); margin: 0 0 36px; letter-spacing: .02em; }
+.m3-tint-cta__vlt strong { color: #fff; font-size: 18px; font-weight: 800; }
+.m3-tint-cta__btn { display: inline-flex; align-items: center; gap: 8px; padding: 16px 36px; border-radius: 999px; background: var(--green,#81AB4C); color: #fff; font-family: var(--font-body,'DM Sans',sans-serif); font-weight: 700; font-size: 16px; text-decoration: none; transition: background .2s, transform .2s, box-shadow .2s; box-shadow: 0 4px 24px rgba(129,171,76,.4); }
+.m3-tint-cta__btn:hover { background: #6e9640; transform: translateY(-3px); box-shadow: 0 8px 32px rgba(129,171,76,.5); }
+@media (max-width: 600px) { .m3-tint-cta { min-height: 520px; } .m3-tint-cta__controls { padding: 12px 16px; } }
+
+@media (max-width: 768px) {
+  .m3-why__climate-facts { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .m3-pl-row__specs { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .m3-pl-row__specs { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .pp-why__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .pp-why__grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<script>
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+  // ── Slider ──
+  (function initM3Slider() {
+    const track = document.getElementById('m3Track');
+    const slides = document.querySelectorAll('.m3-slider__slide');
+    const navItems = document.querySelectorAll('[data-m3nav]');
+    const prevBtn = document.getElementById('m3Prev');
+    const nextBtn = document.getElementById('m3Next');
+    const progressBar = document.getElementById('m3ProgressBar');
+    if (!track || !slides.length) return;
+    let current = 0;
+    const total = slides.length;
+
+    function goTo(i) {
+      if (i < 0) i = total - 1;
+      if (i >= total) i = 0;
+      current = i;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      navItems.forEach((n, idx) => n.classList.toggle('m3-slider__nav-item--active', idx === current));
+      slides.forEach((s, idx) => s.classList.toggle('m3-active', idx === current));
+      if (progressBar) {
+        progressBar.style.transition = 'none';
+        progressBar.style.width = '0';
+        setTimeout(() => { progressBar.style.transition = 'width 6s linear'; progressBar.style.width = '100%'; }, 50);
+      }
+    }
+
+    prevBtn?.addEventListener('click', () => goTo(current - 1));
+    nextBtn?.addEventListener('click', () => goTo(current + 1));
+    navItems.forEach((n, i) => n.addEventListener('click', () => goTo(i)));
+
+    document.querySelectorAll('.m3-slider__faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        const slide = btn.closest('.m3-slider__slide');
+        slide.querySelectorAll('.m3-slider__faq-q').forEach(b => {
+          b.setAttribute('aria-expanded', 'false');
+          const a = b.nextElementSibling; if (a) a.hidden = true;
+        });
+        if (!expanded) {
+          btn.setAttribute('aria-expanded', 'true');
+          const a = btn.nextElementSibling; if (a) a.hidden = false;
+        }
+      });
+    });
+
+    let timer = setInterval(() => goTo(current + 1), 6000);
+    document.getElementById('m3Slider')?.addEventListener('mouseenter', () => clearInterval(timer));
+    document.getElementById('m3Slider')?.addEventListener('mouseleave', () => { timer = setInterval(() => goTo(current + 1), 6000); });
+    goTo(0);
+  })();
+
+  document.querySelectorAll('.m3-faq__item').forEach(item => {
+    item.querySelector('.m3-faq__q')?.addEventListener('click', () => {
+      const isOpen = item.classList.contains('m3-faq__item--open');
+      document.querySelectorAll('.m3-faq__item').forEach(i => i.classList.remove('m3-faq__item--open'));
+      if (!isOpen) item.classList.add('m3-faq__item--open');
+    });
+  });
+
+  // ══ TINT SLIDER ══
+  (() => {
+    const range = document.getElementById('tintRange');
+    const overlay = document.getElementById('tintOverlay');
+    const vltEl = document.getElementById('tintVlt');
+    const filmEl = document.getElementById('tintFilm');
+    if (!range) return;
+    // v=0 (left) = clearest, v=100 (right) = darkest (limo)
+    // VLT: clear ~90% down to limo ~5%
+    // v=0 (left, CLEAR) = no tint; v=100 (right, LIMO) = darkest
+    const films = [
+      { minV: 0,  maxV: 15,  name: 'Clear — No Film',       vlt: 90 },
+      { minV: 15, maxV: 30,  name: '3M Thinsulate CC75',   vlt: 75 },
+      { minV: 30, maxV: 50,  name: '3M Sun Control PR70',  vlt: 70 },
+      { minV: 50, maxV: 65,  name: '3M Sun Control PR50',  vlt: 50 },
+      { minV: 65, maxV: 80,  name: '3M Sun Control PR35',  vlt: 35 },
+      { minV: 80, maxV: 90,  name: '3M Night Vision NV25', vlt: 24 },
+      { minV: 90, maxV: 100, name: '3M Night Vision NV15', vlt: 15 },
+    ];
+    const update = () => {
+      const v = parseInt(range.value); // 0=CLEAR (light), 100=LIMO (dark)
+      const vlt = Math.round(90 - (v / 100) * 85); // 90% at CLEAR, 5% at LIMO
+      const opacity = (v / 100) * 0.78;
+      overlay.style.background = `rgba(10,20,5,${opacity.toFixed(3)})`;
+      vltEl.textContent = vlt + '%';
+      const film = films.find(f => v >= f.minV && v <= f.maxV) || films[films.length - 1];
+      filmEl.textContent = film.name;
+    };
+    range.addEventListener('input', update);
+    update();
+  })();
+</script>

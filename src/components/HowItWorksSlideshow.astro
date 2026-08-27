@@ -1,0 +1,380 @@
+---
+interface FaqItem {
+  q: string;
+  a: string;
+}
+
+interface Slide {
+  step: string;
+  title: string;
+  desc: string;
+  img: string;
+  imgAlt?: string;
+  cta?: string;
+  ctaHref?: string;
+  navLabel?: string;
+  faq?: FaqItem[];
+}
+
+interface Props {
+  slides: Slide[];
+  id?: string;
+  eyebrow?: string;
+  title?: string;
+  subtitle?: string;
+}
+
+const { slides, id = 'hiwSlideshow', eyebrow, title, subtitle } = Astro.props;
+const trackId = `${id}Track`;
+const progressId = `${id}Progress`;
+---
+
+<section class="hiw-section" id={id}>
+  <div class="hiw-container">
+    {(eyebrow || title || subtitle) && (
+      <div class="hiw-header">
+        {eyebrow && <span class="hiw-header__eyebrow">{eyebrow}</span>}
+        {title && <h2 class="hiw-header__title">{title}</h2>}
+        {subtitle && <p class="hiw-header__sub">{subtitle}</p>}
+      </div>
+    )}
+    <div class="hiw-layout">
+
+      <!-- Left side nav -->
+      <nav class="hiw-nav" aria-label="How it works steps">
+        {slides.map((slide, i) => (
+          <button
+            class={`hiw-nav__item${i === 0 ? ' hiw-nav__item--active' : ''}`}
+            data-index={String(i)}
+            aria-label={`Step ${slide.step}: ${slide.navLabel || slide.title}`}
+          >
+            <span class="hiw-nav__line"></span>
+            <span class="hiw-nav__label">{slide.step} · {slide.navLabel || slide.title}</span>
+          </button>
+        ))}
+      </nav>
+
+      <!-- Viewport -->
+      <div class="hiw-viewport">
+        <div class="hiw-track" id={trackId}>
+          {slides.map((slide, i) => (
+            <div class={`hiw-slide${i === 0 ? ' hiw-slide--active' : ''}`} data-slide={String(i)}>
+              <div class="hiw-slide__grid">
+                <img
+                  src={slide.img}
+                  alt={slide.imgAlt || slide.title} title={slide.imgAlt || slide.title}
+                  class="hiw-slide__img"
+                  loading="lazy"
+                />
+                <div class="hiw-slide__panel">
+                  <span class="hiw-slide__step">{slide.step}</span>
+                  <h3 class="hiw-slide__title">{slide.title}</h3>
+                  <p class="hiw-slide__desc" set:html={slide.desc}></p>
+                  {slide.faq && slide.faq.length > 0 && (
+                    <div class="hiw-slide__faq">
+                      {slide.faq.map(item => (
+                        <div class="hiw-slide__faq-item">
+                          <button class="hiw-slide__faq-q" aria-expanded="false">
+                            <span>{item.q}</span>
+                            <span class="hiw-slide__faq-icon" aria-hidden="true">+</span>
+                          </button>
+                          <div class="hiw-slide__faq-a" hidden>{item.a}</div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  <a href={slide.ctaHref || '/contact/'} class="hiw-slide__cta">
+                    {slide.cta || 'Get a free quote'}
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Progress bar -->
+        <div class="hiw-progress">
+          <div class="hiw-progress__bar" id={progressId}></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .hiw-section {
+    background: #F7F6F3;
+    padding: 5rem 0;
+  }
+  .hiw-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  .hiw-header {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 3rem;
+  }
+  .hiw-header__eyebrow {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #7CB342;
+    margin-bottom: 0.75rem;
+  }
+  .hiw-header__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    color: #111;
+    line-height: 1.15;
+    margin: 0 0 0.75rem;
+  }
+  .hiw-header__sub {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.7;
+    margin: 0;
+  }
+  .hiw-layout {
+    display: grid;
+    gap: 2.5rem;
+    grid-template-columns: 200px 1fr;
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .hiw-layout { grid-template-columns: 1fr; }
+    .hiw-nav { display: flex; flex-direction: row; gap: 0.5rem; overflow-x: auto; padding-bottom: 0.5rem; }
+  }
+
+  /* Side nav */
+  .hiw-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .hiw-nav__item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.625rem 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+  }
+  .hiw-nav__line {
+    display: block;
+    width: 2px;
+    height: 2rem;
+    background: rgba(255,255,255,0.15);
+    border-radius: 2px;
+    flex-shrink: 0;
+    transition: background 0.3s, height 0.3s;
+  }
+  .hiw-nav__item--active .hiw-nav__line {
+    background: #7CB342;
+    height: 3rem;
+  }
+  .hiw-nav__label {
+    font-size: 0.8rem;
+    color: #888;
+    transition: color 0.3s;
+    line-height: 1.4;
+  }
+  .hiw-nav__item--active .hiw-nav__label {
+    color: #111;
+    font-weight: 600;
+  }
+  .hiw-nav__item:hover .hiw-nav__label { color: #333; }
+
+  /* Viewport */
+  .hiw-viewport {
+    overflow: hidden;
+    border-radius: 16px;
+  }
+  .hiw-track {
+    display: flex;
+    transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  /* Slides */
+  .hiw-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 0;
+  }
+  .hiw-slide__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    min-width: 0;
+  }
+  @media (max-width: 640px) {
+    .hiw-slide__grid { grid-template-columns: 1fr; }
+  }
+  .hiw-slide__img {
+    width: 100%;
+    height: 100%;
+    max-height: 520px;
+    object-fit: cover;
+    display: block;
+    min-width: 0;
+    min-height: 380px;
+  }
+  .hiw-slide__panel {
+    background: #F5F3EE;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+  .hiw-slide__step {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    color: #7CB342;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+  .hiw-slide__title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.3rem, 2vw, 1.6rem);
+    font-weight: 700;
+    color: #111;
+    line-height: 1.2;
+    margin: 0 0 0.75rem;
+  }
+  .hiw-slide__desc {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: #555;
+    margin: 0 0 1.25rem;
+  }
+  .hiw-slide__faq {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    flex: 1;
+  }
+  .hiw-slide__faq-item {
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .hiw-slide__faq-q {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    background: rgba(0,0,0,0.04);
+    border: none;
+    padding: 0.75rem 1rem;
+    color: #111;
+    font-size: 0.85rem;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .hiw-slide__faq-q:hover { background: rgba(0,0,0,0.08); }
+  .hiw-slide__faq-icon {
+    color: #7CB342;
+    flex-shrink: 0;
+    font-size: 1rem;
+    transition: transform 0.25s;
+  }
+  .hiw-slide__faq-q[aria-expanded="true"] .hiw-slide__faq-icon { transform: rotate(45deg); }
+  .hiw-slide__faq-a {
+    padding: 0.75rem 1rem;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: #555;
+  }
+  .hiw-slide__cta {
+    display: inline-block;
+    background: #7CB342;
+    color: #fff;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.75rem 1.75rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: background 0.25s, transform 0.2s;
+    align-self: flex-start;
+  }
+  .hiw-slide__cta:hover { background: #2E6B30; transform: translateY(-1px); }
+
+  /* Progress bar */
+  .hiw-progress {
+    height: 3px;
+    background: rgba(0,0,0,0.1);
+  }
+  .hiw-progress__bar {
+    height: 100%;
+    background: #7CB342;
+    width: 0;
+  }
+</style>
+
+<script define:vars={{ id, trackId, progressId }}>
+(function () {
+  const section = document.getElementById(id);
+  if (!section) return;
+
+  const track = document.getElementById(trackId);
+  const progressBar = document.getElementById(progressId);
+  const slides = section.querySelectorAll('.hiw-slide');
+  const navItems = section.querySelectorAll('.hiw-nav__item');
+
+  let current = 0;
+  const total = slides.length;
+  let timer = null;
+
+  function goTo(index) {
+    if (index < 0) index = total - 1;
+    if (index >= total) index = 0;
+    current = index;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    slides.forEach((s, i) => s.classList.toggle('hiw-slide--active', i === current));
+    navItems.forEach((n, i) => n.classList.toggle('hiw-nav__item--active', i === current));
+    resetProgress();
+    resetTimer();
+  }
+
+  function resetProgress() {
+    if (!progressBar) return;
+    progressBar.style.transition = 'none';
+    progressBar.style.width = '0';
+    requestAnimationFrame(() => {
+      progressBar.style.transition = 'width 5s linear';
+      progressBar.style.width = '100%';
+    });
+  }
+
+  function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(() => goTo(current + 1), 5000);
+  }
+
+  navItems.forEach((btn, i) => btn.addEventListener('click', () => goTo(i)));
+
+  section.querySelectorAll('.hiw-slide__faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      const answer = btn.nextElementSibling;
+      if (answer) answer.hidden = expanded;
+    });
+  });
+
+  resetProgress();
+  resetTimer();
+})();
+</script>

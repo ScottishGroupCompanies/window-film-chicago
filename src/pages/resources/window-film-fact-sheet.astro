@@ -1,0 +1,550 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BrandLogos from '../../components/BrandLogos.astro';
+import GalleryBanner from '../../components/GalleryBanner.astro';
+import BentoGridPhoto from '../../components/BentoGridPhoto.astro';
+import AccordionBenefits from '../../components/AccordionBenefits.astro';
+import CountUp from '../../components/animations/CountUp.astro';
+import AccordionFAQ from '../../components/AccordionFAQ.astro';
+import CTAAvatars from '../../components/CTAAvatars.astro';
+
+const title = 'Window Film Fact Sheet | Window Film Salt Lake City';
+const description = 'The performance data behind every window film claim — energy savings, UV protection, ROI, and sustainability statistics from independent testing and Department of Energy recognition.';
+const dateModified = new Date().toISOString().slice(0, 10);
+
+const galleryPhotos = [
+  '/images/fact-sheet/window-film-fact-sheet-gallery-1.jpg',
+  '/images/fact-sheet/window-film-fact-sheet-gallery-2.jpg',
+  '/images/fact-sheet/window-film-fact-sheet-gallery-3.jpg',
+  '/images/fact-sheet/window-film-fact-sheet-gallery-4.jpg',
+  '/images/fact-sheet/window-film-fact-sheet-gallery-5.jpg',
+];
+
+const bentoItems = [
+  { span: 'lg', title: '97% IR Rejection', desc: 'Top-tier window films reject up to 97% of infrared radiation from the sun, dramatically reducing heat gain through glass.', img: '/images/fact-sheet/infrared-rejection-window-film-salt-lake-city.jpg', href: '/benefits/energy-savings/' },
+  { span: 'sm', title: '99.9% UV Block', desc: 'Industry standard for UV-rated films — blocks virtually all UVA and UVB radiation regardless of visible light transmission.', img: '/images/fact-sheet/uv-block-window-film-salt-lake-city.jpg', href: '/benefits/uv-protection-film/' },
+  { span: 'sm', title: 'Carbon-Negative in 6 Months', desc: 'The energy saved by window film exceeds the embodied carbon of manufacturing and installing it within 6 months.', img: '/images/fact-sheet/carbon-negative-window-film-salt-lake-city.jpg', href: '/benefits/energy-savings/' },
+  { span: 'md', title: 'DOE First-Tier Technology', desc: 'The Department of Energy has identified window film as a first-tier technology for building energy efficiency.', img: '/images/fact-sheet/doe-first-tier-window-film-salt-lake-city.jpg', href: '/services/commercial/' },
+  { span: 'md', title: '30% Summer Savings', desc: 'Residential property owners typically see an average of 30% savings on energy costs during summer months.', img: '/images/fact-sheet/summer-savings-window-film-salt-lake-city.jpg', href: '/services/residential/' },
+  { span: 'md', title: '92% Glass Efficiency', desc: 'Window film can improve the energy efficiency of existing glass by up to 92%, converting single-pane to near double-pane performance.', img: '/images/fact-sheet/glass-efficiency-window-film-salt-lake-city.jpg', href: '/benefits/energy-savings/' },
+];
+
+const benefits = [
+  {
+    number: '01',
+    title: 'Energy Efficiency Facts',
+    detail: '<p>Window film can reject up to 97% of infrared radiation from the sun and block up to 60% of solar heat from entering through glass. Property owners save $1–$2 per square foot of film installed — as much as 19 kWh per square foot of glass annually. Residential property owners see average cooling cost savings of 30% in summer and 10–15% in winter. The Department of Energy has identified window film as a "first-tier technology" for building energy efficiency.</p>',
+    image: '/images/fact-sheet/energy-efficiency-window-film-facts-salt-lake-city.jpg',
+    imageAlt: 'Window film energy efficiency facts in Salt Lake City',
+  },
+  {
+    number: '02',
+    title: 'UV & Fade Protection Facts',
+    detail: '<p>Window film blocks up to 99.9% of UVA and UVB radiation — the leading cause of interior fading for furnishings, flooring, and artwork. UV rays account for 40–60% of all interior fading. Window film also improves the energy efficiency of existing glass by up to 92%, effectively converting single-pane glass to near double-pane performance in thermal management terms.</p>',
+    image: '/images/fact-sheet/uv-protection-window-film-facts-salt-lake-city.jpg',
+    imageAlt: 'Window film UV protection facts in Salt Lake City',
+  },
+  {
+    number: '03',
+    title: 'ROI & Sustainability Facts',
+    detail: '<p>Businesses typically achieve full ROI on window film within 6 months to 3 years depending on glazing area and film type. Window film can deliver carbon-negative benefits within 6 months of installation. Solar heat gain and radiant heat loss account for approximately one-third of a home\'s total energy costs — and approximately 40% of energy lost in any building exits through its windows. Every 16 feet of film installed saves the energy equivalent of one barrel of oil annually.</p>',
+    image: '/images/fact-sheet/roi-sustainability-window-film-facts-salt-lake-city.jpg',
+    imageAlt: 'Window film ROI and sustainability facts in Salt Lake City',
+  },
+];
+
+const faqItems = [
+  { question: 'Where does this performance data come from?', answer: 'This data comes from independent lab testing, manufacturer performance data, Department of Energy studies, and real-world installation case studies accumulated over decades of commercial and residential window film application. All figures represent tested results from certified film products.' },
+  { question: 'Does window film really block 99.9% of UV rays?', answer: 'Yes — most premium films from 3M, LLumar, Vista, and other major brands achieve 99.9% UV rejection regardless of the film\'s visible light transmission level. Even clear, low-visibility films block virtually all UV radiation while remaining nearly invisible on glass.' },
+  { question: 'How quickly can I expect to see energy savings after installation?', answer: 'Energy savings begin immediately on day one of installation. Most property owners notice reduced HVAC cycling within the first billing cycle after installation, with measurable cost reductions typically visible within the first month of summer or winter use.' },
+  { question: 'Is the 92% glass efficiency improvement realistic for my property?', answer: 'The 92% figure represents maximum improvement potential on single-pane glass with a high-performance Low-E film. Actual improvement varies by glass type, orientation, and film selected. Our team provides property-specific energy projections during your free consultation.' },
+  { question: 'What does "carbon-negative within 6 months" mean?', answer: 'It means the energy saved by the film exceeds the embodied carbon of manufacturing and installing it within 6 months of installation — so the film has a net positive environmental impact remarkably quickly. This makes window film one of the fastest-payback sustainability investments available for buildings.' },
+  { question: 'Can I get a customized energy savings projection for my specific property?', answer: 'Yes — our team provides free onsite assessments and can model expected savings based on your building\'s glazing area, glass orientation, existing glass type, and local climate data. Contact us to schedule a free consultation for your property.' },
+];
+
+const faqAccordionItems = faqItems.map(f => ({ q: f.question, a: f.answer }));
+
+const pageSchemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://windowfilmsaltlakecity.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Resources', item: 'https://windowfilmsaltlakecity.com/resources/' },
+      { '@type': 'ListItem', position: 3, name: 'Fact Sheet', item: 'https://windowfilmsaltlakecity.com/resources/window-film-fact-sheet/' },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': 'https://windowfilmsaltlakecity.com/resources/window-film-fact-sheet/',
+    url: 'https://windowfilmsaltlakecity.com/resources/window-film-fact-sheet/',
+    name: 'Window Film Fact Sheet',
+    description,
+    dateModified,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map(f => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: { '@type': 'Answer', text: f.answer },
+    })),
+  },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical="https://windowfilmsaltlakecity.com/resources/window-film-fact-sheet/"
+  faqItems={faqItems}
+  serviceName="Window Film Salt Lake City Fact Sheet"
+  serviceDesc="Performance data and statistics behind window film energy savings, UV protection, and ROI claims."
+  serviceUrl="https://windowfilmsaltlakecity.com/resources/window-film-fact-sheet/"
+  schemas={pageSchemas}
+>
+
+<!-- ═══ HERO ═══ -->
+<section class="fs-hero">
+  <div class="fs-hero__bg" style="background-image: url('/images/fact-sheet/window-film-fact-sheet-salt-lake-city-hero.jpg')" role="img" aria-label="Salt Lake City building with professional window film showing energy performance"></div>
+  <div class="fs-hero__overlay"></div>
+  <div class="fs-hero__content">
+    <div class="fs-hero__eyebrow">
+      <span class="fs-hero__eyebrow-dot" aria-hidden="true"></span>
+      FACT SHEET
+      <span class="fs-hero__eyebrow-dot" aria-hidden="true"></span>
+    </div>
+    <h1 class="fs-hero__title">Window Film Facts for Salt Lake City Properties</h1>
+    <p class="fs-hero__subtitle">Window film's performance claims are backed by independent testing, Department of Energy recognition, and decades of real-world installation data. Whether you are evaluating window film for energy savings, UV protection, or carbon reduction goals, here are the facts and statistics that matter.</p>
+    <div class="fs-hero__cta">
+      <a href="/contact/" class="fs-hero__btn-primary">Get a Free Quote</a>
+      <a href="#key-facts" class="fs-hero__btn-secondary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v4.5a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18.75v-4.5M8.25 6L12 2.25 15.75 6M12 2.25v15"/></svg>
+        View the Facts
+      </a>
+    </div>
+    <div class="fs-hero__stats-panel" aria-label="Key statistics">
+      <div class="fs-hero__stats-inner">
+        <div class="fs-hero__stat">
+          <span class="fs-hero__stat-number">97%</span>
+          <span class="fs-hero__stat-label">IR Rejection</span>
+        </div>
+        <div class="fs-hero__stat-divider" aria-hidden="true"></div>
+        <div class="fs-hero__stat">
+          <span class="fs-hero__stat-number">99.9%</span>
+          <span class="fs-hero__stat-label">UV Blocked</span>
+        </div>
+        <div class="fs-hero__stat-divider" aria-hidden="true"></div>
+        <div class="fs-hero__stat">
+          <span class="fs-hero__stat-number">30%</span>
+          <span class="fs-hero__stat-label">Summer Savings</span>
+        </div>
+        <div class="fs-hero__stat-divider" aria-hidden="true"></div>
+        <div class="fs-hero__stat">
+          <span class="fs-hero__stat-number">6 mo</span>
+          <span class="fs-hero__stat-label">Carbon-Negative</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="fs-body">
+
+<!-- TRUST BAR -->
+<section class="fs-trust">
+  <div class="fs-container">
+    <p class="fs-trust__label">Every statistic on this page is backed by independent testing, DOE recognition, or manufacturer performance data</p>
+  </div>
+</section>
+
+<BrandLogos />
+
+<!-- ═══ INTRO — 2-col ═══ -->
+<section class="fs-intro">
+  <div class="fs-intro__container">
+    <div class="fs-intro__image-wrap">
+      <img src="/images/fact-sheet/window-film-facts-intro-salt-lake-city.jpg" alt="Window film performance data and facts for Salt Lake City properties" class="fs-intro__image" loading="lazy" />
+    </div>
+    <div class="fs-intro__content">
+      <span class="fs-eyebrow">Fact Sheet</span>
+      <h2 class="fs-intro__title">What do the numbers say about window film?</h2>
+      <p class="fs-intro__lead">Window film's performance claims are backed by independent testing, Department of Energy recognition, and decades of real-world installation data. Whether you are evaluating window film for <a href="/benefits/energy-savings/" style="color: var(--fs-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">energy savings</a>, <a href="/benefits/uv-protection-film/" style="color: var(--fs-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">UV protection</a>, or carbon reduction goals, here are the facts and statistics that matter.</p>
+      <p class="fs-intro__lead">According to the <a href="https://www.energy.gov/cmei/buildings/retrofit-existing-buildings" target="_blank" rel="noopener noreferrer" style="color: var(--fs-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">U.S. Department of Energy</a>, energy-efficiency retrofits of existing buildings — including window film that reduces the building envelope's energy use — can reduce operational costs, particularly in older buildings. Window film has been identified by the DOE as a "first-tier technology" for building energy efficiency.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GALLERY BANNER ═══ -->
+<GalleryBanner
+  titleLines={['THE', 'DATA.']}
+  eyebrow="PERFORMANCE FACTS"
+  description="A collection of real window film installations across Salt Lake City. Every project backed by independently verified performance data and manufacturer specifications."
+  photos={galleryPhotos}
+  hintText="Hover the photos · click to bring forward"
+  theme="dark"
+/>
+
+<!-- ═══ ACCORDION BENEFITS — Performance Data ═══ -->
+<section id="key-facts">
+  <AccordionBenefits
+    eyebrow="Performance Data"
+    title="What the data shows about window film performance"
+    subtitle="Three categories of performance data that matter most to Salt Lake City property owners — energy efficiency, UV protection, and return on investment."
+    benefits={benefits}
+  />
+</section>
+
+<!-- ═══ BENTO GRID — Key Stats ═══ -->
+<BentoGridPhoto
+  heading="What are the headline statistics for window film?"
+  sub="Six numbers that define the performance of professional window film on Salt Lake City properties."
+  items={bentoItems}
+/>
+
+<!-- ═══ COUNT UP — By the Numbers ═══ -->
+<section class="fs-countup">
+  <div class="fs-container">
+    <div class="fs-countup__head">
+      <span class="fs-eyebrow fs-eyebrow--center">By the Numbers</span>
+      <h2 class="fs-countup__title">Window film performance at a glance</h2>
+    </div>
+    <div class="fs-countup__grid">
+      <div class="fs-countup__stat">
+        <CountUp end={97} suffix="%" label="IR Rejection" />
+      </div>
+      <div class="fs-countup__stat">
+        <CountUp end={99} suffix=".9%" label="UV Blocked" />
+      </div>
+      <div class="fs-countup__stat">
+        <CountUp end={60} suffix="%" label="Solar Heat Blocked" />
+      </div>
+      <div class="fs-countup__stat">
+        <CountUp end={92} suffix="%" label="Glass Efficiency Gain" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<AccordionFAQ
+  eyebrow="FAQ"
+  heading="Common questions about window film performance data"
+  sub="Everything you need to know about the sources, methodology, and real-world applicability of these performance statistics."
+  items={faqAccordionItems}
+/>
+
+<!-- ═══ CTA ═══ -->
+<CTAAvatars
+  title="Ready to put these numbers to work for your property?"
+  subtitle="Contact us for a free onsite consultation. We assess your glass, model projected savings, and show you exactly how these statistics apply to your building."
+  count="Trusted by 2,400+ Salt Lake City property owners"
+  btnLabel="Get a Free Quote"
+  btnHref="/contact/"
+  avatars={[
+    { name: 'David R.', location: 'Downtown Salt Lake City', img: '/images/about/about-avatar-1.jpg' },
+    { name: 'Lisa M.', location: 'Federal Heights', img: '/images/about/about-avatar-3.jpg' },
+    { name: 'Robert K.', location: 'South Street', img: '/images/about/about-avatar-2.jpg' },
+    { name: 'Janet F.', location: 'Millcreek', img: '/images/about/about-avatar-5.jpg' },
+    { name: 'Sarah M.', location: 'Sugar House', img: '/images/about/about-avatar-8.jpg' },
+    { name: 'Marco V.', location: 'The Avenues', img: '/images/about/about-avatar-7.jpg' },
+  ]}
+/>
+
+</div>
+
+</BaseLayout>
+
+<style>
+/* ── DESIGN TOKENS — site palette ══ */
+:root {
+  --fs-radius: 5px;
+  --fs-charcoal: #272E32;
+  --fs-green: #81AB4C;
+  --fs-green-light: #eef4e4;
+  --fs-green-dark: #7CB342;
+  --fs-off-white: #F7F6F3;
+  --fs-light-gray: #EFEFED;
+  --fs-text-dark: #1a1a1a;
+  --fs-text-mid: #4a4a4a;
+  --fs-text-light: #888;
+}
+
+.fs-body { background: #ffffff; }
+.fs-container { max-width: 1280px; margin: 0 auto; padding: 0 5%; }
+
+/* ── EYEBROW ══ */
+.fs-eyebrow {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--fs-green);
+  margin-bottom: 16px;
+}
+.fs-eyebrow--center { display: block; text-align: center; margin-bottom: 20px; }
+
+/* ── HERO ══ */
+.fs-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.fs-hero__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.fs-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(39,46,50,0.55) 0%, rgba(39,46,50,0.78) 55%, rgba(39,46,50,0.95) 100%);
+}
+.fs-hero__content {
+  position: relative;
+  z-index: 10;
+  max-width: 860px;
+  padding: 120px 24px 80px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.fs-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(124, 179, 66, 0.85);
+  margin-bottom: 28px;
+  background: rgba(124, 179, 66, 0.08);
+  border: 1px solid rgba(124, 179, 66, 0.2);
+  padding: 8px 18px;
+  border-radius: 100px;
+}
+.fs-hero__eyebrow-dot {
+  width: 4px; height: 4px; border-radius: 50%;
+  background: rgba(124, 179, 66, 0.4);
+  flex-shrink: 0;
+}
+.fs-hero__title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.25rem, 5.5vw, 3.75rem);
+  font-weight: 700;
+  color: #F3F6F1;
+  line-height: 1.1;
+  margin: 0 0 20px;
+  letter-spacing: -0.01em;
+}
+.fs-hero__subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+  color: rgba(243, 246, 241, 0.72);
+  max-width: 680px;
+  margin: 0 0 36px;
+  line-height: 1.75;
+}
+.fs-hero__cta {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 56px;
+}
+.fs-hero__btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--fs-green-dark);
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 14px 32px;
+  border-radius: 100px;
+  border: 2px solid var(--fs-green-dark);
+  transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+}
+.fs-hero__btn-primary:hover {
+  background: #6aa032;
+  border-color: #6aa032;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(124, 179, 66, 0.3);
+}
+.fs-hero__btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: #F3F6F1;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: 100px;
+  border: 2px solid rgba(243, 246, 241, 0.35);
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.2s ease;
+}
+.fs-hero__btn-secondary:hover {
+  border-color: var(--fs-green-dark);
+  color: var(--fs-green-dark);
+  transform: translateY(-2px);
+}
+.fs-hero__stats-panel {
+  width: 100%;
+  max-width: 720px;
+  background: rgba(39, 46, 50, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--fs-radius);
+  padding: 28px 32px;
+}
+.fs-hero__stats-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.fs-hero__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+}
+.fs-hero__stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-weight: 700;
+  color: #F3F6F1;
+  line-height: 1;
+}
+.fs-hero__stat-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: rgba(243, 246, 241, 0.55);
+}
+.fs-hero__stat-divider {
+  width: 1px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .fs-hero__stats-inner { flex-direction: column; gap: 16px; }
+  .fs-hero__stat-divider { width: 60%; height: 1px; }
+}
+
+/* ── TRUST BAR ══ */
+.fs-trust {
+  padding: 40px 0 20px;
+  text-align: center;
+}
+.fs-trust__label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--fs-text-mid);
+  letter-spacing: 0.3px;
+}
+
+/* ── INTRO ══ */
+.fs-intro {
+  padding: 80px 0;
+}
+.fs-intro__container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 5%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.fs-intro__content { max-width: 520px; }
+.fs-intro__title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: var(--fs-text-dark);
+  line-height: 1.2;
+  margin: 0 0 24px;
+  letter-spacing: -0.01em;
+}
+.fs-intro__lead {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--fs-text-mid);
+  margin: 0 0 20px;
+}
+.fs-intro__image-wrap {
+  border-radius: var(--fs-radius);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+.fs-intro__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+@media (max-width: 860px) {
+  .fs-intro__container { grid-template-columns: 1fr; gap: 40px; }
+  .fs-intro { padding: 60px 0; }
+}
+
+/* ── COUNT UP ══ */
+.fs-countup {
+  padding: 80px 0;
+  background: var(--fs-charcoal);
+}
+.fs-countup__head {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 60px;
+}
+.fs-countup__title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: #F3F6F1;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+.fs-countup__grid {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.fs-countup__stat {
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .fs-countup__grid { gap: 32px; }
+}
+
+/* ── ACCORDION FAQ OVERRIDE ══ */
+:global(.faq) { background: #272E32 !important; }
+:global(.faq__item) { background: #2d363b !important; }
+</style>

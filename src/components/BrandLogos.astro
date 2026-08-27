@@ -1,0 +1,100 @@
+---
+// BrandLogos.astro — "Proudly Offering" brand logo strip
+// Infinite horizontal scrolling carousel, grayscale logos
+
+const logos = [
+  { file: '2021-09-3m-window-film-salt-lake-city.webp',              alt: '3M Window Film' },
+  { file: '2021-09-llumar-window-film-salt-lake-city.webp',          alt: 'LLumar Window Film' },
+  { file: '2021-09-vista-window-film-salt-lake-city.webp',           alt: 'Vista Window Film' },
+  { file: '2021-09-solar-gard-window-film-salt-lake-city.webp',      alt: 'Solar Gard Window Film' },
+  { file: '2021-09-huper-optik-window-film-salt-lake-city.webp',     alt: 'Huper Optik Window Film' },
+  { file: '2021-09-casper-window-film-salt-lake-city.webp',          alt: 'Casper Cloaking Film' },
+  { file: '2021-09-cbond-window-film-salt-lake-city.webp',           alt: 'C-Bond Window Film' },
+  { file: '2021-09-madico-window-film-salt-lake-city.webp',          alt: 'Madico Window Film' },
+  { file: '2021-09-hdclear-window-film-salt-lake-city.webp',         alt: 'HDClear Window Film' },
+  { file: '2021-09-hanita-coatings-window-film-salt-lake-city.webp', alt: 'Hanita Coatings Window Film' },
+  { file: '2021-09-solyx-window-film-salt-lake-city.webp',           alt: 'Solyx Window Film' },
+  { file: '2021-09-graffiti-shield-window-film-salt-lake-city.webp', alt: 'Graffiti Shield Window Film' },
+];
+---
+
+<section class="brand-logos">
+  <div class="brand-logos__track-wrap">
+    <div class="brand-logos__track">
+      {logos.map((logo) => (
+        <div class="brand-logos__item">
+          <img
+            src={`/images/${logo.file}`}
+            alt={logo.alt} title={logo.alt}
+            loading="lazy"
+          />
+        </div>
+      ))}
+      {/* Duplicate for seamless loop */}
+      {logos.map((logo) => (
+        <div class="brand-logos__item">
+          <img
+            src={`/images/${logo.file}`}
+            alt={logo.alt} title={logo.alt}
+            loading="lazy"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+.brand-logos {
+  background: #ffffff;
+  padding: 48px 0;
+  border-top: 1px solid var(--light-gray, #EFEFED);
+  overflow: hidden;
+}
+
+.brand-logos__track-wrap {
+  overflow: hidden;
+  width: 100%;
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.brand-logos__track {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  width: max-content;
+  animation: brand-scroll 32s linear infinite;
+}
+
+.brand-logos__track:hover {
+  animation-play-state: paused;
+}
+
+.brand-logos__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.brand-logos__item img {
+  height: 52px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.55;
+  transition: opacity 0.2s ease, filter 0.2s ease;
+}
+
+.brand-logos__item img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+@keyframes brand-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+</style>

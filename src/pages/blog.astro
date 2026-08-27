@@ -1,0 +1,599 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { allCategories, benefitCategories, applicationCategories, cityCategories, getCategoryLabel, getPostCategories } from '../data/categories';
+import CtaLightRays from '../components/CtaLightRays.astro';
+
+const title = 'Window Film Blog | Tips & Guides | Window Film Salt Lake City';
+const description = 'Read window film tips, guides, and news from Window Film Salt Lake City. Expert advice for residential and commercial properties in the Salt Lake area.';
+const dateModified = new Date().toISOString().slice(0, 10);
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const posts = allPosts.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const featuredPost = posts[0];
+const gridPosts = posts.slice(1);
+
+function formatDate(date: Date): string {
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
+
+function formatShort(date: Date): string {
+  return date.toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  });
+}
+
+// Author avatar mapping — use team photos where available
+const authorAvatars: Record<string, string> = {
+  'Mike Kinsey': '/images/team/team-mike-kinsey.jpg',
+  'Katie Pelowich': '/images/team/team-katie-pelowich.jpg',
+  'Martin Faith': '/images/team/team-martin-faith.jpg',
+};
+const defaultAvatar = '/images/team/team-mike-kinsey.jpg';
+
+const pageSchemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://windowfilmsaltlakecity.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://windowfilmsaltlakecity.com/blog/' },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    '@id': 'https://windowfilmsaltlakecity.com/blog/',
+    url: 'https://windowfilmsaltlakecity.com/blog/',
+    name: 'Window Film Salt Lake City Blog',
+    description,
+    dateModified,
+    blogPost: posts.slice(0, 10).map((p) => ({
+      '@type': 'BlogPosting',
+      headline: p.data.title,
+      url: `https://windowfilmsaltlakecity.com/blog/${p.slug}/`,
+      datePublished: p.data.pubDate.toISOString(),
+      author: { '@type': 'Person', name: p.data.author },
+    })),
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonical="https://windowfilmsaltlakecity.com/blog/" schemas={pageSchemas}>
+
+<!-- ═══ HERO ═══ -->
+<section class="bg-hero">
+  <div class="bg-hero__bg" style="background-image: url('/images/window-film-salt-lake-city-blog-hero.jpg')" role="img" aria-label="Professional window film installation team working on a glass facade in Salt Lake City"></div>
+  <div class="bg-hero__overlay"></div>
+  <div class="bg-hero__content">
+    <div class="bg-hero__eyebrow">
+      <span class="bg-hero__eyebrow-dot" aria-hidden="true"></span>
+      WINDOW FILM INSIGHTS
+      <span class="bg-hero__eyebrow-dot" aria-hidden="true"></span>
+    </div>
+    <h1 class="bg-hero__title">Window Film Salt Lake City Blog</h1>
+    <p class="bg-hero__subtitle">Tips, guides, and expert advice from our certified installers. Everything you need to know about window film for your Salt Lake City property — residential, commercial, and institutional.</p>
+  </div>
+</section>
+
+<div class="bg-body">
+
+<!-- ═══ BLOG INDEX — featured lead + card grid ═══ -->
+<section class="bli">
+  <div class="bli__head">
+    <h2 class="bli__title">What's new in window film?</h2>
+    <p class="bli__sub">Guides, tips, and expert advice from our installation team.</p>
+  </div>
+  <div class="bli__wrap">
+    {featuredPost && (
+      <a class="bli__lead" href={`/blog/${featuredPost.slug}/`}>
+        <div class="bli__lead-img">
+          {featuredPost.data.image && (
+            <img src={featuredPost.data.image} alt={featuredPost.data.imageAlt || featuredPost.data.title} title={featuredPost.data.imageAlt || featuredPost.data.title} loading="lazy" />
+          )}
+        </div>
+        <div class="bli__lead-body">
+          <span class="bli__chip">Featured</span>
+          <h3>{featuredPost.data.title}</h3>
+          <p class="bli__excerpt">{featuredPost.data.description}</p>
+          <div class="bli__meta">
+            <img src={authorAvatars[featuredPost.data.author] || defaultAvatar} alt={featuredPost.data.author} title={featuredPost.data.author} />
+            <span><b>{featuredPost.data.author}</b><small>{formatDate(featuredPost.data.pubDate)}</small></span>
+          </div>
+        </div>
+      </a>
+    )}
+
+    <div class="bli__grid">
+      {gridPosts.map((post, i) => {
+        const postCats = getPostCategories(post.data);
+        const firstCat = postCats.find((c) => allCategories.some((ac) => ac.slug === c)) ?? postCats[0];
+        const catLabel = firstCat ? getCategoryLabel(firstCat) : 'Article';
+        return (
+          <a class="bli__card" href={`/blog/${post.slug}/`} style={`--d:${Math.min(i, 8) * 70}ms`}>
+            <div class="bli__card-img">
+              {post.data.image && (
+                <img src={post.data.image} alt={post.data.imageAlt || post.data.title} title={post.data.imageAlt || post.data.title} loading="lazy" />
+              )}
+              <span class="bli__chip">{catLabel}</span>
+            </div>
+            <div class="bli__card-body">
+              <h3>{post.data.title}</h3>
+              <p class="bli__excerpt">{post.data.description}</p>
+              <div class="bli__meta">
+                <img src={authorAvatars[post.data.author] || defaultAvatar} alt={post.data.author} title={post.data.author} />
+                <span><b>{post.data.author}</b><small>{formatShort(post.data.pubDate)}</small></span>
+              </div>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CATEGORY FILTERS ═══ -->
+<section class="bg-categories">
+  <div class="bg-categories__container">
+    <h2 class="bg-categories__title">Browse by Category</h2>
+    <div class="bg-categories__groups">
+      <div class="bg-categories__group">
+        <span class="bg-categories__label">By Topic</span>
+        <div class="bg-categories__pills">
+          {benefitCategories.map((cat) => {
+            const count = posts.filter((p) => getPostCategories(p.data).includes(cat.slug)).length;
+            return count > 0 ? (
+              <a href={`/blog/category/${cat.slug}/`} class="bg-cat-pill">
+                {cat.label}
+                <span class="bg-cat-pill__count">{count}</span>
+              </a>
+            ) : null;
+          })}
+        </div>
+      </div>
+      <div class="bg-categories__group">
+        <span class="bg-categories__label">By Application</span>
+        <div class="bg-categories__pills">
+          {applicationCategories.map((cat) => {
+            const count = posts.filter((p) => getPostCategories(p.data).includes(cat.slug)).length;
+            return count > 0 ? (
+              <a href={`/blog/category/${cat.slug}/`} class="bg-cat-pill">
+                {cat.label}
+                <span class="bg-cat-pill__count">{count}</span>
+              </a>
+            ) : null;
+          })}
+        </div>
+      </div>
+      <div class="bg-categories__group">
+        <span class="bg-categories__label">By City</span>
+        <div class="bg-categories__pills">
+          {cityCategories.map((cat) => {
+            const count = posts.filter((p) => getPostCategories(p.data).includes(cat.slug)).length;
+            return count > 0 ? (
+              <a href={`/blog/category/${cat.slug}/`} class="bg-cat-pill">
+                {cat.label}
+                <span class="bg-cat-pill__count">{count}</span>
+              </a>
+            ) : null;
+          })}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<CtaLightRays
+  eyebrow="Salt Lake City Window Film Professionals"
+  title="Ready to transform your glass?"
+  sub="Schedule a free on-site consultation. We assess your windows, explain your options, and give you a detailed quote — no pressure, no obligation."
+  btnLabel="Book your free consultation"
+  btnHref="/contact/"
+/>
+
+</div>
+
+</BaseLayout>
+
+<style>
+/* ── DESIGN TOKENS — site palette ══ */
+:root {
+  --bg-charcoal: #272E32;
+  --bg-green: #81AB4C;
+  --bg-green-light: #eef4e4;
+  --bg-green-dark: #7CB342;
+  --bg-off-white: #F7F6F3;
+  --bg-light-gray: #EFEFED;
+  --bg-text-dark: #1a1a1a;
+  --bg-text-mid: #4a4a4a;
+  --bg-text-light: #888;
+}
+
+.bg-body { background: #ffffff; }
+
+/* ── HERO ══ */
+.bg-hero {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.bg-hero__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.bg-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(39,46,50,0.68) 0%, rgba(39,46,50,0.82) 55%, rgba(39,46,50,0.95) 100%);
+}
+.bg-hero__content {
+  position: relative;
+  z-index: 10;
+  max-width: 860px;
+  padding: 120px 24px 60px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.bg-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(124, 179, 66, 0.85);
+  margin-bottom: 28px;
+  background: rgba(124, 179, 66, 0.08);
+  border: 1px solid rgba(124, 179, 66, 0.2);
+  padding: 8px 18px;
+  border-radius: 100px;
+}
+.bg-hero__eyebrow-dot {
+  width: 4px; height: 4px; border-radius: 50%;
+  background: rgba(124, 179, 66, 0.4);
+  flex-shrink: 0;
+}
+.bg-hero__title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.25rem, 5.5vw, 3.75rem);
+  font-weight: 700;
+  color: #F3F6F1;
+  line-height: 1.1;
+  margin: 0 0 20px;
+  letter-spacing: -0.01em;
+}
+.bg-hero__subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+  color: rgba(243, 246, 241, 0.72);
+  max-width: 620px;
+  margin: 0;
+  line-height: 1.75;
+}
+
+/* ── BLOG INDEX (site palette override of navy) ══ */
+.bli {
+  background: var(--bg-charcoal);
+  padding: 4rem 1.5rem;
+}
+.bli__head {
+  max-width: 42rem;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+.bli__title {
+  font-family: 'Playfair Display', serif;
+  color: #F3F6F1;
+  font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+.bli__sub {
+  font-family: 'DM Sans', sans-serif;
+  color: rgba(243, 246, 241, 0.5);
+  margin: 0;
+  font-size: 0.95rem;
+}
+.bli__wrap {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+.bli__chip {
+  display: inline-block;
+  background: var(--bg-green-dark);
+  color: var(--bg-charcoal);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+}
+.bli__excerpt {
+  font-family: 'DM Sans', sans-serif;
+  color: rgba(243, 246, 241, 0.55);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  margin: 0;
+}
+.bli__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: auto;
+}
+.bli__meta img {
+  width: 34px;
+  height: 34px;
+  border-radius: 9999px;
+  object-fit: cover;
+  border: 1.5px solid var(--bg-green-dark);
+}
+.bli__meta b {
+  display: block;
+  color: #F3F6F1;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+.bli__meta small {
+  color: rgba(243, 246, 241, 0.45);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+}
+
+/* Featured lead */
+.bli__lead {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 0;
+  background: #1e2528;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.bli__lead:hover {
+  border-color: rgba(124, 179, 66, 0.5);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+.bli__lead-img {
+  position: relative;
+  min-height: 280px;
+  overflow: hidden;
+  background: #1e2528;
+}
+.bli__lead-img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+.bli__lead:hover .bli__lead-img img { transform: scale(1.05); }
+.bli__lead-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 2rem;
+}
+.bli__lead-body h3 {
+  color: #F3F6F1;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* Card grid */
+.bli__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+.bli__card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  background: #1e2528;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  transition-delay: var(--d, 0ms);
+}
+.bli__card.is-visible,
+.bli.is-visible .bli__card {
+  opacity: 1;
+  transform: translateY(0);
+}
+.bli__card:hover {
+  border-color: rgba(124, 179, 66, 0.5);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+  transform: translateY(-4px);
+  transition-delay: 0ms;
+}
+.bli__card-img {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #1e2528;
+}
+.bli__card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+.bli__card:hover .bli__card-img img { transform: scale(1.05); }
+.bli__card-img .bli__chip {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+}
+.bli__card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.1rem;
+  flex: 1;
+}
+.bli__card-body h3 {
+  color: #F3F6F1;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.08rem;
+  line-height: 1.3;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .bli__lead { grid-template-columns: 1fr; }
+  .bli__lead-img { min-height: 220px; }
+  .bli__grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .bli__grid { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bli__card { opacity: 1; transform: none; }
+  .bli__card-img img, .bli__lead-img img { transition: none; }
+}
+
+/* ── CATEGORY BROWSE ══ */
+.bg-categories {
+  padding: 80px 5%;
+  background: var(--bg-charcoal);
+}
+.bg-categories__container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.bg-categories__title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 700;
+  color: #F3F6F1;
+  text-align: center;
+  margin: 0 0 40px;
+  letter-spacing: -0.01em;
+}
+.bg-categories__groups {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.bg-categories__group {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.bg-categories__label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--bg-text-light);
+  white-space: nowrap;
+  padding-top: 10px;
+  min-width: 90px;
+}
+.bg-categories__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.bg-cat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(243, 246, 241, 0.7);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.bg-cat-pill:hover {
+  border-color: var(--bg-green-dark);
+  color: var(--bg-green-dark);
+  background: rgba(124, 179, 66, 0.08);
+}
+.bg-cat-pill__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+}
+.bg-cat-pill:hover .bg-cat-pill__count {
+  background: rgba(124, 179, 66, 0.2);
+}
+
+@media (max-width: 768px) {
+  .bg-categories { padding: 60px 5%; }
+  .bg-categories__group { flex-direction: column; gap: 8px; }
+  .bg-categories__label { padding-top: 0; }
+}
+</style>
+
+<script>
+// Scroll reveal for blog cards — add is-visible to section and each card
+const blogSection = document.querySelector('.bli');
+const blogCards = document.querySelectorAll('.bli__card');
+if (blogSection) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        blogCards.forEach(c => c.classList.add('is-visible'));
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.05 });
+  observer.observe(blogSection);
+  // Fallback: if IntersectionObserver never fires (already in viewport), show after 1s
+  setTimeout(() => {
+    blogCards.forEach(c => {
+      if (!c.classList.contains('is-visible')) c.classList.add('is-visible');
+    });
+  }, 1500);
+}
+</script>

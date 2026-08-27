@@ -1,0 +1,1150 @@
+---
+const phone = '(801) 895-4681';
+const email = 'contact@windowfilmsaltlakecity.com';
+
+const navItems = [
+  {
+    label: 'Services',
+    href: '/services/',
+    type: 'simple',
+    columns: [
+      {
+        links: [
+          { label: 'Residential Window Film', href: '/services/residential/' },
+          { label: 'Commercial Window Tinting', href: '/services/commercial/' },
+          { label: 'Government & Public Buildings', href: '/services/government-buildings/' },
+          { label: 'See All Services →', href: '/services/' },
+        ],
+      },
+    ],
+  },
+  {
+    label: 'Applications',
+    href: '/applications/',
+    type: 'mega',
+    imageUrl: 'https://res.cloudinary.com/deunehrew/image/fetch/f_auto,q_auto,w_800/https://d8j0ntlcm91z4.cloudfront.net/user_39gHIafquScvuUngNf6xPBDD37B/hf_20260617_200020_3654c270-4e12-4335-84fa-2b33fa00be69.png',
+    imageLabel: 'Applications',
+    columns: [
+      {
+        header: null,
+        links: [
+          { label: 'Homes & Condos', href: '/applications/homes-condos/' },
+          { label: 'Office Buildings', href: '/applications/office/' },
+          { label: 'Retail', href: '/applications/retail/' },
+          { label: 'Restaurants', href: '/applications/restaurants/' },
+          { label: 'Hotels & Hospitality', href: '/applications/hotel-window-film/' },
+          { label: 'Mass Transit & Airport', href: '/applications/mass-transit/' },
+          { label: 'Arenas & Stadiums', href: '/applications/arenas-stadiums/' },
+
+        ],
+      },
+      {
+        header: null,
+        links: [
+          { label: 'Schools & Universities', href: '/applications/schools-universities/' },
+          { label: 'Hospitals & Healthcare', href: '/applications/healthcare/' },
+          { label: 'Government Buildings', href: '/government-buildings/' },
+          { label: 'Secured Buildings', href: '/applications/secured-buildings/' },
+          { label: 'Museums & Libraries', href: '/applications/museums-libraries/' },
+          { label: 'Churches & Faith Centers', href: '/applications/churches/' },
+        ],
+      },
+    ],
+    footer: null,
+    footerLink: { label: 'See All Applications →', href: '/applications/' },
+  },
+  {
+    label: 'Benefits',
+    href: '/benefits/',
+    type: 'mega',
+    imageUrl: 'https://res.cloudinary.com/deunehrew/image/fetch/f_auto,q_auto,w_800/https://d8j0ntlcm91z4.cloudfront.net/user_39gHIafquScvuUngNf6xPBDD37B/hf_20260617_201527_e381b0e5-0331-4672-b924-7626d9a6e6d5.png',
+    imageLabel: 'Benefits',
+    columns: [
+      {
+        header: null,
+        links: [
+          { label: 'Energy Savings', href: '/benefits/energy-savings/' },
+          { label: 'UV Protection', href: '/benefits/uv-protection-film/' },
+          { label: 'Privacy Film', href: '/benefits/privacy-window-film-salt-lake-city/' },
+          { label: 'Glare Reduction', href: '/benefits/glare-reduction/' },
+          { label: 'Anti-Graffiti', href: '/benefits/anti-graffiti/' },
+          { label: 'Safety & Security', href: '/benefits/safety-and-security/' },
+          { label: 'Solar Control', href: '/benefits/solar-control/' },
+        ],
+      },
+      {
+        header: null,
+        links: [
+          { label: 'Decorative & Promotional', href: '/benefits/decorative-promotional/' },
+          { label: 'Exterior Building Wraps', href: '/benefits/exterior-building-wraps/' },
+          { label: 'Exterior Refinishing', href: '/benefits/exterior-refinishing/' },
+          { label: 'Mirror Refinishing', href: '/benefits/mirror-refinishing/' },
+          { label: 'Bird Strike Window Film', href: '/benefits/bird-strike-prevention/' },
+          { label: 'School Security Film', href: '/benefits/school-security-window-film/' },
+          { label: 'Bomb Blast Protection', href: '/benefits/blast-mitigation/' },
+          { label: 'Ballistic Resistant Film', href: '/benefits/ballistic-resistance/' },
+        ],
+      },
+    ],
+    footer: null,
+    footerLink: { label: 'See All Benefits →', href: '/benefits/' },
+  },
+  {
+    label: 'Products',
+    href: '/products/',
+    type: null,
+  },
+  {
+    label: 'About',
+    href: '/about/',
+    type: 'simple',
+    columns: [
+      {
+        links: [
+          { label: 'Our Story', href: '/about/' },
+          { label: 'Meet Martin Faith', href: '/about/team/' },
+          { label: 'Our Process', href: '/process/' },
+          { label: 'Reviews & Testimonials', href: '/reviews/' },
+          { label: 'Warranty', href: '/resources/warranty/' },
+          { label: 'Contact Us', href: '/contact/' },
+        ],
+      },
+    ],
+  },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar__inner">
+    <span class="topbar__areas">
+      Serving Salt Lake City, Park City, West Valley City, Salt Lake Valley &amp; surrounding areas
+    </span>
+    <div class="topbar__contacts">
+      <a href="/cities/" class="topbar__contact" aria-label="Cities We Serve">
+        Cities We Serve
+      </a>
+      <span class="topbar__sep" aria-hidden="true">|</span>
+      <a href="/blog/" class="topbar__contact" aria-label="Blog">
+        Blog
+      </a>
+      <span class="topbar__sep" aria-hidden="true">|</span>
+      <a href={`mailto:${email}`} class="topbar__contact" aria-label="Email us">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+        {email}
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN NAV -->
+<header class="site-header" id="site-header">
+  <div class="site-header__inner">
+
+    <!-- Logo -->
+    <a href="/" class="site-header__logo" aria-label="Window Film Salt Lake City — Home">
+      <img
+        src="/images/logo.png"
+        alt="Window Film Salt Lake City Logo" title="Window Film Salt Lake City Logo"
+        width="180"
+        height="48"
+        style="display:block;height:50px;width:auto;max-width:none;max-height:none;object-fit:contain;object-position:left center;flex-shrink:0;"
+      />
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="site-header__nav" aria-label="Main navigation">
+      <ul class="site-header__nav-list">
+        {navItems.map((item, idx) => (
+          <li 
+            class={`site-header__nav-item${item.type ? ' has-dropdown' : ''}`}
+            data-nav-group
+          >
+            <a
+              href={item.href}
+              class={`site-header__nav-link${currentPath.startsWith(item.href) && item.href !== '/' ? ' is-active' : ''}`}
+              aria-haspopup={item.type ? "true" : undefined}
+              aria-expanded={item.type ? "false" : undefined}
+              data-nav-trigger={item.type ? "true" : undefined}
+              data-nav-index={idx}
+            >
+              {item.label}
+              {item.type && (
+                <svg class="nav-chevron" xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+                </svg>
+              )}
+            </a>
+            {item.type === 'mega' && (
+              <div 
+                class="site-header__mega" 
+                role="menu" 
+                aria-label={`${item.label} menu`}
+                data-nav-panel
+                data-nav-index={idx}
+              >
+                {/* Invisible bridge fills the gap between nav trigger and panel */}
+                <div class="nav-bridge" data-nav-bridge data-nav-index={idx}></div>
+                <div class="mega__inner">
+                  <div class="mega__image-panel">
+                    <img src={item.imageUrl} alt={item.imageLabel} title={item.imageLabel} class="mega__image-bg" />
+                    <div class="mega__image-overlay"></div>
+                    <span class="mega__image-label">{item.imageLabel}</span>
+                  </div>
+                  <div class={`mega__grid mega__grid--${item.columns.length}`}>
+                    {item.columns.map((col) => (
+                      <div class="mega__col">
+                        {col.header && <h3 class="mega__header">{col.header}</h3>}
+                        <ul class="mega__links">
+                          {col.links.map((link) => (
+                            <li><a href={link.href} class="mega__link" role="menuitem">{link.label}</a></li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                {(item.footer || item.footerLink) && (
+                  <div class="mega__footer">
+                    <div class="mega__footer-inner">
+                      {item.footer && <span class="mega__footer-text">{item.footer}</span>}
+                      {item.footerLink && (
+                        <a href={item.footerLink.href} class="mega__footer-link">
+                          {item.footerLink.label}
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+            {item.type === 'simple' && (
+              <div 
+                class="site-header__simple" 
+                role="menu" 
+                aria-label={`${item.label} menu`}
+                data-nav-panel
+                data-nav-index={idx}
+              >
+                <div class="nav-bridge" data-nav-bridge data-nav-index={idx}></div>
+                <div class={`simple__grid simple__grid--${item.columns.length}`}>
+                  {item.columns.map((col) => (
+                    <div class="simple__col">
+                      <ul class="simple__links">
+                        {col.links.map((link) => (
+                          <li><a href={link.href} class="simple__link" role="menuitem">{link.label}</a></li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <!-- Right actions -->
+    <div class="site-header__actions">
+      <a href={`tel:+1${phone.replace(/\D/g,'')}`} class="site-header__phone-pill" aria-label="Call us">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+        <span>{phone}</span>
+      </a>
+      <a href="/contact/" class="site-header__cta">
+        Get a Free Quote
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"/></svg>
+      </a>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button class="site-header__burger" id="navBurger" aria-label="Open navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="site-header__mobile" id="navMobile" aria-hidden="true">
+    <button class="site-header__mobile-close" id="navMobileClose" aria-label="Close navigation">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+    <div class="site-header__mobile-logo">
+      <img src="/images/logo.png" alt="Window Film Salt Lake City Logo" title="Window Film Salt Lake City Logo" width="180" height="48" style="width:auto;height:48px;object-fit:contain;background:transparent;" />
+    </div>
+    <nav class="site-header__mobile-nav">
+      <ul>
+        {navItems.map((item) => (
+          <li class="mobile-nav-group">
+            <div class="mobile-nav-group__header">
+              <a href={item.href} class="mobile-nav-group__title">{item.label}</a>
+              {item.columns && (
+                <button class="mobile-nav-group__toggle" aria-label={`Toggle ${item.label}`} aria-expanded="false">
+                  <svg class="icon-plus" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+                </button>
+              )}
+            </div>
+            {item.columns && (
+              <ul class="mobile-nav-group__sub">
+                {item.columns.map((col) => 
+                  col.links.map((link) => (
+                    <li><a href={link.href} class="mobile-nav-group__sub-link">{link.label}</a></li>
+                  ))
+                )}
+              </ul>
+            )}
+          </li>
+        ))}
+        <li class="mobile-nav-group">
+          <div class="mobile-nav-group__header">
+            <a href="/cities/" class="mobile-nav-group__title">Cities We Serve</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="site-header__mobile-footer">
+      <a href={`tel:+1${phone.replace(/\D/g,'')}`} class="site-header__mobile-phone">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+        {phone}
+      </a>
+      <a href="/contact/" class="site-header__mobile-cta">Get a Free Quote →</a>
+    </div>
+  </div>
+  <div class="site-header__mobile-overlay" id="navOverlay"></div>
+</header>
+
+<style>
+/* ════════════════════════════════════
+   TOP BAR
+   ════════════════════════════════════ */
+.topbar {
+  background: #14201A;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 300;
+}
+.topbar__inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 40px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.topbar__areas {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+.topbar__contacts {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.topbar__contact {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.topbar__contact:hover { color: rgba(255,255,255,0.9); }
+.topbar__sep { color: rgba(255,255,255,0.2); font-size: 0.7rem; }
+
+@media (max-width: 992px) {
+  .topbar { display: none; }
+}
+
+/* ════════════════════════════════════
+   SITE HEADER
+   ════════════════════════════════════ */
+.site-header {
+  position: fixed;
+  top: 36px;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  background: rgba(14,26,20,0.80);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid transparent;
+  transition: background 0.35s ease, border-color 0.35s ease, top 0.35s ease;
+}
+.site-header.is-scrolled {
+  top: 0;
+  background: rgba(20,32,26,0.96);
+  border-bottom-color: rgba(124,179,66,0.15);
+}
+.site-header.is-mobile-open { top: 0; }
+
+.site-header__inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 40px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* ════════════════════════════════════
+   LOGO
+   ════════════════════════════════════ */
+.site-header__logo {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.site-header__logo img {
+  display: block;
+  width: auto;
+  height: 56px;
+  max-width: none;
+  object-fit: contain;
+}
+
+/* ════════════════════════════════════
+   NAV
+   ════════════════════════════════════ */
+.site-header__nav { flex: 1; display: flex; justify-content: center; }
+
+.site-header__nav-list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0; margin: 0;
+  gap: 2px;
+}
+
+/* Nav item — the HOVER GROUP parent */
+.site-header__nav-item { position: relative; }
+
+/* Nav link — the trigger */
+.site-header__nav-link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: color 0.2s, background 0.2s;
+  white-space: nowrap;
+  position: relative;
+  z-index: 10;
+}
+.site-header__nav-link:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.08);
+}
+.site-header__nav-link.is-active {
+  color: #7CB342;
+}
+
+.nav-chevron {
+  opacity: 0.5;
+  transition: transform 0.25s ease, opacity 0.2s;
+}
+/* Chevron rotates when dropdown is open (JS-controlled) */
+.site-header__nav-item.is-open .nav-chevron {
+  transform: rotate(180deg);
+  opacity: 0.8;
+}
+
+/* ════════════════════════════════════
+   MEGA MENU
+   ════════════════════════════════════ */
+/* Invisible bridge — fills the gap between nav trigger and panel.
+   This is the KEY fix: the cursor never leaves a hoverable area
+   when moving from trigger to panel. */
+.nav-bridge {
+  position: absolute;
+  left: 0;
+  right: 0;
+  /* Extend from bottom of nav item up to the panel */
+  height: 14px;
+  top: -14px;
+  pointer-events: auto;
+  z-index: 5;
+}
+
+.site-header__mega {
+  position: absolute;
+  top: calc(100% + 14px); /* was +10px, now matches bridge height */
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+  width: 900px;
+  max-width: 90vw;
+  background: #14201A;
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.08);
+  overflow: visible; /* changed from hidden so bridge can extend */
+  z-index: 201;
+}
+
+/* JS-controlled open state — nav item and panel share hover state */
+.site-header__nav-item.is-open .site-header__mega,
+.site-header__nav-item.is-open .site-header__simple {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.mega__inner {
+  display: flex;
+  gap: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Left image panel — portrait photo with overlay + label */
+.mega__image-panel {
+  position: relative;
+  width: 240px;
+  min-height: 380px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.mega__image-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.mega__image-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 1;
+}
+.mega__image-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+.mega__grid {
+  flex: 1;
+  display: grid;
+  gap: 48px;
+  padding: 40px 48px;
+}
+.mega__grid--4 { grid-template-columns: repeat(4, 1fr); }
+.mega__grid--2 { grid-template-columns: repeat(2, 1fr); }
+
+.mega__col { /* No dividers — clean spacing only */ }
+
+.mega__header {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #7CB342;
+  margin: 0 0 16px;
+}
+
+.mega__links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mega__link {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 2;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s, padding-left 0.2s;
+  display: block;
+}
+.mega__link:hover {
+  color: #7CB342;
+  padding-left: 8px;
+  border-left: 2px solid #7CB342;
+}
+
+.mega__footer {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 20px 48px;
+}
+.mega__footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.mega__footer-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-style: italic;
+  color: rgba(255,255,255,0.5);
+  flex: 1;
+}
+.mega__footer-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #7CB342;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+.mega__footer-link:hover { opacity: 0.8; }
+
+/* ════════════════════════════════════
+   SIMPLE DROPDOWN
+   ════════════════════════════════════ */
+.site-header__simple {
+  position: absolute;
+  top: calc(100% + 14px); /* matches bridge height */
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+  width: max-content;
+  min-width: 220px;
+  max-width: 90vw;
+  background: #14201A;
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 32px;
+  overflow: visible;
+  z-index: 201;
+}
+
+.simple__grid {
+  display: grid;
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+.simple__grid--1 { grid-template-columns: 1fr; }
+.simple__grid--2 { grid-template-columns: repeat(2, 1fr); }
+
+.simple__col {
+  position: relative;
+  padding-right: 24px;
+}
+.simple__col::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(255,255,255,0.06);
+}
+.simple__col:last-child { padding-right: 0; }
+.simple__col:last-child::after { display: none; }
+.simple__grid--1 .simple__col::after { display: none; }
+
+.simple__links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.simple__link {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 2;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s;
+  display: block;
+}
+.simple__link:hover { color: #7CB342; }
+
+/* ════════════════════════════════════
+   RIGHT ACTIONS
+   ════════════════════════════════════ */
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.site-header__phone-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+.site-header__phone-pill:hover {
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(255,255,255,0.15);
+}
+
+.site-header__cta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #7CB342, #5D8C32);
+  border-radius: 24px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(124,179,66,0.2);
+}
+.site-header__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(124,179,66,0.3);
+}
+
+/* ════════════════════════════════════
+   MOBILE NAV
+   ════════════════════════════════════ */
+.site-header__burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+}
+.site-header__burger span {
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.site-header__burger[aria-expanded="true"] span:nth-child(1) { transform: rotate(45deg) translateY(7px); }
+.site-header__burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.site-header__burger[aria-expanded="true"] span:nth-child(3) { transform: rotate(-45deg) translateY(-7px); }
+
+.site-header__mobile {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 90%;
+  max-width: 400px;
+  height: 100vh;
+  background: #14201A;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 400;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+.site-header__mobile[aria-hidden="false"] { transform: translateX(0); }
+
+.site-header__mobile-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255,255,255,0.08);
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+  color: #fff;
+  transition: background 0.2s;
+}
+.site-header__mobile-close:hover { background: rgba(255,255,255,0.12); }
+
+.site-header__mobile-logo {
+  padding: 24px 20px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.site-header__mobile-nav {
+  flex: 1;
+  padding: 16px 0;
+  overflow-y: auto;
+}
+
+.mobile-nav-group {
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.mobile-nav-group__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+}
+
+.mobile-nav-group__title {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  flex: 1;
+}
+
+.mobile-nav-group__toggle {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: rgba(255,255,255,0.6);
+  transition: color 0.2s, transform 0.2s;
+}
+.mobile-nav-group__toggle[aria-expanded="true"] {
+  color: #7CB342;
+  transform: rotate(45deg);
+}
+
+.mobile-nav-group__sub {
+  list-style: none;
+  padding: 0 0 0 20px;
+  margin: 0;
+  max-height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  transition: max-height 0.3s ease, padding-bottom 0.3s ease, visibility 0.3s;
+}
+.mobile-nav-group.is-expanded .mobile-nav-group__sub {
+  max-height: 1000px;
+  padding-bottom: 16px;
+  visibility: visible;
+}
+
+.mobile-nav-group__sub-link, .mobile-nav-group__sub-card {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  padding: 8px 20px 8px 0;
+  transition: color 0.2s;
+}
+.mobile-nav-group__sub-link:hover { color: #7CB342; }
+.mobile-nav-group__sub-card { cursor: default; }
+
+.site-header__mobile-footer {
+  padding: 20px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.site-header__mobile-phone {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+}
+
+.site-header__mobile-cta {
+  display: block;
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #7CB342, #5D8C32);
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+}
+
+.site-header__mobile-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  z-index: 350;
+}
+.site-header.is-mobile-open .site-header__mobile-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 992px) {
+  .site-header { top: 0; }
+  .site-header__nav, .site-header__phone-pill, .site-header__cta { display: none; }
+  .site-header__burger { display: flex; }
+  .site-header__inner { padding: 0 20px; height: 64px; }
+}
+</style>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+//  MEGA MENU — HOVER INTENT FIX
+//  Fixes the "dead space gap" problem where the dropdown closes
+//  before the cursor reaches it when moving from nav → dropdown.
+// ═══════════════════════════════════════════════════════════════
+
+const CLOSE_DELAY = 1000; // ms before closing — generous delay so user can cross gaps comfortably
+
+// Track open state and close timers per nav group
+const navGroups = document.querySelectorAll('[data-nav-group]');
+const closeTimers = new Map(); // navIndex → setTimeout id
+
+function openDropdown(navIndex) {
+  // Clear any pending close timer
+  const timer = closeTimers.get(navIndex);
+  if (timer) {
+    clearTimeout(timer);
+    closeTimers.delete(navIndex);
+  }
+
+  // Open the nav item
+  const group = navGroups[navIndex];
+  if (!group) return;
+
+  group.classList.add('is-open');
+
+  // Update ARIA
+  const trigger = group.querySelector('[data-nav-trigger]');
+  if (trigger) {
+    trigger.setAttribute('aria-expanded', 'true');
+  }
+}
+
+function scheduleClose(navIndex) {
+  // Don't schedule if already scheduled
+  if (closeTimers.has(navIndex)) return;
+
+  const timer = setTimeout(() => {
+    closeDropdown(navIndex);
+  }, CLOSE_DELAY);
+  closeTimers.set(navIndex, timer);
+}
+
+function clearClose(navIndex) {
+  const timer = closeTimers.get(navIndex);
+  if (timer) {
+    clearTimeout(timer);
+    closeTimers.delete(navIndex);
+  }
+}
+
+function closeDropdown(navIndex) {
+  const group = navGroups[navIndex];
+  if (!group) return;
+
+  group.classList.remove('is-open');
+
+  // Update ARIA
+  const trigger = group.querySelector('[data-nav-trigger]');
+  if (trigger) {
+    trigger.setAttribute('aria-expanded', 'false');
+  }
+
+  closeTimers.delete(navIndex);
+}
+
+// Initialize all nav groups with hover + keyboard/click handlers
+navGroups.forEach((group, navIndex) => {
+  const trigger = group.querySelector('[data-nav-trigger]');
+  const panel = group.querySelector('[data-nav-panel]');
+  const bridge = group.querySelector('[data-nav-bridge]');
+
+  if (!trigger || !panel) return; // No dropdown — skip
+
+  // --- MOUSE ENTER trigger → open immediately, cancel close ---
+  trigger.addEventListener('mouseenter', () => {
+    clearClose(navIndex);
+    openDropdown(navIndex);
+  });
+
+  // --- MOUSE LEAVE trigger → schedule close ---
+  trigger.addEventListener('mouseleave', (e) => {
+    // Don't close immediately — let the user reach the panel/bridge
+    scheduleClose(navIndex);
+  });
+
+  // --- MOUSE ENTER panel → cancel scheduled close ---
+  panel.addEventListener('mouseenter', () => {
+    clearClose(navIndex);
+    openDropdown(navIndex); // ensure it's open
+  });
+
+  // --- MOUSE LEAVE panel → schedule close ---
+  panel.addEventListener('mouseleave', (e) => {
+    // Only close if mouse actually left the whole nav group area
+    scheduleClose(navIndex);
+  });
+
+  // --- Bridge: mouseenter prevents close ---
+  if (bridge) {
+    bridge.addEventListener('mouseenter', () => {
+      clearClose(navIndex);
+      openDropdown(navIndex);
+    });
+    bridge.addEventListener('mouseleave', (e) => {
+      scheduleClose(navIndex);
+    });
+  }
+
+  // --- Click on trigger (mobile/touch or keyboard) ---
+  trigger.addEventListener('click', (e) => {
+    // If dropdown is open, clicking again closes it
+    if (group.classList.contains('is-open')) {
+      e.preventDefault(); // prevent navigation if re-clicking
+      closeDropdown(navIndex);
+    } else {
+      // Open it (clicking nav link also navigates)
+      openDropdown(navIndex);
+    }
+  });
+
+  // --- Keyboard: Escape closes dropdown ---
+  panel.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeDropdown(navIndex);
+      trigger.focus();
+    }
+  });
+
+  // --- Focus trap inside panel ---
+  const panelLinks = panel.querySelectorAll('a');
+  if (panelLinks.length > 0) {
+    panelLinks[0].addEventListener('keydown', (e) => {
+      if (e.key === 'Tab' && e.shiftKey) {
+        // Shift+Tab from first link → focus trigger
+        e.preventDefault();
+        trigger.focus();
+        closeDropdown(navIndex);
+      }
+    });
+    panelLinks[panelLinks.length - 1].addEventListener('keydown', (e) => {
+      if (e.key === 'Tab' && !e.shiftKey) {
+        // Tab from last link → close and move on
+        closeDropdown(navIndex);
+      }
+    });
+  }
+});
+
+// Close all dropdowns when clicking outside
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('[data-nav-group]')) {
+    navGroups.forEach((_, idx) => closeDropdown(idx));
+  }
+});
+
+// ═══════════════════════════════════════════════════════════════
+//  MOBILE NAV
+// ═══════════════════════════════════════════════════════════════
+const navBurger = document.getElementById('navBurger');
+const navMobile = document.getElementById('navMobile');
+const navMobileClose = document.getElementById('navMobileClose');
+const navOverlay = document.getElementById('navOverlay');
+const siteHeader = document.getElementById('site-header');
+
+function openMobileNav() {
+  navBurger?.setAttribute('aria-expanded', 'true');
+  navMobile?.setAttribute('aria-hidden', 'false');
+  siteHeader?.classList.add('is-mobile-open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMobileNav() {
+  navBurger?.setAttribute('aria-expanded', 'false');
+  navMobile?.setAttribute('aria-hidden', 'true');
+  siteHeader?.classList.remove('is-mobile-open');
+  document.body.style.overflow = '';
+}
+
+navBurger?.addEventListener('click', openMobileNav);
+navMobileClose?.addEventListener('click', closeMobileNav);
+navOverlay?.addEventListener('click', closeMobileNav);
+
+// Mobile accordion — tap to expand/collapse
+document.querySelectorAll('.mobile-nav-group__toggle').forEach((toggle) => {
+  toggle.addEventListener('click', () => {
+    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', (!isExpanded).toString());
+    const group = toggle.closest('.mobile-nav-group');
+    if (group) group.classList.toggle('is-expanded', !isExpanded);
+  });
+});
+
+// ═══════════════════════════════════════════════════════════════
+//  SCROLL DETECTION
+// ═══════════════════════════════════════════════════════════════
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+  const currentScroll = window.pageYOffset;
+  if (currentScroll > 50) {
+    siteHeader?.classList.add('is-scrolled');
+  } else {
+    siteHeader?.classList.remove('is-scrolled');
+  }
+  lastScroll = currentScroll;
+});
+</script>

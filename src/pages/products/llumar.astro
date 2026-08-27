@@ -1,0 +1,2574 @@
+---
+/* Hallmark · redesign · macrostructure: numbered-alternating-rows · tone: professional-editorial
+ * template: benefits.astro · anchor hue: green (#81AB4C) */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FlipWords from '../../components/FlipWords.astro';
+import BrandLogos from '../../components/BrandLogos.astro';
+import CountUp from '../../components/animations/CountUp.astro';
+import TestimonialMarquee from '../../components/TestimonialMarquee.astro';
+import { Icon } from 'astro-icon/components';
+import llumarProducts from '../../data/llumar-products.json';
+
+const title = 'LLumar Window Film Salt Lake City | Authorized Dealer';
+const description = 'LLumar window film Salt Lake City — ATC solar control, low-e, safety & privacy film. Authorized LLumar dealer, manufacturer warranty.';
+const heroImage = '/images/llumar-window-film-salt-lake-city-hero.jpg';
+const serviceUrl = 'https://windowfilmsaltlakecity.com/products/llumar/';
+
+const faqItems = [
+  { question: "What LLumar window film products does Window Film Salt Lake City install?", answer: "Window Film Salt Lake City installs the full LLumar commercial lineup including the ATC solar control series, Low-E climate control film, Safety and Security series (4–8 mil), Reflective Privacy series, and decorative film options. Both residential and commercial specifications are available." },
+  { question: "How long does LLumar window film last?", answer: "LLumar films carry a residential limited lifetime warranty and a 15-year commercial warranty on solar control products. Safety films carry a 12-year commercial warranty. All warranties cover film performance, adhesion, and color stability." },
+  { question: "What is the difference between LLumar ATC and Low-E film?", answer: "LLumar ATC is primarily a solar control product optimized for summer heat rejection. LLumar Low-E is a year-round film that also retains indoor heat in winter — the better choice for Salt Lake City's four-season climate and older single-pane glass." },
+  { question: "Can LLumar film be applied to double-pane insulated glass?", answer: "Yes. LLumar makes film series specifically rated for insulated glass units (IGUs). Selecting the wrong film for double-pane glass can cause thermal stress. Window Film Salt Lake City always evaluates glass type and orientation before recommending a film." },
+  { question: "Is LLumar film the same as Vista film?", answer: "Both LLumar and Vista are Eastman Performance Films brands manufactured on the same platform with shared R&D. LLumar targets commercial architectural applications; Vista is positioned as the premium design-forward line. The products differ in specific series and aesthetics." },
+  { question: "Does LLumar ATC film interfere with Wi-Fi or cellular signals?", answer: "No. The ATC Series is non-metallized, so it does not attenuate Wi-Fi or cellular signals — an important advantage in Salt Lake City's dense commercial buildings. The Reflective Privacy Series uses a metallized coating and may affect signal in high-glass-density facades." },
+  { question: "Will LLumar film qualify for LEED or energy credits?", answer: "Several LLumar products — including the ATC and Low-E series — carry NFRC-certified VLT, SHGC, and U-value ratings required for LEED Energy and Atmosphere credit documentation. We provide ATC and Low-E product data sheets, pre/post energy modeling inputs, and installation records organized for your credit submission package." },
+  { question: "Can LLumar window film work on historic Salt Lake City glass?", answer: "Yes. LLumar makes specific residential series approved for single-pane glass including the wavy antique glass common in Salt Lake City rowhomes. We assess glass type, age, and condition before recommending a product to ensure long-term compatibility." },
+  { question: "How does LLumar film compare to 3M?", answer: "Both LLumar and 3M produce high-quality architectural window film. LLumar's ATC Series is comparable in performance to 3M's Prestige Series. The choice between brands often comes down to specific series performance, aesthetic preferences, and warranty terms for your application. We carry both." },
+  { question: "How do I get LLumar window film installed in Salt Lake City?", answer: "Contact us for a free site assessment. We evaluate your glass, orientation, and goals, then recommend the appropriate LLumar series for each area of your building. We provide written specifications and a proposal before any work begins." }
+];
+
+const llumarReviews = [
+  { quote: "The LLumar ATC film on our 14th floor corner offices completely solved the 3pm glare problem we'd been dealing with for years. Clients can finally sit near the windows without squinting. Installation was clean and professional.", name: "Jennifer M.", role: "Property Manager · Downtown Salt Lake City Office Tower", img: "/images/llumar-testimonial-jennifer-m.jpg" },
+  { quote: "We needed a film that would work across both our old rowhome-style buildings and modern glass office additions. LLumar gave us one consistent product spec that worked on both. The energy performance has been measurable.", name: "David S.", role: "Facilities Director · University District Campus", img: "/images/llumar-testimonial-david-s.jpg" },
+  { quote: "Our 1920s rowhome has beautiful original windows we'd never replace. The LLumar Low-E film has made a noticeable difference in winter — the drafty feeling near the glass is gone. I wish we'd done it years ago.", name: "Sarah K.", role: "Homeowner · Holladay", img: "/images/llumar-testimonial-sarah-k.jpg" },
+  { quote: "I needed security film after a break-in on the block. The LLumar safety film was installed quickly and you genuinely cannot tell it's there. That peace of mind is worth it.", name: "Marcus T.", role: "Retail Owner · The Avenues", img: "/images/llumar-testimonial-marcus-t.jpg" },
+  { quote: "We were able to document LLumar's NFRC ratings for our LEED submittal. The product data sheets were thorough and the installation team knew exactly what documentation we'd need.", name: "Rachel W.", role: "Sustainability Manager · Market Street", img: "/images/llumar-testimonial-rachel-w.jpg" },
+  { quote: "The LLumar installation in our lobby and restaurant glass improved the space noticeably — less heat, better ambiance, and guests have commented on the improvement to the views.", name: "Robert H.", role: "Hotel General Manager · Downtown Salt Lake City", img: "/images/llumar-testimonial-robert-h.jpg" }
+];
+
+const llumarCatalogSeries = Object.values(
+  llumarProducts.reduce((groups, product) => {
+    if (!groups[product.series]) {
+      groups[product.series] = {
+        name: product.series,
+        color: product.seriesColor,
+        products: [],
+      };
+    }
+    groups[product.series].products.push(product);
+    return groups;
+  }, {})
+);
+
+const truncateCatalogDescription = (text) => text.length > 80 ? `${text.slice(0, 77)}...` : text;
+
+const pageSchemas = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://windowfilmsaltlakecity.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://windowfilmsaltlakecity.com/products/" },
+      { "@type": "ListItem", "position": 3, "name": "LLumar Window Film", "item": "https://windowfilmsaltlakecity.com/products/llumar/" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://windowfilmsaltlakecity.com/products/llumar/",
+    "name": title,
+    "description": description,
+    "dateModified": new Date().toISOString().slice(0, 10),
+    "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".ll-hero__title", ".ll-why__intro"] }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "LLumar Window Film Products — Salt Lake City",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "LLumar ATC Solar Control Series", "description": "Non-metallized spectrally selective solar control film. Rejects up to 74% solar energy, 99% UV block, VLT 20–70%. No Wi-Fi interference." },
+      { "@type": "ListItem", "position": 2, "name": "LLumar Low-E Climate Control", "description": "Year-round low-emissivity film. Summer solar rejection + winter heat retention. Near-clear at 74% VLT. Ideal for single-pane rowhomes." },
+      { "@type": "ListItem", "position": 3, "name": "LLumar Safety & Security Series", "description": "4–8 mil polyester fragment retention and forced entry delay film. For retail, schools, and commercial properties." },
+      { "@type": "ListItem", "position": 4, "name": "LLumar Reflective Privacy Series", "description": "Metallized daytime privacy film. VLT 15–50%, heat rejection up to 71%. For offices, restaurants, and residential." }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "LLumar Window Film Salt Lake City",
+    "description": "LLumar architectural window film for Salt Lake City offices, rowhomes, retail, and commercial properties. ATC solar control, Low-E insulating, Safety, and Reflective Privacy series.",
+    "brand": { "@type": "Brand", "name": "LLumar" },
+    "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "areaServed": "Salt Lake City, UT" },
+  }
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  ogImage={heroImage}
+  serviceName="LLumar Window Film"
+  serviceDesc="LLumar architectural window film for Salt Lake City — ATC solar control, Low-E insulating, Safety, and Reflective Privacy film. Authorized LLumar dealer."
+  serviceUrl={serviceUrl}
+  faqItems={faqItems}
+  schemas={pageSchemas}
+>
+
+<!-- ═══════════════════════════════════════════
+     GEO — visually hidden, speakable-targeted direct answer
+═══════════════════════════════════════════ -->
+
+<!-- ══ HERO ══ -->
+<section class="ll-hero">
+  <div
+    class="ll-hero__bg"
+    style="background-image: url('/images/llumar-window-film-salt-lake-city-hero.jpg')"
+    role="img"
+    aria-label="LLumar window film installed on a Salt Lake City commercial building"
+  ></div>
+  <div class="ll-hero__overlay"></div>
+
+  <div class="ll-hero__content">
+
+    <div class="ll-hero__eyebrow">
+      <span>LLumar Window Film</span>
+      <span class="ll-hero__eyebrow-dot" aria-hidden="true"></span>
+      <span>Salt Lake City, UT</span>
+      <span class="ll-hero__eyebrow-dot" aria-hidden="true"></span>
+      <span>Authorized Installer</span>
+    </div>
+
+    <h1 class="ll-hero__title">LLumar Window Film<br class="ll-hero__br"/> for Salt Lake City</h1>
+
+    <p class="ll-hero__animated-line">
+      <FlipWords
+        words={["for offices and commercial buildings", "for rowhomes and residences", "for retail storefronts", "for hotels and hospitality"]}
+        staticText=""
+        class="ll-hero__flip"
+      />
+    </p>
+
+    <p class="ll-hero__subtitle">
+      LLumar is an Eastman Performance Films brand trusted by architects, facilities managers, and property owners across Salt Lake City. Sun control, insulation, safety, and privacy film — the full commercial lineup, professionally installed with manufacturer warranty.
+    </p>
+
+    <div class="ll-hero__cta">
+      <a href="/contact/" class="ll-hero__btn-primary">Get Your Free Estimate</a>
+      <a href="tel:8018954681" class="ll-hero__btn-secondary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" fill="currentColor"/></svg>
+        Call (801) 895-4681
+      </a>
+    </div>
+
+    <div class="ll-hero__stats-panel" aria-label="Key LLumar window film statistics">
+      <div class="ll-hero__stats-inner">
+        <CountUp end={74} suffix="%" label="Max Heat Rejection" />
+        <div class="ll-hero__stat-divider" aria-hidden="true"></div>
+        <CountUp end={99} suffix="%" label="UV Blocked" />
+        <div class="ll-hero__stat-divider" aria-hidden="true"></div>
+        <CountUp end={20} suffix="yr" label="Residential Warranty" />
+        <div class="ll-hero__stat-divider" aria-hidden="true"></div>
+        <div class="ll-hero__stat">
+          <span class="ll-hero__stat-num">Zone 5B</span>
+          <span class="ll-hero__stat-label">Salt Lake City Climate</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="ip-page-body">
+
+<!-- ══════════════════════════════════════
+     SECTION 2 - INTRO + TRUST BAR
+     ══════════════════════════════════════ -->
+<section class="ll-intro">
+  <div class="ll-intro__inner">
+
+    <div class="ll-intro__image-col">
+      <div class="ll-intro__image-wrap">
+        <img
+          src="/images/llumar-window-film-salt-lake-city-intro.jpg"
+          alt="LLumar certified installer applying window film to a Salt Lake City building"
+          title="LLumar window film installation Salt Lake City"
+          width="600"
+          height="720"
+          loading="lazy"
+          class="ll-intro__img"
+        />
+        <div class="ll-intro__badge">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.09 6.26H21l-5.47 3.97 2.09 6.27L12 14.54l-5.62 3.96 2.09-6.27L3 8.26h6.91L12 2z" fill="#81AB4C"/></svg>
+          <span>LLumar Authorized Installer</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ll-intro__content">
+      <span class="ll-intro__eyebrow">Why LLumar &amp; Window Film Salt Lake City</span>
+      <h2 class="ll-intro__title">Why choose LLumar window film for your glass?</h2>
+      <p class="ll-intro__lead">LLumar is one of three architectural window film brands manufactured by Eastman Performance Films — the same chemical engineering company behind Vista and Solar Gard. That shared R&amp;D infrastructure means LLumar's product line is engineered to the same performance standards used in major commercial and government buildings worldwide. LLumar window tint in Salt Lake City is available across the full commercial lineup — from the ATC spectrally selective solar control series to low-e insulating film, safety and security film, and reflective privacy options.</p>
+      <p class="ll-intro__body">Window Film Salt Lake City is an authorized LLumar dealer serving Salt Lake City, Park City, Salt Lake Valley, and the surrounding suburbs. Every installation includes a manufacturer-backed warranty — not just a contractor guarantee — and our team specs, installs, and documents LLumar film to Eastman's published standards.</p>
+      <div class="ll-intro__creds">
+        <div class="ll-intro__cred">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#81AB4C" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="#81AB4C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          LLumar Authorized Installer
+        </div>
+        <div class="ll-intro__cred">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#81AB4C" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="#81AB4C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Licensed &amp; Insured
+        </div>
+        <div class="ll-intro__cred">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#81AB4C" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="#81AB4C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Serving Salt Lake City Since 2008
+        </div>
+        <div class="ll-intro__cred">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#81AB4C" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="#81AB4C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Manufacturer-Backed Warranty
+        </div>
+      </div>
+      <div class="ll-intro__ctas">
+        <a href="/contact/" class="pp-btn pp-btn--primary">Get a Free Quote</a>
+        <a href="tel:8018954681" class="pp-btn pp-btn--ghost">Call (801) 895-4681</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ TRUST BAR ══ -->
+<section class="ll-trust">
+  <div class="ll-trust__inner">
+    <p class="ll-trust__label">Salt Lake City's authorized LLumar installer — stocking the full product lineup</p>
+    <div class="ll-trust__badges">
+      <div class="ll-trust__badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.09 6.26H21l-5.47 3.97 2.09 6.27L12 14.54l-5.62 3.96 2.09-6.27L3 8.26h6.91L12 2z" fill="#81AB4C"/></svg>
+        LLumar Authorized Installer
+      </div>
+      <div class="ll-trust__sep" aria-hidden="true"></div>
+      <div class="ll-trust__badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.09 6.26H21l-5.47 3.97 2.09 6.27L12 14.54l-5.62 3.96 2.09-6.27L3 8.26h6.91L12 2z" fill="#81AB4C"/></svg>
+        Licensed &amp; Insured
+      </div>
+      <div class="ll-trust__sep" aria-hidden="true"></div>
+      <div class="ll-trust__badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.09 6.26H21l-5.47 3.97 2.09 6.27L12 14.54l-5.62 3.96 2.09-6.27L3 8.26h6.91L12 2z" fill="#81AB4C"/></svg>
+        Manufacturer-Backed Warranty
+      </div>
+      <div class="ll-trust__sep" aria-hidden="true"></div>
+      <div class="ll-trust__badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.09 6.26H21l-5.47 3.97 2.09 6.27L12 14.54l-5.62 3.96 2.09-6.27L3 8.26h6.91L12 2z" fill="#81AB4C"/></svg>
+        Serving Salt Lake City Since 2008
+      </div>
+    </div>
+  </div>
+</section>
+<BrandLogos />
+
+<!-- ══════════════════════════════════════
+     SECTION 3 - WHY LLUMAR FOR SALT LAKE CITY
+     ══════════════════════════════════════ -->
+<section class="ll-why">
+  <div class="ll-why__container">
+
+    <div class="ll-why__image-wrap">
+      <img
+        src="/images/llumar-window-film-salt-lake-city-why.jpg"
+        alt="Salt Lake City red brick rowhomes on tree-lined street, afternoon sun — LLumar window film helps manage heat and cold in aging glass"
+        title="LLumar window film Salt Lake City rowhomes and climate"
+        width="768"
+        height="960"
+        loading="lazy"
+        class="ll-why__image"
+      />
+      <div class="ll-why__stat-card">
+        <div class="ll-why__stat-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7CB342" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span>IECC Climate Zone 5B — 4 full seasons</span>
+        </div>
+        <div class="ll-why__stat-divider"></div>
+        <div class="ll-why__stat-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7CB342" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span>~2,500 sunshine hours per year</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ll-why__content">
+      <span class="ll-why__eyebrow">Why LLumar for Salt Lake City</span>
+      <h2 class="ll-why__headline">Salt Lake City's Aging Glass Stock Needs a Film That Works in Every Season</h2>
+      <p class="ll-why__intro">
+        Zone 5B puts Salt Lake City glass under pressure from both directions — peak summer solar gain drives commercial cooling costs, and cold winters expose the energy loss in the city's large stock of aging single-pane rowhome glass. LLumar addresses both in one lineup: the ATC Series cuts summer solar heat gain through commercial glazing without sacrificing daylight, while Low-E film adds winter insulation performance to residential glass that predates double-pane technology. For a high-desert city where the HVAC system works hard in July and heating bills spike in January, that two-season range is the practical reason LLumar is the specified product on Salt Lake City commercial and residential projects.
+      </p>
+      <ul class="ll-why__bullets">
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#7CB342" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="#7CB342" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Single-pane rowhome glass loses heat in winter — LLumar Low-E adds an insulating layer that improves U-value without replacing the window
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#7CB342" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="#7CB342" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Downtown Salt Lake City offices with south and west glazing face severe solar heat gain — LLumar ATC Series rejects up to 74% of solar energy while maintaining clear views
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#7CB342" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="#7CB342" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Retail properties on busy Salt Lake City corridors benefit from LLumar's safety film to delay forced entry and retain glass fragments during impact
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#7CB342" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="#7CB342" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          All LLumar architectural films are NFRC-certified — independently rated for VLT, SHGC, and U-value
+        </li>
+      </ul>
+      <div class="ll-why__climate-facts">
+        <div class="ll-why__climate-item">
+          <span class="ll-why__climate-num">2,500</span>
+          <span class="ll-why__climate-label">Sunshine hours per year</span>
+        </div>
+        <div class="ll-why__climate-item">
+          <span class="ll-why__climate-num">87°F</span>
+          <span class="ll-why__climate-label">Average July high</span>
+        </div>
+        <div class="ll-why__climate-item">
+          <span class="ll-why__climate-num">Zone 5B</span>
+          <span class="ll-why__climate-label">High-desert, 4 seasons</span>
+        </div>
+      </div>
+      <p style="font-family:var(--font-body,'DM Sans',sans-serif);font-size:15px;color:var(--text-mid,#4a4a4a);line-height:1.7;margin:0 0 18px;">Zone 5B puts Salt Lake City glass under pressure from both directions — peak summer solar gain drives commercial cooling costs, and cold winters expose the energy loss in the city's large stock of aging single-pane glass. LLumar addresses both in one lineup: the ATC Series cuts summer heat gain through commercial glazing while Low-E adds winter insulation to residential glass that predates double-pane technology.</p>
+      <a href="/contact/" class="ll-why__cta">
+        Get a free film assessment &rarr;
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SECTION 4 - RESIDENTIAL / COMMERCIAL SLIDER
+     ══════════════════════════════════════ -->
+<section class="ll-slider" id="llSlider">
+  <div class="ll-slider__track" id="llTrack">
+
+    <!-- SLIDE 01: Residential -->
+    <div class="ll-slider__slide" data-slide="0">
+      <img src="/images/llumar-window-film-salt-lake-city-residential.jpg" alt="Bright Salt Lake City rowhouse interior with LLumar window film on bay windows"
+          title="LLumar window film Salt Lake City residential rowhome" class="ll-slider__bg" loading="lazy" />
+      <div class="ll-slider__overlay"></div>
+      <div class="ll-slider__content">
+        <div class="ll-slider__step">01</div>
+        <h2 class="ll-slider__title">Salt Lake City Rowhomes. LLumar Precision.</h2>
+        <p class="ll-slider__desc">Salt Lake City's housing stock runs heavily on single-pane glass — beautiful to look through, poor for heat retention in winter and solar control in summer. LLumar Low-E and ATC films are engineered for this: one insulates, one rejects heat, and both preserve the original window.</p>
+        <div class="ll-slider__faq">
+          <div class="ll-slider__faq-item">
+            <button class="ll-slider__faq-q" aria-expanded="false">Which LLumar film is best for Salt Lake City rowhomes?<span class="ll-slider__faq-icon" aria-hidden="true">+</span></button>
+            <div class="ll-slider__faq-a" hidden>For year-round performance including winter insulation, LLumar Low-E is the standard recommendation. For summer heat and glare, the ATC Series delivers up to 74% solar rejection. We assess your glass and orientation before recommending.</div>
+          </div>
+          <div class="ll-slider__faq-item">
+            <button class="ll-slider__faq-q" aria-expanded="false">Will LLumar film change how my home looks from the street?<span class="ll-slider__faq-icon" aria-hidden="true">+</span></button>
+            <div class="ll-slider__faq-a" hidden>Most LLumar residential films are optically clear or very lightly reflective — virtually undetectable at street level. We show you samples before any installation.</div>
+          </div>
+          <div class="ll-slider__faq-item">
+            <button class="ll-slider__faq-q" aria-expanded="false">Can LLumar film go on historic or single-pane glass?<span class="ll-slider__faq-icon" aria-hidden="true">+</span></button>
+            <div class="ll-slider__faq-a" hidden>Yes. LLumar makes specific series approved for single-pane glass, including the wavy glass common in Salt Lake City rowhomes. We evaluate glass type and condition before installation.</div>
+          </div>
+        </div>
+        <a href="/contact/" class="ll-slider__cta">Get a residential estimate &rarr;</a>
+      </div>
+    </div>
+
+    <!-- SLIDE 02: Commercial -->
+    <div class="ll-slider__slide" data-slide="1">
+      <img src="/images/llumar-window-film-salt-lake-city-commercial.jpg" alt="Modern Salt Lake City Downtown Salt Lake City office with LLumar ATC solar control film on floor-to-ceiling glass"
+          title="LLumar window film Salt Lake City commercial office" class="ll-slider__bg" loading="lazy" />
+      <div class="ll-slider__overlay"></div>
+      <div class="ll-slider__content">
+        <div class="ll-slider__step">02</div>
+        <h2 class="ll-slider__title">Salt Lake City Offices. LLumar Performance.</h2>
+        <p class="ll-slider__desc">Downtown Salt Lake City high-rises, The Avenues storefronts, and University District campuses all face the same problem — too much glass, too much solar heat, and HVAC systems working overtime. LLumar ATC Series solar control film reduces cooling load by rejecting up to 74% of solar energy, with payback periods averaging 2–4 years.</p>
+        <div class="ll-slider__faq">
+          <div class="ll-slider__faq-item">
+            <button class="ll-slider__faq-q" aria-expanded="false">How quickly does LLumar film pay back on commercial buildings?<span class="ll-slider__faq-icon" aria-hidden="true">+</span></button>
+            <div class="ll-slider__faq-a" hidden>Most commercial installations with significant south- or west-facing glass see payback within 2–4 years through HVAC savings alone.</div>
+          </div>
+          <div class="ll-slider__faq-item">
+            <button class="ll-slider__faq-q" aria-expanded="false">Will installation disrupt our operations?<span class="ll-slider__faq-icon" aria-hidden="true">+</span></button>
+            <div class="ll-slider__faq-a" hidden>Minimal disruption. Our crews work floor by floor and can schedule evenings or weekends for occupied spaces.</div>
+          </div>
+          <div class="ll-slider__faq-item">
+            <button class="ll-slider__faq-q" aria-expanded="false">Does LLumar ATC work on curtain wall and floor-to-ceiling glass?<span class="ll-slider__faq-icon" aria-hidden="true">+</span></button>
+            <div class="ll-slider__faq-a" hidden>Yes — large commercial glass is where LLumar film delivers its biggest results, applied in panels with nearly invisible seams.</div>
+          </div>
+        </div>
+        <a href="/contact/" class="ll-slider__cta">Get a commercial estimate &rarr;</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Right nav -->
+  <nav class="ll-slider__nav" aria-label="Slide navigation">
+    <button class="ll-slider__nav-item ll-slider__nav-item--active" data-llnav="0">
+      <span class="ll-slider__nav-line"></span>
+      <span class="ll-slider__nav-label">Residential</span>
+    </button>
+    <button class="ll-slider__nav-item" data-llnav="1">
+      <span class="ll-slider__nav-line"></span>
+      <span class="ll-slider__nav-label">Commercial</span>
+    </button>
+  </nav>
+
+  <!-- Arrows -->
+  <button class="ll-slider__arrow ll-slider__arrow--prev" id="llPrev" aria-label="Previous slide">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+  </button>
+  <button class="ll-slider__arrow ll-slider__arrow--next" id="llNext" aria-label="Next slide">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+  </button>
+
+  <!-- Progress bar -->
+  <div class="ll-slider__progress"><div class="ll-slider__progress-bar" id="llProgressBar"></div></div>
+
+</section>
+
+<!-- ══════════════════════════════════════
+     PRODUCT LINES - alternating rows
+     ══════════════════════════════════════ -->
+<section class="ll-products">
+  <div class="ll-products__hd">
+    <span class="pp-eyebrow">Product Lines</span>
+    <h2 class="ll-products__title">The LLumar window film lineup for Salt Lake City</h2>
+    <p class="ll-products__sub">Four LLumar architectural film families cover Salt Lake City's most common glass problems: summer solar load, winter heat loss, fragment retention, and daytime privacy. Every installation is documented to Eastman Performance Films standards.</p>
+  </div>
+
+  <!-- ROW 01 - ATC Series (image LEFT) -->
+  <div class="ll-pl-row fade-in">
+    <div class="ll-pl-row__img-wrap">
+      <img
+        src="/images/llumar-atc-solar-control-window-film-salt-lake-city.jpg"
+        alt="LLumar ATC solar control window film on Salt Lake City office building glass"
+        title="LLumar ATC solar control window film Salt Lake City"
+        width="768" height="960"
+        loading="lazy"
+        class="ll-pl-row__img"
+      />
+      <span class="ll-pl-row__pill">Sun Control</span>
+    </div>
+    <div class="ll-pl-row__content">
+      <span class="ll-pl-row__num">01</span>
+      <span class="ll-pl-row__eyebrow">LLumar ATC Solar Control Window Film</span>
+      <h3 class="ll-pl-row__heading">ATC Series — Non-Metallic Solar Control for Salt Lake City Offices</h3>
+      <p class="ll-pl-row__body">The ATC Series is LLumar's flagship architectural solar control film — a non-metallized spectrally selective product that rejects up to 74% of solar energy and 99% of UV radiation while maintaining high visible light transmission. Because the film contains no metal, it does not interfere with Wi-Fi, cellular, or building access signals. The neutral exterior appearance reads as clear glass from the street, meeting most Downtown Salt Lake City building management aesthetic requirements.</p>
+      <p class="ll-pl-row__body">For Salt Lake City's south- and west-facing offices, the ATC Series is available in VLT options from 20% to 70%. A lifecycle analysis found LLumar ATC film typically becomes carbon-negative within six months of installation on a commercial building due to HVAC energy savings. See how ATC fits into a full <a href="/benefits/energy-savings/" class="ll-body-link">energy savings strategy</a> for Salt Lake City buildings.</p>
+
+      <div class="ll-pl-row__specs">
+        <div class="ll-pl-row__spec"><span class="ll-pl-row__spec-val">74%</span><span class="ll-pl-row__spec-label">Solar Rejection</span></div>
+        <div class="ll-pl-row__spec"><span class="ll-pl-row__spec-val">99%</span><span class="ll-pl-row__spec-label">UV Block</span></div>
+        <div class="ll-pl-row__spec"><span class="ll-pl-row__spec-val">70%</span><span class="ll-pl-row__spec-label">Max VLT</span></div>
+        <div class="ll-pl-row__spec"><span class="ll-pl-row__spec-val">15yr</span><span class="ll-pl-row__spec-label">Commercial Warranty</span></div>
+      </div>
+
+      <div class="ll-pl-row__pdfs">
+        <span class="ll-pl-row__pdfs-label">LLumar Technical Documents</span>
+        <ul class="ll-pl-row__pdf-list">
+          <li><a href="/resources/llumar-window-film-solar-control-performance-specs-salt-lake-city.pdf" target="_blank" rel="noopener" class="ll-pl-row__pdf-link"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>LLumar Solar Control Performance Data</a></li>
+          <li><a href="/resources/llumar-window-film-atc-architectural-solar-control-salt-lake-city.pdf" target="_blank" rel="noopener" class="ll-pl-row__pdf-link"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>ATC Architectural Spec Sheet</a></li>
+        </ul>
+        <p class="ll-pl-row__warranty-note">Commercial: 15 years. Residential: lifetime limited. Source: LLumar.com</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 02 - Low-E Series (image RIGHT) -->
+  <div class="ll-pl-row ll-pl-row--rev fade-in">
+    <div class="ll-pl-row__img-wrap">
+      <img
+        src="/images/llumar-low-e-insulating-window-film-salt-lake-city.jpg"
+        alt="Salt Lake City rowhome living room with LLumar Low-E window film"
+        title="LLumar Low-E insulating window film Salt Lake City"
+        width="768" height="960"
+        loading="lazy"
+        class="ll-pl-row__img"
+      />
+      <span class="ll-pl-row__pill">Low-E</span>
+    </div>
+    <div class="ll-pl-row__content">
+      <span class="ll-pl-row__num">02</span>
+      <span class="ll-pl-row__eyebrow">LLumar Low-E Climate Control Window Film</span>
+      <h3 class="ll-pl-row__heading">Low-E Series — Year-Round Insulation for Salt Lake City's Four Seasons</h3>
+      <p class="ll-pl-row__body">LLumar Low-E is a dual-season low-emissivity film engineered to work in both directions. In summer, it rejects solar heat gain. In winter, it reflects interior warmth back into the room instead of allowing it to escape through the glass. The result is a window that performs closer to double-pane insulated glass without window replacement — meaningful for Salt Lake City's large stock of aging single-pane rowhome glass.</p>
+      <p class="ll-pl-row__body">LLumar Low-E maintains 74% visible light transmission and reads as clear glass from inside and out. With just 15% exterior reflectance, it stays within the guidelines of Salt Lake City's historic neighborhood HOAs in Holladay, Federal Heights, and Capitol Hill. For commercial-scale specifications across multiple floors, see our <a href="/applications/office/" class="ll-body-link">commercial office window film</a> page.</p>
+
+      <div class="ll-pl-row__specs">
+        <div class="ll-pl-row__spec"><span class="ll-pl-row__spec-val">74%</span><span class="ll-pl-row__spec-label">VLT (near-clear)</span></div>
+        <div class="ll-pl-row__spec"><span class="ll-pl-row__spec-val">~35%</span><span class="ll-pl-row__spec-label">U-value Improvement</span></div>
+        <div class="ll-pl-row__spec"><span class="ll-pl-row__spec-val">~30%</span><span class="ll-pl-row__spec-label">SHGC Improvement</span></div>
+        <div class="ll-pl-row__spec"><span class="ll-pl-row__spec-val">Lifetime</span><span class="ll-pl-row__spec-label">Res. Warranty</span></div>
+      </div>
+
+      <div class="ll-pl-row__pdfs">
+        <span class="ll-pl-row__pdfs-label">LLumar Technical Documents</span>
+        <ul class="ll-pl-row__pdf-list">
+          <li><a href="/resources/llumar-window-film-low-e-energy-saving-residential-salt-lake-city.pdf" target="_blank" rel="noopener" class="ll-pl-row__pdf-link"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Low-E Energy Saving Spec</a></li>
+        </ul>
+        <p class="ll-pl-row__warranty-note">Residential limited lifetime. Commercial: 15 years. Single-pane clear glass baseline. Source: LLumar.com</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 03 - Safety & Security (image LEFT) -->
+  <div class="ll-pl-row fade-in">
+    <div class="ll-pl-row__img-wrap">
+      <img
+        src="/images/llumar-safety-security-window-film-salt-lake-city.jpg"
+        alt="Salt Lake City retail storefront with LLumar safety security window film"
+        title="LLumar safety security window film Salt Lake City"
+        width="768" height="960"
+        loading="lazy"
+        class="ll-pl-row__img"
+      />
+      <span class="ll-pl-row__pill">Safety Series</span>
+    </div>
+    <div class="ll-pl-row__content">
+      <span class="ll-pl-row__num">03</span>
+      <span class="ll-pl-row__eyebrow">LLumar Safety &amp; Security Window Film</span>
+      <h3 class="ll-pl-row__heading">Safety Series — Fragment Retention and Forced Entry Delay</h3>
+      <p class="ll-pl-row__body">LLumar's Safety and Security Series is a polyester film engineered to hold shattered glass together on impact — protecting building occupants from flying fragments during break-ins, severe weather, and accidents. The film deters smash-and-grab theft by dramatically increasing forced entry time on retail storefront glass and is trusted by commercial properties throughout Salt Lake City. Available from 4 mil (standard safety) to 8 mil (enhanced security). Our <a href="/benefits/safety-and-security/" class="ll-body-link">safety and security window film</a> page covers the full range of options across brands.</p>
+      <p class="ll-pl-row__body">In Salt Lake City, LLumar safety film is most commonly installed on The Avenues and Downtown Salt Lake City retail storefronts for smash-and-grab deterrence, K-12 schools and universities, and healthcare facilities. Important: LLumar safety film holds glass together — it does not make glass unbreakable.</p>
+
+      <div class="ll-pl-row__specs">
+        <div class="ll-pl-row__spec"><span class="ll-pl-row__spec-val">4–8 mil</span><span class="ll-pl-row__spec-label">Series Range</span></div>
+        <div class="ll-pl-row__spec"><span class="ll-pl-row__spec-val">87%+</span><span class="ll-pl-row__spec-label">VLT (near-clear)</span></div>
+        <div class="ll-pl-row__spec"><span class="ll-pl-row__spec-val">99%</span><span class="ll-pl-row__spec-label">UV Block</span></div>
+        <div class="ll-pl-row__spec"><span class="ll-pl-row__spec-val">12yr</span><span class="ll-pl-row__spec-label">Commercial Warranty</span></div>
+      </div>
+
+      <div class="ll-pl-row__pdfs">
+        <span class="ll-pl-row__pdfs-label">LLumar Technical Documents</span>
+        <ul class="ll-pl-row__pdf-list">
+          <li><a href="/resources/llumar-window-film-safety-security-graffiti-guard-spec-salt-lake-city.pdf" target="_blank" rel="noopener" class="ll-pl-row__pdf-link"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Safety &amp; Security Spec</a></li>
+        </ul>
+        <p class="ll-pl-row__warranty-note">Residential: lifetime. Commercial: 12 years. Film holds glass — does not prevent breakage. Source: LLumar.com</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 04 - Reflective Privacy (image RIGHT) -->
+  <div class="ll-pl-row ll-pl-row--rev fade-in">
+    <div class="ll-pl-row__img-wrap">
+      <img
+        src="/images/llumar-reflective-privacy-window-film-salt-lake-city.jpg"
+        alt="Salt Lake City conference room with LLumar reflective privacy window film"
+        title="LLumar reflective privacy window film Salt Lake City"
+        width="768" height="960"
+        loading="lazy"
+        class="ll-pl-row__img"
+      />
+      <span class="ll-pl-row__pill">Privacy Series</span>
+    </div>
+    <div class="ll-pl-row__content">
+      <span class="ll-pl-row__num">04</span>
+      <span class="ll-pl-row__eyebrow">LLumar Reflective Privacy Window Film</span>
+      <h3 class="ll-pl-row__heading">Reflective Privacy Series — Daytime Privacy, Natural Views Preserved</h3>
+      <p class="ll-pl-row__body">LLumar's Reflective Privacy Series creates a mirror effect from outside during daylight hours, blocking inward views while maintaining clear outward visibility from inside. Salt Lake City applications include restaurant dining rooms on 9th and 9th and Federal Heights, west-facing conference rooms in Downtown Salt Lake City towers, and residential windows on busy street-facing facades.</p>
+      <p class="ll-pl-row__body">Note: reflective privacy films use a metallized coating, which can attenuate Wi-Fi and cellular signals on glass-heavy facades. For signal-neutral privacy options, the ATC decorative series offers alternatives.</p>
+
+      <div class="ll-pl-row__specs">
+        <div class="ll-pl-row__spec"><span class="ll-pl-row__spec-val">15–50%</span><span class="ll-pl-row__spec-label">VLT Range</span></div>
+        <div class="ll-pl-row__spec"><span class="ll-pl-row__spec-val">Up to 71%</span><span class="ll-pl-row__spec-label">Heat Rejection</span></div>
+        <div class="ll-pl-row__spec"><span class="ll-pl-row__spec-val">99%</span><span class="ll-pl-row__spec-label">UV Block</span></div>
+        <div class="ll-pl-row__spec"><span class="ll-pl-row__spec-val">12yr</span><span class="ll-pl-row__spec-label">Commercial Warranty</span></div>
+      </div>
+
+      <div class="ll-pl-row__pdfs">
+        <span class="ll-pl-row__pdfs-label">LLumar Technical Documents</span>
+        <ul class="ll-pl-row__pdf-list">
+          <li><a href="/resources/llumar-window-film-reflective-privacy-series-salt-lake-city.pdf" target="_blank" rel="noopener" class="ll-pl-row__pdf-link"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Reflective Privacy Spec</a></li>
+          <li><a href="/resources/llumar-window-film-resort-hospitality-case-study-salt-lake-city.pdf" target="_blank" rel="noopener" class="ll-pl-row__pdf-link"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Resort Hospitality Case Study</a></li>
+        </ul>
+        <p class="ll-pl-row__warranty-note">Residential: lifetime. Commercial: 12 years. Metallized — may attenuate Wi-Fi. Source: LLumar.com</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════
+     PRODUCT COMPARISON TABLE
+     ══════════════════════════════════════ -->
+<section class="ll-compare">
+  <div class="ll-compare__inner">
+    <div class="ll-compare__hd">
+      <span class="pp-eyebrow" style="color:#81AB4C">Product Data</span>
+      <h2 class="ll-compare__title">Which LLumar film is right for your property?</h2>
+      <p class="ll-compare__sub">Four LLumar series for Salt Lake City — specs from Eastman product data sheets.</p>
+    </div>
+    <div class="ll-compare__wrap">
+      <table class="ll-compare__table" aria-label="LLumar window film series comparison">
+        <thead>
+          <tr>
+            <th class="ll-compare__th ll-compare__th--series">Product</th>
+            <th class="ll-compare__th">Manufacturer</th>
+            <th class="ll-compare__th">Thickness</th>
+            <th class="ll-compare__th">Key Performance</th>
+            <th class="ll-compare__th">UV Block</th>
+            <th class="ll-compare__th">Warranty<br/><span class="ll-compare__th-sub">Res/Comm</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="ll-compare__row"><td class="ll-compare__td ll-compare__td--name"><span class="ll-compare__pill" style="background:#81AB4C">ATC</span><span class="ll-compare__series-name">ATC Series</span></td><td class="ll-compare__td">LLumar</td><td class="ll-compare__td">Multi-layer</td><td class="ll-compare__td">74% solar rejection</td><td class="ll-compare__td ll-compare__td--stat">99%</td><td class="ll-compare__td ll-compare__td--stat">Lifetime / 15yr</td></tr>
+          <tr class="ll-compare__row"><td class="ll-compare__td ll-compare__td--name"><span class="ll-compare__pill" style="background:#4A90A4">Low-E</span><span class="ll-compare__series-name">Low-E Series</span></td><td class="ll-compare__td">LLumar</td><td class="ll-compare__td">Multi-layer</td><td class="ll-compare__td">U-value improvement</td><td class="ll-compare__td ll-compare__td--stat">99%</td><td class="ll-compare__td ll-compare__td--stat">Lifetime / 15yr</td></tr>
+          <tr class="ll-compare__row"><td class="ll-compare__td ll-compare__td--name"><span class="ll-compare__pill" style="background:#8B6914">Safety</span><span class="ll-compare__series-name">Safety Series</span></td><td class="ll-compare__td">LLumar</td><td class="ll-compare__td">4–8 mil</td><td class="ll-compare__td">Fragment retention</td><td class="ll-compare__td ll-compare__td--stat">99%</td><td class="ll-compare__td ll-compare__td--stat">Lifetime / 12yr</td></tr>
+          <tr class="ll-compare__row"><td class="ll-compare__td ll-compare__td--name"><span class="ll-compare__pill" style="background:#5B8DB8">Privacy</span><span class="ll-compare__series-name">Reflective Privacy</span></td><td class="ll-compare__td">LLumar</td><td class="ll-compare__td">Multi-layer</td><td class="ll-compare__td">Up to 71% heat</td><td class="ll-compare__td ll-compare__td--stat">99%</td><td class="ll-compare__td ll-compare__td--stat">Lifetime / 12yr</td></tr>
+          <tr class="ll-compare__row"><td class="ll-compare__td ll-compare__td--name"><span class="ll-compare__pill" style="background:#6A6A6A">3M</span><span class="ll-compare__series-name">Prestige PR70</span></td><td class="ll-compare__td">3M</td><td class="ll-compare__td">Multi-layer</td><td class="ll-compare__td">~66% TSER</td><td class="ll-compare__td ll-compare__td--stat">99.9%</td><td class="ll-compare__td ll-compare__td--stat">Lifetime / 15yr</td></tr>
+          <tr class="ll-compare__row"><td class="ll-compare__td ll-compare__td--name"><span class="ll-compare__pill" style="background:#7CB342">Vista</span><span class="ll-compare__series-name">SpectraSelect</span></td><td class="ll-compare__td">Vista</td><td class="ll-compare__td">Multi-layer</td><td class="ll-compare__td">Up to 71% solar</td><td class="ll-compare__td ll-compare__td--stat">99%</td><td class="ll-compare__td ll-compare__td--stat">Lifetime / 15yr</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="ll-compare__note">Source: LLumar product bulletins (Eastman); 3M Prestige TDS; Vista SpectraSelect spec sheet.</p>
+    <div class="ll-compare__cta">
+      <a href="/contact/" class="pp-btn pp-btn--primary" style="background:#81AB4C;border-color:#81AB4C;color:#fff">Talk to our team about which series fits your project</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     LLUMAR PRODUCT CATALOG
+     ══════════════════════════════════════ -->
+<section class="ll-catalog">
+  <div class="ll-catalog__inner">
+    <div class="ll-catalog__hd">
+      <span class="pp-eyebrow">LLumar Product Catalog</span>
+      <h2 class="ll-catalog__title">55 LLumar Products Available in Salt Lake City</h2>
+      <p class="ll-catalog__sub">Click any product to view full specifications, applications, and Salt Lake City installation details.</p>
+    </div>
+
+    {llumarCatalogSeries.map((series) => (
+      <div class="ll-catalog__series">
+        <h3 class="ll-catalog__series-name">
+          <span class="ll-catalog__series-dot" style={`background:${series.color}`}></span>
+          {series.name} ({series.products.length} products)
+        </h3>
+        <div class="ll-catalog__grid">
+          {series.products.map((product) => (
+            <a href={`/products/llumar/${product.slug}/`} class="ll-catalog__card">
+              <img src={product.image} alt={product.name} title={product.name} class="ll-catalog__card-img" width="280" height="180" loading="lazy" />
+              <div class="ll-catalog__card-body">
+                <span class="ll-catalog__card-badge" style={`background:${product.seriesColor}`}>{product.series}</span>
+                <h4 class="ll-catalog__card-name">{product.name}</h4>
+                <p class="ll-catalog__card-desc">{truncateCatalogDescription(product.shortDescription)}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     CASE STUDY
+     ══════════════════════════════════════ -->
+<section class="ll-casestudy">
+  <div class="ll-casestudy__inner">
+
+    <div class="ll-casestudy__img-col">
+      <div class="ll-casestudy__img-wrap">
+        <img
+          src="/images/llumar-window-film-salt-lake-city-casestudy.jpg"
+          alt="Downtown Salt Lake City Salt Lake City hotel with LLumar window film on west-facing guest room glass"
+          title="LLumar window film Salt Lake City hotel case study"
+          width="1264" height="848"
+          loading="lazy"
+          class="ll-casestudy__img"
+        />
+        <div class="ll-casestudy__badge">
+          <span class="ll-casestudy__badge-label">LLumar Case Study</span>
+        </div>
+      </div>
+      <div class="ll-casestudy__stat-row">
+        <div class="ll-casestudy__stat">
+          <span class="ll-casestudy__stat-val">74%</span>
+          <span class="ll-casestudy__stat-label">maximum solar energy rejection</span>
+        </div>
+        <div class="ll-casestudy__stat-div"></div>
+        <div class="ll-casestudy__stat">
+          <span class="ll-casestudy__stat-val">99%</span>
+          <span class="ll-casestudy__stat-label">UV protection for interiors</span>
+        </div>
+        <div class="ll-casestudy__stat-div"></div>
+        <div class="ll-casestudy__stat">
+          <span class="ll-casestudy__stat-val">3</span>
+          <span class="ll-casestudy__stat-label">project areas completed in phases</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ll-casestudy__content">
+      <span class="pp-eyebrow">Case Study</span>
+      <h2 class="ll-casestudy__title">How LLumar ATC Film Transformed a Salt Lake City Hotel's Energy Profile</h2>
+      <p class="ll-casestudy__lead">A Downtown Salt Lake City Salt Lake City hotel with significant west-facing glass exposure contracted Window Film Salt Lake City to upgrade to LLumar ATC Series. The project covered lobby glazing, guest room windows on west-facing floors, and conference room glass — completed in phases over a summer schedule.</p>
+      <p class="ll-casestudy__body">The LLumar ATC specification was selected for its non-metallized signal-friendly construction, neutral appearance, and ability to reject up to 74% of solar energy without making guest rooms feel dark. Installation was phased around occupancy and event schedules so the building could keep operating while the west-facing glass was upgraded.</p>
+      <blockquote class="ll-casestudy__quote">
+        <p>&ldquo;The LLumar ATC installation reduced our west-facing guest room temperatures noticeably by the second week. The energy savings showed up in our utility reports within the first full billing cycle.&rdquo;</p>
+        <footer>Director of Engineering, Downtown Salt Lake City Salt Lake City Hotel</footer>
+      </blockquote>
+      <a
+        href="/contact/"
+        class="ll-casestudy__link"
+        aria-label="Request a LLumar window film assessment"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Request a hotel or commercial assessment
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     TESTIMONIALS
+     ══════════════════════════════════════ -->
+<div class="ll-testimonials__hd">
+  <span class="pp-eyebrow">Client Reviews</span>
+  <h2 class="ll-testimonials__title">What Salt Lake City clients say about LLumar window film</h2>
+  <p class="ll-testimonials__sub">Residential and commercial property owners across Salt Lake City and the surrounding area.</p>
+</div>
+<TestimonialMarquee reviews={llumarReviews} />
+
+<!-- ══════════════════════════════════════
+     FAQ - two-column split
+     ══════════════════════════════════════ -->
+<section class="ll-faq" id="faq">
+  <div class="ll-faq__inner">
+    <div class="ll-faq__header fade-in">
+      <span class="ll-eyebrow">Questions</span>
+      <h2 class="ll-faq__title">Frequently Asked Questions</h2>
+      <p>Honest answers about LLumar window film in Salt Lake City from specialists with over 16 years of installation experience.</p>
+      <a href="/contact/" class="ll-faq__cta-btn">Talk to a Specialist</a>
+    </div>
+    <div class="ll-faq__list fade-in">
+      {faqItems.map((item, index) => (
+        <div class:list={["ll-faq__item", { "ll-faq__item--open": index === 0 }]}>
+          <div class="ll-faq__q"><span>{item.question}</span><span class="ll-faq__toggle">+</span></div>
+          <div class="ll-faq__a"><p>{item.answer}</p></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     CTA - TINT SLIDER
+     ══════════════════════════════════════ -->
+<section class="ll-tint-cta">
+  <div class="ll-tint-cta__bg" id="llTintBg" style="background-image:url('/images/llumar-tint-slider-salt-lake-city-room.jpg')" role="img" aria-label="Salt Lake City room with LLumar window film tint preview" aria-hidden="true"></div>
+  <div class="ll-tint-cta__darken" id="llTintOverlay" aria-hidden="true"></div>
+  <div class="ll-tint-cta__content">
+    <h2 class="ll-tint-cta__title">Find Your LLumar Tint.</h2>
+    <p class="ll-tint-cta__subtitle">Drag to preview LLumar window film tint — from clear to limo-dark — then get a product recommendation for your glass.</p>
+    <div class="ll-tint-cta__controls">
+      <span class="ll-tint-cta__label">Clear</span>
+      <input type="range" min="0" max="100" value="35" class="ll-tint-cta__range" id="llTintRange" aria-label="Adjust tint level" />
+      <span class="ll-tint-cta__label">LIMO</span>
+    </div>
+    <p class="ll-tint-cta__vlt">VLT <strong id="llTintVlt">65%</strong> · <span id="llTintFilm">LLumar ATC 70</span> · visible light transmission</p>
+    <a href="/contact/" class="ll-tint-cta__btn">Get a Free Quote →</a>
+  </div>
+</section>
+
+</div><!-- end ip-page-body -->
+</BaseLayout>
+<style>
+/* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+/* ── GEO ── */
+
+/* ── Body link style (visible in both light and dark sections) ── */
+.ll-body-link {
+  color: var(--green, #81AB4C);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(129,171,76,0.55);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+  transition: color 0.2s, text-decoration-color 0.2s;
+  border-radius: 2px;
+}
+.ll-body-link:hover {
+  color: #a8d468;
+  text-decoration-color: rgba(168,212,104,0.8);
+}
+
+/* ── Product lineup H3 ── */
+h3.ll-pl-row__heading { font-size: inherit; font-weight: inherit; font-family: inherit; margin: 0; }
+
+.ll-hero {
+  position: relative;
+  width: 100%;
+  min-height: 92vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  padding-bottom: 80px;
+}
+.ll-hero__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  transform: scale(1.03);
+  transition: transform 8s ease;
+}
+.ll-hero:hover .ll-hero__bg { transform: scale(1.0); }
+.ll-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(18, 26, 20, 0.25) 0%,
+    rgba(18, 26, 20, 0.55) 50%,
+    rgba(18, 26, 20, 0.82) 100%
+  );
+}
+.ll-hero__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 6%;
+}
+.ll-hero__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 24px;
+}
+.ll-hero__eyebrow-dot {
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--green, #81AB4C);
+  display: inline-block;
+}
+.ll-hero__title {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(44px, 6vw, 80px);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  margin: 0 0 20px;
+  max-width: 800px;
+}
+.ll-hero__animated-line {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: clamp(18px, 2vw, 22px);
+  color: rgba(255,255,255,0.85);
+  margin: 0 0 20px;
+  font-style: italic;
+}
+.ll-hero__flip {
+  color: var(--green, #81AB4C);
+  font-style: italic;
+  font-weight: 600;
+}
+.ll-hero__subtitle {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 16px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.7;
+  max-width: 620px;
+  margin: 0 0 36px;
+}
+.ll-hero__cta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 60px;
+}
+.ll-hero__btn-primary {
+  display: inline-block;
+  background: var(--green, #81AB4C);
+  color: #fff;
+  padding: 15px 32px;
+  border-radius: 100px;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+  white-space: nowrap;
+}
+.ll-hero__btn-primary:hover { background: #6e9640; transform: translateY(-2px); }
+.ll-hero__btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  padding: 15px 28px;
+  border-radius: 100px;
+  border: 1.5px solid rgba(255,255,255,0.4);
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+  white-space: nowrap;
+  backdrop-filter: blur(4px);
+  background: rgba(255,255,255,0.05);
+}
+.ll-hero__btn-secondary:hover { border-color: rgba(255,255,255,0.8); background: rgba(255,255,255,0.12); transform: translateY(-2px); }
+/* Stats panel */
+.ll-hero__stats-panel {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 20px;
+  padding: 28px 36px;
+  display: inline-flex;
+  align-items: stretch;
+  gap: 0;
+  max-width: 100%;
+}
+.ll-hero__stats-inner {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+.ll-hero__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 36px;
+  text-align: center;
+}
+.ll-hero__stat:first-child { padding-left: 0; }
+.ll-hero__stat:last-child { padding-right: 0; }
+.ll-hero__stats-inner .countup { padding: 0 28px; }
+.ll-hero__stats-inner .countup:first-child { padding-left: 0; }
+.ll-hero__stats-inner .countup .countup__label { white-space: nowrap; }
+.ll-hero__stat-number {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.ll-hero__stat-label {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  white-space: nowrap;
+}
+.ll-hero__stat-divider {
+  width: 1px;
+  height: 48px;
+  background: rgba(255,255,255,0.2);
+  flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  .ll-hero { min-height: 100svh; padding-bottom: 48px; }
+  .ll-hero__stats-panel { padding: 20px 20px; border-radius: 16px; }
+  .ll-hero__stat { padding: 0 16px; }
+  .ll-hero__cta { flex-direction: column; align-items: flex-start; }
+  .ll-hero__stats-inner { gap: 8px; }
+  .ll-hero__stat-divider { display: none; }
+}
+
+/* ── PAGE BODY WRAPPER ── */
+.ip-page-body {
+  position: relative;
+  background: #ffffff;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  margin-top: -40px;
+  z-index: 10;
+  overflow: visible;
+  padding-bottom: 80px;
+}
+
+/* ── EYEBROW ── */
+.pp-eyebrow {
+  display: inline-block;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--green, #81AB4C);
+  margin-bottom: 16px;
+}
+
+/* ── BUTTONS ── */
+.pp-btn {
+  display: inline-block; padding: 14px 28px;
+  border-radius: var(--radius-pill, 100px);
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 15px; font-weight: 500;
+  text-decoration: none; transition: all 0.2s;
+  border: 2px solid transparent; white-space: nowrap;
+}
+.pp-btn--primary { background: var(--green, #81AB4C); color: #fff; border-color: var(--green, #81AB4C); }
+.pp-btn--primary:hover { background: #6e9640; border-color: #6e9640; transform: translateY(-2px); color: #fff; }
+.pp-btn--ghost { background: transparent; color: var(--brand, #272E32); border-color: var(--brand, #272E32); }
+.pp-btn--ghost:hover { background: var(--brand, #272E32); color: #fff; transform: translateY(-2px); }
+.pp-btn--white { background: #fff; color: var(--brand, #272E32); border-color: #fff; font-weight: 600; }
+.pp-btn--white:hover { background: var(--off-white, #F7F6F3); transform: translateY(-2px); }
+.pp-btn--green { background: var(--green, #81AB4C); color: #fff; border-color: var(--green, #81AB4C); }
+.pp-btn--green:hover { background: #6e9640; transform: translateY(-2px); color: #fff; }
+
+/* ══════════════════════════════════════
+   PRODUCT COMPARISON TABLE
+══════════════════════════════════════ */
+.ll-compare {
+  background: #14201A;
+  padding: 100px 8%;
+}
+.ll-compare__inner { max-width: 1400px; margin: 0 auto; }
+.ll-compare__hd { text-align: center; margin-bottom: 56px; }
+.ll-compare__title {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(28px, 3.2vw, 46px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  margin: 0 0 16px;
+}
+.ll-compare__sub {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 16px;
+  color: rgba(255,255,255,0.6);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+.ll-compare__wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.ll-compare__table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  min-width: 820px;
+}
+.ll-compare__th {
+  padding: 16px 18px;
+  background: rgba(255,255,255,0.06);
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  white-space: nowrap;
+}
+.ll-compare__th--series { width: 200px; }
+.ll-compare__th-sub {
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: rgba(255,255,255,0.3);
+  margin-top: 2px;
+  text-transform: none;
+}
+.ll-compare__row:not(:last-child) td { border-bottom: 1px solid rgba(255,255,255,0.07); }
+.ll-compare__row:hover td { background: rgba(255,255,255,0.03); }
+.ll-compare__td {
+  padding: 18px 18px;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.5;
+  vertical-align: middle;
+}
+.ll-compare__td--stat { font-weight: 600; color: #fff; white-space: nowrap; }
+.ll-compare__td--name {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 18px;
+}
+.ll-compare__pill {
+  display: inline-block;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 100px;
+  width: fit-content;
+}
+.ll-compare__series-name {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.3;
+}
+.ll-compare__note {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  margin: 20px 0 40px;
+  text-align: center;
+  line-height: 1.6;
+}
+.ll-compare__cta { text-align: center; }
+@media (max-width: 768px) {
+  .ll-compare { padding: 60px 5%; }
+  .ll-compare__th--series { width: 140px; }
+}
+
+/* ══════════════════════════════════════
+   LLUMAR PRODUCT CATALOG
+══════════════════════════════════════ */
+.ll-catalog {
+  padding: 80px 0;
+  background: #0d0d0d;
+}
+.ll-catalog__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.ll-catalog__hd {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.ll-catalog__title {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  color: #fff;
+  margin: 12px 0 16px;
+  letter-spacing: 0;
+}
+.ll-catalog__sub {
+  color: rgba(255,255,255,0.6);
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.ll-catalog__series {
+  margin-bottom: 48px;
+}
+.ll-catalog__series-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.ll-catalog__series-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.ll-catalog__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+.ll-catalog__card {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.ll-catalog__card:hover {
+  border-color: #81AB4C;
+  transform: translateY(-2px);
+}
+.ll-catalog__card-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+.ll-catalog__card-body {
+  padding: 14px 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+.ll-catalog__card-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  align-self: flex-start;
+}
+.ll-catalog__card-name {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+.ll-catalog__card-desc {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+  margin: 0;
+  line-height: 1.5;
+}
+@media (max-width: 768px) {
+  .ll-catalog { padding: 48px 0; }
+  .ll-catalog__grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+  .ll-catalog__card-img { height: 120px; }
+}
+
+/* ══════════════════════════════════════
+   CASE STUDY
+══════════════════════════════════════ */
+.ll-casestudy {
+  background: #ffffff;
+  padding: 100px 8%;
+  border-top: 1px solid #EEECE8;
+}
+.ll-casestudy__inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.ll-casestudy__img-col { display: flex; flex-direction: column; gap: 24px; }
+.ll-casestudy__img-wrap {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+}
+.ll-casestudy__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.ll-casestudy__img-wrap:hover .ll-casestudy__img { transform: scale(1.02); }
+.ll-casestudy__badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #14201A;
+  color: #81AB4C;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 7px 14px;
+  border-radius: 100px;
+}
+.ll-casestudy__stat-row {
+  display: flex;
+  align-items: center;
+  background: #14201A;
+  border-radius: 16px;
+  padding: 22px 28px;
+  gap: 0;
+}
+.ll-casestudy__stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+}
+.ll-casestudy__stat-val {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(22px, 2.5vw, 32px);
+  font-weight: 700;
+  color: #81AB4C;
+  line-height: 1;
+}
+.ll-casestudy__stat-label {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 11px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.4;
+  text-align: center;
+}
+.ll-casestudy__stat-div {
+  width: 1px;
+  height: 40px;
+  background: rgba(255,255,255,0.12);
+  flex-shrink: 0;
+}
+.ll-casestudy__content { display: flex; flex-direction: column; gap: 0; }
+.ll-casestudy__title {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(26px, 3vw, 42px);
+  font-weight: 700;
+  color: var(--text-dark, #1a1a1a);
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  margin: 0 0 24px;
+}
+.ll-casestudy__lead {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 17px;
+  color: var(--text-mid, #4a4a4a);
+  line-height: 1.8;
+  margin: 0 0 16px;
+  font-weight: 500;
+}
+.ll-casestudy__body {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 15px;
+  color: var(--text-mid, #4a4a4a);
+  line-height: 1.8;
+  margin: 0 0 16px;
+}
+.ll-casestudy__quote {
+  margin: 24px 0 28px;
+  padding: 20px 24px;
+  border-left: 3px solid #81AB4C;
+  background: #F7F6F3;
+  border-radius: 0 12px 12px 0;
+}
+.ll-casestudy__quote p {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 15px;
+  font-style: italic;
+  color: var(--text-dark, #1a1a1a);
+  line-height: 1.7;
+  margin: 0 0 8px;
+}
+.ll-casestudy__quote footer {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-mid, #4a4a4a);
+}
+.ll-casestudy__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--green, #81AB4C);
+  text-decoration: none;
+  border: 1.5px solid var(--green, #81AB4C);
+  padding: 12px 20px;
+  border-radius: 100px;
+  transition: background 0.2s, color 0.2s;
+  width: fit-content;
+}
+.ll-casestudy__link:hover { background: var(--green, #81AB4C); color: #fff; }
+@media (max-width: 1024px) {
+  .ll-casestudy__inner { grid-template-columns: 1fr; gap: 48px; }
+}
+@media (max-width: 640px) {
+  .ll-casestudy { padding: 60px 5%; }
+  .ll-casestudy__stat-row { flex-direction: column; gap: 16px; }
+  .ll-casestudy__stat-div { width: 40px; height: 1px; }
+}
+
+/* ══════════════════════════════════════
+   TESTIMONIALS
+══════════════════════════════════════ */
+.ll-testimonials {
+  background: #F5F3EE;
+  padding: 96px 6%;
+}
+.ll-testimonials__hd {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.ll-testimonials__title {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(26px, 3vw, 42px);
+  font-weight: 700;
+  color: var(--text-dark, #1a1a1a);
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  margin: 0 0 14px;
+}
+.ll-testimonials__sub {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 16px;
+  color: var(--text-mid, #4a4a4a);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+.ll-testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.ll-tcard {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.ll-tcard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+.ll-tcard__img-wrap { aspect-ratio: 16/9; overflow: hidden; }
+.ll-tcard__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.ll-tcard:hover .ll-tcard__img { transform: scale(1.03); }
+.ll-tcard__body {
+  padding: 28px 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+.ll-tcard__stars {
+  font-size: 18px;
+  color: #F5A623;
+  letter-spacing: 2px;
+}
+.ll-tcard__quote {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text-mid, #4a4a4a);
+  margin: 0;
+  flex: 1;
+  font-style: italic;
+}
+.ll-tcard__meta { border-top: 1px solid #EEECE8; padding-top: 16px; }
+.ll-tcard__name {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-dark, #1a1a1a);
+  margin: 0 0 3px;
+}
+.ll-tcard__role {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 13px;
+  color: var(--text-mid, #4a4a4a);
+  margin: 0;
+}
+@media (max-width: 1024px) {
+  .ll-testimonials__grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .ll-testimonials { padding: 60px 5%; }
+  .ll-testimonials__grid { grid-template-columns: 1fr; }
+  .ll-tcard__body { padding: 22px 22px 26px; }
+}
+
+/* ══════════════════════════════════════
+   SECTION 2 - INTRO + TRUST BAR
+══════════════════════════════════════ */
+.ll-intro {
+  padding: 100px 8%;
+  background: #ffffff;
+}
+.ll-intro__inner {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 80px;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+/* Image column */
+.ll-intro__image-wrap {
+  position: relative;
+  border-radius: 28px;
+  overflow: visible;
+}
+.ll-intro__img {
+  width: 100%;
+  height: 560px;
+  object-fit: cover;
+  border-radius: 28px;
+  display: block;
+}
+.ll-intro__badge {
+  position: absolute;
+  bottom: -20px;
+  left: 24px;
+  background: var(--brand, #272E32);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 100px;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  white-space: nowrap;
+}
+/* Content column */
+.ll-intro__eyebrow {
+  display: inline-block;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--green, #81AB4C);
+  margin-bottom: 18px;
+}
+.ll-intro__title {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(28px, 3.2vw, 44px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  color: var(--text-dark, #1a1a1a);
+  margin: 0 0 24px;
+}
+.ll-intro__lead {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 17px;
+  color: var(--text-mid, #4a4a4a);
+  line-height: 1.8;
+  margin: 0 0 16px;
+}
+.ll-intro__body {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 15px;
+  color: var(--text-mid, #4a4a4a);
+  line-height: 1.8;
+  margin: 0 0 28px;
+}
+.ll-intro__creds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  margin-bottom: 32px;
+}
+.ll-intro__cred {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-dark, #1a1a1a);
+}
+.ll-intro__ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+/* Trust bar */
+.ll-trust {
+  background: var(--off-white, #F7F6F3);
+  padding: 36px 8%;
+  border-top: 1px solid #E8E7E4;
+  border-bottom: 1px solid #E8E7E4;
+}
+.ll-trust__inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.ll-trust__label {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-mid, #4a4a4a);
+  text-align: center;
+  margin: 0;
+}
+.ll-trust__badges {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 0;
+  justify-content: center;
+}
+.ll-trust__badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dark, #1a1a1a);
+  padding: 0 20px;
+}
+.ll-trust__sep {
+  width: 1px;
+  height: 16px;
+  background: #D0CEC9;
+  flex-shrink: 0;
+}
+@media (max-width: 1024px) {
+  .ll-intro__inner { grid-template-columns: 1fr; gap: 60px; }
+  .ll-intro__image-col { order: 2; }
+  .ll-intro__content { order: 1; }
+  .ll-intro__img { height: 400px; }
+}
+@media (max-width: 640px) {
+  .ll-intro { padding: 60px 5%; }
+  .ll-trust { padding: 28px 5%; }
+  .ll-trust__badges { gap: 12px; flex-direction: column; align-items: flex-start; }
+  .ll-trust__sep { display: none; }
+}
+
+/* ── INTRO ── */
+.pp-intro {
+  padding: 80px 10%;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  overflow: hidden;
+}
+.pp-intro__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.pp-intro__title {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(36px, 4.5vw, 58px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  color: var(--text-dark, #1a1a1a);
+  margin: 0;
+}
+.pp-intro__lead {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 17px;
+  color: var(--text-mid, #4a4a4a);
+  line-height: 1.75;
+  margin-bottom: 32px;
+}
+.pp-intro__ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* ══════════════════════════════════════
+   SECTION 3 - WHY 3M FOR SALT LAKE CITY
+══════════════════════════════════════ */
+.ll-why {
+  background: #14201A;
+  padding: 100px 8%;
+}
+.ll-why__container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 80px;
+  align-items: center;
+}
+.ll-why__image-wrap {
+  position: relative;
+  border-radius: 28px;
+  overflow: visible;
+  flex-shrink: 0;
+}
+.ll-why__image {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 28px;
+  display: block;
+}
+.ll-why__stat-card {
+  position: absolute;
+  bottom: -24px;
+  right: -24px;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  padding: 18px 22px;
+  min-width: 240px;
+}
+.ll-why__stat-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 13px;
+  color: rgba(255,255,255,0.85);
+  font-weight: 500;
+}
+.ll-why__stat-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.12);
+  margin: 10px 0;
+}
+.ll-why__eyebrow {
+  display: inline-block;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--green, #81AB4C);
+  margin-bottom: 18px;
+}
+.ll-why__headline {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(28px, 3vw, 44px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+  margin: 0 0 20px;
+}
+.ll-why__intro {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 16px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.8;
+  margin: 0 0 28px;
+}
+.ll-why__bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.ll-why__bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 15px;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.6;
+}
+.ll-why__bullets li svg { flex-shrink: 0; margin-top: 3px; }
+.ll-why__climate-facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+.ll-why__climate-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 12px;
+  border-right: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+}
+.ll-why__climate-item:last-child { border-right: none; }
+.ll-why__climate-num {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--green, #81AB4C);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.ll-why__climate-label {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.4;
+}
+.ll-why__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--green, #81AB4C);
+  text-decoration: none;
+  transition: gap 0.2s;
+}
+.ll-why__cta:hover { gap: 14px; }
+@media (max-width: 1024px) {
+  .ll-why__container { grid-template-columns: 1fr; gap: 60px; }
+  .ll-why__stat-card { right: 0; bottom: -20px; }
+  .ll-why__image { height: 400px; }
+}
+@media (max-width: 640px) {
+  .ll-why { padding: 60px 5%; }
+  .ll-why__climate-facts { grid-template-columns: 1fr; }
+  .ll-why__climate-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .ll-why__climate-item:last-child { border-bottom: none; }
+}
+
+/* ══════════════════════════════════════
+   SECTION 4 - SLIDER
+══════════════════════════════════════ */
+.ll-slider { position: relative; width: 100%; min-height: 90vh; overflow: hidden; background: #14201A; }
+.ll-slider__track { display: flex; width: 100%; height: 100%; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); will-change: transform; }
+.ll-slider__slide { position: relative; min-width: 100%; min-height: 90vh; flex-shrink: 0; display: flex; align-items: center; }
+.ll-slider__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: 0; }
+.ll-slider__overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.25) 60%, transparent 100%); z-index: 1; }
+.ll-slider__content { position: relative; z-index: 2; max-width: 560px; padding-left: 8%; color: #fff; opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s; }
+.ll-slider__slide[data-slide="0"] .ll-slider__content { opacity: 1; transform: translateY(0); }
+.ll-slider__step { font-family: 'Space Mono', monospace; font-size: 13px; color: #81AB4C; letter-spacing: 0.2em; margin-bottom: 1rem; opacity: 0; animation: m3FadeUp 0.4s ease 0.2s forwards; }
+.ll-slider__title { font-family: var(--font-serif, 'Playfair Display', serif); font-size: clamp(2.2rem, 4vw, 3.25rem); font-weight: 700; color: #fff; line-height: 1.1; margin: 0 0 1.5rem; opacity: 0; animation: m3FadeUp 0.4s ease 0.3s forwards; }
+.ll-slider__desc { font-family: var(--font-body, 'DM Sans', sans-serif); font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.85); max-width: 460px; margin-bottom: 2rem; opacity: 0; animation: m3FadeUp 0.4s ease 0.4s forwards; }
+.ll-slider__faq { display: flex; flex-direction: column; gap: 8px; margin-bottom: 2rem; opacity: 0; animation: m3FadeUp 0.4s ease 0.5s forwards; }
+.ll-slider__faq-item { border-radius: 8px; overflow: hidden; }
+.ll-slider__faq-q { width: 100%; background: rgba(255,255,255,0.12); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; color: rgba(255,255,255,0.88); font-family: var(--font-body, 'DM Sans', sans-serif); font-size: 0.9rem; font-weight: 500; padding: 12px 16px; text-align: left; display: flex; justify-content: space-between; align-items: center; gap: 12px; cursor: pointer; transition: background 0.2s ease; }
+.ll-slider__faq-q:hover { background: rgba(255,255,255,0.18); }
+.ll-slider__faq-icon { font-size: 1.2rem; color: #81AB4C; flex-shrink: 0; font-style: normal; transition: transform 0.3s ease; }
+.ll-slider__faq-q[aria-expanded="true"] .ll-slider__faq-icon { transform: rotate(45deg); }
+.ll-slider__faq-a { background: rgba(255,255,255,0.08); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.10); border-top: none; border-radius: 0 0 8px 8px; color: rgba(255,255,255,0.70); font-family: var(--font-body, 'DM Sans', sans-serif); font-size: 0.875rem; line-height: 1.6; padding: 12px 16px; margin-top: -4px; }
+.ll-slider__cta { display: inline-block; background: var(--green, #81AB4C); color: #fff; font-family: var(--font-body, 'DM Sans', sans-serif); font-size: 0.9rem; font-weight: 600; padding: 14px 32px; border-radius: 9999px; text-decoration: none; transition: background 0.25s ease, transform 0.2s ease; opacity: 0; animation: m3FadeUp 0.4s ease 0.6s forwards; }
+.ll-slider__cta:hover { background: #6e9640; transform: translateY(-2px); }
+.ll-slider__nav { position: absolute; top: 50%; right: 48px; transform: translateY(-50%); z-index: 10; display: flex; flex-direction: column; gap: 24px; }
+.ll-slider__nav-item { display: flex; align-items: center; gap: 12px; background: transparent; border: none; cursor: pointer; padding: 0; opacity: 0.35; transition: opacity 0.3s ease; }
+.ll-slider__nav-item:hover { opacity: 0.65; }
+.ll-slider__nav-item--active { opacity: 1; }
+.ll-slider__nav-line { display: block; width: 3px; height: 32px; background: rgba(255,255,255,0.4); border-radius: 2px; transition: background 0.3s ease, height 0.3s ease; }
+.ll-slider__nav-item--active .ll-slider__nav-line { background: #81AB4C; height: 48px; }
+.ll-slider__nav-label { font-family: var(--font-body, 'DM Sans', sans-serif); font-size: 11px; font-weight: 500; color: #fff; text-transform: uppercase; letter-spacing: 0.15em; white-space: nowrap; }
+.ll-slider__arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 10; width: 48px; height: 48px; background: rgba(0,0,0,0.4); backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #fff; transition: background 0.3s ease, color 0.3s ease; }
+.ll-slider__arrow:hover { background: rgba(0,0,0,0.6); color: #81AB4C; }
+.ll-slider__arrow--prev { left: 32px; }
+.ll-slider__arrow--next { right: 32px; }
+
+@media (max-width: 768px) {
+  .ll-slider { min-height: auto; }
+  .ll-slider__slide { min-height: auto; display: block; padding: 0; }
+  .ll-slider__bg { position: relative; width: 100%; height: 280px; object-fit: cover; }
+  .ll-slider__overlay { position: absolute; top: 0; left: 0; right: 0; height: 280px; background: linear-gradient(to bottom, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.50) 100%); }
+  .ll-slider__content { position: relative; padding: 32px 24px 48px; max-width: 100%; background: #14201A; }
+  .ll-slider__nav { display: none; }
+  .ll-slider__title { font-size: 1.75rem; }
+  .ll-slider__desc { font-size: 0.9rem; }
+  .ll-slider__arrow--prev { left: 20px; }
+  .ll-slider__arrow--next { right: 20px; }
+}
+
+/* ── FEATURED SECTIONS ── */
+/* ── PRODUCT LINES (ll-products) ── */
+.ll-products {
+  padding: 100px 10%;
+  background: var(--off-white, #F7F6F3);
+}
+.ll-products__hd {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 80px;
+}
+.ll-products__title {
+  font-family: var(--font-head, 'DM Serif Display', Georgia, serif);
+  font-size: clamp(28px, 3vw, 42px);
+  color: var(--dark, #1a1a1a);
+  margin: 8px 0 16px;
+  line-height: 1.15;
+}
+.ll-products__sub {
+  font-size: 15px;
+  color: var(--text-mid, #555);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Each alternating row */
+.ll-pl-row {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 64px;
+  align-items: start;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 48px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+}
+.ll-pl-row:last-child { margin-bottom: 0; }
+.ll-pl-row--rev { direction: rtl; }
+.ll-pl-row--rev > * { direction: ltr; }
+
+/* Image side */
+.ll-pl-row__img-wrap {
+  position: relative;
+  height: 100%;
+  min-height: 480px;
+}
+.ll-pl-row__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.ll-pl-row__pill {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: var(--green, #81AB4C);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 100px;
+}
+
+/* Content side */
+.ll-pl-row__content {
+  padding: 52px 52px 52px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.ll-pl-row--rev .ll-pl-row__content {
+  padding: 52px 0 52px 52px;
+}
+.ll-pl-row__num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--green, #81AB4C);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: block;
+}
+.ll-pl-row__eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-mid, #666);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: block;
+}
+.ll-pl-row__heading {
+  font-family: var(--font-head, 'DM Serif Display', Georgia, serif);
+  font-size: clamp(20px, 2vw, 28px);
+  color: var(--dark, #1a1a1a);
+  line-height: 1.2;
+  margin: 0 0 20px;
+}
+.ll-pl-row__body {
+  font-size: 15px;
+  color: var(--text-mid, #444);
+  line-height: 1.7;
+  margin: 0 0 16px;
+}
+
+/* Specs strip */
+.ll-pl-row__specs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--light-gray, #E8E8E4);
+  border: 1px solid var(--light-gray, #E8E8E4);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 8px 0 28px;
+}
+.ll-pl-row__spec {
+  background: var(--off-white, #F7F6F3);
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.ll-pl-row__spec-val {
+  font-family: var(--font-head, 'DM Serif Display', Georgia, serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--green, #81AB4C);
+  line-height: 1;
+}
+.ll-pl-row__spec-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-mid, #666);
+  text-align: center;
+}
+
+/* PDF links */
+.ll-pl-row__pdfs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ll-pl-row__pdfs-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-mid, #888);
+}
+.ll-pl-row__pdf-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.ll-pl-row__pdf-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--green, #81AB4C);
+  text-decoration: none;
+  transition: color 0.18s;
+}
+.ll-pl-row__pdf-link:hover { color: var(--dark, #1a1a1a); }
+.ll-pl-row__pdf-link svg { flex-shrink: 0; opacity: 0.7; }
+.ll-pl-row__warranty-note {
+  font-size: 11px;
+  color: var(--text-mid, #999);
+  margin: 10px 0 0;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .ll-pl-row {
+    grid-template-columns: 1fr;
+  }
+  .ll-pl-row--rev { direction: ltr; }
+  .ll-pl-row__img-wrap { min-height: 280px; }
+  .ll-pl-row__content { padding: 36px 28px; }
+  .ll-pl-row--rev .ll-pl-row__content { padding: 36px 28px; }
+  .ll-pl-row__specs { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Keep old pp-featured CSS for fallback (can remove later) */
+.pp-featured {
+  padding: 100px 10%;
+  background: var(--off-white, #F7F6F3);
+}
+.pp-featured__hd { margin-bottom: 72px; }
+.pp-featured__title {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  color: var(--text-dark, #1a1a1a);
+  margin: 0;
+}
+.pp-feat-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  margin-bottom: 100px;
+}
+.pp-feat-row:last-child { margin-bottom: 0; }
+.pp-feat-row--rev .pp-feat-row__img { order: 2; }
+.pp-feat-row--rev .pp-feat-row__content { order: 1; }
+.pp-feat-row__img {
+  position: relative;
+  height: 480px;
+  border-radius: 32px;
+  overflow: hidden;
+}
+.pp-feat-row__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pp-feat-row__pill {
+  position: absolute; bottom: 24px; left: 24px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(8px);
+  padding: 10px 18px;
+  border-radius: 100px;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 13px; font-weight: 600;
+  color: var(--brand, #272E32);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+.pp-feat-row__num {
+  display: block;
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: 72px; font-weight: 700;
+  color: var(--green, #81AB4C);
+  line-height: 1; opacity: 0.25;
+  margin-bottom: -8px;
+}
+.pp-feat-row__heading {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 700;
+  color: var(--text-dark, #1a1a1a);
+  line-height: 1.2;
+  margin-bottom: 20px;
+  letter-spacing: -0.3px;
+}
+.pp-feat-row__body {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 16px;
+  color: var(--text-mid, #4a4a4a);
+  line-height: 1.8;
+  margin-bottom: 28px;
+}
+.pp-feat-row__cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 15px; font-weight: 600;
+  color: var(--green, #81AB4C);
+  text-decoration: none;
+  transition: gap 0.2s;
+}
+.pp-feat-row__cta:hover { gap: 14px; }
+
+/* ── PRODUCT GRID (dark) ── */
+.pp-why {
+  background: var(--brand, #272E32);
+  padding: 100px 10%;
+}
+.pp-why__hd { margin-bottom: 64px; }
+.pp-why__hd .pp-eyebrow { color: var(--green, #81AB4C); }
+.pp-why__title {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(28px, 3.5vw, 48px);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  margin: 0;
+  max-width: 600px;
+}
+.pp-why__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+.pp-why__item {
+  padding: 32px 28px;
+  border-right: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.pp-why__item:nth-child(4n) { border-right: none; }
+.pp-why__item:nth-child(n+5) { border-bottom: none; }
+.pp-why__icon {
+  color: var(--green, #81AB4C);
+  margin-bottom: 16px;
+  display: flex; align-items: center; line-height: 1;
+}
+.pp-why__icon svg { display: block; }
+.pp-why__divider {
+  width: 32px; height: 2px;
+  background: var(--green, #81AB4C);
+  margin-bottom: 16px;
+}
+.pp-why__item-title {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 15px; font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+.pp-why__item-sub {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  margin: 0; line-height: 1.5;
+}
+
+/* ── FAQ - two-column split ── */
+.ll-faq {
+  background: #ffffff;
+  padding: 96px 0;
+}
+.ll-faq__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 6%;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.ll-eyebrow {
+  display: block;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--green, #81AB4C);
+  margin-bottom: 16px;
+}
+.ll-faq__title {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(24px, 2.5vw, 36px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  color: var(--text-dark, #1a1a1a);
+  margin: 0 0 16px;
+}
+.ll-faq__header p {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--text-mid, #4a4a4a);
+  margin: 0 0 24px;
+}
+.ll-faq__cta-btn {
+  display: inline-flex;
+  align-items: center;
+  background: var(--green, #81AB4C);
+  color: #fff;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 13px 28px;
+  border-radius: 100px;
+  transition: background 0.25s, transform 0.2s;
+}
+.ll-faq__cta-btn:hover { background: #6a9240; transform: translateY(-1px); }
+.ll-faq__item {
+  border-bottom: 1px solid var(--light-gray, #EFEFED);
+  padding: 20px 0;
+}
+.ll-faq__item:first-of-type { border-top: 1px solid var(--light-gray, #EFEFED); }
+.ll-faq__q {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-dark, #1a1a1a);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  padding: 3px 0;
+}
+.ll-faq__toggle {
+  color: var(--green, #81AB4C);
+  font-size: 22px;
+  flex-shrink: 0;
+  font-weight: 400;
+  transition: transform 0.2s;
+  line-height: 1;
+}
+.ll-faq__a {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 14px;
+  color: var(--text-mid, #4a4a4a);
+  line-height: 1.8;
+  margin-top: 10px;
+  display: none;
+}
+.ll-faq__item--open .ll-faq__a { display: block; }
+.ll-faq__item--open .ll-faq__toggle { transform: rotate(45deg); }
+.ll-faq__a p { margin: 0; }
+
+/* ── CTA - cinematic ── */
+.ll-cinematic-cta {
+  position: relative;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.ll-cinematic-cta__media {
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/3m-window-film-salt-lake-city-cta.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.ll-cinematic-cta__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(13,26,15,0.88) 0%, rgba(46,107,48,0.72) 40%, rgba(13,26,15,0.88) 100%);
+}
+.ll-cinematic-cta__vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(13,26,15,0.15) 0%, rgba(13,26,15,0.6) 100%);
+}
+.ll-cinematic-cta__content {
+  position: relative;
+  z-index: 10;
+  max-width: 760px;
+  padding: 80px 24px;
+  text-align: center;
+}
+.ll-cinematic-cta__title {
+  font-family: var(--font-serif, 'Playfair Display', serif);
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-weight: 700;
+  color: #F3F6F1;
+  margin-bottom: 20px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.ll-cinematic-cta__title em { font-style: italic; color: #9ecf5a; }
+.ll-cinematic-cta__text {
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  color: rgba(243,246,241,0.82);
+  max-width: 620px;
+  margin: 0 auto 40px;
+  line-height: 1.75;
+}
+.ll-cinematic-cta__actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.ll-cinematic-cta__btn-primary {
+  display: inline-flex;
+  align-items: center;
+  background: #7CB342;
+  color: #fff;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 16px 36px;
+  border-radius: 100px;
+  border: 2px solid #7CB342;
+  transition: background 0.25s, border-color 0.25s, transform 0.2s, box-shadow 0.25s;
+}
+.ll-cinematic-cta__btn-primary:hover {
+  background: #6aa032;
+  border-color: #6aa032;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(124,179,66,0.35);
+}
+.ll-cinematic-cta__btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(8px);
+  color: #F3F6F1;
+  font-family: var(--font-body, 'DM Sans', sans-serif);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 14px 28px;
+  border-radius: 100px;
+  border: 2px solid rgba(255,255,255,0.3);
+  transition: background 0.25s, border-color 0.25s, transform 0.2s;
+}
+.ll-cinematic-cta__btn-secondary:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(124,179,66,0.6);
+  transform: translateY(-2px);
+}
+
+/* ── FADE IN ── */
+.fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .pp-intro__inner { grid-template-columns: 1fr; gap: 40px; }
+  .pp-feat-row { grid-template-columns: 1fr; gap: 40px; }
+  .pp-feat-row--rev .pp-feat-row__img { order: 0; }
+  .pp-feat-row--rev .pp-feat-row__content { order: 1; }
+  .pp-why__grid { grid-template-columns: repeat(2, 1fr); }
+  .pp-why__item:nth-child(4n) { border-right: 1px solid rgba(255,255,255,0.1); }
+  .pp-why__item:nth-child(2n) { border-right: none; }
+}
+@media (max-width: 768px) {
+  .pp-intro { padding: 60px 5%; }
+  .pp-featured { padding: 60px 5%; }
+  .pp-why { padding: 60px 5%; }
+  .pp-feat-row__img { height: 300px; }
+  .pp-why__grid { grid-template-columns: 1fr; }
+  .ll-faq__inner { grid-template-columns: 1fr; gap: 40px; }
+  .ll-cinematic-cta__actions { flex-direction: column; align-items: center; }
+  .ll-cinematic-cta__btn-primary, .ll-cinematic-cta__btn-secondary { width: 100%; max-width: 320px; justify-content: center; }
+}
+@media (max-width: 480px) {
+  .pp-intro__ctas { flex-direction: column; }
+}
+
+
+
+/* ══ TINT SLIDER CTA ══ */
+.ll-tint-cta { position: relative; overflow: hidden; min-height: 580px; display: flex; align-items: center; justify-content: center; }
+.ll-tint-cta__bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: filter .05s; }
+.ll-tint-cta__darken { position: absolute; inset: 0; background: rgba(10,20,5,0); pointer-events: none; transition: background .05s; }
+.ll-tint-cta__content { position: relative; z-index: 2; text-align: center; padding: 80px 24px; max-width: 680px; width: 100%; }
+.ll-tint-cta__title { font-family: var(--font-serif,'Playfair Display',serif); font-size: clamp(36px,5vw,64px); font-weight: 700; color: #fff; line-height: 1.05; margin: 0 0 16px; text-shadow: 0 2px 24px rgba(0,0,0,.4); }
+.ll-tint-cta__subtitle { font-family: var(--font-body,'DM Sans',sans-serif); font-size: 17px; color: rgba(255,255,255,.88); line-height: 1.65; margin: 0 0 40px; text-shadow: 0 1px 8px rgba(0,0,0,.5); }
+.ll-tint-cta__controls { display: flex; align-items: center; gap: 14px; background: rgba(0,0,0,.38); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,.18); border-radius: 999px; padding: 14px 22px; margin: 0 0 16px; }
+.ll-tint-cta__label { font-family: var(--font-body,'DM Sans',sans-serif); font-size: 12px; font-weight: 800; letter-spacing: .12em; color: rgba(255,255,255,.7); white-space: nowrap; }
+.ll-tint-cta__range { flex: 1; -webkit-appearance: none; appearance: none; height: 4px; border-radius: 2px; background: rgba(255,255,255,.3); outline: none; cursor: pointer; }
+.ll-tint-cta__range::-webkit-slider-thumb { -webkit-appearance: none; width: 26px; height: 26px; border-radius: 50%; background: var(--green,#81AB4C); border: 3px solid #fff; box-shadow: 0 2px 12px rgba(0,0,0,.4); cursor: grab; transition: transform .15s; }
+.ll-tint-cta__range::-webkit-slider-thumb:hover { transform: scale(1.15); }
+.ll-tint-cta__range::-moz-range-thumb { width: 26px; height: 26px; border-radius: 50%; background: var(--green,#81AB4C); border: 3px solid #fff; cursor: grab; }
+.ll-tint-cta__vlt { font-family: var(--font-body,'DM Sans',sans-serif); font-size: 14px; color: rgba(255,255,255,.72); margin: 0 0 36px; letter-spacing: .02em; }
+.ll-tint-cta__vlt strong { color: #fff; font-size: 18px; font-weight: 800; }
+.ll-tint-cta__btn { display: inline-flex; align-items: center; gap: 8px; padding: 16px 36px; border-radius: 999px; background: var(--green,#81AB4C); color: #fff; font-family: var(--font-body,'DM Sans',sans-serif); font-weight: 700; font-size: 16px; text-decoration: none; transition: background .2s, transform .2s, box-shadow .2s; box-shadow: 0 4px 24px rgba(129,171,76,.4); }
+.ll-tint-cta__btn:hover { background: #6e9640; transform: translateY(-3px); box-shadow: 0 8px 32px rgba(129,171,76,.5); }
+@media (max-width: 600px) { .ll-tint-cta { min-height: 520px; } .ll-tint-cta__controls { padding: 12px 16px; } }
+
+@media (max-width: 768px) {
+  .ll-why__climate-facts { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .ll-pl-row__specs { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .ll-pl-row__specs { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .pp-why__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .pp-why__grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<script>
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+  // ── Slider ──
+  (function initM3Slider() {
+    const track = document.getElementById('llTrack');
+    const slides = document.querySelectorAll('.ll-slider__slide');
+    const navItems = document.querySelectorAll('[data-llnav]');
+    const prevBtn = document.getElementById('llPrev');
+    const nextBtn = document.getElementById('llNext');
+    const progressBar = document.getElementById('llProgressBar');
+    if (!track || !slides.length) return;
+    let current = 0;
+    const total = slides.length;
+
+    function goTo(i) {
+      if (i < 0) i = total - 1;
+      if (i >= total) i = 0;
+      current = i;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      navItems.forEach((n, idx) => n.classList.toggle('ll-slider__nav-item--active', idx === current));
+      slides.forEach((s, idx) => s.classList.toggle('ll-active', idx === current));
+      if (progressBar) {
+        progressBar.style.transition = 'none';
+        progressBar.style.width = '0';
+        setTimeout(() => { progressBar.style.transition = 'width 6s linear'; progressBar.style.width = '100%'; }, 50);
+      }
+    }
+
+    prevBtn?.addEventListener('click', () => goTo(current - 1));
+    nextBtn?.addEventListener('click', () => goTo(current + 1));
+    navItems.forEach((n, i) => n.addEventListener('click', () => goTo(i)));
+
+    document.querySelectorAll('.ll-slider__faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        const slide = btn.closest('.ll-slider__slide');
+        slide.querySelectorAll('.ll-slider__faq-q').forEach(b => {
+          b.setAttribute('aria-expanded', 'false');
+          const a = b.nextElementSibling; if (a) a.hidden = true;
+        });
+        if (!expanded) {
+          btn.setAttribute('aria-expanded', 'true');
+          const a = btn.nextElementSibling; if (a) a.hidden = false;
+        }
+      });
+    });
+
+    let timer = setInterval(() => goTo(current + 1), 6000);
+    document.getElementById('llSlider')?.addEventListener('mouseenter', () => clearInterval(timer));
+    document.getElementById('llSlider')?.addEventListener('mouseleave', () => { timer = setInterval(() => goTo(current + 1), 6000); });
+    goTo(0);
+  })();
+
+  document.querySelectorAll('.ll-faq__item').forEach(item => {
+    item.querySelector('.ll-faq__q')?.addEventListener('click', () => {
+      const isOpen = item.classList.contains('ll-faq__item--open');
+      document.querySelectorAll('.ll-faq__item').forEach(i => i.classList.remove('ll-faq__item--open'));
+      if (!isOpen) item.classList.add('ll-faq__item--open');
+    });
+  });
+
+  // ══ TINT SLIDER ══
+  (() => {
+    const range = document.getElementById('llTintRange');
+    const overlay = document.getElementById('llTintOverlay');
+    const vltEl = document.getElementById('llTintVlt');
+    const filmEl = document.getElementById('llTintFilm');
+    if (!range) return;
+    // v=0 (left) = clearest, v=100 (right) = darkest (limo)
+    // VLT: clear ~90% down to limo ~5%
+    // v=0 (left, CLEAR) = no tint; v=100 (right, LIMO) = darkest
+    const films = [
+      { minV: 0,  maxV: 15,  name: 'Clear — No Film',       vlt: 90 },
+      { minV: 15, maxV: 30,  name: '3M Thinsulate CC75',   vlt: 75 },
+      { minV: 30, maxV: 50,  name: '3M Sun Control PR70',  vlt: 70 },
+      { minV: 50, maxV: 65,  name: '3M Sun Control PR50',  vlt: 50 },
+      { minV: 65, maxV: 80,  name: '3M Sun Control PR35',  vlt: 35 },
+      { minV: 80, maxV: 90,  name: '3M Night Vision NV25', vlt: 24 },
+      { minV: 90, maxV: 100, name: '3M Night Vision NV15', vlt: 15 },
+    ];
+    const update = () => {
+      const v = parseInt(range.value); // 0=CLEAR (light), 100=LIMO (dark)
+      const vlt = Math.round(90 - (v / 100) * 85); // 90% at CLEAR, 5% at LIMO
+      const opacity = (v / 100) * 0.78;
+      overlay.style.background = `rgba(10,20,5,${opacity.toFixed(3)})`;
+      vltEl.textContent = vlt + '%';
+      const film = films.find(f => v >= f.minV && v <= f.maxV) || films[films.length - 1];
+      filmEl.textContent = film.name;
+    };
+    range.addEventListener('input', update);
+    update();
+  })();
+</script>

@@ -1,0 +1,44 @@
+<!-- ── CITIES TICKER ── -->
+<div class="wfp-cities-ticker">
+  <div class="wfp-cities-ticker__track">
+    <span class="wfp-cities-ticker__text">
+      Salt Lake City · Sandy · Ogden · Provo · Park City · West Valley City · Murray · Lehi · Draper · Bountiful · Layton · Orem · Midvale · Taylorsville · West Jordan · South Jordan · Herriman · Riverton · Cottonwood Heights · Holladay · Millcreek · Kaysville · Farmington · Centerville · Clearfield · Roy · Tooele · Eagle Mountain · Saratoga Springs · American Fork ·&nbsp;
+    </span>
+    <span class="wfp-cities-ticker__text" aria-hidden="true">
+      Salt Lake City · Sandy · Ogden · Provo · Park City · West Valley City · Murray · Lehi · Draper · Bountiful · Layton · Orem · Midvale · Taylorsville · West Jordan · South Jordan · Herriman · Riverton · Cottonwood Heights · Holladay · Millcreek · Kaysville · Farmington · Centerville · Clearfield · Roy · Tooele · Eagle Mountain · Saratoga Springs · American Fork ·&nbsp;
+    </span>
+  </div>
+</div>
+
+<style>
+/* ── CITIES TICKER ── */
+.wfp-cities-ticker {
+  background: #7CB342;
+  height: 44px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.wfp-cities-ticker__track {
+  display: flex;
+  white-space: nowrap;
+  animation: scroll-cities 60s linear infinite;
+}
+
+.wfp-cities-ticker__text {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #fff;
+  margin-right: 0;
+}
+
+@keyframes scroll-cities {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+</style>
