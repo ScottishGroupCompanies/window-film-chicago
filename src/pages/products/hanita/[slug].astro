@@ -66,7 +66,7 @@ const faqItems = [
     answer: `Window Film Chicago is an authorized Hanita Coatings installer serving Chicago and the surrounding area. We evaluate the glass, document the product selection, and install Hanita films according to manufacturer guidance.`,
   },
   {
-    question: `Is Hanita Coatings ${p.name} suitable for Chicago's four-season climate?`,
+    question: `Is Hanita Coatings ${p.name} suitable for Chicago\'s four-season climate?`,
     answer: `Chicago sits in IECC Climate Zone 5A — hot humid summers and cold snowy winters. ${p.series.includes('SafetyZone') ? 'SafetyZone provides year-round glass retention regardless of climate.' : 'Window Film Chicago selects the appropriate Hanita specification based on glass orientation, climate exposure, and year-round performance goals for each Chicago property.'}`,
   },
 ];
@@ -115,7 +115,7 @@ const pageSchemas = [
     <div class="hcsub-hero__inner">
       <span class="hcsub-badge" style={`background:${p.seriesColor}`}>{p.series}</span>
       <h1 class="hcsub-hero__title">Hanita {p.name}</h1>
-      <p class="hcsub-hero__sub">Chicago's authorized Hanita Coatings installer — site assessment, product selection, professional installation, manufacturer warranty.</p>
+      <p class="hcsub-hero__sub">Chicago\'s authorized Hanita Coatings installer — site assessment, product selection, professional installation, manufacturer warranty.</p>
       {statChips.length > 0 && (
         <div class="hcsub-stat-row">
           {statChips.map(([label, value]) => (

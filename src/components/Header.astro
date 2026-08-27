@@ -975,7 +975,7 @@ function openDropdown(navIndex) {
 }
 
 function scheduleClose(navIndex) {
-  // Don't schedule if already scheduled
+  // Don\'t schedule if already scheduled
   if (closeTimers.has(navIndex)) return;
 
   const timer = setTimeout(() => {
@@ -1023,14 +1023,14 @@ navGroups.forEach((group, navIndex) => {
 
   // --- MOUSE LEAVE trigger → schedule close ---
   trigger.addEventListener('mouseleave', (e) => {
-    // Don't close immediately — let the user reach the panel/bridge
+    // Don\'t close immediately — let the user reach the panel/bridge
     scheduleClose(navIndex);
   });
 
   // --- MOUSE ENTER panel → cancel scheduled close ---
   panel.addEventListener('mouseenter', () => {
     clearClose(navIndex);
-    openDropdown(navIndex); // ensure it's open
+    openDropdown(navIndex); // ensure it\'s open
   });
 
   // --- MOUSE LEAVE panel → schedule close ---
