@@ -223,3 +223,33 @@
 [11:54:39]   -> CHANGED
 [11:54:39] [70/109] Processing src/pages/contact.astro
 [11:54:53]   -> CHANGED
+[11:54:53]   Checkpoint commit after 70 files
+[11:54:53] [71/109] Processing src/pages/cities/chicago.astro
+[11:54:53]     (skipped 35 path-only lines in chicago.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:56:33]   -> CHANGED
+[11:56:33] [72/109] Processing src/pages/applications/schools-universities.astro
+[11:56:33]     (skipped 19 path-only lines in schools-universities.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:57:31]   -> CHANGED
+[11:57:31] [73/109] Processing src/pages/applications/restaurants-window-film-salt-lake-city.astro
+[11:57:42]   -> CHANGED
+[11:57:42] [74/109] Processing src/pages/applications/hotel-window-film.astro
+[11:57:42]     (skipped 10 path-only lines in hotel-window-film.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:58:42]   -> CHANGED
+[11:58:42] [75/109] Processing src/pages/applications/office.astro
+[11:58:42]     (skipped 8 path-only lines in office.astro -- left untouched, image/PDF paths are never text-rewritten)
+[12:00:20]   -> CHANGED
+[12:00:20] [76/109] Processing src/pages/applications/secured-buildings.astro
+[12:00:20]     (skipped 10 path-only lines in secured-buildings.astro -- left untouched, image/PDF paths are never text-rewritten)
+[12:01:24]   -> CHANGED
+[12:01:24] [77/109] Processing src/pages/applications/mass-transit.astro
+[12:01:24]     (skipped 7 path-only lines in mass-transit.astro -- left untouched, image/PDF paths are never text-rewritten)
+[12:02:58]   -> CHANGED
+[12:02:58] [78/109] Processing src/pages/applications/restaurants.astro
+[12:02:58]     (skipped 6 path-only lines in restaurants.astro -- left untouched, image/PDF paths are never text-rewritten)
+[12:04:05]   -> CHANGED
+[12:04:05] [79/109] Processing src/pages/applications/homes-condos.astro
+[12:04:05]     (skipped 5 path-only lines in homes-condos.astro -- left untouched, image/PDF paths are never text-rewritten)
+[12:05:34]   -> CHANGED
+[12:05:34] [80/109] Processing src/pages/applications/arenas-stadiums.astro
+[12:05:34]     (skipped 25 path-only lines in arenas-stadiums.astro -- left untouched, image/PDF paths are never text-rewritten)
+[12:06:44]   -> CHANGED
