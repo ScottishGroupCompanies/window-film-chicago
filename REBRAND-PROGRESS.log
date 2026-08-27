@@ -282,3 +282,34 @@
 [12:22:18] [90/109] Processing src/pages/benefits/updating-surfaces.astro
 [12:22:18]     (skipped 1 path-only lines in updating-surfaces.astro -- left untouched, image/PDF paths are never text-rewritten)
 [12:22:25]   -> CHANGED
+[12:22:25]   Checkpoint commit after 90 files
+[12:22:25] [91/109] Processing src/pages/benefits/exterior-refinishing.astro
+[12:22:25]     (skipped 10 path-only lines in exterior-refinishing.astro -- left untouched, image/PDF paths are never text-rewritten)
+[12:23:08]   -> CHANGED
+[12:23:08] [92/109] Processing src/pages/benefits/energy-savings.astro
+[12:23:08]     (skipped 18 path-only lines in energy-savings.astro -- left untouched, image/PDF paths are never text-rewritten)
+[12:24:36]   -> CHANGED
+[12:24:36] [93/109] Processing src/pages/benefits/exterior-window-film.astro
+[12:24:36]     (skipped 4 path-only lines in exterior-window-film.astro -- left untouched, image/PDF paths are never text-rewritten)
+[12:24:41]   -> CHANGED
+[12:24:41] [94/109] Processing src/pages/benefits/privacy-window-film-salt-lake-city.astro
+[12:24:41]     (skipped 9 path-only lines in privacy-window-film-salt-lake-city.astro -- left untouched, image/PDF paths are never text-rewritten)
+[12:25:16]   -> CHANGED
+[12:25:16] [95/109] Processing src/pages/benefits/school-security-window-film.astro
+[12:25:16]     (skipped 12 path-only lines in school-security-window-film.astro -- left untouched, image/PDF paths are never text-rewritten)
+[12:26:07]   -> CHANGED
+[12:26:07] [96/109] Processing src/pages/benefits/elevator-refinishing.astro
+[12:26:07]     (skipped 4 path-only lines in elevator-refinishing.astro -- left untouched, image/PDF paths are never text-rewritten)
+[12:26:24]   -> CHANGED
+[12:26:24] [97/109] Processing src/pages/benefits/bird-strike-prevention.astro
+[12:26:24]     (skipped 12 path-only lines in bird-strike-prevention.astro -- left untouched, image/PDF paths are never text-rewritten)
+[12:27:05]   -> CHANGED
+[12:27:05] [98/109] Processing src/pages/benefits/glare-reduction.astro
+[12:27:05]     (skipped 17 path-only lines in glare-reduction.astro -- left untouched, image/PDF paths are never text-rewritten)
+[12:28:24]   -> CHANGED
+[12:28:24] [99/109] Processing src/pages/benefits/anti-graffiti.astro
+[12:28:24]     (skipped 34 path-only lines in anti-graffiti.astro -- left untouched, image/PDF paths are never text-rewritten)
+[12:28:51]   -> CHANGED
+[12:28:51] [100/109] Processing src/pages/benefits/solar-control.astro
+[12:28:51]     (skipped 11 path-only lines in solar-control.astro -- left untouched, image/PDF paths are never text-rewritten)
+[12:29:56]   -> CHANGED
