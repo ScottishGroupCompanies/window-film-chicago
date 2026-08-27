@@ -1,0 +1,168 @@
+{
+  "meta": {
+    "title": "Window Film Chicago | Commercial & Residential Window Tinting Since 2008",
+    "description": "Window Film Chicago installs premium window film and tinting for homes, offices, storefronts, and institutions across Chicago and 19 surrounding suburbs. Free estimates: (773) 453-2005."
+  },
+  "hero": {
+    "headline": "Window Film Built for Chicago's Wind, Sun, and Lakefront Glare",
+    "subhead": "Since 2008, our 8-person installation team has helped Chicago property owners cut energy costs, reduce glare, and strengthen glass \u2014 from the Loop to the bungalow belt. Call (773) 453-2005 for a free estimate."
+  },
+  "climate_problem_section": {
+    "headline": "Chicago's Building & Climate Problem",
+    "intro_paragraph": "Chicago sits in IECC Climate Zone 5A, which means buildings here face a punishing swing from deep-winter cold to hot, humid summers. The city's iconic housing stock \u2014 Chicago two-flats, three-flats, courtyard apartments, and the brick bungalows of the South and Northwest Sides \u2014 was largely built in an era when single-pane windows and minimal insulation were the norm. Lake-effect snow off Lake Michigan, high wind exposure from the downtown wind-tunnel effect between skyscrapers, and intense summer glare bouncing off the lake all place unique stress on glass across the city.",
+    "bullets": [
+      "Cold-climate heat loss: Chicago's average January low is about 22\u00b0F (NWS Chicago). Vintage single-pane and early double-pane glazing in older two-flats and bungalows bleeds heat all winter. Low-E window film helps retain interior warmth, cutting heating costs in addition to summer cooling savings.",
+      "Summer heat and humidity: With an average July high of roughly 84\u00b0F (NWS Chicago) and peak summer UV index levels of 8\u20139, unshaded windows in lakefront condos, West Loop offices, and storefronts along Michigan Avenue turn into radiating heat sources. Solar-control film cuts heat gain and glare without sacrificing daylight.",
+      "Wind load and glass stress: Chicago's wind-tunnel effect between downtown high-rises creates real wind-load pressure on large glazing assemblies. Safety and security films help hold glass together under stress \u2014 protecting occupants from shards if a pane cracks or shatters."
+    ],
+    "stat_strip": [
+      {
+        "number": "~22\u00b0F",
+        "label": "Avg. January Low (NWS Chicago)"
+      },
+      {
+        "number": "~84\u00b0F",
+        "label": "Avg. July High (NWS Chicago)"
+      },
+      {
+        "number": "8\u20139",
+        "label": "Peak Summer UV Index"
+      }
+    ],
+    "closing_paragraph": "Since 2008, Window Film Chicago has been solving these exact problems for homeowners, building managers, and institutions across the city and suburbs. Whether you're dealing with lakefront glare in a Lakeview condo, heat loss in a bungalow in Dunning, or wind-load stress on a Loop office tower, our team has a film specification for it. Explore our residential, commercial, and security film services below \u2014 or call (773) 453-2005 to talk through your project."
+  },
+  "why_choose_us": {
+    "eyebrow": "Why Choose Window Film Chicago",
+    "title": "A Real Installation Team \u2014 Not a Lead-Gen Referral Service",
+    "body": "Window Film Chicago is a division of the same company operating Window Film Philadelphia and Window Film Salt Lake City, founded in 2008 by Martin Faith, a Glasgow-born stained-glass artisan who pivoted to window film after his own utility bill dropped from $8.98/day to $2.54/day. Our 8-person install team \u2014 Martin Faith, Mike Kinsey, Katie Pelowich, Travis Thompson, Blake Parish, Cannon Russell, Kelly Escorcia, and Shanna Sweet \u2014 handles every project directly. We never subcontract to strangers or sell your contact information. We work with the full range of manufacturer partners \u2014 3M, LLumar, Vista, Solar Gard, Huper Optik, Madico, Solyx, HDClear, Hanita, Graffiti Shield, C-Bond, and Casper \u2014 so the film is always specified for your building's actual conditions, not whatever single brand a franchise contract requires us to push."
+  },
+  "property_types": [
+    {
+      "title": "Homes & Residences",
+      "description": "From Chicago bungalows and two-flats to lakefront condos in Lincoln Park and high-rises along Lake Shore Drive \u2014 solar heat rejection, UV protection, glare reduction, and low-E winter insulation for year-round comfort and lower utility bills."
+    },
+    {
+      "title": "Commercial Offices",
+      "description": "Downtown Loop towers, West Loop loft offices, and suburban corporate parks. Reduce HVAC load, cut glare on workstations, improve tenant comfort, and meet sustainability targets without replacing existing glazing."
+    },
+    {
+      "title": "Retail & Storefronts",
+      "description": "Michigan Avenue, State Street, and neighborhood retail corridors. Protect merchandise from UV fading, reduce solar heat in display areas, and add security film to deter smash-and-grab incidents."
+    },
+    {
+      "title": "Healthcare Facilities",
+      "description": "Hospitals, clinics, and dental offices across Chicagoland. Privacy films for patient rooms, UV-blocking films for waiting areas, and security films for high-traffic entry glazing \u2014 all installed with minimal disruption."
+    },
+    {
+      "title": "Schools & Universities",
+      "description": "CPS buildings, private schools, and university campuses from Hyde Park to Evanston. Security film to protect students and staff, solar film for classroom comfort, and graffiti-shield film for vulnerable ground-floor glass."
+    },
+    {
+      "title": "Government Buildings",
+      "description": "Municipal, county, and federal facilities throughout the Chicago metro area. Bomb-blast mitigation film, forced-entry protection, and energy-saving solar film \u2014 installed to spec and compliant with institutional procurement requirements."
+    }
+  ],
+  "neighborhoods_served": [
+    "Lincoln Park",
+    "Wicker Park",
+    "Logan Square",
+    "Lakeview",
+    "Hyde Park",
+    "Pilsen",
+    "West Loop",
+    "The Loop",
+    "Gold Coast",
+    "Lincoln Square",
+    "Rogers Park",
+    "Bridgeport",
+    "Bucktown",
+    "South Loop",
+    "Near North Side",
+    "Ukrainian Village",
+    "Edgewater",
+    "Ravenswood",
+    "North Center",
+    "Avondale"
+  ],
+  "directory_page": {
+    "intro_paragraph": "Window Film Chicago serves the city of Chicago and 19 surrounding suburbs across Cook, DuPage, Kane, Lake, and Will Counties. Below is our full suburban service area. Each location is served by the same 8-person installation team and the same manufacturer-grade product line \u2014 no satellite offices, no subcontractors. Call (773) 453-2005 or email contact@windowfilmchicago.com to schedule a free on-site estimate at your property.",
+    "suburbs": [
+      {
+        "name": "Arlington Heights",
+        "one_line_description": "Northwest suburb with a mix of mid-century ranches and newer construction \u2014 solar and low-E film for year-round energy savings."
+      },
+      {
+        "name": "Aurora",
+        "one_line_description": "Illinois' second-largest city, with historic homes and large commercial corridors along the Fox River."
+      },
+      {
+        "name": "Berwyn",
+        "one_line_description": "Bungalow-belt community just west of the city \u2014 classic Chicago-style brick homes that benefit from winter heat-retention film."
+      },
+      {
+        "name": "Bolingbrook",
+        "one_line_description": "Fast-growing southwest suburb with newer residential developments and retail parks along I-55."
+      },
+      {
+        "name": "Cicero",
+        "one_line_description": "Dense inner-ring suburb with two-flats and brick multi-family \u2014 solar and security film for tight residential blocks."
+      },
+      {
+        "name": "Des Plaines",
+        "one_line_description": "Northwest suburb near O'Hare \u2014 mixed residential and commercial, with wind-exposed glazing near the airport corridor."
+      },
+      {
+        "name": "Elgin",
+        "one_line_description": "Fox River city with historic downtown buildings and expanding suburban subdivisions to the west."
+      },
+      {
+        "name": "Evanston",
+        "one_line_description": "Lakefront suburb and home of Northwestern University \u2014 lake glare, campus buildings, and high-end residential along the shore."
+      },
+      {
+        "name": "Mount Prospect",
+        "one_line_description": "Northwest suburb with a strong mix of residential and retail \u2014 solar film for comfort and storefront UV protection."
+      },
+      {
+        "name": "Naperville",
+        "one_line_description": "Large western suburb with a thriving downtown and extensive corporate office parks along the I-88 corridor."
+      },
+      {
+        "name": "Oak Lawn",
+        "one_line_description": "Southwest suburb with postwar bungalows and multi-family \u2014 energy film and security film for residential and small commercial."
+      },
+      {
+        "name": "Oak Park",
+        "one_line_description": "Historic inner-ring suburb known for Frank Lloyd Wright architecture \u2014 preservation-sensitive film specs for period windows."
+      },
+      {
+        "name": "Orland Park",
+        "one_line_description": "Southwest suburb with large residential lots and a significant retail footprint \u2014 solar and security film for homes and storefronts."
+      },
+      {
+        "name": "Palatine",
+        "one_line_description": "Northwest suburb with a mix of older and newer housing stock \u2014 low-E and solar film for energy-cost reduction."
+      },
+      {
+        "name": "Schaumburg",
+        "one_line_description": "Major northwest suburb with large-scale commercial and retail (Woodfield area) \u2014 high-demand zone for commercial and security film."
+      },
+      {
+        "name": "Skokie",
+        "one_line_description": "Inner north suburb with diverse housing stock and commercial strips along Dempster and Oakton \u2014 solar, security, and decorative film."
+      },
+      {
+        "name": "Tinley Park",
+        "one_line_description": "South suburb with strong residential growth and a walkable downtown \u2014 energy and security film for homes and small business."
+      },
+      {
+        "name": "Waukegan",
+        "one_line_description": "Lakefront city to the north \u2014 lake-glare issues for shore-facing properties, plus industrial and commercial film needs."
+      },
+      {
+        "name": "Wheaton",
+        "one_line_description": "DuPage County seat with historic homes and institutional buildings \u2014 preservation-appropriate and energy film specs."
+      }
+    ]
+  }
+}
