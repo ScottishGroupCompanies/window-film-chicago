@@ -138,3 +138,29 @@
 [11:37:06]     (skipped 17 path-only lines in solyx-window-film.astro -- left untouched, image/PDF paths are never text-rewritten)
 [11:40:33] GLM call failed (attempt 1): The read operation timed out
 [11:42:53]   -> CHANGED
+[11:42:53]   Checkpoint commit after 40 files
+[11:42:53] [41/109] Processing src/pages/products/solyx/[slug].astro
+[11:43:12]   -> CHANGED
+[11:43:12] [42/109] Processing src/pages/products/vista/[slug].astro
+[11:43:18]   -> CHANGED
+[11:43:18] [43/109] Processing src/pages/products/bird-divert.astro
+[11:43:18]     (skipped 26 path-only lines in bird-divert.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:44:23]   -> CHANGED
+[11:44:23] [44/109] Processing src/pages/products/graffiti-shield/[slug].astro
+[11:44:29]   -> CHANGED
+[11:44:29] [45/109] Processing src/pages/products/hanita/[slug].astro
+[11:44:55]   -> CHANGED
+[11:44:55] [46/109] Processing src/pages/products/hanita-coatings-window-film.astro
+[11:44:55]     (skipped 5 path-only lines in hanita-coatings-window-film.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:46:15]   -> CHANGED
+[11:46:15] [47/109] Processing src/pages/products/hdclear/[slug].astro
+[11:46:43]   -> CHANGED
+[11:46:43] [48/109] Processing src/pages/products/v-kool.astro
+[11:46:43]     (skipped 12 path-only lines in v-kool.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:48:03]   -> CHANGED
+[11:48:03] [49/109] Processing src/pages/products/hdclear-window-film.astro
+[11:48:03]     (skipped 8 path-only lines in hdclear-window-film.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:48:42]   -> CHANGED
+[11:48:42] [50/109] Processing src/pages/about.astro
+[11:48:42]     (skipped 10 path-only lines in about.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:49:35]   -> CHANGED

@@ -11,8 +11,8 @@ export function getStaticPaths() {
 
 const { product: p } = Astro.props;
 const serviceUrl = `https://windowfilmsaltlakecity.com/products/vista/${p.slug}/`;
-const title = `Vista ${p.name} | Salt Lake City Installer`;
-const description = `${p.shortDescription} Window Film Salt Lake City installs Vista, an Eastman Performance Films brand, across Salt Lake City and surrounding areas.`.slice(0, 155);
+const title = `Vista ${p.name} | Chicago Installer`;
+const description = `${p.shortDescription} Window Film Chicago installs Vista, an Eastman Performance Films brand, across Chicago and surrounding areas.`.slice(0, 155);
 const descriptionParagraphs = p.description.split('\n\n').slice(0, 4);
 const specRows = [
   ['VLT', p.specs.vlt],
@@ -58,22 +58,22 @@ const applications = categoryText.includes('graffiti')
             ['Retail Entries', 'Security upgrades for storefronts, vestibules, and street-level glazing.'],
           ]
         : [
-            ['Offices', 'Glare and solar comfort for Downtown Salt Lake City towers and neighborhood workplaces.'],
-            ['Salt Lake City Rowhomes', 'UV and heat control for older glass without replacing windows.'],
+            ['Offices', 'Glare and solar comfort for Loop towers and neighborhood workplaces.'],
+            ['Chicago Two-Flats & Bungalows', 'UV and heat control for older glass without replacing windows.'],
             ['Retail and Restaurants', 'Comfortable customer-facing glass with cleaner daylight management.'],
           ];
 const faqItems = [
   {
-    question: `What is Vista ${p.name} used for in Salt Lake City?`,
-    answer: `${p.name} is used for ${p.categories.join(', ').toLowerCase()} applications across Salt Lake City homes, offices, storefronts, schools, and commercial properties. It belongs to the ${p.series} and is specified according to glass type, exposure, privacy goals, and performance needs.`,
+    question: `What is Vista ${p.name} used for in Chicago?`,
+    answer: `${p.name} is used for ${p.categories.join(', ').toLowerCase()} applications across Chicago homes, offices, storefronts, schools, and commercial properties. It belongs to the ${p.series} and is specified according to glass type, exposure, privacy goals, and performance needs.`,
   },
   {
     question: `What specifications are available for ${p.name}?`,
-    answer: `Key specifications include ${specRows.slice(0, 4).map(([label, value]) => `${label}: ${value}`).join('; ')}. Window Film Salt Lake City confirms final compatibility during the site assessment before recommending any Vista product.`,
+    answer: `Key specifications include ${specRows.slice(0, 4).map(([label, value]) => `${label}: ${value}`).join('; ')}. Window Film Chicago confirms final compatibility during the site assessment before recommending any Vista product.`,
   },
   {
-    question: `Who installs Vista ${p.name} in Salt Lake City?`,
-    answer: `Window Film Salt Lake City installs Vista, an Eastman Performance Films brand, across Salt Lake City and surrounding areas. We evaluate the glass, document the product selection, and install Vista films according to Eastman Performance Films guidance.`,
+    question: `Who installs Vista ${p.name} in Chicago?`,
+    answer: `Window Film Chicago installs Vista, an Eastman Performance Films brand, across Chicago and surrounding areas. We evaluate the glass, document the product selection, and install Vista films according to Eastman Performance Films guidance.`,
   },
 ];
 const pageSchemas = [
@@ -98,7 +98,7 @@ const pageSchemas = [
     offers: {
       '@type': 'Offer',
       availability: 'https://schema.org/InStock',
-      areaServed: 'Salt Lake City, UT',
+      areaServed: 'Chicago, IL',
       url: serviceUrl,
     },
   },
@@ -134,7 +134,7 @@ const pageSchemas = [
   <section class="vtp-overview fade-in">
     <div class="vtp-overview__inner">
       <div class="vtp-overview__image-wrap">
-        <img src={p.image} alt={`Vista ${p.name} product sample`} title={`Vista ${p.name} Salt Lake City`} width="640" height="480" loading="lazy" class="vtp-overview__image" />
+        <img src={p.image} alt={`Vista ${p.name} product sample`} title={`Vista ${p.name} Chicago`} width="640" height="480" loading="lazy" class="vtp-overview__image" />
       </div>
       <div class="vtp-overview__content">
         <span class="vtp-eyebrow">{p.series}</span>
@@ -150,7 +150,7 @@ const pageSchemas = [
   <section class="vtp-benefits fade-in">
     <div class="vtp-section-head">
       <span class="vtp-eyebrow">Product Benefits</span>
-      <h2>What {p.name} Adds to Salt Lake City Glass</h2>
+      <h2>What {p.name} Adds to Chicago Glass</h2>
     </div>
     <div class="vtp-benefits__grid">
       {p.benefits.map((benefit) => (
@@ -205,7 +205,7 @@ const pageSchemas = [
   <section class="vtp-apps fade-in">
     <div class="vtp-section-head">
       <span class="vtp-eyebrow">Local Use Cases</span>
-      <h2>Salt Lake City Applications</h2>
+      <h2>Chicago Applications</h2>
     </div>
     <div class="vtp-apps__grid">
       {applications.map(([heading, body]) => (
@@ -229,7 +229,7 @@ const pageSchemas = [
       <div class="vtp-related__grid">
         {relatedProducts.map((item) => (
           <a href={`/products/vista/${item.slug}/`} class="vtp-related__card">
-            <img src={item.image} alt={`Vista ${item.name}`} title={`Vista ${item.name} Salt Lake City`} width="280" height="180" loading="lazy" />
+            <img src={item.image} alt={`Vista ${item.name}`} title={`Vista ${item.name} Chicago`} width="280" height="180" loading="lazy" />
             <span>{item.series}</span>
             <h3>{item.name}</h3>
           </a>
@@ -241,8 +241,8 @@ const pageSchemas = [
 
   <section class="vtp-cta fade-in">
     <div class="vtp-cta__inner">
-      <h2>Install {p.name} in Salt Lake City</h2>
-      <p>Window Film Salt Lake City installs Vista by Eastman Performance Films. Contact us for a free site assessment.</p>
+      <h2>Install {p.name} in Chicago</h2>
+      <p>Window Film Chicago installs Vista by Eastman Performance Films. Contact us for a free site assessment.</p>
       <a href="/contact/" class="vtp-cta__btn">Get a Free Quote</a>
     </div>
   </section>
