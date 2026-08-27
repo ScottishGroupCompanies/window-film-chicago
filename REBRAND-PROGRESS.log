@@ -313,3 +313,86 @@
 [12:28:51] [100/109] Processing src/pages/benefits/solar-control.astro
 [12:28:51]     (skipped 11 path-only lines in solar-control.astro -- left untouched, image/PDF paths are never text-rewritten)
 [12:29:56]   -> CHANGED
+[12:29:57]   Checkpoint commit after 100 files
+[12:29:57] [101/109] Processing src/pages/benefits/uv-protection-film.astro
+[12:29:57]     (skipped 5 path-only lines in uv-protection-film.astro -- left untouched, image/PDF paths are never text-rewritten)
+[12:30:47]   -> CHANGED
+[12:30:47] [102/109] Processing src/pages/benefits/safety-and-security.astro
+[12:30:47]     (skipped 12 path-only lines in safety-and-security.astro -- left untouched, image/PDF paths are never text-rewritten)
+[12:31:47]   -> CHANGED
+[12:31:47] [103/109] Processing src/pages/benefits/ballistic-resistance.astro
+[12:31:47]     (skipped 30 path-only lines in ballistic-resistance.astro -- left untouched, image/PDF paths are never text-rewritten)
+[12:32:07]   -> CHANGED
+[12:32:07] [104/109] Processing src/pages/thank-you.astro
+[12:32:12]   -> CHANGED
+[12:32:12] [105/109] Processing src/pages/benefits.astro
+[12:32:12]     (skipped 15 path-only lines in benefits.astro -- left untouched, image/PDF paths are never text-rewritten)
+[12:32:39]   -> CHANGED
+[12:32:39] [106/109] Processing src/pages/services/residential.astro
+[12:32:39]     (skipped 25 path-only lines in residential.astro -- left untouched, image/PDF paths are never text-rewritten)
+[12:33:16]   -> CHANGED
+[12:33:16] [107/109] Processing src/pages/services/government-buildings.astro
+[12:33:16]     (skipped 26 path-only lines in government-buildings.astro -- left untouched, image/PDF paths are never text-rewritten)
+[12:35:16]   -> CHANGED
+[12:35:16] [108/109] Processing src/pages/services/index.astro
+[12:35:16]     (skipped 32 path-only lines in index.astro -- left untouched, image/PDF paths are never text-rewritten)
+[12:36:03]   -> CHANGED
+[12:36:03] [109/109] Processing src/pages/services/commercial.astro
+[12:36:03]     (skipped 35 path-only lines in commercial.astro -- left untouched, image/PDF paths are never text-rewritten)
+[12:37:33]   -> CHANGED
+[12:37:33] === Rewrite pass complete. Post-flight asset-path check: ===
+[12:37:33] Asset-path check: 1636 total refs, 361 currently broken (before any renaming)
+[12:37:33] Broken refs (left as-is, no Chicago equivalent found -- NOT touched, flagged for manual follow-up):
+[12:37:33]     /images/3m-products/di-noc.jpg
+[12:37:33]     /images/Integrating-Historical-Architecture-and-Modern-Comfort-A-Study-in-Selective-Transparency-with-Chicagos-Residential-Stained-Glass-Effect-Window-Films.webp
+[12:37:33]     /images/The-Intersection-of-Art-and-Functionality-Exploring-the-Role-of-Custom-Designed-Window-Films-in-Chicagos-Historic-Building-Restorations.webp
+[12:37:33]     /images/about/about-avatar-1.jpg
+[12:37:33]     /images/about/about-avatar-2.jpg
+[12:37:33]     /images/about/about-avatar-3.jpg
+[12:37:33]     /images/about/about-avatar-4.jpg
+[12:37:33]     /images/about/about-avatar-5.jpg
+[12:37:33]     /images/about/about-avatar-6.jpg
+[12:37:33]     /images/about/about-avatar-7.jpg
+[12:37:33]     /images/about/about-avatar-8.jpg
+[12:37:33]     /images/about/center-city-window-film-salt-lake-city-bento.jpg
+[12:37:33]     /images/about/commercial-storefront-window-film-salt-lake-city-bento.jpg
+[12:37:33]     /images/about/decorative-window-film-salt-lake-city-gallery.jpg
+[12:37:33]     /images/about/high-rise-window-film-installation-salt-lake-city-bento.jpg
+[12:37:33]     /images/about/martin-faith-utility-bill-after-window-film.jpg
+[12:37:33]     /images/about/martin-faith-utility-bill-before-window-film.jpg
+[12:37:33]     /images/about/office-window-tinting-salt-lake-city-gallery.jpg
+[12:37:33]     /images/about/retail-security-window-film-salt-lake-city-gallery.jpg
+[12:37:33]     /images/about/salt-lake-city-rowhome-window-film-bento.jpg
+[12:37:33]     /images/about/salt-lake-city-rowhome-window-tinting-gallery.jpg
+[12:37:33]     /images/about/window-film-consultation-salt-lake-city-process.jpg
+[12:37:33]     /images/about/window-film-installation-salt-lake-city-craftsmanship.jpg
+[12:37:33]     /images/about/window-film-installation-salt-lake-city-process.jpg
+[12:37:33]     /images/about/window-film-installation-tools-salt-lake-city-bento.jpg
+[12:37:33]     /images/about/window-film-installer-salt-lake-city-gallery.jpg
+[12:37:33]     /images/about/window-film-plotter-cutting-salt-lake-city-process.jpg
+[12:37:33]     /images/about/window-film-salt-lake-city-about-hero.jpg
+[12:37:33]     /images/about/window-film-salt-lake-city-workshop.jpg
+[12:37:33]     /images/about/window-film-walkthrough-salt-lake-city-process.jpg
+[12:37:33] WARNING: 361 asset paths reference files that don't exist. These were left unrenamed (still pointing at their original working file) so nothing is BROKEN, but they may still show old-city imagery. Review REBRAND-PROGRESS.log for the full list.
+[12:37:33] Running final build verification.
+[12:37:44] 12:37:35 [build] Collecting build info...
+12:37:35 [build] ✓ Completed in 263ms.
+12:37:35 [build] Building static entrypoints...
+12:37:44 [ERROR] [vite] x Build failed in 8.68s
+Expected "}" but found "img"
+  Hint:
+    Browser APIs are not available on the server.
+    
+    Move your code to a <script> tag outside of the frontmatter, so the code runs on the client.
+    
+    See https://docs.astro.build/en/guides/troubleshooting/#document-or-window-is-not-defined for more information.
+    		
+  Location:
+    /Users/jennyriemer/Projects/window-film-chicago/src/pages/benefits/updating-surfaces.astro:36:4
+  Stack trace:
+    at failureErrorWithLog (/Users/jennyriemer/Projects/window-film-chicago/node_modules/esbuild/lib/main.js:1472:15)
+    at responseCallbacks.<computed> (/Users/jennyriemer/Projects/window-film-chicago/node_modules/esbuild/lib/main.js:622:9)
+    at Socket.readFromStdout (/Users/jennyriemer/Projects/window-film-chicago/node_modules/esbuild/lib/main.js:600:7)
+    at addChunk (node:internal/streams/readable:561:12)
+    at Readable.push (node:internal/streams/readable:392:5)
+[12:37:44] === Final commit + push ===

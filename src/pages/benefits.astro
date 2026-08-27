@@ -5,15 +5,15 @@ import BentoGridSymmetric from '../components/BentoGridSymmetric.astro';
 import AccordionFAQ from '../components/AccordionFAQ.astro';
 import CTAAvatars from '../components/CTAAvatars.astro';
 
-const title = 'Window Film Benefits Salt Lake City | Energy, UV & Security';
-const description = 'Explore every benefit of window film in Salt Lake City — energy savings, UV protection, glare reduction, privacy, security, decorative film.';
+const title = 'Window Film Benefits Chicago | Energy, UV & Security';
+const description = 'Explore every benefit of window film in Chicago — energy savings, UV protection, glare reduction, privacy, security, decorative film.';
 const dateModified = new Date().toISOString().slice(0, 10);
 
 // All 15 benefit links from the nav menu
 const benefitItems = [
   { title: 'Energy Savings', desc: 'Reduce cooling costs by up to 30% with solar control film that rejects heat without darkening your space.', img: '/images/benefits-overview/energy-saving-window-film-salt-lake-city-benefit.jpg', href: '/benefits/energy-savings/' },
   { title: 'UV Protection', desc: 'Block up to 99.9% of UV rays to protect furnishings, flooring, artwork, and occupants from fading and damage.', img: '/images/benefits-overview/uv-protection-window-film-salt-lake-city-benefit.jpg', href: '/benefits/uv-protection-film/' },
-  { title: 'Privacy Film', desc: 'One-way daytime privacy, frosted partitions, and decorative options for homes, offices, and healthcare spaces.', img: '/images/benefits-overview/privacy-window-film-salt-lake-city-benefit.jpg', href: '/benefits/privacy-window-film-salt-lake-city/' },
+  { title: 'Privacy Film', desc: 'One-way daytime privacy, frosted partitions, and decorative options for homes, offices, and healthcare spaces.', img: '/images/benefits-overview/privacy-window-film-salt-lake-city-benefit.jpg', href: '/benefits/privacy-window-film-chicago/' },
   { title: 'Glare Reduction', desc: 'Eliminate screen glare on computer monitors and reduce eye strain while maintaining natural light.', img: '/images/benefits-overview/glare-reduction-window-film-salt-lake-city-benefit.jpg', href: '/benefits/glare-reduction/' },
   { title: 'Anti-Graffiti', desc: 'Sacrificial film that protects street-facing glass from scratching, etching, and tagging — peel and replace.', img: '/images/benefits-overview/anti-graffiti-window-film-salt-lake-city-benefit.jpg', href: '/benefits/anti-graffiti/' },
   { title: 'Safety & Security', desc: 'Security film holds broken glass together during break-ins, storms, and accidents — with optional frame attachment.', img: '/images/benefits-overview/safety-security-window-film-salt-lake-city-benefit.jpg', href: '/benefits/safety-and-security/' },
@@ -29,14 +29,14 @@ const benefitItems = [
 ];
 
 const faqItems = [
-  { question: 'What are the main window film benefits for Salt Lake City properties?', answer: 'Window film benefits in Salt Lake City fall into four categories: comfort (energy savings, solar control, glare reduction), protection (UV blocking, safety and security, blast mitigation, ballistic resistance), appearance (privacy, decorative film, exterior refinishing, mirror refinishing, building wraps), and specialized (anti-graffiti, bird strike prevention, school security). A single film often provides multiple benefits — solar control film rejects heat, blocks UV, and reduces glare simultaneously.' },
+  { question: 'What are the main window film benefits for Chicago properties?', answer: 'Window film benefits in Chicago fall into four categories: comfort (energy savings, solar control, glare reduction), protection (UV blocking, safety and security, blast mitigation, ballistic resistance), appearance (privacy, decorative film, exterior refinishing, mirror refinishing, building wraps), and specialized (anti-graffiti, bird strike prevention, school security). A single film often provides multiple benefits — solar control film rejects heat, blocks UV, and reduces glare simultaneously.' },
   { question: 'Can one window film provide multiple benefits at once?', answer: 'Yes. Most professional-grade films are multi-functional. A spectrally selective solar control film rejects up to 78% of solar heat gain, blocks 99.9% of UV rays, and reduces glare — all while remaining nearly invisible on the glass. Security films can combine forced-entry delay with solar control. During your free consultation, we identify which benefits matter most for your property and recommend a film that addresses them in a single installation.' },
   { question: 'Will window film darken my rooms or affect my view?', answer: 'No. Modern window films are engineered to maintain natural light and clear views while controlling heat and glare. Spectrally selective films are virtually invisible — they reject heat without darkening interiors. We offer a range of visible light transmission (VLT) levels from nearly clear to tinted, so you choose how much light comes through based on your preferences and the orientation of your windows.' },
   { question: 'Is window film a worthwhile investment for commercial buildings?', answer: 'For most commercial properties, window film pays for itself through energy savings alone. Solar control film reduces HVAC load by rejecting solar heat gain, which translates to lower cooling costs — particularly on south- and west-facing facades. Beyond energy, commercial window film benefits include glare reduction for employee productivity, UV protection for merchandise and furnishings, security film for storefronts, and decorative film for branding and privacy.' },
-  { question: 'How does window film compare to window replacement?', answer: 'Window film is a fraction of the cost of full glass replacement and can be installed on existing windows without construction. While replacement may be necessary for severely damaged glass, film upgrades the performance of sound, functional glass — adding solar control, UV protection, security, or privacy that the original glass lacks. For historic buildings in Salt Lake City where replacement is restricted, window film is often the only viable upgrade path.' },
+  { question: 'How does window film compare to window replacement?', answer: 'Window film is a fraction of the cost of full glass replacement and can be installed on existing windows without construction. While replacement may be necessary for severely damaged glass, film upgrades the performance of sound, functional glass — adding solar control, UV protection, security, or privacy that the original glass lacks. For historic buildings in Chicago where replacement is restricted, window film is often the only viable upgrade path.' },
   { question: 'What maintenance does window film require after installation?', answer: 'Window film is low-maintenance. Allow 30 days for the film to fully cure after installation — during this period you may notice slight haziness, which clears as the film dries. After curing, clean with a soft cloth and mild soap or ammonia-free glass cleaner. Avoid abrasive scrubbers and sharp tools. We provide care instructions with every installation.' },
   { question: 'Are window film benefits covered by a warranty?', answer: 'Every installation is backed by the manufacturer warranty covering film performance — peeling, bubbling, discoloration, and solar heat rejection. We also provide a labor warranty on our installation workmanship. Warranty terms vary by product and film type. We walk you through the specific warranty for your chosen product during the consultation.' },
-  { question: 'Do you install window film throughout the entire Wasatch Front?', answer: 'Yes. We serve the entire Wasatch Front including Downtown Salt Lake City, The Avenues, South Salt Lake, Sugar House, Marmalade District, Millcreek, University District, Draper, Sandy NJ, and surrounding areas. Our installation crews are Salt Lake City-based — no travel surcharge within the standard service area.' },
+  { question: 'Do you install window film throughout the greater Chicago area?', answer: 'Yes. We serve Chicago and surrounding suburbs including Arlington Heights, Aurora, Evanston, Naperville, Oak Park, Schaumburg, Skokie, Wheaton, and surrounding areas. Our installation crews are Chicago-based — no travel surcharge within the standard service area.' },
 ];
 
 const faqAccordionItems = faqItems.map(f => ({ q: f.question, a: f.answer }));
@@ -55,18 +55,18 @@ const pageSchemas = [
     '@type': 'WebPage',
     '@id': 'https://windowfilmsaltlakecity.com/benefits/',
     url: 'https://windowfilmsaltlakecity.com/benefits/',
-    name: 'Window Film Benefits in Salt Lake City',
+    name: 'Window Film Benefits in Chicago',
     description,
     dateModified,
   },
   {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Window Film Benefits in Salt Lake City',
+    name: 'Window Film Benefits in Chicago',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Energy Savings', description: 'Solar control film reduces cooling costs by rejecting solar heat gain.', url: 'https://windowfilmsaltlakecity.com/benefits/energy-savings/' },
       { '@type': 'ListItem', position: 2, name: 'UV Protection', description: 'Blocks up to 99.9% of UV rays to protect furnishings and occupants.', url: 'https://windowfilmsaltlakecity.com/benefits/uv-protection-film/' },
-      { '@type': 'ListItem', position: 3, name: 'Privacy Film', description: 'One-way privacy, frosted partitions, and decorative privacy solutions.', url: 'https://windowfilmsaltlakecity.com/benefits/privacy-window-film-salt-lake-city/' },
+      { '@type': 'ListItem', position: 3, name: 'Privacy Film', description: 'One-way privacy, frosted partitions, and decorative privacy solutions.', url: 'https://windowfilmchicago.com/benefits/privacy-window-film-chicago/' },
       { '@type': 'ListItem', position: 4, name: 'Glare Reduction', description: 'Eliminates screen glare while maintaining natural light.', url: 'https://windowfilmsaltlakecity.com/benefits/glare-reduction/' },
       { '@type': 'ListItem', position: 5, name: 'Anti-Graffiti', description: 'Sacrificial film protects street-facing glass from scratching and tagging.', url: 'https://windowfilmsaltlakecity.com/benefits/anti-graffiti/' },
       { '@type': 'ListItem', position: 6, name: 'Safety & Security', description: 'Security film holds broken glass together during break-ins and storms.', url: 'https://windowfilmsaltlakecity.com/benefits/safety-and-security/' },
@@ -84,9 +84,9 @@ const pageSchemas = [
   {
     '@context': 'https://schema.org',
     '@type': 'Product',
-    name: 'Window Film Benefits Salt Lake City',
-    description: 'Professional window film installation delivering energy savings, UV protection, glare reduction, privacy, security, decorative, and specialized benefits for Salt Lake City properties.',
-    brand: { '@type': 'Brand', name: 'Window Film Salt Lake City' },
+    name: 'Window Film Benefits Chicago',
+    description: 'Professional window film installation delivering energy savings, UV protection, glare reduction, privacy, security, decorative, and specialized benefits for Chicago properties.',
+    brand: { '@type': 'Brand', name: 'Window Film Chicago' },
     offers: { '@type': 'Offer', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
   },
 ];
@@ -97,8 +97,8 @@ const pageSchemas = [
   description={description}
   canonical="https://windowfilmsaltlakecity.com/benefits/"
   faqItems={faqItems}
-  serviceName="Window Film Benefits Salt Lake City"
-  serviceDesc="Professional window film delivering energy savings, UV protection, glare reduction, privacy, security, decorative, and specialized benefits for Salt Lake City properties."
+  serviceName="Window Film Benefits Chicago"
+  serviceDesc="Professional window film delivering energy savings, UV protection, glare reduction, privacy, security, decorative, and specialized benefits for Chicago properties."
   serviceUrl="https://windowfilmsaltlakecity.com/benefits/"
   schemas={pageSchemas}
 >
@@ -113,8 +113,8 @@ const pageSchemas = [
       WINDOW FILM BENEFITS
       <span class="bn-hero__eyebrow-dot" aria-hidden="true"></span>
     </div>
-    <h1 class="bn-hero__title">Window Film Benefits in Salt Lake City</h1>
-    <p class="bn-hero__subtitle">From energy savings and UV protection to security, privacy, and decorative design — window film does more than most Salt Lake City property owners realize. Explore the full range of benefits and find the right solution for your glass.</p>
+    <h1 class="bn-hero__title">Window Film Benefits in Chicago</h1>
+    <p class="bn-hero__subtitle">From energy savings and UV protection to security, privacy, and decorative design — window film does more than most Chicago property owners realize. Explore the full range of benefits and find the right solution for your glass.</p>
     <div class="bn-hero__cta">
       <a href="/contact/" class="bn-hero__btn-primary">Get a Free Consultation</a>
       <a href="tel:8018954681" class="bn-hero__btn-secondary">
@@ -153,7 +153,7 @@ const pageSchemas = [
 <!-- TRUST BAR -->
 <section class="bn-trust">
   <div class="bn-container">
-    <p class="bn-trust__label">Trusted by Salt Lake City homeowners, businesses, and institutions since 2008</p>
+    <p class="bn-trust__label">Trusted by Chicago homeowners, businesses, and institutions since 2008</p>
   </div>
 </section>
 
@@ -165,18 +165,18 @@ const pageSchemas = [
     <div class="bn-intro__content">
       <span class="bn-eyebrow">What Film Can Do</span>
       <h2 class="bn-intro__title">What can window film do for your glass?</h2>
-      <p class="bn-intro__lead">Most people think of window film as one thing — a dark tint that blocks sunlight. In reality, professional window film delivers a wide range of benefits that address completely different concerns. A homeowner in Millcreek might want <a href="/benefits/energy-savings/" style="color: var(--bn-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">energy savings</a> and <a href="/benefits/uv-protection-film/" style="color: var(--bn-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">UV protection</a> for their living room. A Downtown Salt Lake City office manager might need <a href="/benefits/glare-reduction/" style="color: var(--bn-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">glare reduction</a> on computer screens. A retail owner on South Street might prioritize <a href="/benefits/anti-graffiti/" style="color: var(--bn-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">anti-graffiti protection</a> for their storefront.</p>
-      <p class="bn-intro__lead">The same installation can deliver multiple benefits at once — a solar control film rejects heat, blocks UV, and reduces glare simultaneously. Browse all the window film benefits in Salt Lake City below. Each page breaks down the specific film recommendations, performance data, and installation approach for that benefit. According to the <a href="https://www.skincancer.org/skin-cancer-prevention/sun-protection/uv-window-film/" target="_blank" rel="noopener noreferrer" style="color: var(--bn-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">Skin Cancer Foundation</a>, UV window film blocks more than 99% of UVA and UVB rays that pass through ordinary window glass — protecting occupants from incidental sun damage that accumulates indoors over time.</p>
+      <p class="bn-intro__lead">Most people think of window film as one thing — a dark tint that blocks sunlight. In reality, professional window film delivers a wide range of benefits that address completely different concerns. A homeowner in Naperville might want <a href="/benefits/energy-savings/" style="color: var(--bn-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">energy savings</a> and <a href="/benefits/uv-protection-film/" style="color: var(--bn-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">UV protection</a> for their living room. A Loop office manager might need <a href="/benefits/glare-reduction/" style="color: var(--bn-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">glare reduction</a> on computer screens. A retail owner on Michigan Avenue might prioritize <a href="/benefits/anti-graffiti/" style="color: var(--bn-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">anti-graffiti protection</a> for their storefront.</p>
+      <p class="bn-intro__lead">The same installation can deliver multiple benefits at once — a solar control film rejects heat, blocks UV, and reduces glare simultaneously. Browse all the window film benefits in Chicago below. Each page breaks down the specific film recommendations, performance data, and installation approach for that benefit. According to the <a href="https://www.skincancer.org/skin-cancer-prevention/sun-protection/uv-window-film/" target="_blank" rel="noopener noreferrer" style="color: var(--bn-green-dark, #7CB342); text-decoration: underline; text-underline-offset: 3px;">Skin Cancer Foundation</a>, UV window film blocks more than 99% of UVA and UVB rays that pass through ordinary window glass — protecting occupants from incidental sun damage that accumulates indoors over time.</p>
     </div>
     <div class="bn-intro__image-wrap">
-      <img src="/images/benefits-overview/window-film-benefits-salt-lake-city-intro.jpg" alt="Salt Lake City interior showing the benefits of professional window film installation" title="Window film benefits in Salt Lake City — Window Film Salt Lake City" class="bn-intro__image" loading="lazy" />
+      <img src="/images/benefits-overview/window-film-benefits-salt-lake-city-intro.jpg" alt="Chicago interior showing the benefits of professional window film installation" title="Window film benefits in Chicago — Window Film Chicago" class="bn-intro__image" loading="lazy" />
     </div>
   </div>
 </section>
 
 <!-- ═══ BENTO GRID SYMMETRIC — all 15 benefit subpages ═══ -->
 <BentoGridSymmetric
-  heading="Window film benefits in Salt Lake City"
+  heading="Window film benefits in Chicago"
   sub="Explore each benefit in detail — film recommendations, performance data, and installation approach for every type of window film solution."
   items={benefitItems}
 />
@@ -185,7 +185,7 @@ const pageSchemas = [
 <AccordionFAQ
   eyebrow="FAQ"
   heading="Window film benefits — frequently asked questions"
-  sub="Everything you need to know before choosing the right film benefit for your Salt Lake City property."
+  sub="Everything you need to know before choosing the right film benefit for your Chicago property."
   items={faqAccordionItems}
 />
 
@@ -193,7 +193,7 @@ const pageSchemas = [
 <CTAAvatars
   title="Not sure which benefit matters most for your property?"
   subtitle="Tell us about your building and what you want to improve. We'll match you with the right film — no pressure, no obligation. Free consultation and detailed proposal."
-  count="Trusted by 2,400+ Salt Lake City property owners"
+  count="Trusted by Chicago property owners"
   btnLabel="Get a Free Consultation"
   btnHref="/contact/"
 />
