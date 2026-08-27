@@ -164,3 +164,35 @@
 [11:48:42] [50/109] Processing src/pages/about.astro
 [11:48:42]     (skipped 10 path-only lines in about.astro -- left untouched, image/PDF paths are never text-rewritten)
 [11:49:35]   -> CHANGED
+[11:49:35]   Checkpoint commit after 50 files
+[11:49:35] [51/109] Processing src/pages/reviews.astro
+[11:49:35]     (skipped 5 path-only lines in reviews.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:49:55]   -> CHANGED
+[11:49:55] [52/109] Processing src/pages/index.astro
+[11:49:55]     (skipped 24 path-only lines in index.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:50:08]   -> CHANGED
+[11:50:08] [53/109] Processing src/pages/process.astro
+[11:50:08]     (skipped 5 path-only lines in process.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:50:16]   -> CHANGED
+[11:50:16] [54/109] Processing src/pages/resources/property-code.astro
+[11:50:16]     (skipped 3 path-only lines in property-code.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:50:26]   -> CHANGED
+[11:50:26] [55/109] Processing src/pages/resources/commercial-guide.astro
+[11:50:26]     (skipped 17 path-only lines in commercial-guide.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:50:45]   LENGTH MISMATCH in /Users/jennyriemer/Projects/window-film-chicago/src/pages/resources/commercial-guide.astro: expected 22, got 21
+[11:50:45]   -> no changes needed
+[11:50:45] [56/109] Processing src/pages/resources/architects-builders.astro
+[11:50:45]     (skipped 4 path-only lines in architects-builders.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:51:11]   -> CHANGED
+[11:51:11] [57/109] Processing src/pages/resources/maintenance-and-care.astro
+[11:51:11]     (skipped 4 path-only lines in maintenance-and-care.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:51:15]   -> CHANGED
+[11:51:15] [58/109] Processing src/pages/resources/window-replacement-alternative.astro
+[11:51:15]     (skipped 4 path-only lines in window-replacement-alternative.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:51:29]   -> CHANGED
+[11:51:29] [59/109] Processing src/pages/resources/commercial-faq.astro
+[11:51:29]     (skipped 8 path-only lines in commercial-faq.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:51:55]   -> CHANGED
+[11:51:55] [60/109] Processing src/pages/resources/window-film-fact-sheet.astro
+[11:51:55]     (skipped 9 path-only lines in window-film-fact-sheet.astro -- left untouched, image/PDF paths are never text-rewritten)
+[11:52:11]   -> CHANGED
