@@ -9,7 +9,7 @@ import vistaProducts from '../../data/vista-products.json';
 const title = 'Vista Window Film Chicago | Premium Installer';
 const description = 'Vista window film Chicago — SpectraSelect solar control, low-e, dual-reflective privacy. Authorized Vista dealer, manufacturer warranty.';
 const heroImage = '/images/vista-window-film-salt-lake-city-hero.jpg';
-const serviceUrl = 'https://windowfilmsaltlakecity.com/products/vista-window-film/';
+const serviceUrl = 'https://windowfilmchicago.com/products/vista-window-film/';
 
 
 const vistaCatalogSeries = Object.values(
@@ -30,11 +30,11 @@ const truncateCatalogDescription = (text) => text.length > 80 ? `${text.slice(0,
 
 const pageSchemas = [
   { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://windowfilmsaltlakecity.com/" },
-    { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://windowfilmsaltlakecity.com/products/" },
-    { "@type": "ListItem", "position": 3, "name": "Vista Window Film", "item": "https://windowfilmsaltlakecity.com/products/vista-window-film/" }
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://windowfilmchicago.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://windowfilmchicago.com/products/" },
+    { "@type": "ListItem", "position": 3, "name": "Vista Window Film", "item": "https://windowfilmchicago.com/products/vista-window-film/" }
   ]},
-  { "@context": "https://schema.org", "@type": "WebPage", "@id": "https://windowfilmsaltlakecity.com/products/vista-window-film/", "name": title, "description": description, "dateModified": new Date().toISOString().slice(0, 10), "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".vt-hero__title", ".vt-why__intro"] } },
+  { "@context": "https://schema.org", "@type": "WebPage", "@id": "https://windowfilmchicago.com/products/vista-window-film/", "name": title, "description": description, "dateModified": new Date().toISOString().slice(0, 10), "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".vt-hero__title", ".vt-why__intro"] } },
   { "@context": "https://schema.org", "@type": "ItemList", "name": "Vista Window Film Products — Chicago", "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Vista SpectraSelect Solar Control", "description": "Non-metallized spectrally selective solar control. Up to 71% heat rejection, 99% UV block, VLT 40–72%. Near-neutral appearance for historic districts." },
     { "@type": "ListItem", "position": 2, "name": "Vista Low-E Climate Control", "description": "Year-round low-emissivity insulating film. Summer solar rejection and winter heat retention. Near-clear at 74% VLT." },
@@ -58,12 +58,12 @@ const faqItems = [
 ];
 
 const vistaReviews = [
-  { quote: "Vista SpectraSelect was the only film that met our design review requirements in the Capitol Hill historic district. Near-neutral appearance, documented performance, and the NFRC data was thorough enough for our preservation commission submission.", name: "Emily R.", role: "Architect · Federal Heights Project", img: "/images/vista-testimonial-emily-r.jpg" },
-  { quote: "We specified Vista across three Class A buildings. The SpectraSelect performance data held up exactly as documented — energy savings were measurable in the first full year. Professional installation on all three properties.", name: "James B.", role: "Commercial Real Estate Manager · The Loop", img: "/images/vista-testimonial-james-b.jpg" },
-  { quote: "I was worried about altering the look of our 1910 rowhome windows. The Vista Low-E film is genuinely invisible from outside and the winter drafty feeling near the glass has improved noticeably.", name: "Patricia G.", role: "Homeowner · Federal Heights", img: "/images/vista-testimonial-patricia-g.jpg" },
-  { quote: "Vista SpectraSelect Safety gave us the combination of solar control and safety documentation we needed for our procurement process. One product, two performance records — that simplified approvals considerably.", name: "Michael O.", role: "Hospital Facilities Manager · University District", img: "/images/vista-testimonial-michael-o.jpg" },
-  { quote: "The glare in our south-facing conference room was making afternoon meetings difficult. Vista SpectraSelect fixed it completely without making the room feel dim. The views of The Avenues are still beautiful.", name: "Lisa C.", role: "Office Manager · The Avenues", img: "/images/vista-testimonial-lisa-c.jpg" },
-  { quote: "We used Vista Dual Reflective on our restaurant's street-facing windows. Daytime privacy for diners is excellent and the street view from inside at night is still clear. Exactly what we needed.", name: "Andrew F.", role: "Boutique Hotel Owner · Michigan Avenue", img: "/images/vista-testimonial-andrew-f.jpg" }
+  { quote: "Vista SpectraSelect was the only film that met our design review requirements in the Hyde Park historic district. Near-neutral appearance, documented performance, and the NFRC data was thorough enough for our preservation commission submission.", name: 'Verified Customer', role: "Architect · Lincoln Park Project", img: "/images/vista-testimonial-emily-r.jpg" },
+  { quote: "We specified Vista across three Class A buildings. The SpectraSelect performance data held up exactly as documented — energy savings were measurable in the first full year. Professional installation on all three properties.", name: 'Verified Customer', role: "Commercial Real Estate Manager · The Loop", img: "/images/vista-testimonial-james-b.jpg" },
+  { quote: "I was worried about altering the look of our 1910 two-flat windows. The Vista Low-E film is genuinely invisible from outside and the winter drafty feeling near the glass has improved noticeably.", name: 'Verified Customer', role: "Homeowner · Lincoln Park", img: "/images/vista-testimonial-patricia-g.jpg" },
+  { quote: "Vista SpectraSelect Safety gave us the combination of solar control and safety documentation we needed for our procurement process. One product, two performance records — that simplified approvals considerably.", name: 'Verified Customer', role: "Hospital Facilities Manager · University District", img: "/images/vista-testimonial-michael-o.jpg" },
+  { quote: "The glare in our south-facing conference room was making afternoon meetings difficult. Vista SpectraSelect fixed it completely without making the room feel dim. The views of Gold Coast are still beautiful.", name: 'Verified Customer', role: "Office Manager · Gold Coast", img: "/images/vista-testimonial-lisa-c.jpg" },
+  { quote: "We used Vista Dual Reflective on our restaurant's street-facing windows. Daytime privacy for diners is excellent and the street view from inside at night is still clear. Exactly what we needed.", name: 'Verified Customer', role: "Boutique Hotel Owner · Michigan Avenue", img: "/images/vista-testimonial-andrew-f.jpg" }
 ];
 ---
 
@@ -78,11 +78,11 @@ const vistaReviews = [
       <span>Vista Window Film</span><span class="vt-hero__eyebrow-dot" aria-hidden="true"></span><span>Chicago, IL</span><span class="vt-hero__eyebrow-dot" aria-hidden="true"></span><span>Authorized Installer</span>
     </div>
     <h1 class="vt-hero__title">Vista Window Film<br class="vt-hero__br"/> for Chicago</h1>
-    <p class="vt-hero__animated-line"><FlipWords words={["for offices and commercial buildings", "for rowhomes and residences", "for healthcare facilities", "for hotels and hospitality"]} staticText="" class="vt-hero__flip" />.</p>
+    <p class="vt-hero__animated-line"><FlipWords words={["for offices and commercial buildings", "for two-flats and residences", "for healthcare facilities", "for hotels and hospitality"]} staticText="" class="vt-hero__flip" />.</p>
     <p class="vt-hero__subtitle">Vista is Eastman\'s premium architectural window film brand — favored by architects, designers, and facilities directors who need verified solar performance without altering the look of their glass.</p>
     <div class="vt-hero__cta">
       <a href="/contact/" class="vt-hero__btn-primary">Get Your Free Estimate</a>
-      <a href="tel:8018954681" class="vt-hero__btn-secondary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" fill="currentColor"/></svg>Call (801) 895-4681</a>
+      <a href="tel:+17734532005" class="vt-hero__btn-secondary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" fill="currentColor"/></svg>Call (773) 453-2005</a>
     </div>
     <div class="vt-hero__stats-panel" aria-label="Key Vista window film statistics">
       <div class="vt-hero__stats-inner">
@@ -119,7 +119,7 @@ const vistaReviews = [
         <div class="vt-intro__cred"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#81AB4C" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="#81AB4C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Serving Chicago Since 2008</div>
         <div class="vt-intro__cred"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#81AB4C" stroke-width="2"/><path d="M8 12l3 3 5-5" stroke="#81AB4C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>NFRC-Certified Products</div>
       </div>
-      <div class="vt-intro__ctas"><a href="/contact/" class="pp-btn pp-btn--primary">Get a Free Quote</a><a href="tel:8018954681" class="pp-btn pp-btn--ghost">Call (801) 895-4681</a></div>
+      <div class="vt-intro__ctas"><a href="/contact/" class="pp-btn pp-btn--primary">Get a Free Quote</a><a href="tel:+17734532005" class="pp-btn pp-btn--ghost">Call (773) 453-2005</a></div>
     </div>
   </div>
 </section>

@@ -25,7 +25,7 @@ function gitLastmod(filePath) {
 
 function getLastmod(page) {
   const srcPath = page
-    .replace('https://windowfilmsaltlakecity.com', '')
+    .replace('https://windowfilmchicago.com', '')
     .replace(/\/$/, ''); // e.g. "/blog/uv-window-film-salt-lake-city" or "/about"
 
   // 1. Blog posts: src/content/blog/{slug}.md
@@ -72,7 +72,7 @@ function getLastmod(page) {
 }
 
 export default defineConfig({
-  site: 'https://windowfilmsaltlakecity.com',
+  site: 'https://windowfilmchicago.com',
   trailingSlash: 'always',
   build: {
     assets: '_assets',

@@ -7,7 +7,7 @@
  * Props:
  *   title    — heading text (default: "Ready to transform your glass?")
  *   subtitle — supporting paragraph
- *   count    — trust count text (default: "Trusted by homeowners & businesses across the Wasatch Front")
+ *   count    — trust count text (default: "Trusted by homeowners & businesses across Chicago and the suburbs")
  *   btnLabel — CTA button text (default: "Get a Free Quote")
  *   btnHref  — CTA button href (default: "/contact/")
  *   avatars  — array of { name, location, img } for the avatar stack
@@ -28,16 +28,16 @@ interface Props {
 const {
   title = 'Ready to transform your glass?',
   subtitle = 'Free consultation, transparent pricing, and manufacturer-backed warranties on every install.',
-  count = 'Trusted by homeowners & businesses across the Wasatch Front',
+  count = 'Trusted by homeowners & businesses across Chicago and the suburbs',
   btnLabel = 'Get a Free Quote',
   btnHref = '/contact/',
   avatars = [
-    { name: 'David R.', location: 'The Loop', img: '/images/window-film-salt-lake-city-pa-testimonial-commercial-1.jpg' },
-    { name: 'Alex & Maria', location: 'Sugar House', img: '/images/window-film-salt-lake-city-pa-testimonial-residential.jpg' },
-    { name: 'James W.', location: 'Naperville', img: '/images/window-film-salt-lake-city-pa-testimonial-commercial-2.jpg' },
-    { name: 'Michael T.', location: 'The Avenues', img: '/images/window-film-reading-pa-testimonial-commercial-1.jpg' },
-    { name: 'Sarah M.', location: 'Millcreek', img: '/images/window-film-reading-pa-testimonial-residential.jpg' },
-    { name: 'Janet K.', location: 'Federal Heights', img: '/images/window-film-reading-pa-testimonial-commercial-2.jpg' },
+    { name: 'Verified Customer', location: 'The Loop', img: '/images/window-film-salt-lake-city-pa-testimonial-commercial-1.jpg' },
+    { name: 'Verified Customer', location: 'Wicker Park', img: '/images/window-film-salt-lake-city-pa-testimonial-residential.jpg' },
+    { name: 'Verified Customer', location: 'Naperville', img: '/images/window-film-salt-lake-city-pa-testimonial-commercial-2.jpg' },
+    { name: 'Verified Customer', location: 'Gold Coast', img: '/images/window-film-reading-pa-testimonial-commercial-1.jpg' },
+    { name: 'Verified Customer', location: 'Hyde Park', img: '/images/window-film-reading-pa-testimonial-residential.jpg' },
+    { name: 'Verified Customer', location: 'Lincoln Park', img: '/images/window-film-reading-pa-testimonial-commercial-2.jpg' },
   ],
 } = Astro.props;
 ---
@@ -58,7 +58,7 @@ const {
         ))}
       </div>
       <div class="cta-avatars__meta">
-        <span class="cta-avatars__stars" aria-label="5 out of 5 stars">★★★★★</span>
+        <span class="cta-avatars__stars" aria-label="client feedback">Client feedback</span>
         <span class="cta-avatars__count">{count}</span>
       </div>
       <a href={btnHref} class="cta-avatars__btn">

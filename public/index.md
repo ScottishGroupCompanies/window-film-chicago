@@ -32,10 +32,10 @@ Salt Lake City, Sandy NJ, Ogden UT, Provo PA, and surrounding areas across the W
 ## Contact
 
 - **Phone**: (801) 895-4681
-- **Email**: info@windowfilmphl.com
+- **Email**: contact@windowfilmchicago.com
 - **Hours**: Monday to Friday, 8am to 5pm
 - **Service Area**: Salt Lake City and the Wasatch Front
-- **Get a Quote**: [Contact us](https://windowfilmsaltlakecity.com/contact)
+- **Get a Quote**: [Contact us](https://windowfilmchicago.com/contact)
 
 ## About
 

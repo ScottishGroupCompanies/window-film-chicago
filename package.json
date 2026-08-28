@@ -1,7 +1,7 @@
 {
-  "name": "window-film-salt-lake-city",
+  "name": "window-film-chicago",
   "version": "1.0.0",
-  "description": "Static Astro rebuild of windowfilmsaltlakecity.com",
+  "description": "Static Astro website for windowfilmchicago.com",
   "type": "module",
   "scripts": {
     "dev": "astro dev",

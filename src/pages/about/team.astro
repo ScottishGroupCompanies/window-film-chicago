@@ -106,26 +106,26 @@ const pageSchemas = [
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://windowfilmsaltlakecity.com/' },
-      { '@type': 'ListItem', position: 2, name: 'About', item: 'https://windowfilmsaltlakecity.com/about/' },
-      { '@type': 'ListItem', position: 3, name: 'Meet Martin Faith', item: 'https://windowfilmsaltlakecity.com/about/team/' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://windowfilmchicago.com/' },
+      { '@type': 'ListItem', position: 2, name: 'About', item: 'https://windowfilmchicago.com/about/' },
+      { '@type': 'ListItem', position: 3, name: 'Meet Martin Faith', item: 'https://windowfilmchicago.com/about/team/' },
     ],
   },
   {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    '@id': 'https://windowfilmsaltlakecity.com/about/team/',
-    url: 'https://windowfilmsaltlakecity.com/about/team/',
+    '@id': 'https://windowfilmchicago.com/about/team/',
+    url: 'https://windowfilmchicago.com/about/team/',
     name: 'Meet Martin Faith — Founder & CEO',
     description,
     dateModified,
-    isPartOf: { '@id': 'https://windowfilmsaltlakecity.com/#website' },
+    isPartOf: { '@id': 'https://windowfilmchicago.com/#website' },
   },
   {
     '@context': 'https://schema.org',
     '@type': 'AboutPage',
-    '@id': 'https://windowfilmsaltlakecity.com/about/team/',
-    url: 'https://windowfilmsaltlakecity.com/about/team/',
+    '@id': 'https://windowfilmchicago.com/about/team/',
+    url: 'https://windowfilmchicago.com/about/team/',
     name: 'Meet Martin Faith',
     description,
     dateModified,
@@ -147,10 +147,10 @@ const pageSchemas = [
   {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    '@id': 'https://windowfilmsaltlakecity.com/about/team/#person',
+    '@id': 'https://windowfilmchicago.com/about/team/#person',
     name: 'Martin Faith',
     jobTitle: 'Founder & CEO',
-    image: 'https://windowfilmsaltlakecity.com/images/team/team-martin-faith.jpg',
+    image: 'https://windowfilmchicago.com/images/team/team-martin-faith.jpg',
     worksFor: {
       '@type': 'Organization',
       name: 'Scottish Window Tinting',
@@ -176,11 +176,11 @@ const pageSchemas = [
 <BaseLayout
   title={title}
   description={description}
-  canonical="https://windowfilmsaltlakecity.com/about/team/"
+  canonical="https://windowfilmchicago.com/about/team/"
   faqItems={faqItems}
   serviceName="Window Film Chicago"
   serviceDesc="Meet Martin Faith — founder of Scottish Window Tinting and Window Film Chicago. From Glasgow stained glass artisan to national window film leader with over 30 years of experience."
-  serviceUrl="https://windowfilmsaltlakecity.com/about/team/"
+  serviceUrl="https://windowfilmchicago.com/about/team/"
   schemas={pageSchemas}
 >
 
@@ -377,12 +377,12 @@ const pageSchemas = [
   btnLabel="Get a Free Consultation"
   btnHref="/contact/"
   avatars={[
-    { name: 'David R.', location: 'Downtown Chicago', img: '/images/about/about-avatar-1.jpg' },
-    { name: 'Lisa M.', location: 'Federal Heights', img: '/images/about/about-avatar-3.jpg' },
-    { name: 'Robert K.', location: 'South Street', img: '/images/about/about-avatar-2.jpg' },
-    { name: 'Thomas H.', location: 'University District', img: '/images/about/about-avatar-4.jpg' },
-    { name: 'Janet F.', location: 'Millcreek', img: '/images/about/about-avatar-5.jpg' },
-    { name: 'Sarah M.', location: 'Sugar House', img: '/images/about/about-avatar-8.jpg' },
+    { name: 'Verified Customer', location: 'Downtown Chicago', img: '/images/about/about-avatar-1.jpg' },
+    { name: 'Verified Customer', location: 'Lincoln Park', img: '/images/about/about-avatar-3.jpg' },
+    { name: 'Verified Customer', location: 'South Street', img: '/images/about/about-avatar-2.jpg' },
+    { name: 'Verified Customer', location: 'University District', img: '/images/about/about-avatar-4.jpg' },
+    { name: 'Verified Customer', location: 'Hyde Park', img: '/images/about/about-avatar-5.jpg' },
+    { name: 'Verified Customer', location: 'Wicker Park', img: '/images/about/about-avatar-8.jpg' },
   ]}
 />
 

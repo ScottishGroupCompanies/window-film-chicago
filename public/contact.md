@@ -5,7 +5,7 @@ Get in touch for a free consultation and quote.
 ## Contact Information
 
 - **Phone**: (801) 895-4681
-- **Email**: info@windowfilmphl.com
+- **Email**: contact@windowfilmchicago.com
 - **Hours**: Monday to Friday, 8:00 AM to 5:00 PM
 
 ## Service Area
@@ -25,4 +25,4 @@ Every project starts with a free on-site assessment. We evaluate your glass, dis
 
 ## Request a Quote
 
-Call (801) 895-4681 or visit [our contact page](https://windowfilmsaltlakecity.com/contact) to request a free consultation.
+Call (773) 453-2005, email contact@windowfilmchicago.com, or visit [our contact page](https://windowfilmchicago.com/contact/) to request a free consultation.

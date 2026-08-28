@@ -10,7 +10,7 @@ export function getStaticPaths() {
 }
 
 const { product: p } = Astro.props;
-const serviceUrl = `https://windowfilmsaltlakecity.com/products/huper-optik/${p.slug}/`;
+const serviceUrl = `https://windowfilmchicago.com/products/huper-optik/${p.slug}/`;
 const title = `Huper Optik ${p.name} | Chicago`;
 const description = `${p.shortDescription} Window Film Chicago is a certified Huper Optik installer serving Chicago and surrounding areas.`.slice(0, 155);
 const descriptionParagraphs = p.description.split('\n\n').slice(0, 4);
@@ -50,14 +50,14 @@ const applications = categoryText.includes('safety') || categoryText.includes('s
       ]
     : categoryText.includes('fusion') || categoryText.includes('privacy')
       ? [
-          ['Retail Storefronts', 'Solar control and daytime privacy for Main Street boutiques, The Avenues galleries, and South Street storefronts facing heavy foot traffic.'],
-          ['Restaurants and Cafés', 'Street-facing window management for Federal Heights, Sugar House, and 9th and 9th restaurants balancing ambiance with solar comfort.'],
+          ['Retail Storefronts', 'Solar control and daytime privacy for State Street boutiques, Gold Coast galleries, and South Street storefronts facing heavy foot traffic.'],
+          ['Restaurants and Cafés', 'Street-facing window management for Lincoln Park, Wicker Park, and Logan Square restaurants balancing ambiance with solar comfort.'],
           ['Conference Rooms', 'Daytime privacy for street-level conference rooms, professional offices, and medical suites on Chicago commercial corridors.'],
         ]
       : [
           ['Downtown Chicago Offices', 'Glare and solar control for Chicago Class A office towers, boutique suites, and corporate campuses from Michigan Avenue to the Loop.'],
           ['Chicago Bungalows', 'UV and heat management for Logan Square, Jefferson Park, West Ridge, and Belmont Cragin residences without window replacement.'],
-          ['Retail and Restaurants', 'Comfortable customer-facing glass with solar control for Main Street, 9th and 9th, East Girard, and The Avenues storefronts.'],
+          ['Retail and Restaurants', 'Comfortable customer-facing glass with solar control for Main Street, Logan Square, East Girard, and Gold Coast storefronts.'],
         ];
 
 const faqItems = [
@@ -86,9 +86,9 @@ const pageSchemas = [
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://windowfilmsaltlakecity.com/' },
-      { '@type': 'ListItem', position: 2, name: 'Products', item: 'https://windowfilmsaltlakecity.com/products/' },
-      { '@type': 'ListItem', position: 3, name: 'Huper Optik', item: 'https://windowfilmsaltlakecity.com/products/huper-optik/' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://windowfilmchicago.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Products', item: 'https://windowfilmchicago.com/products/' },
+      { '@type': 'ListItem', position: 3, name: 'Huper Optik', item: 'https://windowfilmchicago.com/products/huper-optik/' },
       { '@type': 'ListItem', position: 4, name: `Huper Optik ${p.name}`, item: serviceUrl },
     ],
   },
@@ -97,7 +97,7 @@ const pageSchemas = [
     '@type': 'Product',
     name: `Huper Optik ${p.name}`,
     brand: { '@type': 'Brand', name: 'Huper Optik' },
-    image: `https://windowfilmsaltlakecity.com${p.image}`,
+    image: `https://windowfilmchicago.com${p.image}`,
     description: p.shortDescription,
     category: p.series,
     offers: {

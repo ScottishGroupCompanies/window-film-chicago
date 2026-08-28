@@ -28,7 +28,7 @@ const authorInfo = {
   title: 'President, Window Film Chicago',
   bio: 'Mike Kinsey has consulted on window film projects across the United States for over 15 years. As President of Window Film Chicago — the Chicago office of Scottish Window Tinting — Mike oversees every project from specification through installation. He has personally sold and installed over 250,000 square feet of window film and holds certifications from 3M, EnerLogic, and the American Institute of Architects (AIA) for continuing education. His background in project management and construction gives him unique insight into how window film performs on Chicago\'s building stock, from single-pane Chicago bungalow glass to Loop curtain wall systems.',
   image: '/images/team/team-mike-kinsey.jpg',
-  url: 'https://windowfilmsaltlakecity.com/about/',
+  url: 'https://windowfilmchicago.com/about/',
 };
 
 // Use updatedDate if provided in frontmatter, otherwise fall back to pubDate
@@ -49,7 +49,7 @@ function formatDate(date: Date): string {
   });
 }
 
-const canonical = `https://windowfilmsaltlakecity.com/blog/${post.slug}/`;
+const canonical = `https://windowfilmchicago.com/blog/${post.slug}/`;
 const markdownUrl = `/blog/${post.slug}.md`;
 
 const categories = benefitCategories.map((c) => ({ label: c.label, href: c.href }));
@@ -60,14 +60,14 @@ const articleSchema = {
   "@type": "BlogPosting",
   "headline": title,
   "description": description,
-  "image": image ? `https://windowfilmsaltlakecity.com${image}` : undefined,
+  "image": image ? `https://windowfilmchicago.com${image}` : undefined,
   "datePublished": pubDate.toISOString().slice(0, 10),
   "dateModified": modifiedDate.toISOString().slice(0, 10),
   "author": {
     "@type": "Person",
     "name": authorInfo.name,
     "url": authorInfo.url,
-    "image": `https://windowfilmsaltlakecity.com${authorInfo.image}`,
+    "image": `https://windowfilmchicago.com${authorInfo.image}`,
     "jobTitle": authorInfo.title,
   },
   "publisher": {
@@ -75,7 +75,7 @@ const articleSchema = {
     "name": "Window Film Chicago",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://windowfilmsaltlakecity.com/images/window-film-salt-lake-city-logo-white.png"
+      "url": "https://windowfilmchicago.com/images/window-film-salt-lake-city-logo-white.png"
     }
   },
   "mainEntityOfPage": {
@@ -89,8 +89,8 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://windowfilmsaltlakecity.com/" },
-    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://windowfilmsaltlakecity.com/blog/" },
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://windowfilmchicago.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://windowfilmchicago.com/blog/" },
     { "@type": "ListItem", "position": 3, "name": title, "item": canonical }
   ]
 };
@@ -188,7 +188,7 @@ const breadcrumbSchema = {
           <div class="ip-sidebar-cta-card__overlay"></div>
           <div class="ip-sidebar-cta-card__content">
             <p class="ip-sidebar-cta-card__label">Any Questions? Let\'s talk</p>
-            <a href="tel:+18018954681" class="ip-sidebar-cta-card__phone">(801) 895-4681</a>
+            <a href="tel:+17734532005" class="ip-sidebar-cta-card__phone">(773) 453-2005</a>
             <a href="/contact/" class="ip-sidebar-cta-card__btn">Get a Free Quote &rarr;</a>
           </div>
         </div>
@@ -240,7 +240,7 @@ const breadcrumbSchema = {
     <h2>Ready to transform your <em>windows?</em></h2>
     <div class="ip-cta__btns">
       <a href="/contact/" class="ip-btn ip-btn--white">Get a Free Quote</a>
-      <a href="tel:+18018954681" class="ip-btn ip-btn--green">Call (801) 895-4681</a>
+      <a href="tel:+17734532005" class="ip-btn ip-btn--green">Call (773) 453-2005</a>
     </div>
   </div>
 

@@ -1,121 +1,33 @@
-# Window Film Salt Lake City
+# Window Film Chicago
 
-Static Astro rebuild of [windowfilmsaltlakecity.com](https://www.windowfilmsaltlakecity.com) — residential & commercial window film in Salt Lake City, Sandy, Reading, Provo.
+Astro static website for **Window Film Chicago**, serving Chicago and surrounding Illinois suburbs.
 
-- **Stack:** Astro v4 + Tailwind CSS + TypeScript
-- **Repo:** [`ScottishGroupCompanies/wfp-redesign`](https://github.com/ScottishGroupCompanies/wfp-redesign)
-- **Branch:** `main` (Vercel auto-deploys)
-- **Production:** https://www.windowfilmsaltlakecity.com
+## Business details
 
-## Quickstart
+- Website: https://windowfilmchicago.com
+- Phone: (773) 453-2005
+- Email: contact@windowfilmchicago.com
+- Service area: Chicago plus 19 Illinois suburbs listed on `/cities/`
+
+## Development
 
 ```bash
 npm install
-npm run dev      # → http://localhost:4321
-npm run build    # production build (must be 0 errors)
+npm run dev
+npm run build
 ```
 
----
+The production build is written to `dist/`. The project uses one full Chicago city page plus a lightweight service-area directory rather than creating thin pages for every suburb.
 
-## 📚 Documentación del Proyecto
+## Content and imagery
 
-**LEER ANTES DE TRABAJAR EN CUALQUIER PÁGINA:**
+- City-specific website content was generated through GLM 5.2 and audited for stale market references.
+- Chicago-specific imagery is stored in `generated-images/` and wired into stable public asset paths documented in `IMAGE-WIRING-MAP.json`.
+- Manufacturer/product specifications and reusable brand assets remain shared.
+- Customer names, unsupported star ratings, and unverified project counts have been removed or generalized.
 
-```
-DOCUMENTATION/
-├── README.md          ← Empezar aquí
-├── SITE-MAP.md        ← Estado de las 68 páginas
-├── DESIGN-SYSTEM.md   ← Colores, tipografía, spacing, componentes CSS
-├── PAGE-TYPES.md      ← 8 tipos de página + estructura de cada una
-├── COMPONENTS.md      ← Componentes reutilizables
-├── ANIMATIONS.md      ← FlipWords, Parallax, Glassmorphism, etc.
-├── WORKFLOW.md        ← Paso a paso: cómo rediseñar una página
-├── CONTENT-GUIDE.md   ← Reglas de copy, claims, SEO
-└── IMAGES.md          ← Estrategia de imágenes, generación, CloudFront
-```
+## Deployment
 
-**Stack de diseño:** Scottish Group (green `#7CB342`, dark green `#14201A`, Playfair Display + Inter + Space Mono)
+The site is deployed as its own Vercel project. Do not link or deploy this repository into the Salt Lake City Vercel project.
 
----
-
-## Project layout
-
-```
-wfp-redesign/
-├── DOCUMENTATION/          ← Sistema de documentación completo
-├── CLAUDE.md               ← Design system + dev conventions (LEER PRIMERO)
-├── scottish-style-guide.md ← Brand & component rules
-├── WFP-IMAGE-AUDIT-REPORT.md
-├── src/
-│   ├── components/         Header, Footer, InnerPageHero, BackAndForthSection…
-│   ├── pages/              68 páginas — ver SITE-MAP.md para estado
-│   ├── layouts/            BaseLayout.astro
-│   └── styles/global.css
-├── public/
-│   └── images/             site imagery
-└── scripts/                generators + image tools
-```
-
----
-
-## Page status
-
-| Page / section | Status |
-|---|---|
-| Homepage | ✅ Redesigned |
-| Services (2 páginas) | ✅ Redesigned |
-| Benefits (17 páginas) | ✅ Redesigned |
-| Cities (Sandy template + 3 copias pendientes) | 🟡 Template listo |
-| Applications (10 páginas) | 🔴 Por hacer |
-| Products (12 páginas) | 🔴 Por hacer |
-| Resources (10 páginas) | 🔴 Por hacer |
-| Process, Contact, Blog, Government | 🔴 Por hacer |
-
-**Total: 68 páginas · 3 completas · 1 template listo · 26 por hacer**
-
-Build correcto: **88 páginas** = todas las rutas generan correctamente.
-
----
-
-## Design system
-
-Tokens de colores (usar siempre estos, NO los del old site):
-
-```css
---brand-green: #7CB342
---brand-green-dark: #2E6B30
---dark-bg: #14201A
---dark-bg-extra: #0d1a0f
---off-white: #F3F6F1
-```
-
-**Full spec:** `DOCUMENTATION/DESIGN-SYSTEM.md`
-
----
-
-## Brand constants
-
-| Dato | Valor |
-|---|---|
-| Año | **2008** |
-| Experiencia | **20+ years** |
-| Proyectos | **2,400+** |
-| UV | **99%** |
-| Rating | **4.9★** |
-| Teléfono | **(801) 895-4681** |
-| Email | **info@windowfilmphl.com** |
-| Tagline | **"Done right, every time."** |
-
----
-
-## Deploy pipeline
-
-Vercel watches `main`. Pushes van live automáticamente.
-
-## Workflow rules
-
-1. `npm run build` → **siempre 0 errores** antes de commit
-2. Build correcto = **88 páginas**
-3. Leer `DOCUMENTATION/WORKFLOW.md` antes de rediseñar cualquier página
-4. Claims de copy: ver `DOCUMENTATION/CONTENT-GUIDE.md`
-5. Imágenes: `DOCUMENTATION/IMAGES.md`
+The original `ScottishGroupCompanies/wfp-redesign` repository is read-only and must never be modified.

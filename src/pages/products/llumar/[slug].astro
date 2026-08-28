@@ -10,7 +10,7 @@ export function getStaticPaths() {
 }
 
 const { product: p } = Astro.props;
-const serviceUrl = `https://windowfilmsaltlakecity.com/products/llumar/${p.slug}/`;
+const serviceUrl = `https://windowfilmchicago.com/products/llumar/${p.slug}/`;
 const title = `LLumar ${p.name} | Chicago Installer`;
 const description = `${p.shortDescription} Window Film Chicago is an authorized LLumar dealer serving Chicago and surrounding areas.`.slice(0, 155);
 const descriptionParagraphs = p.description.split('\n\n').slice(0, 4);
@@ -81,9 +81,9 @@ const pageSchemas = [
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://windowfilmsaltlakecity.com/' },
-      { '@type': 'ListItem', position: 2, name: 'Products', item: 'https://windowfilmsaltlakecity.com/products/' },
-      { '@type': 'ListItem', position: 3, name: 'LLumar', item: 'https://windowfilmsaltlakecity.com/products/llumar/' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://windowfilmchicago.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Products', item: 'https://windowfilmchicago.com/products/' },
+      { '@type': 'ListItem', position: 3, name: 'LLumar', item: 'https://windowfilmchicago.com/products/llumar/' },
       { '@type': 'ListItem', position: 4, name: p.name, item: serviceUrl },
     ],
   },
@@ -92,7 +92,7 @@ const pageSchemas = [
     '@type': 'Product',
     name: `LLumar ${p.name}`,
     brand: { '@type': 'Brand', name: 'LLumar' },
-    image: `https://windowfilmsaltlakecity.com${p.image}`,
+    image: `https://windowfilmchicago.com${p.image}`,
     description: p.shortDescription,
     category: p.series,
     offers: {

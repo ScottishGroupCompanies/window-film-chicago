@@ -45,22 +45,22 @@ const pageSchemas = [
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://windowfilmsaltlakecity.com/' },
-      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://windowfilmsaltlakecity.com/blog/' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://windowfilmchicago.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://windowfilmchicago.com/blog/' },
     ],
   },
   {
     '@context': 'https://schema.org',
     '@type': 'Blog',
-    '@id': 'https://windowfilmsaltlakecity.com/blog/',
-    url: 'https://windowfilmsaltlakecity.com/blog/',
+    '@id': 'https://windowfilmchicago.com/blog/',
+    url: 'https://windowfilmchicago.com/blog/',
     name: 'Window Film Chicago Blog',
     description,
     dateModified,
     blogPost: posts.slice(0, 10).map((p) => ({
       '@type': 'BlogPosting',
       headline: p.data.title,
-      url: `https://windowfilmsaltlakecity.com/blog/${p.slug}/`,
+      url: `https://windowfilmchicago.com/blog/${p.slug}/`,
       datePublished: p.data.pubDate.toISOString(),
       author: { '@type': 'Person', name: p.data.author },
     })),
@@ -68,7 +68,7 @@ const pageSchemas = [
 ];
 ---
 
-<BaseLayout title={title} description={description} canonical="https://windowfilmsaltlakecity.com/blog/" schemas={pageSchemas}>
+<BaseLayout title={title} description={description} canonical="https://windowfilmchicago.com/blog/" schemas={pageSchemas}>
 
 <!-- ═══ HERO ═══ -->
 <section class="bg-hero">

@@ -22,6 +22,26 @@
   ],
   "redirects": [
     {
+      "source": "/benefits/privacy-window-film-salt-lake-city/",
+      "destination": "/benefits/privacy-window-film-chicago/",
+      "permanent": true
+    },
+    {
+      "source": "/benefits/privacy-window-film-salt-lake-city",
+      "destination": "/benefits/privacy-window-film-chicago/",
+      "permanent": true
+    },
+    {
+      "source": "/applications/restaurants-window-film-salt-lake-city/",
+      "destination": "/applications/restaurants-window-film-chicago/",
+      "permanent": true
+    },
+    {
+      "source": "/applications/restaurants-window-film-salt-lake-city",
+      "destination": "/applications/restaurants-window-film-chicago/",
+      "permanent": true
+    },
+    {
       "source": "/services/solar/",
       "destination": "/benefits/solar-control/",
       "permanent": true
@@ -73,22 +93,22 @@
     },
     {
       "source": "/benefits/privacy-film/",
-      "destination": "/benefits/privacy-window-film-salt-lake-city/",
+      "destination": "/benefits/privacy-window-film-chicago/",
       "permanent": true
     },
     {
       "source": "/benefits/privacy-film",
-      "destination": "/benefits/privacy-window-film-salt-lake-city/",
+      "destination": "/benefits/privacy-window-film-chicago/",
       "permanent": true
     },
     {
       "source": "/benefits/privacy/",
-      "destination": "/benefits/privacy-window-film-salt-lake-city/",
+      "destination": "/benefits/privacy-window-film-chicago/",
       "permanent": true
     },
     {
       "source": "/benefits/privacy",
-      "destination": "/benefits/privacy-window-film-salt-lake-city/",
+      "destination": "/benefits/privacy-window-film-chicago/",
       "permanent": true
     },
     {
@@ -113,12 +133,12 @@
     },
     {
       "source": "/benefits/benefits/privacy-window-film-salt-lake-city/",
-      "destination": "/benefits/privacy-window-film-salt-lake-city/",
+      "destination": "/benefits/privacy-window-film-chicago/",
       "permanent": true
     },
     {
       "source": "/benefits/benefits/privacy-window-film-salt-lake-city",
-      "destination": "/benefits/privacy-window-film-salt-lake-city/",
+      "destination": "/benefits/privacy-window-film-chicago/",
       "permanent": true
     },
     {
@@ -203,12 +223,12 @@
     },
     {
       "source": "/services/privacy-film/",
-      "destination": "/benefits/privacy-window-film-salt-lake-city/",
+      "destination": "/benefits/privacy-window-film-chicago/",
       "permanent": true
     },
     {
       "source": "/services/privacy-film",
-      "destination": "/benefits/privacy-window-film-salt-lake-city/",
+      "destination": "/benefits/privacy-window-film-chicago/",
       "permanent": true
     },
     {

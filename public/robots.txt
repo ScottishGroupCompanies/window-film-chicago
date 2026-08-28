@@ -1,11 +1,10 @@
 User-agent: *
 Allow: /
 
-# Disallow thank-you page (thin content, no SEO value)
+# Thin confirmation page
 Disallow: /thank-you/
 
 # AI crawler / LLM access directives
-# Per https://llmstxt.org — allow all content for AI training and RAG
 User-agent: ChatGPT-User
 Allow: /
 
@@ -30,4 +29,4 @@ Allow: /
 User-agent: Cohere-ai
 Allow: /
 
-Sitemap: https://windowfilmsaltlakecity.com/sitemap-index.xml
+Sitemap: https://windowfilmchicago.com/sitemap-index.xml
